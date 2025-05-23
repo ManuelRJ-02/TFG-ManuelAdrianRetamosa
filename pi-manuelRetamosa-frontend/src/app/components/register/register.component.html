@@ -1,0 +1,65 @@
+<div class="modal fade" id="register-modal" tabindex="-1" aria-labelledby="register-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h3 class="modal-title" id="register-modal-label">Registrarse</h3>
+        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mx-auto div-forms">
+          <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="row g-2">
+              <div class="col-6">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" placeholder="Tu nombre" [(ngModel)]="user.userName" name="userName" required />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Apellidos</label>
+                <input type="text" class="form-control" placeholder="Tus apellidos" [(ngModel)]="user.surname" name="surname" required />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" placeholder="tucorreo@ejemplo.com" [(ngModel)]="user.email" name="email" required />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Teléfono (opcional)</label>
+                <input type="tel" class="form-control" placeholder="+34..." [(ngModel)]="user.phoneNumber" name="phoneNumber" />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Contraseña</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="reg-password" placeholder="••••••••" [(ngModel)]="user.userPassword" name="userPassword" required />
+                  <span class="input-group-text" (click)="togglePassword('reg-password', 'eye-password')">
+                    <i id="eye-password" class="fa-solid fa-eye-slash"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="col-6">
+                <label class="form-label">Confirmar Contraseña</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="reg-password-confirm" placeholder="••••••••" [(ngModel)]="confirmPassword" name="confirmPassword"/>
+                  <span class="input-group-text" (click)="togglePassword('reg-password-confirm', 'eye-password-confirm')">
+                    <i id="eye-password-confirm" class="fa-solid fa-eye-slash"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
+              <div *ngFor="let error of errorMessages">
+                {{ error }}
+              </div>
+            </div>
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn w-100 fw-bold register-btn" [disabled]="!isFormValid(form)">Crear Cuenta</button>
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <span class="text-white">
+              ¿Ya tienes una cuenta? <a href="#" class="fw-bold create-acount" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar Sesión</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="payment-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h3 class="modal-title" id="payment-modal-label">Método de Pago</h3>
+        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mx-auto div-forms">
+          <div class="mb-3">
+            <label for="cardholder" class="form-label">Titular de la Tarjeta</label>
+            <input type="text" id="cardholder" class="form-control" [(ngModel)]="cardholder" name="cardholder" placeholder="Nombre en la tarjeta">
+          </div>
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Número de la Tarjeta</label>
+            <input type="text" id="cardNumber" class="form-control" [(ngModel)]="cardNumber" name="cardNumber" placeholder="•••• •••• •••• ••••">
+          </div>
+          <div class="row gx-2 mb-4">
+            <div class="col">
+              <label class="form-label">Fecha de Caducidad</label>
+              <div class="d-flex gap-2">
+                <input type="text" maxlength="2" class="form-control" [(ngModel)]="expiryMonth" name="expiryMonth" placeholder="MM">
+                <input type="text" maxlength="2" class="form-control" [(ngModel)]="expiryYear" name="expiryYear" placeholder="AA">
+              </div>
+            </div>
+            <div class="col">
+              <label for="securityCode" class="form-label">Código de Seguridad</label>
+              <input type="text" id="securityCode" maxlength="3" class="form-control" [(ngModel)]="securityCode" name="securityCode" placeholder="CVV">
+            </div>
+          </div>
+          <button type="button" class="btn w-100 fw-bold login-btn" data-bs-dismiss="modal">Añadir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

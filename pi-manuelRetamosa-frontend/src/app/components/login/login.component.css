@@ -1,0 +1,74 @@
+.modal-content {
+  padding: 2rem;
+  color: #E9BF43;
+  background-color: #0F0911;
+  border: 2px solid #E9BF43;
+  border-radius: 10px;
+}
+.modal-header .btn-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  filter: invert(59%) sepia(77%) saturate(399%) hue-rotate(2deg) brightness(99%) contrast(94%);
+}
+
+.btn-close.btn-custom {
+  filter: invert(65%) sepia(90%) saturate(700%) hue-rotate(5deg);
+  opacity: 1;
+}
+.btn-close.btn-custom:hover {
+  filter: invert(39%) sepia(27%) saturate(748%) hue-rotate(131deg) brightness(95%) contrast(90%);
+}
+
+.modal-body .form-label {
+  color: #ffffff;
+}
+
+.div-forms{
+  max-width: 320px;
+}
+
+.modal-body .form-control {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #E9BF43;
+}
+
+.modal-body .form-control::placeholder {
+  color: #bbb;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(233, 191, 67, 0.25);
+}
+
+.input-group-text {
+  background-color: #1a1a1a;
+  color: #E9BF43;
+  border: 1px solid #E9BF43;
+  cursor: pointer;
+}
+
+.input-group:focus-within .input-group-text {
+  box-shadow: 0 0 0 0.2rem rgba(233, 191, 67, 0.25);
+}
+
+.login-btn{
+  background-color: #0F0911;
+  border: 1px solid #E9BF43;
+  color: #E9BF43;
+  box-shadow: 0 1px 8px #ffffff;
+}
+
+.login-btn:hover{
+  background-color: #7A8288;
+  border: #353535;
+  color: #353535;
+}
+
+.create-acount{
+  color: #E9BF43;
+  text-decoration: none;
+}
+
+

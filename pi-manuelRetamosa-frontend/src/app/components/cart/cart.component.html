@@ -1,0 +1,47 @@
+<div class="container custom-margin">
+  <h1 class="fw-bold">Cesta</h1>
+  <hr class="hr1 opacity-100 mb-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="d-flex justify-content-end mb-2" *ngIf="cartItems.length">
+          <button class="btn fw-bold btn-delete-all" (click)="clearCart()">Eliminar todo</button>
+        </div>
+        <ng-container *ngIf="cartItems.length; else empty">
+          <div *ngFor="let product of cartItems; let i = index" class="product-card d-flex mb-3 align-items-center">
+            <div class="img-wrapper">
+              <img [src]="product.image" alt="product" class="product-img">
+            </div>
+            <div class="flex-grow-1 product-data">
+              <h6 class="fw-bold">{{ product.title }}</h6>
+              <p><strong>Talla:</strong> {{ product.size }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <p><strong>Precio:</strong> {{ product.price }}€</p>
+                <div class="d-flex align-items-center quantity-group">
+                  <button class="btn quantity-button" (click)="decreaseQuantity(i)">−</button>
+                  <span class="quantity px-3">{{ product.quantity }}</span>
+                  <button class="btn quantity-button" (click)="increaseQuantity(i)">+</button>
+                </div>
+              </div>
+            </div>
+            <button class="btn delete-btn" title="Eliminar" (click)="deleteItem(i)">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-lg-4">
+        <div class="summary-card p-3">
+          <h5 class="fw-bold mb-3">Resumen del Pedido</h5>
+          <div class="d-flex justify-content-between mb-3">
+            <span>Precio Total ({{ totalItems }} artículos)</span>
+            <strong>{{ totalPrice }}€</strong>
+          </div>
+          <button class="btn w-100 fw-bold btn-continue" [disabled]="cartItems.length === 0" (click)="goToConfirmPurchase()">Continuar
+          </button>
+        </div>
+      </div>
+    </div>
+  <ng-template #empty>
+    <p class="text-center">Tu cesta está vacía.</p>
+  </ng-template>
+</div>

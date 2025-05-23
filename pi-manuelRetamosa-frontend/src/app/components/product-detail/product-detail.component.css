@@ -1,0 +1,158 @@
+div{
+  font-family: Arial;
+  color: #ffffff;
+}
+
+.custom-margin{
+  margin-top: 10rem;
+}
+
+.img-container{
+  border: 3px solid #E9BF43;
+  background-color: #F0F0F0;
+  border-radius: 15px;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+hr {
+  border: none;
+}
+
+.hr1 {
+  height: 6px;
+  background-color: #E9BF43;
+  width: 140px;
+}
+
+.hr2 {
+  height: 2px;
+  background-color: #E9BF43;
+}
+
+.size-box {
+  border: 2px solid #E9BF43;
+  color: #E9BF43;
+  background-color: #0F0911;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.size-box.selected {
+  background-color: #7A8288;
+  border-color: #353535;
+  color: #353535;
+}
+
+.custom-size{
+  font-size: x-large;
+}
+
+.stock-icon {
+  width: 25px;
+  object-fit: contain;
+}
+
+.quantity-group {
+  border: 2px solid #E9BF43;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.quantity-button {
+  background-color: #0F0911;
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 4px 12px;
+}
+
+.quantity {
+  background-color: #0F0911;
+  color: #ffffff;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+  border-left: 2px solid #E9BF43;
+  border-right: 2px solid #E9BF43;
+}
+
+.btn-send-cart{
+  background-color: #0F0911;
+  border: 1px solid #E9BF43;
+  color: #E9BF43;
+  box-shadow: 0 1px 8px #ffffff;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.btn-send-cart:hover{
+  background-color: #7A8288;
+  border: #353535;
+  color: #353535;
+}
+
+.small-cart-btn {
+  width: 220px;
+}
+
+.color-thumb {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #E9BF43;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.color-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.color-thumb.selected,
+.color-thumb:hover {
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+
+.color-swatch {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.color-swatch:hover {
+  border-color: #E9BF43;
+}
+.color-swatch.selected {
+  border-color: #E9BF43;
+  box-shadow: 0 0 8px rgba(233,191,67,0.6);
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .quantity {
+    min-width: 50px;
+  }
+
+  .small-cart-btn {
+    width: 180px;
+  }
+
+  .quantity-group {
+    flex-shrink: 0;
+  }
+}
+
+

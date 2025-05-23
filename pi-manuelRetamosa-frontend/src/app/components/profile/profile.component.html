@@ -1,0 +1,41 @@
+<section class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-3">
+      <div class="heading-wrapper">
+        <h1 class="text-uppercase fw-bold">Perfil de Usuario</h1>
+        <hr class="opacity-100 hr1" />
+      </div>
+      <div class="avatar-box my-4">
+        <img [src]="user?.avatar || 'assets/header/user-icon.png'" alt="Avatar" class="avatar-img">
+        <button class="btn custom-btn">Cambiar Avatar</button>
+      </div>
+    </div>
+    <div class="col-lg-4 custom-padding" *ngIf="user">
+      <div class="h2-block mb-3">
+        <h2 class="fw-bold">Información Personal</h2>
+      </div>
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input type="text" class="form-control custom-input" [(ngModel)]="user.userName" name="userName" placeholder="Nombre">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control custom-input" [(ngModel)]="user.surname" name="surname" placeholder="Apellidos">
+          </div>
+          <div class="col-12">
+            <input type="email" class="form-control custom-input" [(ngModel)]="user.email" name="email" placeholder="Correo Electrónico" disabled>
+          </div>
+          <div class="col-12">
+            <input type="tel" class="form-control custom-input" [(ngModel)]="user.phoneNumber" name="phoneNumber" placeholder="Teléfono">
+          </div>
+          <div class="col-12">
+            <input type="text" class="form-control custom-input" placeholder="Dirección de Envío" disabled>
+          </div>
+          <div class="col-12 text-end">
+            <button type="submit" class="btn custom-btn w-100 fw-bold">Guardar Cambios</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

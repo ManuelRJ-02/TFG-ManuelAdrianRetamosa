@@ -1,0 +1,72 @@
+footer {
+  z-index: 5;
+  margin-top: 10rem;
+}
+
+li a {
+  color: #E9BF43;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+li a:hover{
+  color: #5A8288;
+}
+
+.logo-13 {
+  width: 195px;
+}
+
+.facebook-icon,
+.tiktok-icon,
+.instagram-icon {
+  width: 19px;
+}
+
+.spotify-icon {
+  width: 26px;
+}
+
+.youtube-icon {
+  width: 33px;
+}
+
+.social-icon {
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.footer-links {
+  max-width: none;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 1150px) {
+  .logo-13 {
+    width: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-13 {
+    width: 110px;
+  }
+
+  .facebook-icon,
+  .tiktok-icon,
+  .instagram-icon {
+    width: 24px;
+  }
+
+  .spotify-icon {
+    width: 31px;
+  }
+
+  .youtube-icon {
+    width: 38px;
+  }
+
+}
