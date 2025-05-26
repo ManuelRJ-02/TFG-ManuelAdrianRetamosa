@@ -1,1 +1,73 @@
-<p>biography works!</p>
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="heading-wrapper custom-padding-bottom">
+        <h1 class="text-uppercase fw-bold">BIOGRAFÍA</h1>
+        <hr class="opacity-100 hr1" />
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="custom-padding lh-lg text-justify">
+        <p> <strong>Dani J</strong> es uno de los artistas más versátiles e innovadores de la música latina actual. Reconocido internacionalmente
+          como el bachatero más importante de Europa, lleva desde el 2014 revolucionando el género de la bachata, fusionándola
+          exitosamente con otros estilos como el Pop, Flamenco, Trap y R&B, creando un estilo único y personal que trasciende fronteras.</p>
+        <p>Su pasión por la música nació en Sevilla, su ciudad natal, donde sus raíces flamencas se entrelazaron con influencias del hip-hop,
+          R&B y música latina, forjando una visión artística única. Esta versatilidad musical le permitió desarrollar un estilo propio que
+          cautiva a audiencias globales. Su verdadero despegue internacional llegó en 2016 con “Quitémonos la ropa”, un EP que lo posicionó
+          entre los 10 artistas más prometedores según Google Play Music, siendo el único español en conseguir tal distinción. Este
+          reconocimiento fue solo el principio de una prolífera carrera a nivel global.</p>
+        <p>La trayectoria de DANI J es un testimonio de perseverancia y evolución artística. Cada experiencia en su camino, desde
+          sus inicios en el flamenco hasta su inmersión en diferentes géneros musicales, ha contribuido a formar al artista completo
+          que es hoy. Su capacidad de reinvención y búsqueda constante de la excelencia lo han convertido en un referente de la bachata.</p>
+        <div class="mt-4">
+          <button type="button" class="fw-bold show-more-btn px-5 py-2" (click)="toggleContenido()">{{ showMore ? 'Ver Menos' : 'Ver Más' }}</button>
+        </div>
+
+        <div id="contenidoAdicional" class="collapse-content mt-4" [class.mostrar]="showMore">
+          <div class="h2-block">
+            <h2 class="fw-bold">ÉXITO INTERNACIONAL:</h2>
+            <hr class="opacity-100 hr2" />
+          </div>
+
+          <p>Con más de 360 conciertos internacionales en más de 30 países distintos, Dani J ha llevado su música a los cinco continentes.
+            Su arte ha resonado en escenarios de Europa, América, Asia, África y Oceanía, conquistando audiencias en lugares tan diversos como:</p>
+          <ul>
+            <li>EUROPA: Francia, Italia, Suiza, Alemania, Holanda, Polonia…</li>
+            <li>ASIA: Japón, Corea, Tailandia, Singapur, Vietnam, Taiwan …</li>
+            <li>AMÉRICA: Estados Unidos, México, Brasil, Argentina, Chile…</li>
+            <li>OTROS CONTINENTES: Australia, Túnez</li>
+          </ul>
+          <p>Su música ha traspasado barreras culturales y lingüísticas, como demuestra en uno de sus single del pasado 2024 “TOKYO”,
+            en el que se atreve a fusionar la cultura japonesa con la bachata, ejemplificando su capacidad única para crear puentes
+            culturales a través de la música.</p>
+
+          <div class="h2-block">
+            <h2 class="fw-bold">INNOVACIÓN Y EVOLUCIÓN:</h2>
+            <hr class="opacity-100 hr3" />
+          </div>
+
+          <p>En 2022, Dani J dio un paso adelante en su carrera, fundando su propio sello discográfico, “13 PRO MUSIC”,
+            demostrando su visión empresarial y su compromiso con la innovación en la industria musical. Esta decisión le
+            ha permitido mantener su autenticidad artística mientras explora nuevos horizontes creativos.</p>
+          <p>Sus recientes éxitos como “7 pecados”, “Caprichito”, “Piscina” y colaboraciones como “Rosas” con Kewin cosmos o
+            “Atemporal” con Danny Romero demuestran su constante evolución artística.</p>
+
+          <div class="h2-block">
+            <h2 class="fw-bold">LEGADO Y FUTURO:</h2>
+            <hr class="opacity-100 hr4" />
+
+            <p>Con más de 350 millones de reproducciones en plataformas de streaming audio y video, Dani J continua expandiendo
+              los límites de la música latina. Su capacidad para reinventarse y su dedicación a la excelencia artística lo han
+              establecido como una figura fundamental en la evolución de la bachata contemporánea.</p>
+            <p>DANI J es mucho más que un cantante: es un artista multifacético que combina sus talentos como bailarín,
+              productor musical, compositor y músico para crear experiencias musicales únicas que siguen cautivando a
+              audiencias globales. Su historia es un testimonio del poder de la pasión, la innovación y la autenticidad en la música.</p>
+            <p>Ya en 2025, el incansable DANI J emprende una ambiciosa gira mundial sumando nuevos hits a su repertorio, consolidando su
+              posición como embajador internacional de la bachata made in Spain y llevando su innovador estilo musical por todo el mundo.</p>
+            <p>Ojo con DANI J, si lo pruebas, repites… ¿Apostamos?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
