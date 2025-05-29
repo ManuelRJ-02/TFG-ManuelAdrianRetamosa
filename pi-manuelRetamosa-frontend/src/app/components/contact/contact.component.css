@@ -1,0 +1,117 @@
+section {
+  margin-top: 2.5rem;
+  color: #ffffff;
+  font-family: Arial;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+h2 {
+  color: #E9BF43;
+  font-size: 1.8rem;
+}
+
+h3 {
+  color: #E9BF43;
+  font-size: 1.3rem;
+}
+
+hr {
+  border: none;
+}
+
+
+.hr2 {
+  height: 3px;
+  background-color: #ffffff;
+  width: 150px;
+}
+
+.h2-block {
+  margin-top: 6rem;
+}
+
+p a{
+  text-decoration: none;
+  color: #E9BF43;
+}
+
+p a:hover{
+  color: #7A8288;
+}
+
+.form-label {
+  color: #ffffff;
+}
+
+.form-control {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #E9BF43;
+}
+
+.form-control::placeholder {
+  color: #bbb;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(233, 191, 67, 0.25);
+}
+
+.btn-custom {
+  background-color: #0F0911;
+  border: 1px solid #E9BF43;
+  color: #E9BF43;
+  box-shadow: 0 1px 8px #ffffff;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-custom:hover {
+  background-color: #7A8288;
+  border-color: #353535;
+  color: #353535;
+}
+
+@media (min-width: 1200px) {
+  .custom-padding {
+    padding-left: 110px !important;
+    padding-right: 0 !important;
+  }
+
+  .heading-wrapper {
+    margin-left: 22%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .custom-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .heading-wrapper {
+    margin-left: 45px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .custom-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .hr2 {
+    width: 100px !important;
+  }
+
+  .heading-wrapper {
+    margin-left: 20px;
+    margin-right: 100px;
+  }
+}
