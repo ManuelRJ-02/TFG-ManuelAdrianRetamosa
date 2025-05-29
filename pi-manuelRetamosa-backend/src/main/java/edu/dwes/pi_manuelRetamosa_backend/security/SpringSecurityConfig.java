@@ -7,7 +7,9 @@ package edu.dwes.pi_manuelRetamosa_backend.security;
 import edu.dwes.pi_manuelRetamosa_backend.services.JpaUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
 import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -36,6 +38,7 @@ public class SpringSecurityConfig {
         return http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
                 .requestMatchers("/users/register").permitAll()
                 .requestMatchers("/users/login").permitAll()
                 .requestMatchers("/products").permitAll()
@@ -44,6 +47,7 @@ public class SpringSecurityConfig {
                 .requestMatchers("/cartShoppings/**").permitAll()
                 .requestMatchers("/detailOrders/**").permitAll()
                 .requestMatchers("/orders/**").permitAll()
+                .requestMatchers("/contact/**").permitAll()
                 .requestMatchers("/**").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated()
             )
