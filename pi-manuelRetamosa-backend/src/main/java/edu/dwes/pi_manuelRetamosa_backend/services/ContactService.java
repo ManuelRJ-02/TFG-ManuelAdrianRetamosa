@@ -6,6 +6,7 @@ package edu.dwes.pi_manuelRetamosa_backend.services;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +22,7 @@ public class ContactService {
         this.mailSender = mailSender;
     }
 
+    @Async
     public void sendSimpleMessage(String to, String subject, String text) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(to);

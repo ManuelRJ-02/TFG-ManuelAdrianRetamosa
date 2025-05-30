@@ -21,17 +21,19 @@
             <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
               <div class="mb-3">
                 <label class="form-label">Nombre*</label>
-                <input type="text" name="nombre" class="form-control" [(ngModel)]="contact.name" required placeholder="Nombre">
+                <input type="text" name="nombre" class="form-control" [(ngModel)]="contact.name" placeholder="Nombre">
               </div>
               <div class="mb-3">
                 <label class="form-label">Correo electrónico*</label>
-                <input type="email" name="email" class="form-control" [(ngModel)]="contact.email" required placeholder="Email">
+                <input type="email" name="email" class="form-control" [(ngModel)]="contact.email" placeholder="Email">
               </div>
               <div class="mb-3">
                 <label class="form-label">Mensaje*</label>
-                <textarea name="mensaje" class="form-control" [(ngModel)]="contact.message" required rows="5" placeholder="Mensaje"></textarea></div>
-              <button type="submit" class="btn-custom mt-3 align-self-start" [disabled]="contactForm.invalid">Enviar</button>
-              <div *ngIf="errorMsg" class="alert alert-danger mt-3">{{ errorMsg }}</div>
+                <textarea name="mensaje" class="form-control" [(ngModel)]="contact.message" rows="5" placeholder="Mensaje"></textarea></div>
+              <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
+                <div *ngFor="let err of errorMessages">{{ err }}</div>
+              </div>
+              <button type="submit" class="btn-custom mt-3 align-self-start">Enviar</button>
             </form>
           </div>
         </div>

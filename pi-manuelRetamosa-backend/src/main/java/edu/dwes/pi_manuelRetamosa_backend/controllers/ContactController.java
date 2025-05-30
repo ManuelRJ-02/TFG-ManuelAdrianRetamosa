@@ -7,8 +7,12 @@ package edu.dwes.pi_manuelRetamosa_backend.controllers;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ContactDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.ContactService;
 import jakarta.validation.Valid;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,10 +34,24 @@ public class ContactController {
     }
 
     @PostMapping("/sendMail")
-    public ResponseEntity<Map<String,String>> sendContact(@Valid @RequestBody ContactDTO dto) {
+    public ResponseEntity<?> sendContact(@Valid @RequestBody ContactDTO dto, BindingResult result) {
+        if (result.hasErrors()) {
+            return validacion(result);
+        }
         String subject = "Nuevo mensaje de " + dto.getName();
         String body    = "De: " + dto.getEmail() + "\n\n" + dto.getMessage();
         contactService.sendSimpleMessage(DESTINATION, subject, body);
         return ResponseEntity.ok(Map.of("message", "Mensaje enviado con éxito"));
+    }
+    
+    private static final List<String> ORDER = List.of("name", "email", "message");
+    
+    private ResponseEntity<Map<String, Object>> validacion(BindingResult result) {
+        List<String> errores = result.getFieldErrors().stream()
+            .sorted(Comparator.comparingInt(err -> ORDER.indexOf(err.getField())))
+            .map(FieldError::getDefaultMessage)
+            .toList();
+
+        return ResponseEntity.badRequest().body(Map.of("errors", errores));
     }
 }

@@ -89,7 +89,8 @@ public class UserController {
 
     @PutMapping("/editar/{id}")
     public ResponseEntity<?> edit(@PathVariable Long id, @Valid @RequestBody UserDTO userDTO, BindingResult result) {
-        if (result.hasErrors()) return validacion(result);
+        if (result.hasErrors()) 
+            return validacion(result);
 
         try {
             return ResponseEntity.ok(userService.update(id, userDTO));

@@ -12,20 +12,35 @@ import {Router} from '@angular/router';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  contact: ContactDTO = { name: '', email: '', message: '' };
-  errorMsg = '';
+  contact: ContactDTO = {
+    name: '',
+    email: '',
+    message: ''
+  };
+  errorMessages: string[] = [];
 
-  constructor(private contactService: ContactService, private router: Router) {}
+  constructor(
+    private contactService: ContactService,
+    private router: Router
+  ) {}
 
   onSubmit(form: NgForm) {
     if (form.invalid) return;
 
+    this.errorMessages = [];
+
     this.contactService.send(this.contact).subscribe({
       next: () => {
-        this.router.navigate(['']);
+        this.router.navigate(['mail-sent']);
       },
-      error: () => {
-        this.errorMsg = 'Error enviando el mensaje.';
+      error: (err) => {
+        if (err.status === 400 && Array.isArray(err.error.errors)) {
+          this.errorMessages = err.error.errors;
+        } else {
+          this.errorMessages = [
+            err.error.message || 'Error enviando el mensaje.'
+          ];
+        }
       }
     });
   }

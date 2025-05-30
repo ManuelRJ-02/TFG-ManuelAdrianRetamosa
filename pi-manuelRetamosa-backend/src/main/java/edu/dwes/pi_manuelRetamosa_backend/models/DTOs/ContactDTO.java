@@ -15,17 +15,15 @@ import jakarta.validation.constraints.Size;
  */
 public class ContactDTO {
     
-    @NotBlank
-    @Size(max = 50)
-    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "Nombre inválido")
+    @Size(max = 50, min=1, message="El nombre debe tener entre 1-50 caracteres")
+    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]*$", message = "Nombre inválido")
     private String name;
 
     @NotBlank(message = "El correo no puede estar vacío")
     @Email(message = "Formato de correo inválido")
     private String email;
 
-    @NotBlank 
-    @Size(max = 1000)
+    @Size(max = 1000, min=1, message=" El mensaje debe tener entre 1-1000 caracteres")
     private String message;
 
     public String getName() {

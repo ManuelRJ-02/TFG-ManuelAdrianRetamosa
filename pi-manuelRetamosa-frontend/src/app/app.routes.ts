@@ -16,6 +16,9 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ConfirmPurchaseComponent } from './components/confirm-purchase/confirm-purchase.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import {MailSentComponent} from './components/mail-sent/mail-sent.component';
+import {PurchaseMadeComponent} from './components/purchase-made/purchase-made.component';
+import {EmailSentGuard} from './services/EmailSentGuard';
 
 export const routes: Routes = [
   { path: '', component:HomeComponent, title: 'Dani J' },
@@ -34,5 +37,7 @@ export const routes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent, title: 'Producto'},
   { path: 'confirm-purchase', component: ConfirmPurchaseComponent, title: 'Confirmar Compra', canActivate: [AuthGuard]},
   { path: 'profile', component: ProfileComponent, title: 'Perfil', canActivate: [AuthGuard] },
+  { path: 'mail-sent', component: MailSentComponent, title: 'Correo Enviado', canActivate: [ EmailSentGuard ] },
+  { path: 'purchase-made', component: PurchaseMadeComponent, title: 'Compra Realizada' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
