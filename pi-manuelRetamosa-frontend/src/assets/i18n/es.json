@@ -1,0 +1,377 @@
+{
+  "HEADER": {
+    "NAV": {
+      "HOME": "Inicio",
+      "BIOGRAPHY": "Biografía",
+      "MUSIC": "Música",
+      "VIDEOS": "Vídeos",
+      "TOUR": "Tour",
+      "CONTACT": "Contacto",
+      "CONTEST": "Concursos",
+      "MERCH": "Merchandising"
+    },
+    "LOGO_ALT": "Logotipo de Dani J",
+    "LANG": {
+      "ES": "Español",
+      "EN": "Inglés",
+      "IT": "Italiano"
+    },
+    "BUTTON": {
+      "LOGIN": "Iniciar Sesión",
+      "PROFILE": "Perfil",
+      "LOGOUT": "Cerrar Sesión"
+    },
+    "USER_AVATAR_ALT": "Avatar de usuario",
+    "CART": {
+      "TITLE": "Ver Carrito",
+      "ALT": "Icono Carrito",
+      "LOGIN_HINT": "Debes iniciar sesión para ver tu cesta"
+    }
+  },
+
+  "HOME": {
+    "SLOGAN": "EL BACHATERO Nº1 DE EUROPA",
+    "ARTIST_NAME": "Dani J",
+    "WELCOME_P1": "¡Bienvenido a <strong>Dani J</strong>, el artista internacional que está revolucionando el mundo de la bachata! Con más de 300 conciertos en los últimos años, <strong>Dani J</strong> se ha posicionado como uno de los artistas más destacados en este género musical.",
+    "P2": "Originario de <strong>SEVILLA</strong>, España, ha llevado su música a más de 30 países, incluyendo Inglaterra, Francia, Italia, Suiza, Alemania, Holanda, Dinamarca, Siberia, Rumania, Chipre, Rusia, Polonia, Grecia, Portugal, Brasil, Estados Unidos, México, Australia, Túnez, Israel, Argentina, Chile, Ecuador, República Dominicana, Tailandia, Vietnam, Corea, Japón y Singapur.",
+    "P3": "La habilidad de <strong>Dani J</strong> para reinventarse y fusionar la bachata con elementos de la música actual ha sido fundamental para elevar este género a nuevos niveles. Su versatilidad como bailarín, cantante, productor musical, compositor y músico ha dejado huella en la industria. Cada una de sus presentaciones es una experiencia única, llena de pasión y energía contagiosa.",
+    "P4": "<strong>Dani J</strong> se destaca no solo por su talento musical, sino también por su carisma y dedicación a su público. Sus letras profundas y emotivas conectan con personas de todas las edades y culturas, transmitiendo emociones que trascienden barreras.",
+    "P5": "<strong>¡Dani J!</strong> ¿Quién da más?"
+  },
+
+  "ACCESSIBILITY_STATEMENT": {
+    "TITLE": "Declaración de Accesibilidad",
+    "POLICY": {
+      "TITLE": "Política de accesibilidad",
+      "P1": "La empresa <strong>DANI J</strong> se ha comprometido a hacer accesible su sitio web de conformidad con el Real Decreto 1112/2018, de 7 de septiembre, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles del sector público, o desarrollos financiados desde Europa."
+    },
+    "SCOPE": {
+      "P1": "La presente declaración de accesibilidad se aplica al sitio web danij.com, excluyendo los contenidos incrustados provenientes de otros dominios."
+    },
+    "COMPLIANCE": {
+      "TITLE": "Situación de cumplimiento",
+      "P1": "Este sitio web es <strong>Parcialmente Conforme</strong> con el RD 1112/2018 debido a la falta de conformidad de los aspectos que se indican a continuación."
+    },
+    "NOT_ACCESSIBLE": {
+      "TITLE": "Contenido no accesible",
+      "P1": "El contenido que se recoge a continuación no es accesible por los siguientes motivos:",
+      "ITEM1": "Falta de conformidad:",
+      "SUBITEM1": "Algunas de las páginas no tienen definido su título correctamente – Requisito 9.2.4.2 Titulado de páginas de UNE-EN 301549:2022",
+      "SUBITEM2": "Pueden existir algunas imágenes cuya alternativa no esté implementada o no sea correcta – Requisito 9.1.1.1 Contenido no textual UNE-EN 301549:2022",
+      "SUBITEM3": "Pueden existir encabezados que no sean claros o breves, o que no deberían ser encabezados – Requisito 9.2.4.6 Encabezados y etiquetas de UNE-EN 301549:2022",
+      "SUBITEM4": "Puede haber campos de formulario donde su etiqueta no sea correcta o no exista – Requisito 9.2.5.3 y 9.3.3.2 UNE-EN 301549:2022",
+      "SUBITEM5": "Podrían existir fallos puntuales de edición en alguna página web.",
+      "ITEM2": "Carga desproporcionada: No resulta aplicable.",
+      "ITEM3": "El contenido no entra dentro del ámbito de la legislación aplicable."
+    },
+    "PDF": {
+      "P1": "Podrían existir archivos ofimáticos en PDF u otros formatos publicados antes del 20 de septiembre de 2018 que no cumplan en su totalidad todos los requisitos de accesibilidad."
+    },
+    "THIRD_PARTY": {
+      "P1": "Puede haber contenidos de terceros que no estén desarrollados en esta Unidad, ni bajo su control, como archivos ofimáticos de diferentes organismos que deban publicarse en este sitio."
+    },
+    "CONTACT": {
+      "TITLE": "Observaciones y datos de contacto",
+      "P1": "Puede realizar comunicaciones sobre requisitos de accesibilidad [artículo 10.2.a del RD 1112/2018] como, por ejemplo:",
+      "ITEM1": "Informar sobre cualquier posible incumplimiento por parte de este sitio web.",
+      "ITEM2": "Transmitir otras dificultades de acceso al contenido.",
+      "ITEM3": "Formular cualquier otra consulta o sugerencia de mejora relativa a la accesibilidad del sitio web llamando al teléfono 604818649."
+    },
+    "PRESENT": {
+      "P1": "Puede presentar:",
+      "ITEM1": "Una queja relativa al cumplimiento de los requisitos del RD 1112/2018",
+      "ITEM2": "Una solicitud de información accesible relativa a:"
+    },
+    "PRESENT_SUBITEM1": "Contenidos que están excluidos del ámbito de aplicación del RD 1112/2018 según el artículo 3.4.",
+    "PRESENT_SUBITEM2": "Contenidos que están exentos del cumplimiento de los requisitos de accesibilidad por imponer una carga desproporcionada.",
+    "PRESENT_FINAL": "En la solicitud de información accesible, se debe concretar, con toda claridad, los hechos, razones y petición que permitan constatar que se trata de una solicitud razonable y legítima."
+  },
+
+  "ADDRESS_MODAL": {
+    "TITLE": "Dirección",
+    "LABELS": {
+      "COUNTRY": "País",
+      "PROVINCE": "Provincia",
+      "CITY": "Ciudad",
+      "POSTAL_CODE": "Código Postal",
+      "STREET": "Calle",
+      "BLOCK_NUMBER": "Número de bloque",
+      "LADDER": "Escalera",
+      "DOOR": "Puerta"
+    },
+    "PLACEHOLDERS": {
+      "COUNTRY": "España",
+      "PROVINCE": "Sevilla",
+      "CITY": "Sevilla",
+      "POSTAL_CODE": "41001",
+      "STREET": "Calle Ejemplo",
+      "BLOCK_NUMBER": "12",
+      "LADDER": "A",
+      "DOOR": "3B"
+    },
+    "BUTTON": {
+      "ADD": "Añadir",
+      "CLOSE": "Cerrar"
+    }
+  },
+
+  "BIOGRAPHY": {
+    "TITLE": "Biografía",
+    "P1": "<strong>Dani J</strong> es uno de los artistas más versátiles e innovadores de la música latina actual. Reconocido internacionalmente como el bachatero más importante de Europa, lleva desde el 2014 revolucionando el género de la bachata, fusionándola exitosamente con otros estilos como el Pop, Flamenco, Trap y R&B, creando un estilo único y personal que trasciende fronteras.",
+    "P2": "Su pasión por la música nació en Sevilla, su ciudad natal, donde sus raíces flamencas se entrelazaron con influencias del hip-hop, R&B y música latina, forjando una visión artística única. Esta versatilidad musical le permitió desarrollar un estilo propio que cautiva a audiencias globales. Su verdadero despegue internacional llegó en 2016 con “Quitémonos la ropa”, un EP que lo posicionó entre los 10 artistas más prometedores según Google Play Music, siendo el único español en conseguir tal distinción. Este reconocimiento fue solo el principio de una prolífera carrera a nivel global.",
+    "P3": "La trayectoria de DANI J es un testimonio de perseverancia y evolución artística. Cada experiencia en su camino, desde sus inicios en el flamenco hasta su inmersión en diferentes géneros musicales, ha contribuido a formar al artista completo que es hoy. Su capacidad de reinvención y búsqueda constante de la excelencia lo han convertido en un referente de la bachata.",
+    "BUTTON": {
+      "VIEW_MORE": "Ver Más",
+      "VIEW_LESS": "Ver Menos"
+    },
+    "DETAILS": {
+      "SUCCESS": {
+        "TITLE": "ÉXITO INTERNACIONAL:",
+        "INTRO": "Con más de 360 conciertos internacionales en más de 30 países distintos, Dani J ha llevado su música a los cinco continentes. Su arte ha resonado en escenarios de Europa, América, Asia, África y Oceanía, conquistando audiencias en lugares tan diversos como:",
+        "LIST": {
+          "ITEM1": "EUROPA: Francia, Italia, Suiza, Alemania, Holanda, Polonia…",
+          "ITEM2": "ASIA: Japón, Corea, Tailandia, Singapur, Vietnam, Taiwan …",
+          "ITEM3": "AMÉRICA: Estados Unidos, México, Brasil, Argentina, Chile…",
+          "ITEM4": "OTROS CONTINENTES: Australia, Túnez"
+        },
+        "P2": "Su música ha traspasado barreras culturales y lingüísticas, como demuestra en uno de sus singles del pasado 2024 “TOKYO”, en el que se atreve a fusionar la cultura japonesa con la bachata, ejemplificando su capacidad única para crear puentes culturales a través de la música."
+      },
+      "INNOVATION": {
+        "TITLE": "INNOVACIÓN Y EVOLUCIÓN:",
+        "P1": "En 2022, Dani J dio un paso adelante en su carrera, fundando su propio sello discográfico, “13 PRO MUSIC”, demostrando su visión empresarial y su compromiso con la innovación en la industria musical. Esta decisión le ha permitido mantener su autenticidad artística mientras explora nuevos horizontes creativos.",
+        "P2": "Sus recientes éxitos como “7 pecados”, “Caprichito”, “Piscina” y colaboraciones como “Rosas” con Kewin cosmos o “Atemporal” con Danny Romero demuestran su constante evolución artística."
+      },
+      "LEGACY": {
+        "TITLE": "LEGADO Y FUTURO:",
+        "P1": "Con más de 350 millones de reproducciones en plataformas de streaming de audio y vídeo, Dani J continúa expandiendo los límites de la música latina. Su capacidad para reinventarse y su dedicación a la excelencia artística lo han establecido como una figura fundamental en la evolución de la bachata contemporánea.",
+        "P2": "DANI J es mucho más que un cantante: es un artista multifacético que combina sus talentos como bailarín, productor musical, compositor y músico para crear experiencias musicales únicas que siguen cautivando a audiencias globales. Su historia es un testimonio del poder de la pasión, la innovación y la autenticidad en la música.",
+        "P3": "Ya en 2025, el incansable DANI J emprende una ambiciosa gira mundial sumando nuevos hits a su repertorio, consolidando su posición como embajador internacional de la bachata made in Spain y llevando su innovador estilo musical por todo el mundo.",
+        "P4": "Ojo con DANI J, si lo pruebas, repites… ¿Apostamos?"
+      }
+    }
+  },
+
+  "CONTACT": {
+    "TITLE": "Contacto",
+    "INTRO": {
+      "P1": "Contacta con nuestro equipo a través del formulario o las redes sociales de <strong>DANI J</strong> o <strong>13 PRO MUSIC</strong>.",
+      "P2": "Te atenderemos a la mayor brevedad posible.",
+      "EMAIL": "Email: <a href=\"mailto:info@13promusic.com\">info&commat;13promusic.com</a>"
+    },
+    "FORM": {
+      "TITLE": "Formulario de Contacto",
+      "REQUIRED_NOTE": "\"*\" señala los campos obligatorios",
+      "FIELDS": {
+        "NAME": {
+          "LABEL": "Nombre*",
+          "PLACEHOLDER": "Nombre"
+        },
+        "EMAIL": {
+          "LABEL": "Correo electrónico*",
+          "PLACEHOLDER": "Email"
+        },
+        "MESSAGE": {
+          "LABEL": "Mensaje*",
+          "PLACEHOLDER": "Mensaje"
+        }
+      },
+      "BUTTON": "Enviar"
+    }
+  },
+
+  "CONTEST": {
+    "TITLE": "BASES DEL SORTEO \"Baila con Dani J\"",
+    "BASE1": {
+      "TITLE": "BASE 1 – OBJETO",
+      "P1": "Por las presentes bases EMPTYSTAVE MUSIC RECORDS LTD, con Domicilio en Calle EFESOU 9, PARALIMNI, 5280 FAMAGUSTA, CYPRUS y nº fiscal 60091184X, para su artista Dani J, en adelante Dani J, pone en marcha la promoción \"Baila con Dani J\" con el fin de premiar a sus seguidores. A tal fin, Dani J invitará a subir al escenario a los seleccionados para ello a lo largo de su gira por Latinoamérica."
+    },
+    "BASE2": {
+      "TITLE": "BASE 2 – DURACIÓN",
+      "P1": "La promoción comenzará el 10 de abril de 2025 y se cerrará a las 23:59 horas del 9 de octubre de 2025.",
+      "P2": "Se determinarán como ganadoras a las personas seleccionadas como tales por parte de un jurado experto en la materia que se comunicará al momento de informar a los ganadores."
+    },
+    "BASE3": {
+      "TITLE": "BASE 3 ‐ DESCRIPCIÓN DEL PREMIO",
+      "INTRO": "El premio a sortear consiste en lo siguiente:",
+      "LIST": {
+        "ITEM1": "Subir al escenario a bailar con Dani J en los conciertos que se van a celebrar en Latinoamérica, en los países de Argentina, Chile, Uruguay y Perú a lo largo de su gira 2025.",
+        "ITEM2": "Dicho premio no consiste en la entrada para acceder al concierto, que en cualquier caso deberá ser abonada de forma independiente por parte de los ganadores si quieren disfrutar del premio."
+      }
+    },
+    "BASE4": {
+      "TITLE": "BASE 4 ‐ PARTICIPANTES",
+      "P1": "Puede realizar comunicaciones sobre requisitos de accesibilidad [artículo 10.2.a del RD 1112/2018] como, por ejemplo:",
+      "P2": "Esta promoción está abierta a cualquier persona mayor de 18 años, con excepción de los empleados y sus familiares inmediatos del promotor; cualquier agencia involucrada con la promoción; y cualquier otra persona relacionada profesionalmente con la promoción, así como los propietarios y/o empleados de 13 PRO MUSIC y las empresas proveedoras de ésta que intervengan en la promoción, así como cónyuges, ascendientes y descendientes, hasta familiares de primer grado (inclusive), no podrán tomar parte en el sorteo.",
+      "P3": "La participación en el presente sorteo supone la aceptación íntegra, por parte de los concursantes, de todas las cláusulas contenidas en las presentes bases.",
+      "P4": "El participante declara bajo su responsabilidad que cumple estrictamente con todas las condiciones del concurso. Asimismo, el participante admite ser descalificado si durante el sorteo o incluso después de la publicación de los ganadores y de la entrega de los premios se tiene conocimiento de que alguno de los condicionantes indicados en las presentes bases no se cumple completamente o de que cualquiera de las declaraciones del participante es total o parcialmente falsa, errónea o incierta.",
+      "P5": "El participante acepta expresamente que la subida a bailar con Dani J no supone una relación laboral ni mercantil de ningún tipo, siendo plenamente voluntaria por su parte. Igualmente, el participante excluye de cualquier tipo de responsabilidad a Dani J, su equipo, productora o personal similar en lo relativo a la ejecución de la coreografía y/o cualquier incidencia o daño que pueda ocurrir con la ejecución de la misma."
+    },
+    "BASE5": {
+      "TITLE": "BASE 5 ‐ MECÁNICA DEL CONCURSO",
+      "INTRO": "Todas las personas que deseen participar en el concurso deberán cumplir los siguientes requisitos:",
+      "LIST": {
+        "ITEM1": "Seguir en la red social en la que se participe al usuario @OficialDaniJ",
+        "ITEM2": "Subir un video en Instagram o TikTok usando las canciones originales de la plataforma con alguna de las coreografías indicadas en las publicaciones del 9, 10 y 11 de abril de 2025.",
+        "SUBLIST2": {
+          "ITEM1": "7 pecados",
+          "ITEM2": "Caprichito",
+          "ITEM3": "Rosas"
+        },
+        "ITEM3": "Ganarán el premio aquellas personas seleccionadas en función de la originalidad y talento mostrados en el video.",
+        "ITEM4": "Dichas personas serán contactadas por mensaje directo por Dani J desde su cuenta personal."
+      }
+    },
+    "BASE6": {
+      "TITLE": "BASE 6 ‐ ENTREGA DE PREMIOS",
+      "P1": "La organización se pondrá en contacto con los ganadores del concurso por mensaje directo para concretar los detalles de la colaboración."
+    },
+    "BASE7": {
+      "TITLE": "BASE 7 ‐ PUBLICIDAD DE LOS GANADORES. USO PUBLICITARIO DE SU IDENTIDAD E IMAGEN. AUTORIZACIONES",
+      "P1": "Los nombres de los ganadores serán publicados en los stories de las redes sociales oficiales de Dani J.",
+      "P2": "La participación en la presente promoción conllevará la autorización de los participantes para dicha publicación, en caso de resultar ganadores.",
+      "P3": "Los premiados consienten, al aceptar estas bases, que en caso de resultar ganadores la experiencia objeto del concurso sea grabada y documentada por el equipo de Emptystave Music Records LTD para ser posteriormente compartida en las redes sociales de Dani J.",
+      "P4": "Asimismo, conllevará su autorización para utilizar publicitariamente y con carácter gratuito su nombre e imagen en el material publicitario que, en su caso, se desarrolle en relación con la presente promoción.",
+      "P5": "Los ganadores aceptan expresamente que conseguir dicha condición no les confiere relación mercantil ni laboral, siendo una actuación libre y voluntaria."
+    },
+    "BASE8": {
+      "TITLE": "BASE 8 ‐ RESPONSABILIDAD DAÑOS PARTICIPACIÓN",
+      "P1": "El promotor y sus respectivas agencias de publicidad y promoción no asumen ninguna responsabilidad por daños personales o daños a la propiedad de cualquier tipo, incluidos los daños directos, indirectos, consecuentes, incidentales o punitivos que puedan sufrir participando en el concurso.",
+      "P2": "Además, el patrocinador y sus respectivas agencias de publicidad y promoción, así como los proveedores, no asumen ninguna responsabilidad por cualquier aspecto adicional del concurso."
+    },
+    "BASE9": {
+      "TITLE": "BASE 9 – USO DE IMAGEN Y VOZ",
+      "P1": "Al participar en el concurso y aceptar un premio, el ganador acepta el uso razonable en medios digitales y RR.SS. a lo largo de 2024 y 2025 de su fotografía, voz y/o imagen, así como del contenido del formulario de inscripción, sin ninguna compensación adicional por cualquier actividad promocional futura."
+    },
+    "BASE10": {
+      "TITLE": "BASE 10 ‐ TRATAMIENTO DE DATOS",
+      "P1": "En cumplimiento de la normativa vigente de protección de datos personales, le informamos que los datos de los participantes se incorporan a un tratamiento de datos personales:",
+      "P2": "IDENTIDAD DEL RESPONSABLE: EMPTYSTAVE MUSIC RECORDS LTD. Domicilio en Calle EFESOU 9, PARALIMNI, 5280 FAMAGUSTA, CYPRUS. Nº fiscal 60091184X.",
+      "P3": "PROCEDENCIA DE LOS DATOS: Los datos personales que se tratan proceden del propio interesado.",
+      "P4": "Las categorías de interesados que se tratan son: Participantes en el concurso.",
+      "P5": "Las categorías de datos tratados son: Identificativos, direcciones postales y/o electrónicas, teléfonos fijos/móviles, edad, número de hijos y, en el caso de los ganadores, imagen y videos.",
+      "P6": "FINALIDADES: Tratamos los datos personales que nos facilitan con la finalidad de gestionar su participación en la presente acción promocional. Asimismo, la finalidad serán las acciones promocionales en las que los ganadores participen, de acuerdo con los términos y condiciones de utilización de la imagen que se exponen en la Base 11 y en el resto de las bases de la promoción.",
+      "P7": "No se elaborarán perfiles ni se tomarán decisiones automatizadas en base a la información facilitada.",
+      "P8": "CONSERVACIÓN DE LOS DATOS: Los datos se conservarán mientras no se solicite su supresión, durante los plazos legales preceptivos y, al menos, durante un plazo mínimo de 5 años desde la última interacción.",
+      "P9": "LEGITIMACIÓN DEL TRATAMIENTO: El tratamiento de sus datos se efectúa al amparo del consentimiento otorgado al participar en el concurso.",
+      "P10": "CONSENTIMIENTO: Al participar en el concurso acepta las bases y consiente expresamente el tratamiento de los datos para las finalidades expuestas.",
+      "P11": "DESTINATARIOS: Los datos no serán comunicados a terceros salvo por lo dispuesto en la legislación vigente.",
+      "P12": "DERECHOS: Los interesados tienen derecho a acceder, rectificar y suprimir sus datos, así como a limitar u oponerse al tratamiento en determinadas circunstancias.",
+      "P13": "Tiene derecho a ponerse en contacto con el Delegado de Protección de Datos en la dirección arriba indicada para pedirle aclaraciones, consultas, sugerencias o reclamaciones, o para ejercer los derechos que se han expuesto en la presente Información de Protección de Datos.",
+      "P14": "Asimismo, tiene derecho a ampliar la información y efectuar las consultas o reclamaciones que considere oportunas ante la Agencia Española de Protección de Datos (AEPD), con domicilio en la calle Jorge Juan, nº 6, 28001 Madrid.",
+      "P15": "En determinadas circunstancias, los Interesados podrán solicitar la limitación del tratamiento de sus datos, los cuales serán conservados únicamente para el ejercicio del derecho de defensa ante reclamaciones y/o litigios, y durante los plazos legales exigibles para su conservación.",
+      "P16": "En determinadas circunstancias, los interesados podrán oponerse al tratamiento de sus datos. En ese caso, se dejarán de tratar sus datos, con las únicas excepciones de motivos legítimos, por motivos históricos, artísticos o de investigación, para la defensa ante reclamaciones, o por lo previsto en la normativa vigente.",
+      "P17": "Tiene derecho a ponerse en contacto con el Delegado de Protección de Datos en la dirección arriba indicada para pedirle aclaraciones, consultas, sugerencias, reclamaciones, o para ejercer los derechos que se han expuesto en la presente Información de Protección de Datos.",
+      "P18": "Asimismo, tiene derecho a ampliar la información y efectuar las consultas o reclamaciones que considere oportunas ante la Agencia Española de Protección de Datos (AEPD), con domicilio en la calle Jorge Juan, nº 6, 28001 Madrid."
+    },
+    "BASE11": {
+      "TITLE": "BASE 11 ‐ PERIODO DE RECLAMACIÓN",
+      "P1": "El periodo para interponer cualquier reclamación por quien tenga derecho a ella finalizará tras 15 días desde la fecha final del periodo de participación."
+    },
+    "BASE12": {
+      "TITLE": "BASE 12 ‐ POSIBILIDAD DE EXCLUSIÓN DE PARTICIPANTES",
+      "P1": "Es voluntad de Emptystave Music Records LTD que la competición entre los distintos participantes en la promoción resulte en igualdad de oportunidades y con estricto respeto a las normas de la buena fe.",
+      "P2": "Por ello, se reserva el derecho a evitar especulaciones o negocios sobre este concurso.",
+      "LIST": {
+        "ITEM1": "Se detecte el uso de aplicaciones independientes al sitio web, consultas abusivas al servidor o cualquier comportamiento malintencionado.",
+        "ITEM2": "Se lucren a través de la reventa de los premios o actúen de forma organizada con dicha finalidad."
+      },
+      "P3": "Emptystave Music Records LTD y la agencia promotora quedarán exentas de responsabilidad por errores en los datos facilitados por los participantes, así como por pérdidas, robos, retrasos o cualquier circunstancia imputable a terceros que pueda afectar al desarrollo de la promoción."
+    }
+  },
+
+  "COOKIE_POLICY": {
+    "TITLE": "Política de cookies",
+    "INTRO": {
+      "P1": "La presente web utiliza cookies a los efectos oportunos, los datos del titular a los efectos pertinentes son los siguientes:",
+      "LIST": {
+        "ITEM1": "Denominación: Emptystave Music Records LTD",
+        "ITEM2": "Id Fiscal: 60091184X",
+        "ITEM3": "Domicilio: EFESOU 9, PARALIMNI, 5280,FAMAGUSTA, CYPRUS",
+        "ITEM4": "Correo de contacto: emptystave@gmail.com"
+      }
+    },
+    "COOKIES": {
+      "TITLE": "Cookies",
+      "P1": "Las cookies son archivos que son almacenados en el ordenador u otro dispositivo como consecuencia de navegar por Internet. Cuando se visitan sitios web, las cookies pueden recabar diversos datos en función de la finalidad que tengan dichas cookies.",
+      "P2": "Existen diferentes tipos de cookies. Dependiendo de su origen pueden ser propias o de terceros, en atención a su caducidad pueden ser de sesión o persistentes, y en función de su finalidad pueden ser técnicas, analíticas, publicitarias, etc."
+    },
+    "DURATION_TITLE": "Clasificación de las cookies en atención a su duración:",
+    "DURATION_LIST": {
+      "ITEM1": "“Cookies de sesión” o “Cookies persistentes”: las primeras son eliminadas al cerrar el navegador, mientras que las segundas permanecen en el equipo informático."
+    },
+    "PURPOSE_TITLE": "Clasificación de las cookies en atención a su finalidad:",
+    "PURPOSE_LIST": {
+      "ITEM1": "User input cookies o cookies de sesión: Se emplean para realizar inicios de sesión, carros de la compra etc",
+      "ITEM2": "Cookies de autenticación: Identifican al usuario una vez que realiza log-in en el sistema",
+      "ITEM3": "User centric security cookies: Cookies dirigidas a incrementar la seguridad de un servicio solicitado por el usuario, como controlar la seguridad al intentar acceder repetidamente a un sistema de registro",
+      "ITEM4": "Multimedia Player session cookies (Flash Cookies): se utilizan para almacenar datos técnicos necesarios para reproducir vídeo o audio (como podría ser la calidad de la imagen, o la velocidad de red)",
+      "ITEM5": "Load balancing session cookies: estas cookies solo almacenarían información sobre puntos de conexión (cookie de carácter técnico)",
+      "ITEM6": "UI customization cookies: suelen emplearse para personalizar la apariencia de la web (lenguaje, etc)",
+      "ITEM7": "Social plug-in content sharing cookies: módulos que integran redes sociales para compartir contenido, e instalan cookies en los equipos de los usuarios",
+      "ITEM8": "Third party advertising: Cookies empleadas para redes de anuncios de terceros",
+      "ITEM9": "Cookies analíticas: generan estadísticas sobre flujo de visitantes, patrones de navegación, etc"
+    },
+    "USED": {
+      "TITLE": "Cookies utilizadas",
+      "P1": "El usuario que visita esta página web consiente el uso de cookies, propias y de terceros, para identificar al usuario y mejorar el funcionamiento de la web, sin perjuicio de las cookies técnicas imprescindibles que son utilizadas."
+    },
+    "TABLE": {
+      "HEAD": {
+        "NAME": "NOMBRE",
+        "PURPOSE": "FINALIDAD",
+        "DURATION": "CADUCIDAD",
+        "ORIGIN": "ORIGEN"
+      },
+      "ROWS": {
+        "CookieConsent": {
+          "NAME": "CookieConsent",
+          "PURPOSE": "Almacena el estado de consentimiento del usuario para cookies en el dominio actual.",
+          "DURATION": "1 año",
+          "ORIGIN": "Propia (Cookiebot)"
+        },
+        "_ga": {
+          "NAME": "_ga",
+          "PURPOSE": "Distingue a los usuarios asignándoles un identificador único.",
+          "DURATION": "2 años",
+          "ORIGIN": "Tercero (Google Analytics)"
+        },
+        "_gid": {
+          "NAME": "_gid",
+          "PURPOSE": "Distingue a los usuarios en sesiones diferentes.",
+          "DURATION": "24 horas",
+          "ORIGIN": "Tercero (Google Analytics)"
+        },
+        "_gat": {
+          "NAME": "_gat",
+          "PURPOSE": "Limita la tasa de solicitudes para mejorar el rendimiento.",
+          "DURATION": "1 minuto",
+          "ORIGIN": "Tercero (Google Analytics)"
+        },
+        "_ga_container": {
+          "NAME": "<code>_ga&lt;container-id&gt;</code>",
+          "PURPOSE": "Mantiene el estado de la sesión (según la configuración específica).",
+          "DURATION": "2 años",
+          "ORIGIN": "Tercero (Google Analytics)"
+        }
+      }
+    },
+    "ADMINISTER": {
+      "TITLE": "Administrar o deshabilitar cookies",
+      "P1": "Sin perjuicio de que por el simple uso del sitio web se consienta el uso de las cookies, a continuación, se enlaza a las soluciones o procedimientos que los principales navegadores web ofrecen para administrar o deshabilitar las cookies.",
+      "LIST": {
+        "FIREFOX": "Firefox",
+        "CHROME": "Chrome",
+        "EXPLORER": "Explorer",
+        "SAFARI": "Safari"
+      }
+    },
+    "EFFECTS": {
+      "TITLE": "Qué ocurre si se deshabilitan las cookies",
+      "P1": "Si rechaza las cookies podrá seguir usando nuestro sitio web, pero es posible que algunos de los servicios y/o enlaces dejen de funcionar, y no podremos obtener de usted información muy valiosa para ofrecerle contenidos acordes a sus intereses y para que Ud. pueda acceder más fácil y rápidamente a la información de su interés."
+    },
+    "CHANGES": {
+      "TITLE": "Cambios en la política de cookies",
+      "P1": "La página web www.danij.es puede modificar esta política de cookies, bien por incorporar cookies nuevas por necesidad de nuevos contenidos que se puedan ofrecer, o bien en función de exigencias legislativas, o reglamentarias que hagan necesario el cambio de la misma, por ello se aconseja a los Usuarios que la visiten antes de comenzar la navegación por la web, y cada vez que la visiten de nuevo."
+    }
+  }
+}

@@ -4,10 +4,11 @@ import { ContactService} from '../../services/contactService';
 import { ContactDTO} from '../../models/contactDTO';
 import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })

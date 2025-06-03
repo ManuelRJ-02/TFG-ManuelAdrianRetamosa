@@ -1,1 +1,59 @@
-<p>tour works!</p>
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="heading-wrapper">
+        <h1 class="text-uppercase fw-bold">TOUR MUNDIAL 2025</h1>
+        <hr class="opacity-100 hr1" />
+      </div>
+    </div>
+    <div class="col-12 mt-4">
+      <div class="row">
+        <div class="col-md-11 col-lg-8 mx-auto">
+          <ng-container *ngFor="let concert of concerts">
+          <div class="row g-0 " [ngClass]="{ 'past-concert': isPast(concert.date) }">
+            <div class="col-4">
+                <div class="cell-block">
+                  <span class="cell-text">{{ concert.date }}</span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="cell-block">
+                  <span class="cell-text">{{ concert.place }}</span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="cell-block text-end text-md-start">
+                  <ng-container *ngIf="!isPast(concert.date) && concert.urlTicketSale; else noLink">
+                    <a [href]="concert.urlTicketSale" target="_blank" class="cell-text">TICKETS</a>
+                  </ng-container>
+                  <ng-template #noLink>
+                    <span class="cell-text no-link-text">TICKETS</span>
+                  </ng-template>
+
+                </div>
+            </div>
+          </div>
+            <hr class="opacity-100 cell-line">
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="text-center h2-block">
+        <h2 class="fw-bold">Tour musical</h2>
+        <hr class="opacity-100 hr2 mx-auto" />
+      </div>
+      <div class="custom-padding lh-lg text-justify">
+        <p>¡Prepárate para vivir una experiencia inolvidable con Dani J en su tour mundial DANI J 2025!</p>
+        <p>¿Quieres saber más? ¡Corre a sus redes sociales y entérate!</p>
+        <p>Consulta las fechas y lugares de los conciertos de Dani J. Si aún no aparece el link de compra de
+          entradas del concierto al que quieres asistir, no te desesperes, pronto estarán disponibles.</p>
+      </div>
+    </div>
+
+    <div class="col-12 text-center banner-alert h3-block">
+      <h3 class="fw-bold">¡Descubre todas las fechas de su gira en 2025!</h3>
+    </div>
+  </div>
+</section>
+

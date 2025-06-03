@@ -1,0 +1,122 @@
+section {
+  margin-top: 10.5rem;
+  color: #ffffff;
+  font-family: Arial;
+}
+h2 {
+  color: #E9BF43;
+  font-size: 1.7rem;
+}
+hr {
+  border: none;
+}
+.hr2 {
+  height: 3px;
+  background-color: #ffffff;
+  width: 200px;
+}
+.h2-block {
+  margin-top: 6rem;
+}
+.full-width-bg {
+  background-color: #060407;
+}
+.single-thumb {
+  width: 200px;
+  height: auto;
+}
+h3 {
+  font-size: 1rem !important;
+}
+.carousel-nav {
+  position: absolute;
+  top: 39%;
+  transform: translateY(-50%);
+  background-color: #E9BF43;
+  border: none;
+  color: #ffffff;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.carousel-prev {
+  left: 1rem;
+}
+.carousel-next {
+  right: 1rem;
+}
+.singles-carousel,
+.albums-carousel {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #E9BF43 rgba(255,255,255,0.1);
+  padding-bottom: 15px;
+}
+.singles-carousel::-webkit-scrollbar,
+.albums-carousel::-webkit-scrollbar {
+  height: 10px;
+}
+.singles-carousel::-webkit-scrollbar-track,
+.albums-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+.singles-carousel::-webkit-scrollbar-thumb,
+.albums-carousel::-webkit-scrollbar-thumb {
+  background-color: #E9BF43;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+.singles-carousel::-webkit-scrollbar-thumb:hover,
+.albums-carousel::-webkit-scrollbar-thumb:hover {
+  background-color: #F1C94E;
+}
+
+@media (max-width: 1600px) {
+  .single-thumb {
+    width: 185px;
+  }
+}
+@media (max-width: 1500px) {
+  .single-thumb {
+    width: 175px;
+  }
+}
+@media (max-width: 1400px) {
+  .single-thumb {
+    width: 165px;
+  }
+}
+@media (max-width: 1300px) {
+  .single-thumb {
+    width: 155px;
+  }
+}
+@media (max-width: 1200px) {
+  .single-thumb {
+    width: 145px;
+  }
+}
+@media (max-width: 1100px) {
+  .single-thumb {
+    width: 135px;
+  }
+}
+@media (max-width: 1000px) {
+  .single-thumb {
+    width: 150px;
+  }
+}
+@media (max-width: 800px) {
+  .single-thumb {
+    width: 160px;
+  }
+}

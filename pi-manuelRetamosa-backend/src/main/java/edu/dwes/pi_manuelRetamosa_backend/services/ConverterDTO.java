@@ -5,26 +5,33 @@
 package edu.dwes.pi_manuelRetamosa_backend.services;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.AddressDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.AlbumDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.CartProductDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.CartShoppingDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ConcertDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.DetailOrderDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.OrderDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProductDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProductVariantDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.RoleDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.SongDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.UserDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.daos.IAlbumRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.ICartShoppingRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IProductRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IProductVariantRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IUserRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Address;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.Album;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.CartProduct;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.CartShopping;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.Concert;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.DetailOrder;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Order;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Product;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.ProductVariant;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Role;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.Song;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +56,9 @@ public class ConverterDTO {
     
     @Autowired
     private ICartShoppingRepository cartShoppingRepository;
+    
+    @Autowired
+    private IAlbumRepository albumRepository;
 
     public UserDTO convADTO(User user) {
         UserDTO dto = new UserDTO();
@@ -153,6 +163,45 @@ public class ConverterDTO {
         dto.setLadder(address.getLadder());
         dto.setDoor(address.getDoor());
         dto.setUserId(address.getUser().getId());
+        return dto;
+    }
+    
+    public ConcertDTO convADTO(Concert concert) {
+        ConcertDTO dto = new ConcertDTO();
+        dto.setId(concert.getId());
+        dto.setDate(concert.getDate());
+        dto.setPlace(concert.getPlace());
+        dto.setUrlTicketSale(concert.getUrlTicketSale());
+        return dto;
+    }
+    
+    public SongDTO convADTO(Song song) {
+        SongDTO dto = new SongDTO();
+        dto.setId(song.getId());
+        dto.setTitle(song.getTitle());
+        dto.setYearPublication(song.getYearPublication());
+        dto.setCoverUrl(song.getCoverUrl());
+        dto.setUrl(song.getUrl());
+        dto.setDuration(song.getDuration());
+        dto.setTrackNumber(song.getTrackNumber());
+        if (song.getAlbum() != null) {
+            dto.setAlbumId(song.getAlbum().getId());
+        }
+        return dto;
+    }
+    
+    public AlbumDTO convADTO(Album album) {
+        AlbumDTO dto = new AlbumDTO();
+        dto.setId(album.getId());
+        dto.setTitle(album.getTitle());
+        dto.setYearPublication(album.getYearPublication());
+        dto.setCoverUrl(album.getCoverUrl());
+        dto.setUrl(album.getUrl());
+        List<SongDTO> songDTO = new ArrayList<>();
+        for (Song song : album.getSongs()) {
+            songDTO.add(this.convADTO(song));
+        }
+        dto.setSongs(songDTO);
         return dto;
     }
     
@@ -282,6 +331,49 @@ public class ConverterDTO {
             address.setUser(user);
         } 
         return address;
+    }
+    
+    public Concert convAEntidad(ConcertDTO dto) {
+        Concert concert = new Concert();
+        concert.setDate(dto.getDate());
+        concert.setPlace(dto.getPlace());
+        concert.setUrlTicketSale(dto.getUrlTicketSale());
+        return concert;
+    }
+    
+    public Song convAEntidad(SongDTO dto) {
+        Song song = new Song();
+        song.setTitle(dto.getTitle());
+        song.setYearPublication(dto.getYearPublication());
+        song.setCoverUrl(dto.getCoverUrl());
+        song.setUrl(dto.getUrl());
+        song.setDuration(dto.getDuration());
+        song.setTrackNumber(dto.getTrackNumber());     
+        
+        if (dto.getAlbumId() != null) {
+            Album album = albumRepository.findById(dto.getAlbumId()).orElseThrow(() -> new RuntimeException("Álbum no encontrado"));
+            song.setAlbum(album);
+        } 
+        return song;
+    }
+    
+    public Album convAEntidad(AlbumDTO dto) {
+        Album album = new Album();
+        album.setTitle(dto.getTitle());
+        album.setYearPublication(dto.getYearPublication());  
+        album.setCoverUrl(dto.getCoverUrl());
+        album.setUrl(dto.getUrl());
+        
+        if (dto.getSongs() != null) {
+            List<Song> songs = new ArrayList<>();
+            for (SongDTO songDTO : dto.getSongs()) {
+                Song song = this.convAEntidad(songDTO);
+                song.setAlbum(album);
+                songs.add(song);
+            }
+            album.setSongs(songs);
+        }
+        return album;
     }
 
 }

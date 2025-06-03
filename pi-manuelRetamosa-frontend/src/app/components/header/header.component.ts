@@ -4,32 +4,33 @@ import {CommonModule} from "@angular/common";
 import { SessionService} from '../../services/SessionService';
 import { UserDTO } from '../../models/userDTO';
 import { Router } from '@angular/router';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterModule, CommonModule],
+  imports: [RouterLink, RouterModule, CommonModule, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  currentLanguaje: 'es' | 'en' | 'it' = 'es';
-  openMenu: boolean = false;
+  currentLanguage: 'es' | 'en' | 'it';
+  openMenu = false;
   loggedUser: UserDTO | null = null;
 
-  constructor(private sessionService: SessionService, private router: Router) {}
-
-  changeLanguaje(languaje: 'es' | 'en' | 'it') {
-    this.currentLanguaje = languaje;
-    localStorage.setItem('languaje', languaje);
+  constructor(private translate: TranslateService, private sessionService: SessionService, private router: Router) {
+    this.currentLanguage = (this.translate.currentLang || this.translate.getDefaultLang()) as 'es'|'en'|'it';
+    this.sessionService.user$.subscribe(user => this.loggedUser = user);
   }
 
   ngOnInit() {
-    const save = localStorage.getItem('languaje') as 'es' | 'en' | 'it';
-    this.currentLanguaje = save || 'es';
     this.loggedUser = this.sessionService.getUser();
-    this.sessionService.user$.subscribe(user => {
-      this.loggedUser = user;
-    });
+  }
+
+  changeLanguage(lang: 'es' | 'en' | 'it') {
+    if (lang === this.currentLanguage) return;
+    this.currentLanguage = lang;
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
   }
 
   logout() {
@@ -41,3 +42,4 @@ export class HeaderComponent {
     this.openMenu = !this.openMenu;
   }
 }
+

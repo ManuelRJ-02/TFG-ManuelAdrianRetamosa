@@ -2,123 +2,117 @@
   <div class="row">
     <div class="col-12">
       <div class="heading-wrapper custom-padding-bottom">
-        <h1 class="text-uppercase fw-bold">Política de cookies</h1>
+        <h1 class="text-uppercase fw-bold">{{ 'COOKIE_POLICY.TITLE' | translate }}</h1>
         <hr class="opacity-100 hr1" />
       </div>
     </div>
     <div class="col-lg-6">
       <div class="custom-padding lh-lg text-justify">
-        <p>La presente web utiliza cookies a los efectos oportunos, los datos del titular a los efectos pertinentes son los siguientes:</p>
+        <p [innerHTML]="'COOKIE_POLICY.INTRO.P1' | translate"></p>
         <ul>
-          <li>Denominación: Emptystave Music Records LTD</li>
-          <li>Id Fiscal: 60091184X</li>
-          <li>Domicilio: EFESOU 9, PARALIMNI, 5280,FAMAGUSTA, CYPRUS</li>
-          <li>Correo de contacto: emptystave&commat;gmail.com</li>
+          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM1' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM2' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM3' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM4' | translate }}</li>
         </ul>
 
         <div class="h2-block">
-          <h2 class="fw-bold">Cookies</h2>
+          <h2 class="fw-bold">{{ 'COOKIE_POLICY.COOKIES.TITLE' | translate }}</h2>
         </div>
-        <p>Las cookies son archivos que son almacenados en el ordenador u otro dispositivo como consecuencia de navegar por Internet. Cuando
-          se visitan sitios web, las cookies pueden recabar diversos datos en función de la finalidad que tengan dichas cookies.</p>
-        <p>Existen diferentes tipos de cookies. Dependiendo de su origen pueden ser propias o de terceros, en atención a su caducidad pueden
-          ser de sesión o persistentes, y en función de su finalidad pueden ser técnicas, analíticas, publicitarias, etc.</p>
-        <p>Clasificación de las cookies en atención a su duración:</p>
+        <p [innerHTML]="'COOKIE_POLICY.COOKIES.P1' | translate"></p>
+        <p [innerHTML]="'COOKIE_POLICY.COOKIES.P2' | translate"></p>
+
+        <p>{{ 'COOKIE_POLICY.DURATION_TITLE' | translate }}</p>
         <ul>
-          <li>“Cookies de sesión” o “Cookies persistentes”: las primeras son eliminadas al cerrar el navegador, mientras que las segundas permanecen en el equipo informático.</li>
+          <li>{{ 'COOKIE_POLICY.DURATION_LIST.ITEM1' | translate }}</li>
         </ul>
-        <p>Clasificación de las cookies en atención a su finalidad:</p>
+
+        <p>{{ 'COOKIE_POLICY.PURPOSE_TITLE' | translate }}</p>
         <ul>
-          <li>User input cookies o cookies de session: Se emplean para realizar inicios de sesión, carros de la compra etc</li>
-          <li>Cookies de autenticación: Identifican al usuario una vez que realiza log-in en el sistema</li>
-          <li>User centric security cookies: Cookies dirigidas a incrementar la seguridad de un servicio solicitado por el usuario, como controlar la seguridad
-            al intentar acceder repetidamente a un sistema de registro</li>
-          <li>Multimedia Player session cookies (Flash Cookies): se utilizan para almacenar datos técnicos necesarios para reproducir vídeo o audio (como
-            podría ser la calidad de la imagen, o la velocidad de red)</li>
-          <li>Load balancing session cookies: estas cookies solo almacenarían información sobre puntos de conexión (cookie de carácter técnico)</li>
-          <li>UI customization cookies: suelen emplearse para personalizar la apariencia de la web (lenguaje, etc)</li>
-          <li>Social plug-in content sharing cookies: Las redes sociales suelen disponer de “módulos plug-in" que los titulares de websites
-            pueden integrar en su plataforma para que los usuarios de redes sociales compartan contenidos con sus contactos. Estos plug-ins
-            suelen implicar la instalación de cookies en los equipos de los usuarios</li>
-          <li>Third party advertising: Cookies empleados para redes de anuncios de terceros</li>
-          <li>Cookies analíticas: generan estadísticas sobre flujo de visitantes, patrones de navegación, etc</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM1' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM2' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM3' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM4' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM5' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM6' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM7' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM8' | translate }}</li>
+          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM9' | translate }}</li>
         </ul>
+
         <div class="h2-block">
-          <h2 class="fw-bold">Cookies utilizadas</h2>
+          <h2 class="fw-bold">{{ 'COOKIE_POLICY.USED.TITLE' | translate }}</h2>
         </div>
-        <p>El usuario que visita esta página web consiente el uso de cookies, propias y de terceros, para identificar al usuario y mejorar el
-          funcionamiento de la web, sin perjuicio de las cookies técnicas imprescindibles que son utilizadas.</p>
+        <p [innerHTML]="'COOKIE_POLICY.USED.P1' | translate"></p>
+
         <table class="table table-bordered table-sm custom-table">
           <thead class="text-center">
           <tr>
-            <th>NOMBRE</th>
-            <th>FINALIDAD</th>
-            <th>CADUCIDAD</th>
-            <th>ORIGEN</th>
+            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.NAME' | translate }}</th>
+            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.PURPOSE' | translate }}</th>
+            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.DURATION' | translate }}</th>
+            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.ORIGIN' | translate }}</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td>CookieConsent</td>
-            <td>Almacena el estado de consentimiento del usuario para cookies en el dominio actual.</td>
-            <td>1 año</td>
-            <td>Propia (Cookiebot)</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS.CookieConsent.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS.CookieConsent.PURPOSE' | translate"></td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS.CookieConsent.DURATION' | translate }}</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS.CookieConsent.ORIGIN' | translate }}</td>
           </tr>
           <tr>
-            <td>_ga</td>
-            <td>Distingue a los usuarios asignándoles un identificador único.</td>
-            <td>2 años</td>
-            <td>Tercero (Google Analytics)</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga.PURPOSE' | translate"></td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga.DURATION' | translate }}</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga.ORIGIN' | translate }}</td>
           </tr>
           <tr>
-            <td>_gid</td>
-            <td>Distingue a los usuarios en sesiones diferentes.</td>
-            <td>24 horas</td>
-            <td>Tercero (Google Analytics)</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gid.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gid.PURPOSE' | translate"></td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gid.DURATION' | translate }}</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gid.ORIGIN' | translate }}</td>
           </tr>
           <tr>
-            <td>_gat</td>
-            <td>Limita la tasa de solicitudes para mejorar el rendimiento.</td>
-            <td>1 minuto</td>
-            <td>Tercero (Google Analytics)</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gat.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gat.PURPOSE' | translate"></td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gat.DURATION' | translate }}</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gat.ORIGIN' | translate }}</td>
           </tr>
           <tr>
-            <td>&lt;code&gt;_ga&lt;container-id&gt;&lt;/code&gt;</td>
-            <td>Mantiene el estado de la sesión (según la configuración específica).</td>
-            <td>2 años</td>
-            <td>Tercero (Google Analytics)</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga_container.NAME' | translate"></td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga_container.PURPOSE' | translate"></td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga_container.DURATION' | translate }}</td>
+            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga_container.ORIGIN' | translate }}</td>
           </tr>
           </tbody>
         </table>
 
         <div class="h2-block">
-          <h2 class="fw-bold">Administrar o deshabilitar cookies</h2>
+          <h2 class="fw-bold">{{ 'COOKIE_POLICY.ADMINISTER.TITLE' | translate }}</h2>
         </div>
-        <p>Sin perjuicio de que por el simple uso del sitio web se consienta el uso de las cookies, a continuación, se enlaza a las soluciones o
-          procedimientos que los principales navegadores web ofrecen para administrar o deshabilitar las cookies.</p>
+        <p [innerHTML]="'COOKIE_POLICY.ADMINISTER.P1' | translate"></p>
         <ul>
-          <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank">Firefox</a></li>
-          <li><a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=es" target="_blank">Chrome</a></li>
-          <li><a href="https://support.microsoft.com/es-es/topic/c%C3%B3mo-eliminar-archivos-de-cookies-en-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc" target="_blank">Explorer</a></li>
-          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
+          <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank">
+              {{ 'COOKIE_POLICY.ADMINISTER.LIST.FIREFOX' | translate }}</a></li>
+          <li><a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=es" target="_blank">
+              {{ 'COOKIE_POLICY.ADMINISTER.LIST.CHROME' | translate }}</a></li>
+          <li><a href="https://support.microsoft.com/es-es/topic/c%C3%B3mo-eliminar-archivos-de-cookies-en-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc" target="_blank">
+              {{ 'COOKIE_POLICY.ADMINISTER.LIST.EXPLORER' | translate }}</a></li>
+          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank">
+              {{ 'COOKIE_POLICY.ADMINISTER.LIST.SAFARI' | translate }}</a></li>
         </ul>
 
         <div class="h2-block">
-          <h2 class="fw-bold">Qué ocurre si se deshabilitan las cookies</h2>
+          <h2 class="fw-bold">{{ 'COOKIE_POLICY.EFFECTS.TITLE' | translate }}</h2>
         </div>
-        <p>Si rechaza las cookies podrá seguir usando nuestro sitio web, pero es posible que algunos de los servicios y/o enlaces dejen de funcionar, y no
-          podremos obtener de usted información muy valiosa para ofrecerle contenidos acordes a sus intereses y para que Ud. pueda acceder más fácil y
-          rápidamente a la información de su interés.</p>
+        <p [innerHTML]="'COOKIE_POLICY.EFFECTS.P1' | translate"></p>
 
         <div class="h2-block">
-          <h2 class="fw-bold">Cambios en la política de cookies</h2>
+          <h2 class="fw-bold">{{ 'COOKIE_POLICY.CHANGES.TITLE' | translate }}</h2>
         </div>
-        <p>La página web www.danij.es puede modificar esta política de cookies, bien por incorporar cookies nuevas por necesidad de nuevos
-          contenidos que se puedan ofrecer, o bien en función de exigencias legislativas, o reglamentarias que hagan necesario el cambio de
-          la misma, por ello se aconseja a los Usuarios que la visiten antes de comenzar la navegación por la web, y cada vez que la visiten de nuevo.</p>
-
+        <p [innerHTML]="'COOKIE_POLICY.CHANGES.P1' | translate"></p>
       </div>
     </div>
   </div>
 </section>
-

@@ -4,6 +4,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,13 @@ import {RegisterComponent} from './components/register/register.component';
 })
 export class AppComponent {
   title = 'pi-manuelRetamosa-frontend';
+  constructor(translate: TranslateService) {
+    translate.addLangs(['es', 'en', 'it']);
+    translate.setDefaultLang('es');
+    const saved = localStorage.getItem('lang');
+    const browser = translate.getBrowserLang();
+    translate.use(saved || browser || 'es');
+  }
 }
+
+
