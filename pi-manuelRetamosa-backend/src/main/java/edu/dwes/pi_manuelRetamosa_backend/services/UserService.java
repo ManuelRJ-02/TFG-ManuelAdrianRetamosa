@@ -4,6 +4,7 @@
  */
 package edu.dwes.pi_manuelRetamosa_backend.services;
 
+import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProfileDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.UserDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.ICartShoppingRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IRoleRepository;
@@ -11,12 +12,22 @@ import edu.dwes.pi_manuelRetamosa_backend.models.daos.IUserRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.CartShopping;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Role;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.User;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
  *
@@ -118,5 +129,44 @@ public class UserService {
     
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+    
+
+    @Transactional
+    public UserDTO updateAvatar(Long id, MultipartFile file, String url, HttpServletRequest request) throws IOException {
+        User user = userRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        if (file != null && !file.isEmpty()) {
+            File uploadDir = new File("avatars");
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
+            String originalName = file.getOriginalFilename();
+            String extension = "";
+            if (originalName != null && originalName.contains(".")) {
+                extension = originalName.substring(originalName.lastIndexOf('.'));
+            }
+            String uniqueName = "avatar_" + Instant.now().toEpochMilli() + extension;
+            Path destino = Paths.get("avatars").resolve(uniqueName);
+            Files.copy(file.getInputStream(), destino);
+            String baseUrl = ServletUriComponentsBuilder.fromRequestUri(request)
+                               .replacePath(null)
+                               .build()
+                               .toUriString();
+            String completeAvatarUrl = baseUrl + "/avatars/" + uniqueName;
+            user.setAvatar(completeAvatarUrl);
+        } else {
+            throw new RuntimeException("No se recibió ningún archivo para el avatar");
+        }
+        User saved = userRepository.save(user);
+        return converterDTO.convADTO(saved);
+    }
+    
+    @Transactional
+    public UserDTO updateFromProfileDTO(Long id, ProfileDTO profileDto) {
+        User userExistente = userRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        converterDTO.mergeProfileDTOEnEntidad(profileDto, userExistente);
+        User saved = userRepository.save(userExistente);
+        return converterDTO.convADTO(saved);
     }
 }

@@ -17,6 +17,7 @@
   filter: invert(65%) sepia(90%) saturate(700%) hue-rotate(5deg);
   opacity: 1;
 }
+
 .btn-close.btn-custom:hover {
   filter: invert(39%) sepia(27%) saturate(748%) hue-rotate(131deg) brightness(95%) contrast(90%);
 }
@@ -26,7 +27,8 @@
 }
 
 .div-forms {
-  max-width: 360px;
+  max-width: 640px;
+  margin: auto;
 }
 
 .modal-body .form-control {
@@ -43,15 +45,51 @@
   box-shadow: 0 0 0 0.2rem rgba(233, 191, 67, 0.25);
 }
 
-.login-btn {
+.register-btn {
   background-color: #0F0911;
   border: 1px solid #E9BF43;
   color: #E9BF43;
   box-shadow: 0 1px 8px #ffffff;
 }
 
-.login-btn:hover {
+.register-btn:hover {
   background-color: #7A8288;
   border-color: #353535;
   color: #353535;
+}
+
+.day-month-select {
+  appearance: menulist-button;
+  -webkit-appearance: menulist-button;
+  -moz-appearance: menulist-button;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #E9BF43;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-image: none !important;
+}
+
+.day-month-select:focus {
+  outline: none;
+  border-color: #F1C94E;
+  box-shadow: 0 0 0 0.2rem rgba(233, 191, 67, 0.25);
+}
+
+.day-month-select:hover {
+  border-color: #F1C94E;
+}
+
+.day-month-select::-ms-expand {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .day-month-select {
+    width: 100%;
+    font-size: 0.9rem;
+  }
 }

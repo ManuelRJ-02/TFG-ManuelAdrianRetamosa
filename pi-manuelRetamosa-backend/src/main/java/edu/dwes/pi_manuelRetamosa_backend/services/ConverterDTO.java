@@ -9,10 +9,12 @@ import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.AlbumDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.CartProductDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.CartShoppingDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ConcertDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.CreditCardDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.DetailOrderDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.OrderDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProductDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProductVariantDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProfileDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.RoleDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.SongDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.UserDTO;
@@ -26,6 +28,7 @@ import edu.dwes.pi_manuelRetamosa_backend.models.entities.Album;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.CartProduct;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.CartShopping;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Concert;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.CreditCard;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.DetailOrder;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Order;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Product;
@@ -205,6 +208,17 @@ public class ConverterDTO {
         return dto;
     }
     
+     public CreditCardDTO convADTO(CreditCard card) {
+        CreditCardDTO dto = new CreditCardDTO();
+        dto.setHolder(card.getHolder());
+        dto.setCardNumber(card.getCardNumber());
+        dto.setExpirationMonth(card.getExpirationMonth());
+        dto.setExpirationYear(card.getExpirationYear());
+        dto.setSecurityCode(card.getSecurityCode());
+        dto.setUserId(card.getUser().getId());
+        return dto;
+    }
+    
     public User convAEntidad(UserDTO dto) {
         User user = new User();
         user.setUserName(dto.getUserName());
@@ -333,6 +347,14 @@ public class ConverterDTO {
         return address;
     }
     
+     public void mergeProfileDTOEnEntidad(ProfileDTO dto, User user) {
+        user.setUserName(dto.getUserName());
+        user.setSurname(dto.getSurname());
+        user.setEmail(dto.getEmail().toLowerCase());
+        user.setAvatar(dto.getAvatar());
+        user.setPhoneNumber(dto.getPhoneNumber());
+    }
+    
     public Concert convAEntidad(ConcertDTO dto) {
         Concert concert = new Concert();
         concert.setDate(dto.getDate());
@@ -374,6 +396,21 @@ public class ConverterDTO {
             album.setSongs(songs);
         }
         return album;
+    }
+    
+    public CreditCard convAEntidad(CreditCardDTO dto) {
+        CreditCard creditCard = new CreditCard();
+        creditCard.setHolder(dto.getHolder());
+        creditCard.setCardNumber(dto.getCardNumber());
+        creditCard.setExpirationMonth(dto.getExpirationMonth());
+        creditCard.setExpirationYear(dto.getExpirationYear());
+        creditCard.setSecurityCode(dto.getSecurityCode());
+        
+        if (dto.getUserId() != null) {
+            User user = userRepository.findById(dto.getUserId()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+            creditCard.setUser(user);
+        } 
+        return creditCard;
     }
 
 }

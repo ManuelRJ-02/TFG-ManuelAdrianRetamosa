@@ -77,4 +77,13 @@ public class AddressService {
         return converterDTO.convADTO(updated);
         
     } 
+    
+    public List<AddressDTO> findByUser(Long userId) {
+        List<Address> listEntities = addressRepository.findByUserId(userId);
+        List<AddressDTO> listDTOs = new ArrayList<>();
+        for (Address a : listEntities) {
+            listDTOs.add(converterDTO.convADTO(a));
+        }
+        return listDTOs;
+    }
 }

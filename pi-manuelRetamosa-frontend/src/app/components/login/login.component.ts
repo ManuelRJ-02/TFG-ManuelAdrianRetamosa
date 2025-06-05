@@ -32,7 +32,7 @@ export class LoginComponent {
     this.authService.login(this.credentials).subscribe({
       next: (user) => {
         this.errorMessages = [];
-        this.sessionService.setUser(user);
+        this.sessionService.setUser(user, this.credentials.userPassword);
         form.reset();
         const modalElement = document.getElementById('login-modal');
         if (modalElement) {

@@ -45,13 +45,13 @@ public class ConcertController {
         }
     }
     
-    @PostMapping("/crear")
+    @PostMapping
     public ResponseEntity<ConcertDTO> create(@RequestBody ConcertDTO concert){
         ConcertDTO newConcert=concertService.save(concert);
         return ResponseEntity.status(HttpStatus.CREATED).body(newConcert);
     }
     
-    @DeleteMapping("/borrar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             concertService.delete(id);
@@ -61,7 +61,7 @@ public class ConcertController {
         }
     }
     
-    @PutMapping("/editar/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ConcertDTO> edit(@PathVariable Long id, @RequestBody ConcertDTO newConcert){
         try{
             ConcertDTO updated = concertService.update(id, newConcert);

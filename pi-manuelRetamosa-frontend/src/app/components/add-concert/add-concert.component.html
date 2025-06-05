@@ -1,0 +1,57 @@
+<div class="modal fade" id="concert-modal" tabindex="-1" aria-labelledby="concertModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h3 class="modal-title" id="concertModalLabel">
+          {{ mode === 'add' ? 'Añadir Concierto' : 'Editar Concierto' }}
+        </h3>
+        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="mx-auto div-forms">
+          <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
+            <div *ngFor="let err of errorMessages">{{ err }}</div>
+          </div>
+
+          <form (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-6">
+                <label class="form-label">Día</label>
+                <select class="form-select day-month-select" [(ngModel)]="day" name="day" required>
+                  <option [ngValue]="null" disabled>Selecciona día</option>
+                  <option *ngFor="let d of days"
+                          [ngValue]="d">{{ d }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-6">
+                <label class="form-label">Mes</label>
+                <select class="form-select day-month-select" [(ngModel)]="month" name="month" required>
+                  <option [ngValue]="null" disabled>Selecciona mes</option>
+                  <option *ngFor="let m of months"
+                          [ngValue]="m">{{ m | titlecase }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Lugar</label>
+                <input type="text" class="form-control" placeholder="Ciudad, recinto, etc." [(ngModel)]="place" name="place" required/>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">URL Tickets (opcional)</label>
+                <input type="url" class="form-control" placeholder="https://" [(ngModel)]="urlTicketSale" name="urlTicketSale"/>
+              </div>
+            </div>
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn w-100 fw-bold register-btn">{{ mode === 'add' ? 'Crear Concierto' : 'Guardar Cambios' }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

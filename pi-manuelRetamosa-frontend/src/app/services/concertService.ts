@@ -18,4 +18,16 @@ export class ConcertService {
   getById(id: number): Observable<ConcertDTO> {
     return this.http.get<ConcertDTO>(`${this.apiUrl}/${id}`);
   }
+
+  create(concert: ConcertDTO): Observable<ConcertDTO> {
+    return this.http.post<ConcertDTO>(`${this.apiUrl}`, concert);
+  }
+
+  update(id: number, concert: ConcertDTO): Observable<ConcertDTO> {
+    return this.http.put<ConcertDTO>(`${this.apiUrl}/${id}`, concert);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

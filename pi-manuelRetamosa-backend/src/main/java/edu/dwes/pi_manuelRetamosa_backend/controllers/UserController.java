@@ -5,9 +5,12 @@
 package edu.dwes.pi_manuelRetamosa_backend.controllers;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.LoginDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProfileDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.UserDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +26,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -87,18 +93,6 @@ public class UserController {
         return register(userDTO, result);
     }
 
-    @PutMapping("/editar/{id}")
-    public ResponseEntity<?> edit(@PathVariable Long id, @Valid @RequestBody UserDTO userDTO, BindingResult result) {
-        if (result.hasErrors()) 
-            return validacion(result);
-
-        try {
-            return ResponseEntity.ok(userService.update(id, userDTO));
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
-        }
-    }
-
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         try {
@@ -106,6 +100,38 @@ public class UserController {
             return ResponseEntity.noContent().build();
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+        }
+    }
+
+    
+    @PutMapping("/avatar/{id}")
+    public ResponseEntity<?> updateAvatar(@PathVariable Long id, @RequestPart("file") MultipartFile file,HttpServletRequest request) {
+        try {
+            UserDTO updated = userService.updateAvatar(id, file, null, request);
+            return ResponseEntity.ok(updated);
+        } catch (RuntimeException | IOException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", e.getMessage()));
+        }
+    }
+    
+    @PutMapping("/editar/{id}")
+    public ResponseEntity<?> editProfile(@PathVariable Long id, @Valid @RequestBody ProfileDTO profileDto, BindingResult result) {
+        if (result.hasErrors()) {
+            List<String> errores = result.getFieldErrors().stream()
+                .sorted(Comparator.comparingInt(err -> {
+                    List<String> order = List.of("userName", "surname", "email", "phoneNumber");
+                    return order.indexOf(err.getField());
+                }))
+                .map(FieldError::getDefaultMessage)
+                .toList();
+            return ResponseEntity.badRequest().body(Map.of("errors", errores));
+        }
+        try {
+            UserDTO actualizado = userService.updateFromProfileDTO(id, profileDto);
+            return ResponseEntity.ok(actualizado);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                                 .body("Usuario no encontrado");
         }
     }
 

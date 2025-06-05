@@ -42,7 +42,14 @@
     <ng-template #loggedInUser>
       <div class="dropdown">
         <button class="btn dropdown-toggle bg-transparent border-0 p-0" data-bs-toggle="dropdown">
-          <img class="user-icon" [src]="loggedUser?.avatar || 'assets/header/user-icon.png'" alt="{{ 'HEADER.USER_AVATAR_ALT' | translate }}"/>
+          <div
+            class="user-avatar"
+            [ngStyle]="{
+          'background-image':
+            'url(' + (loggedUser?.avatar || 'assets/header/user-icon.png') + ')'
+        }"
+            title="{{ 'HEADER.USER_AVATAR_ALT' | translate }}"
+          ></div>
         </button>
         <ul class="dropdown-menu custom-dropdown text-center">
           <li><a class="dropdown-item" routerLink="/profile">{{ 'HEADER.BUTTON.PROFILE' | translate }}</a></li>

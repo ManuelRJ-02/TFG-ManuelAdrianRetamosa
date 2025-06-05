@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -41,6 +40,11 @@ public class SpringSecurityConfig {
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
                 .requestMatchers("/users/register").permitAll()
                 .requestMatchers("/users/login").permitAll()
+                .requestMatchers("/users/editar/**").permitAll()
+                .requestMatchers("/users/avatar/**").permitAll()
+                .requestMatchers("/users/**").permitAll()
+                .requestMatchers("/creditCards/**").permitAll()
+                .requestMatchers("/avatars/**").permitAll()
                 .requestMatchers("/products").permitAll()
                 .requestMatchers("/productVariants/**").permitAll()
                 .requestMatchers("/cartProducts/**").permitAll()
@@ -51,6 +55,7 @@ public class SpringSecurityConfig {
                 .requestMatchers("/concerts/**").permitAll()
                 .requestMatchers("/songs/**").permitAll()
                 .requestMatchers("/albums/**").permitAll()
+                .requestMatchers("/addresses/**").permitAll()
                 .requestMatchers("/**").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated()
             )

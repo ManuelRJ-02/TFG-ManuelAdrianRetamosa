@@ -2,47 +2,60 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header border-0">
-        <h3 class="modal-title" id="address-modal-label">{{ 'ADDRESS_MODAL.TITLE' | translate }}</h3>
+        <h3 class="modal-title" id="address-modal-label">
+          {{ 'ADDRESS_MODAL.TITLE' | translate }}
+        </h3>
         <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" [attr.aria-label]="'ADDRESS_MODAL.BUTTON.CLOSE' | translate"></button>
       </div>
       <div class="modal-body">
         <div class="mx-auto div-forms">
-          <form class="row g-3">
+          <form class="row g-3" (ngSubmit)="onSubmitAddAddress()">
             <div class="col-md-6">
               <label for="country" class="form-label">{{ 'ADDRESS_MODAL.LABELS.COUNTRY' | translate }}</label>
-              <input type="text" id="country" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.COUNTRY' | translate">
+              <input type="text" id="country" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.COUNTRY'
+              | translate" [(ngModel)]="country" name="country" required/>
             </div>
             <div class="col-md-6">
               <label for="province" class="form-label">{{ 'ADDRESS_MODAL.LABELS.PROVINCE' | translate }}</label>
-              <input type="text" id="province" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.PROVINCE' | translate">
+              <input type="text" id="province" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.PROVINCE'
+              | translate" [(ngModel)]="province" name="province" required/>
             </div>
             <div class="col-md-6">
               <label for="city" class="form-label">{{ 'ADDRESS_MODAL.LABELS.CITY' | translate }}</label>
-              <input type="text" id="city" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.CITY' | translate">
+              <input type="text" id="city" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.CITY'
+              | translate" [(ngModel)]="city" name="city" required/>
             </div>
             <div class="col-md-6">
               <label for="postalCode" class="form-label">{{ 'ADDRESS_MODAL.LABELS.POSTAL_CODE' | translate }}</label>
-              <input type="text" id="postalCode" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.POSTAL_CODE' | translate">
+              <input type="text" id="postalCode" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.POSTAL_CODE'
+              | translate" [(ngModel)]="postalCode" name="postalCode" required/>
             </div>
             <div class="col-md-6">
               <label for="street" class="form-label">{{ 'ADDRESS_MODAL.LABELS.STREET' | translate }}</label>
-              <input type="text" id="street" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.STREET' | translate">
+              <input type="text" id="street" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.STREET'
+              | translate" [(ngModel)]="street" name="street" required/>
             </div>
             <div class="col-md-6">
               <label for="blockNumber" class="form-label">{{ 'ADDRESS_MODAL.LABELS.BLOCK_NUMBER' | translate }}</label>
-              <input type="text" id="blockNumber" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.BLOCK_NUMBER' | translate">
+              <input type="text" id="blockNumber" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.BLOCK_NUMBER'
+              | translate" [(ngModel)]="blockNumber" name="blockNumber" required/>
             </div>
             <div class="col-md-6">
               <label for="ladder" class="form-label">{{ 'ADDRESS_MODAL.LABELS.LADDER' | translate }}</label>
-              <input type="text" id="ladder" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.LADDER' | translate">
+              <input type="text" id="ladder" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.LADDER'
+              | translate" [(ngModel)]="ladder" name="ladder" required/>
             </div>
             <div class="col-md-6">
-              <label for="door" class="form-label">{{ 'ADDRESS_MODAL.LABELS.DOOR' | translate }}
-              </label>
-              <input type="text" id="door" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.DOOR' | translate">
+              <label for="door" class="form-label">{{ 'ADDRESS_MODAL.LABELS.DOOR' | translate }}</label>
+              <input type="text" id="door" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.DOOR'
+              | translate" [(ngModel)]="door" name="door" required/>
+            </div>
+            <div *ngIf="errorMessage" class="mt-2 text-danger">
+              {{ errorMessage }}
             </div>
             <div class="col-12 text-center mt-4">
-              <button type="submit" class="btn w-50 fw-bold login-btn">{{ 'ADDRESS_MODAL.BUTTON.ADD' | translate }}</button>
+              <button type="button" class="btn w-50 fw-bold login-btn" (click)="onSubmitAddAddress()"
+                      [disabled]="isSubmitting">{{ 'ADDRESS_MODAL.BUTTON.ADD' | translate }}</button>
             </div>
           </form>
         </div>

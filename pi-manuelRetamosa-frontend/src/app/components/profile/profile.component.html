@@ -1,41 +1,75 @@
 <section class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-lg-3">
-      <div class="heading-wrapper">
-        <h1 class="text-uppercase fw-bold">Perfil de Usuario</h1>
-        <hr class="opacity-100 hr1" />
-      </div>
-      <div class="avatar-box my-4">
-        <img [src]="user?.avatar || 'assets/header/user-icon.png'" alt="Avatar" class="avatar-img">
-        <button class="btn custom-btn">Cambiar Avatar</button>
-      </div>
-    </div>
-    <div class="col-lg-4 custom-padding" *ngIf="user">
-      <div class="h2-block mb-3">
-        <h2 class="fw-bold">Información Personal</h2>
-      </div>
-      <form>
-        <div class="row g-3">
-          <div class="col-md-6">
-            <input type="text" class="form-control custom-input" [(ngModel)]="user.userName" name="userName" placeholder="Nombre">
+    <div class="col-lg-8">
+      <div class="profile-card p-4 mb-5" *ngIf="user">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-8">
+            <h1 class="text-uppercase fw-bold text-white mb-2">Perfil de Usuario</h1>
+            <hr class="opacity-100 hr1" />
           </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control custom-input" [(ngModel)]="user.surname" name="surname" placeholder="Apellidos">
-          </div>
-          <div class="col-12">
-            <input type="email" class="form-control custom-input" [(ngModel)]="user.email" name="email" placeholder="Correo Electrónico" disabled>
-          </div>
-          <div class="col-12">
-            <input type="tel" class="form-control custom-input" [(ngModel)]="user.phoneNumber" name="phoneNumber" placeholder="Teléfono">
-          </div>
-          <div class="col-12">
-            <input type="text" class="form-control custom-input" placeholder="Dirección de Envío" disabled>
-          </div>
-          <div class="col-12 text-end">
-            <button type="submit" class="btn custom-btn w-100 fw-bold">Guardar Cambios</button>
+          <div class="col-md-4 text-center">
+            <div class="profile-avatar" [ngStyle]="{ 'background-image': 'url(' + (user!.avatar || 'assets/header/user-icon.png') + ')' }"
+                 aria-label="Avatar de usuario"></div>
+            <button class="btn custom-btn mt-3" type="button" (click)="triggerFileSelect(fileInput)"
+                    [disabled]="isUploading">{{ isUploading ? 'Subiendo…' : 'Cambiar Avatar' }}</button>
+            <input #fileInput type="file" accept="image/*" style="display: none" (change)="onFileSelected($event)"/>
           </div>
         </div>
-      </form>
+
+        <div class="section-block mb-4">
+          <h2 class="fw-bold section-title">Información Personal</h2>
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label text-light">Nombre</label>
+                <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.userName" name="userName" placeholder="Nombre"/>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light">Apellidos</label>
+                <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.surname" name="surname" placeholder="Apellidos"/>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light">Correo Electrónico</label>
+                <input type="email" class="form-control custom-input" [value]="user!.email" disabled/>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light">Teléfono</label>
+                <input type="tel" class="form-control custom-input" [(ngModel)]="user!.phoneNumber" name="phoneNumber" placeholder="Teléfono"/>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="section-block mb-4">
+          <h2 class="fw-bold section-title">Dirección</h2>
+
+          <div *ngIf="addresses.length === 0" class="text-white mb-3">
+            No tienes direcciones guardadas.
+          </div>
+
+          <div *ngFor="let addr of addresses" class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="profileAddress" [id]="'addr-' + addr.id" [(ngModel)]="selectedAddressId"
+                   [value]="addr.id" (change)="onAddressSelectionChange(addr.id!)"/>
+            <label class="form-check-label" [for]="'addr-' + addr.id">
+              <div>{{ (user!.userName + ' ' + user!.surname) | titlecase }}</div>
+              <div>
+                {{ (addr.street + ', ' + addr.city + ', ' + addr.province + ', ' + addr.postalCode + ', ' + addr.country) | titlecase }}
+              </div>
+              <div>
+                <small>
+                  {{ ('bloque: ' + addr.blockNumber + ' | escalera: ' + addr.ladder + ' | puerta: ' + addr.door) | titlecase }}
+                </small>
+              </div>
+            </label>
+          </div>
+
+          <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal" type="button">+ Agregar Nueva Dirección</button>
+        </div>
+        <div class="text-end">
+          <button type="button" class="btn custom-btn px-4" (click)="onSaveProfile()" [disabled]="isSaving">{{ isSaving ? 'Guardando…' : 'Guardar Cambios' }}</button>
+        </div>
+      </div>
     </div>
   </div>
+  <app-address (addressAdded)="onAddressAdded()"></app-address>
 </section>

@@ -348,7 +348,7 @@
           "ORIGIN": "Tercero (Google Analytics)"
         },
         "_ga_container": {
-          "NAME": "<code>_ga&lt;container-id&gt;</code>",
+          "NAME": "_ga&lt;container-id&gt;",
           "PURPOSE": "Mantiene el estado de la sesión (según la configuración específica).",
           "DURATION": "2 años",
           "ORIGIN": "Tercero (Google Analytics)"

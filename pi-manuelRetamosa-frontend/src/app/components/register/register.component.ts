@@ -40,7 +40,7 @@ export class RegisterComponent {
           userPassword: this.user.userPassword
         }).subscribe({
           next: (user) => {
-            this.sessionService.setUser(user);
+            this.sessionService.setUser(user, this.user.userPassword);
             this.errorMessages = [];
             form.reset();
 

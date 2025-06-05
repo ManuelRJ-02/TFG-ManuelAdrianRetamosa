@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SessionService {
   private userKey = 'loggedUser';
+  private pwdKey = 'loggedPwd';
 
   private userSubject = new BehaviorSubject<UserDTO | null>(this.getUserFromStorage());
   user$ = this.userSubject.asObservable();
@@ -16,8 +17,13 @@ export class SessionService {
     return userJson ? JSON.parse(userJson) : null;
   }
 
-  setUser(user: UserDTO): void {
+  private getPasswordFromStorage(): string | null {
+    return localStorage.getItem(this.pwdKey);
+  }
+
+  setUser(user: UserDTO, password: string): void {
     localStorage.setItem(this.userKey, JSON.stringify(user));
+    localStorage.setItem(this.pwdKey, password);
     this.userSubject.next(user);
   }
 
@@ -25,8 +31,13 @@ export class SessionService {
     return this.userSubject.value;
   }
 
+  getPassword(): string | null {
+    return this.getPasswordFromStorage();
+  }
+
   clearUser(): void {
     localStorage.removeItem(this.userKey);
+    localStorage.removeItem(this.pwdKey);
     this.userSubject.next(null);
   }
 

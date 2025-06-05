@@ -5,6 +5,7 @@
 package edu.dwes.pi_manuelRetamosa_backend.models.daos;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Address;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface IAddressRepository extends JpaRepository<Address, Long>{
-    
+    List<Address> findByUserId(Long userId);
 }

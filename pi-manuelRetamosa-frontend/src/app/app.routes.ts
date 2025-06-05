@@ -19,6 +19,10 @@ import { AuthGuard } from './guards/auth.guard';
 import {MailSentComponent} from './components/mail-sent/mail-sent.component';
 import {PurchaseMadeComponent} from './components/purchase-made/purchase-made.component';
 import {EmailSentGuard} from './services/EmailSentGuard';
+import {PanelAdminConcertComponent} from './components/panel-admin-concert/panel-admin-concert.component';
+import {PanelAdminSongComponent} from './components/panel-admin-song/panel-admin-song.component';
+import {PanelAdminAlbumComponent} from './components/panel-admin-album/panel-admin-album.component';
+import {PanelAdminProductComponent} from './components/panel-admin-product/panel-admin-product.component';
 
 export const routes: Routes = [
   { path: '', component:HomeComponent, title: 'Dani J' },
@@ -39,5 +43,9 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent, title: 'Perfil', canActivate: [AuthGuard] },
   { path: 'mail-sent', component: MailSentComponent, title: 'Correo Enviado', canActivate: [ EmailSentGuard ] },
   { path: 'purchase-made', component: PurchaseMadeComponent, title: 'Compra Realizada' },
+  { path: 'panel-admin-concerts', component: PanelAdminConcertComponent, title: 'Administración de Conciertos' },
+  { path: 'panel-admin-songs', component: PanelAdminSongComponent, title: 'Administración de Canciones' },
+  { path: 'panel-admin-albums', component: PanelAdminAlbumComponent, title: 'Administración de Álbumes' },
+  { path: 'panel-admin-products', component: PanelAdminProductComponent, title: 'Administración de Productos' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

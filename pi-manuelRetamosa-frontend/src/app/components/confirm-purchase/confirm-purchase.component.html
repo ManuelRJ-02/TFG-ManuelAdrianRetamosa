@@ -3,14 +3,23 @@
     <div class="col-12 col-md-8 col-lg-7">
       <div class="billing-card p-4 mb-4">
         <h5 class="fw-bold mb-3">Dirección de facturación</h5>
-        <div class="form-check mb-3">
-          <input class="form-check-input" type="radio" name="billingAddress" id="saved-address"/>
-          <label class="form-check-label" for="saved-address">
-            <div>Nombre Usuario</div>
-            <div>Dirección</div>
+        <div *ngFor="let addr of addresses" class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="billingAddress" [id]="'addr-' + addr.id" [(ngModel)]="selectedAddressId"
+                 [value]="addr.id" (change)="onAddressSelectionChange(addr.id!)"/>
+          <label class="form-check-label" [for]="'addr-' + addr.id">
+            <div>
+              {{ (sessionService.getUser()?.userName + ' ' + sessionService.getUser()?.surname) | titlecase }}
+            </div>
+            <div>
+              {{ (addr.street + ', ' + addr.city + ', ' + addr.province + ', ' + addr.postalCode + ', ' + addr.country ) | titlecase }}
+            </div>
+            <div>
+              <small>{{ ('bloque: ' + addr.blockNumber + ' | ' + 'escalera: ' + addr.ladder + ' | ' + 'puerta: ' + addr.door) | titlecase }}</small>
+            </div>
           </label>
         </div>
-        <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal">+ Agregar Nueva Dirección</button>
+
+        <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal" type="button">+ Agregar Nueva Dirección</button>
       </div>
       <div class="billing-card p-4">
         <h5 class="fw-bold mb-3">Confirmar y Pagar</h5>
@@ -24,20 +33,24 @@
             <p class="mb-0"><strong>Precio:</strong>{{ p.price | number:'1.2-2' }}€ × {{ p.quantity }}</p>
           </div>
         </div>
-        <div class="mt-4 mb-3">
-          <h6 class="fw-bold mb-2">Método pago</h6>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="paymentMethod" id="pm-card" [(ngModel)]="selectedPaymentMethod" value="Tarjeta de crédito/débito"/>
-            <label class="form-check-label" for="pm-card">Tarjeta de crédito/débito</label>
-          </div>
-          <button class="btn btn-payment fw-bold mt-3" data-bs-toggle="modal" data-bs-target="#payment-modal">+ Agregar Nuevo Método de Pago</button>
+        <h5 class="fw-bold mb-3">Tarjetas de Crédito</h5>
+        <div *ngFor="let card of creditCards" class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="creditCard" [id]="'card-' + card.id" [(ngModel)]="selectedCardId" [value]="card.id"
+                 (change)="onCreditCardSelectionChange(card.id!)"/>
+          <label class="form-check-label text-white" [for]="'card-' + card.id">
+            <div><strong>{{ card.holder | titlecase }}</strong></div>
+            <div>
+              {{ '**** **** **** ' + (card.cardNumber.slice(-4)) }}&nbsp;|&nbsp;{{ card.expirationMonth }}/{{ card.expirationYear }}
+            </div>
+          </label>
         </div>
-        <div class="d-flex align-items-center justify-content-between mt-3 terms-and-action">
+        <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#payment-modal" type="button">+ Agregar Nueva Tarjeta</button>
+        <div class="d-flex align-items-center justify-content-between mt-4 terms-and-action">
           <div class="form-check mb-0">
             <input class="form-check-input" type="checkbox" id="terms" [(ngModel)]="termsAccepted"/>
             <label class="form-check-label small" for="terms">Acepto los términos y condiciones de la compra.</label>
           </div>
-          <button class="btn fw-bold btn-finish" (click)="finishPurchase()">Finalizar la Compra</button>
+          <button class="btn fw-bold btn-finish" [disabled]="!canFinish()" (click)="finishPurchase()">Finalizar la Compra</button>
         </div>
       </div>
     </div>
@@ -60,6 +73,6 @@
       </div>
     </div>
   </div>
-  <app-address></app-address>
-  <app-payment-method></app-payment-method>
+  <app-address (addressAdded)="onAddressAdded()"></app-address>
+  <app-payment-method (creditCardAdded)="onCreditCardAdded()"></app-payment-method>
 </div>

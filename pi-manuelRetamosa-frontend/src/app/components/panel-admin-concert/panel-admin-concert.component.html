@@ -1,0 +1,38 @@
+<section class="container-fluid">
+  <div class="container">
+    <div class="col-12 mb-4">
+      <div class="heading-wrapper">
+        <h1 class="text-uppercase fw-bold">Conciertos</h1>
+        <hr class="opacity-100 hr1" />
+      </div>
+    </div>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th class="text-center">ID</th>
+          <th>Fecha</th>
+          <th>Lugar</th>
+          <th>URL Tickets</th>
+          <th colspan="2" class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of concerts">
+          <td class="text-center">{{ c.id }}</td>
+          <td>{{ c.date }}</td>
+          <td>{{ c.place }}</td>
+          <td><a *ngIf="c.urlTicketSale" [href]="c.urlTicketSale" target="_blank">{{ c.urlTicketSale }}</a></td>
+          <td class="text-center"><button class="btn btn-edit btn-sm me-2" (click)="onEditConcert(c)">Editar</button></td>
+          <td class="text-center"><button class="btn btn-delete btn-sm" (click)="onDeleteConcert(c.id)">Eliminar</button></td>
+        </tr>
+        <tr *ngIf="concerts.length === 0">
+          <td colspan="5" class="text-center">No hay conciertos registrados.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mb-4">
+      <button type="button" class="btn btn-add" (click)="onAddConcert()">Añadir Concierto</button>
+    </div>
+    <app-add-concert (concertSaved)="onConcertSaved()" [concertToEdit]="selectedConcert" [mode]="selectedConcert ? 'edit' : 'add'"></app-add-concert>
+  </div>
+</section>
