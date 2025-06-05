@@ -17,4 +17,5 @@ import org.springframework.stereotype.Repository;
 public interface IOrderRepository extends JpaRepository<Order, Long>{
     
     Optional<Order> findFirstByUserIdOrderByOrderDateDesc(Long userId);
+    
 }

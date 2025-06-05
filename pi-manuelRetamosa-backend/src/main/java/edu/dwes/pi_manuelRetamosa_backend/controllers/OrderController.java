@@ -54,6 +54,26 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
       }
     }
+    
+    @PostMapping("/create/{cartId}")
+    public ResponseEntity<OrderDTO> createFromCart(@PathVariable Long cartId) {
+        try {
+            OrderDTO newOrder = orderService.upsertFromCart(cartId);
+            return ResponseEntity.status(HttpStatus.CREATED).body(newOrder);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @PostMapping("/finalize/{cartId}")
+    public ResponseEntity<Void> finalizeFromCart(@PathVariable Long cartId) {
+        try {
+            orderService.finalizeFromCart(cartId);
+            return ResponseEntity.noContent().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
   
     @PostMapping("/crear")
     public ResponseEntity<OrderDTO> create(@RequestBody OrderDTO order){

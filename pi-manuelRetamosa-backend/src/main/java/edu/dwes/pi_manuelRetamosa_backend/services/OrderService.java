@@ -5,8 +5,13 @@
 package edu.dwes.pi_manuelRetamosa_backend.services;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.OrderDTO;
+import edu.dwes.pi_manuelRetamosa_backend.models.daos.ICartShoppingRepository;
+import edu.dwes.pi_manuelRetamosa_backend.models.daos.IDetailOrderRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IOrderRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IUserRepository;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.CartProduct;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.CartShopping;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.DetailOrder;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Order;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.User;
 import jakarta.transaction.Transactional;
@@ -27,6 +32,12 @@ public class OrderService {
     
     @Autowired
     private IUserRepository userRepository;
+    
+    @Autowired
+    private ICartShoppingRepository cartShoppingRepository;
+    
+    @Autowired
+    private IDetailOrderRepository detailOrderRepository;
     
     @Autowired
     private ConverterDTO converterDTO;
@@ -75,4 +86,49 @@ public class OrderService {
         return converterDTO.convADTO(updated);
         
     } 
+    
+    @Transactional
+    public OrderDTO upsertFromCart(Long cartId) {
+        CartShopping cart = cartShoppingRepository.findById(cartId).orElseThrow(() -> new RuntimeException("Carrito no encontrado"));
+        User user = cart.getUser();
+        Order existingOrder = orderRepository.findFirstByUserIdOrderByOrderDateDesc(user.getId()).orElse(null);
+        if (existingOrder != null) {
+            List<DetailOrder> oldDetails = existingOrder.getDetailOrders();
+            for (DetailOrder d : oldDetails) {
+                detailOrderRepository.delete(d);
+            }
+            existingOrder.getDetailOrders().clear();
+        } else {
+            existingOrder = new Order();
+            existingOrder.setUser(user);
+            existingOrder.setPaymentMethod("PAGO_PENDIENTE");
+            existingOrder.setTotal(cart.getTotal());
+            existingOrder = orderRepository.save(existingOrder);
+        }
+        for (CartProduct cp : cart.getCartProducts()) {
+            DetailOrder detail = new DetailOrder();
+            detail.setOrder(existingOrder);
+            detail.setProductVariant(cp.getProductVariant());
+            detail.setAmount(cp.getAmount());
+            detailOrderRepository.save(detail);
+        }
+        existingOrder.setTotal(cart.getTotal());
+        existingOrder = orderRepository.save(existingOrder);
+
+        return converterDTO.convADTO(existingOrder);
+    }
+
+    @Transactional
+    public void finalizeFromCart(Long cartId) {
+        CartShopping cart = cartShoppingRepository.findById(cartId).orElseThrow(() -> new RuntimeException("Carrito no encontrado"));
+        User user = cart.getUser();
+        Order o = orderRepository.findFirstByUserIdOrderByOrderDateDesc(user.getId()).orElseThrow(() -> new RuntimeException("No hay ninguna orden para finalizar"));
+        for (DetailOrder d : o.getDetailOrders()) {
+            detailOrderRepository.delete(d);
+        }
+        o.getDetailOrders().clear();
+        orderRepository.delete(o);
+        cart.getCartProducts().clear();
+        cartShoppingRepository.save(cart);
+    }
 }

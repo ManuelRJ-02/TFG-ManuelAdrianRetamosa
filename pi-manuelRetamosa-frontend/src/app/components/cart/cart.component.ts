@@ -8,6 +8,7 @@ import { SessionService }      from '../../services/SessionService';
 import { CartProductDTO  }      from '../../models/cartProductDTO';
 import { ProductVariantDTO }    from '../../models/productVariantDTO';
 import { ProductVariantService }from '../../services/productVariantService';
+import { OrderService } from '../../services/orderService';
 
 interface CartViewItem {
   cartProductId:     number;
@@ -37,7 +38,8 @@ export class CartComponent implements OnInit {
     private cartProductSvc:  CartProductService,
     private variantSvc:      ProductVariantService,
     private sessionService:  SessionService,
-    private router:          Router
+    private router:          Router,
+    private orderService: OrderService
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class CartComponent implements OnInit {
       return;
     }
     this.cartShoppingSvc.getOpenCartByUser(user.id!).subscribe(cart => {
-      this.cartId = cart.id;
+      this.cartId = cart.id;  // <-- guardamos el cartId
       this.buildViewItems(cart.cartProducts);
       this.totalPrice = cart.total;
       this.totalItems = cart.cartProducts.reduce((sum, cp) => sum + cp.amount, 0);
@@ -88,18 +90,64 @@ export class CartComponent implements OnInit {
   }
 
   increaseQuantity(index: number) {
-    this.cartItems[index].quantity++;
+    const item = this.cartItems[index];
+    const nuevaCantidad = item.quantity + 1;
+
+    this.cartProductSvc.update(
+      item.cartProductId,
+      {
+        id: item.cartProductId,
+        amount: nuevaCantidad,
+        unitPrice: item.price,
+        productVariantId: item.productVariantId,
+        cartShoppingId: this.cartId
+      }
+    ).subscribe({
+      next: updatedCartProduct => {
+        this.cartItems[index].quantity = updatedCartProduct.amount;
+        this.refreshCartTotal();
+      },
+      error: err => console.error('Error al actualizar cantidad:', err)
+    });
   }
 
   decreaseQuantity(index: number) {
-    if (this.cartItems[index].quantity > 1) {
-      this.cartItems[index].quantity--;
-    }
+    const item = this.cartItems[index];
+    if (item.quantity <= 1) return;
+
+    const nuevaCantidad = item.quantity - 1;
+    this.cartProductSvc.update(
+      item.cartProductId,
+      {
+        id: item.cartProductId,
+        amount: nuevaCantidad,
+        unitPrice: item.price,
+        productVariantId: item.productVariantId,
+        cartShoppingId: this.cartId
+      }
+    ).subscribe({
+      next: updatedCartProduct => {
+        this.cartItems[index].quantity = updatedCartProduct.amount;
+        this.refreshCartTotal();
+      },
+      error: err => console.error('Error al actualizar cantidad:', err)
+    });
+  }
+
+  private refreshCartTotal() {
+    this.cartShoppingSvc.getOpenCartByUser(this.sessionService.getUser()!.id!).subscribe(cart => {
+      this.totalItems = cart.cartProducts.reduce((sum, cp) => sum + cp.amount, 0);
+      this.totalPrice = cart.total;
+    });
   }
 
   deleteItem(index: number) {
     const cpId = this.cartItems[index].cartProductId;
     this.cartProductSvc.delete(cpId).subscribe(() => {
+      const item = this.cartItems[index];
+      this.totalItems -= item.quantity;
+      this.totalPrice -= (item.price * item.quantity);
+
       this.cartItems.splice(index, 1);
     });
   }
@@ -108,13 +156,25 @@ export class CartComponent implements OnInit {
     this.cartProductSvc.deleteByCart(this.cartId).subscribe({
       next: () => {
         this.cartItems = [];
+        this.totalItems = 0;
+        this.totalPrice = 0;
       },
       error: err => console.error('Error vaciando carrito', err)
     });
   }
 
   goToConfirmPurchase() {
-    this.router.navigate(['/confirm-purchase']);
-  }
 
+    this.orderService.upsertFromCart(this.cartId).subscribe({
+      next: orderDto => {
+        this.router.navigate(['/confirm-purchase']);
+      },
+      error: err => {
+        console.error('Error al preparar la orden:', err);
+      }
+    });
+
+  }
 }
+
+

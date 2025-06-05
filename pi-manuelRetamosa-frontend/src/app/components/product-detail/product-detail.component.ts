@@ -11,6 +11,7 @@ import { CartProductDTO }          from '../../models/cartProductDTO';
 
 @Component({
   selector: 'app-product-detail',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
@@ -21,6 +22,7 @@ export class ProductDetailComponent implements OnInit {
   selectedColor!:   string;
   selectedVariant!: ProductVariantDTO;
   quantity = 1;
+
   private userId!: number;
   private cartId!: number;
 
@@ -34,9 +36,10 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // 1) Comprobamos si hay usuario logueado
     const user = this.sessionSvc.getUser();
     if (!user) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/merchandising'], { queryParams: { openLogin: true } });
       return;
     }
     this.userId = user.id!;
@@ -49,22 +52,26 @@ export class ProductDetailComponent implements OnInit {
         ).values()
       );
       this.selectColor(this.colors[0].color);
-      this.cartShopSvc.getOpenCartByUser(this.userId)
-        .subscribe((cart: CartShoppingDTO) => {
-          this.cartId = cart.id;
-        });
+
+      this.cartShopSvc.getOpenCartByUser(this.userId).subscribe((cart: CartShoppingDTO) => {
+        this.cartId = cart.id;
+      });
     });
   }
 
   selectColor(color: string) {
     this.selectedColor = color;
-    const first = this.variants.find(v => v.color === color)!;
-    this.selectVariant(first);
+    const firstVariant = this.variants.find(v => v.color === color)!;
+    this.selectVariant(firstVariant);
   }
 
   selectVariant(v: ProductVariantDTO) {
     this.selectedVariant = v;
     this.quantity = 1;
+  }
+
+  sizesForColor(): ProductVariantDTO[] {
+    return this.variants.filter(v => v.color === this.selectedColor);
   }
 
   increaseQuantity() {
@@ -77,10 +84,6 @@ export class ProductDetailComponent implements OnInit {
     if (this.quantity > 1) {
       this.quantity--;
     }
-  }
-
-  sizesForColor() {
-    return this.variants.filter(v => v.color === this.selectedColor);
   }
 
   addToCart() {

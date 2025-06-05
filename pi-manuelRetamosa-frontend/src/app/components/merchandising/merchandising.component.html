@@ -1,42 +1,75 @@
-<div class="container text-white custom-margin">
-  <div class="col-12">
-    <div class="heading-wrapper">
-      <h1 class="text-uppercase fw-bold">Merchandising</h1>
-      <hr class="opacity-100 hr1" />
+<section class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="heading-wrapper">
+        <h1 class="text-uppercase fw-bold">Merchandising</h1>
+        <hr class="opacity-100 hr1" />
+      </div>
     </div>
   </div>
-  <div class="h2-block">
-    <h2 class="fw-bold">Camisetas</h2>
-    <hr class="opacity-100 hr2" />
-  </div>
-  <div class="row g-4">
-    <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of tShirts">
-      <div class="product-card" (click)="viewProductDetail(product.id)">
-        <img [src]="product.genericImage" class="img-fluid" [alt]="product.productName" />
-        <div class="product-overlay">
-          <div class="overlay-content">
-            <h5>{{ product.productName }}</h5>
-            <p>{{ product.priceBase | currency:'EUR' }}</p>
-          </div>
+  <div class="row">
+    <div class="col-12 col-lg-3">
+      <div class="p-3 mb-4 filter-panel mt-lg-6rem-offset">
+        <h5 class="text-uppercase mb-3">Filtros</h5>
+        <div class="mb-4">
+          <label for="typeSelect" class="form-label">Tipo de prenda</label>
+          <select id="typeSelect" class="form-select" [(ngModel)]="filterType" (ngModelChange)="applyFilters()">
+            <option value="all">Todas</option>
+            <option value="tshirt">Camisetas</option>
+            <option value="hoodie">Sudaderas</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="form-label d-block">
+            Precio: <strong>{{ minPrice }} € – {{ maxPrice }} €</strong>
+          </label>
+          <ngx-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="sliderOptions" (userChangeEnd)="applyFilters()"></ngx-slider>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-9">
+      <div *ngIf="(filterType === 'all' || filterType === 'tshirt') && tShirts.length > 0" class="mt-5">
+        <div class="h2-block">
+          <h2 class="fw-bold">Camisetas</h2>
+          <hr class="opacity-100 hr2" />
+        </div>
+        <div class="row g-4">
+          <ng-container *ngIf="tShirts.length > 0">
+            <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of tShirts">
+              <div class="product-card" (click)="viewProductDetail(product.id)">
+                <img [src]="product.genericImage" class="img-fluid" [alt]="product.productName"/>
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <h5>{{ product.productName }}</h5>
+                    <p>{{ product.priceBase | currency:'EUR' }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div *ngIf="(filterType === 'all' || filterType === 'hoodie') && hoodies.length > 0" class="mt-5">
+        <div class="h2-block">
+          <h2 class="fw-bold">Sudaderas</h2>
+          <hr class="opacity-100 hr2" />
+        </div>
+        <div class="row g-4">
+          <ng-container *ngIf="hoodies.length > 0">
+            <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of hoodies">
+              <div class="product-card" (click)="viewProductDetail(product.id)">
+                <img [src]="product.genericImage" class="img-fluid" [alt]="product.productName"/>
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <h5>{{ product.productName }}</h5>
+                    <p>{{ product.priceBase | currency:'EUR' }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
-  <div class="h2-block mt-5">
-    <h2 class="fw-bold">Sudaderas</h2>
-    <hr class="opacity-100 hr2" />
-  </div>
-  <div class="row g-4">
-    <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of hoodies">
-      <div class="product-card" (click)="viewProductDetail(product.id)">
-        <img [src]="product.genericImage" class="img-fluid" [alt]="product.productName" />
-        <div class="product-overlay">
-          <div class="overlay-content">
-            <h5>{{ product.productName }}</h5>
-            <p>{{ product.priceBase | currency:'EUR' }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section>

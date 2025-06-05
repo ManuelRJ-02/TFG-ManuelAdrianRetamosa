@@ -1,27 +1,33 @@
-.custom-margin {
-  margin-top: 10rem;
+section {
+  margin-top: 10.5rem;
+  color: #ffffff;
+  font-family: Arial;
 }
-.heading-wrapper h1 {
+
+h1 {
   color: #ffffff;
 }
 
-.heading-wrapper .hr1 {
+.hr1 {
   height: 6px;
   background-color: #E9BF43;
   width: 160px;
 }
 
-hr{
+hr {
   border: none;
 }
+
 .h2-block {
   margin-top: 6rem;
 }
-.h2-block h2 {
+
+h2 {
   color: #E9BF43;
   font-size: 1.8rem;
 }
-.h2-block .hr2 {
+
+.hr2 {
   height: 3px;
   background-color: #ffffff;
   width: 145px;
@@ -35,6 +41,7 @@ hr{
   border-radius: 15px;
   transition: transform 0.2s ease;
 }
+
 .product-card:hover {
   transform: scale(1.02);
   cursor: pointer;
@@ -74,6 +81,53 @@ hr{
   margin: 0.25rem 0;
 }
 
+label {
+  color: #E9BF43;
+}
+
+.filter-panel {
+  background-color: rgba(15, 9, 17, 0.85);
+  border: 2px solid #E9BF43;
+  border-radius: 10px;
+  position: sticky;
+  top: 100px;
+}
+
+@media (min-width: 992px) {
+  .filter-panel {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.filter-panel h5 {
+  color: #E9BF43;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.filter-panel label {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.filter-panel .form-select {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #E9BF43;
+}
+
+.filter-panel .form-select:focus {
+  box-shadow: 0 0 0 0.2rem rgba(233, 191, 67, 0.25);
+}
+
+@media (min-width: 992px) {
+  .mt-lg-6rem-offset {
+    margin-top: 6.5rem;
+  }
+}
+
 @media (max-width: 767.98px) {
   .heading-wrapper h1 {
     font-size: 1.7rem;
@@ -87,4 +141,12 @@ hr{
   .h2-block .hr2 {
     width: 100px !important;
   }
+}
+
+:host ::ng-deep .ngx-slider .ngx-slider-selection {
+  background-color: #E9BF43 !important;
+}
+:host ::ng-deep .ngx-slider .ngx-slider-pointer {
+  background-color: #E9BF43 !important;
+  border-color: #E9BF43 !important;
 }

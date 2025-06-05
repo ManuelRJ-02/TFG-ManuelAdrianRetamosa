@@ -5,15 +5,16 @@ import { forkJoin, map } from 'rxjs';
 import { OrderService} from '../../services/orderService';
 import { ProductVariantService }   from '../../services/productVariantService';
 import { SessionService} from '../../services/SessionService';
-import { OrderDTO} from '../../models/orderDTO';
 import { ProductVariantDTO }from '../../models/productVariantDTO';
-import {AddressComponent} from '../address/address.component';
-import {PaymentMethodComponent} from '../payment-method/payment-method.component';
-import { AddressService} from '../../services/addressService';
-import { AddressDTO} from '../../models/addressDTO';
-import {CreditCardDTO} from '../../models/creditCardDTO';
-import {CreditCardService} from '../../services/creditCardService';
+import { AddressComponent } from '../address/address.component';
+import { PaymentMethodComponent } from '../payment-method/payment-method.component';
+import { AddressService } from '../../services/addressService';
+import { AddressDTO } from '../../models/addressDTO';
+import { CreditCardDTO } from '../../models/creditCardDTO';
+import { CreditCardService } from '../../services/creditCardService';
 import { Router } from '@angular/router';
+import { CartShoppingService }     from '../../services/cartShoppingService';
+import {CartProductDTO} from '../../models/cartProductDTO';
 
 interface CartViewItem {
   title:    string;
@@ -42,27 +43,43 @@ export class ConfirmPurchaseComponent implements OnInit {
   creditCards: CreditCardDTO[] = [];
   selectedCardId: number | null = null;
 
-  constructor(private orderSvc: OrderService, private variantSvc: ProductVariantService, public sessionService: SessionService,
-              private addressService: AddressService, private creditCardService: CreditCardService, private router: Router) {}
+  private cartId!: number;
+  private userId!: number;
+
+  constructor(
+    private orderSvc: OrderService,
+    private variantSvc: ProductVariantService,
+    public sessionService: SessionService,
+    private addressService: AddressService,
+    private creditCardService: CreditCardService,
+    private cartShoppingSvc: CartShoppingService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const user = this.sessionService.getUser();
-    if (!user) return;
-    this.orderSvc.getLatestByUser(user.id!).subscribe(order => {
-      this.loadDetailOrders(order);
+    if (!user) {
+      this.router.navigate(['/']);
+      return;
+    }
+    this.userId = user.id!;
+
+    this.cartShoppingSvc.getOpenCartByUser(this.userId).subscribe(cart => {
+      this.cartId = cart.id;
+      this.loadDetailOrders(cart.cartProducts);
     });
     this.loadAddresses();
     this.loadCreditCards();
   }
 
-  private loadDetailOrders(order: OrderDTO) {
-    const calls = order.detailOrders.map(d =>
+  private loadDetailOrders(cartProducts: CartProductDTO[]) {
+    const calls = cartProducts.map(d =>
       this.variantSvc.findById(d.productVariantId!).pipe(
         map((v: ProductVariantDTO) => ({
-          title: v.productName,
-          image: v.productVariantImage,
-          size: v.productVariantSize,
-          price: v.price,
+          title:    v.productName,
+          image:    v.productVariantImage,
+          size:     v.productVariantSize,
+          price:    v.price,
           quantity: d.amount!
         } as CartViewItem))
       )
@@ -83,13 +100,15 @@ export class ConfirmPurchaseComponent implements OnInit {
     if (!this.canFinish()) {
       return;
     }
-    console.log('COMPRA confirmada:', {
-      items: this.cartItems,
-      addressId: this.selectedAddressId,
-      cardId: this.selectedCardId,
-      total: this.totalPrice
+
+    this.orderSvc.finalizeFromCart(this.cartId).subscribe({
+      next: () => {
+        this.router.navigate(['/purchase-made']);
+      },
+      error: (err) => {
+        console.error('Error al finalizar la orden:', err);
+      }
     });
-    this.router.navigate(['purchase-made']);
   }
 
   private loadAddresses() {
