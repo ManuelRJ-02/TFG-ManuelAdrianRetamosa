@@ -18,25 +18,17 @@ import { CartProductDTO }          from '../../models/cartProductDTO';
 })
 export class ProductDetailComponent implements OnInit {
   variants: ProductVariantDTO[] = [];
-  colors:   { color: string; image: string }[] = [];
-  selectedColor!:   string;
+  colors: { color: string; image: string }[] = [];
+  selectedColor!: string;
   selectedVariant!: ProductVariantDTO;
   quantity = 1;
-
   private userId!: number;
   private cartId!: number;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private variantSvc: ProductVariantService,
-    private cartShopSvc: CartShoppingService,
-    private cartProdSvc: CartProductService,
-    private sessionSvc: SessionService
-  ) {}
+  constructor(private route: ActivatedRoute, private router: Router, private variantSvc: ProductVariantService,
+    private cartShopSvc: CartShoppingService, private cartProdSvc: CartProductService, private sessionSvc: SessionService) {}
 
   ngOnInit(): void {
-    // 1) Comprobamos si hay usuario logueado
     const user = this.sessionSvc.getUser();
     if (!user) {
       this.router.navigate(['/merchandising'], { queryParams: { openLogin: true } });
@@ -44,25 +36,33 @@ export class ProductDetailComponent implements OnInit {
     }
     this.userId = user.id!;
     const productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.variantSvc.findByProduct(productId).subscribe(vs => {
-      this.variants = vs;
-      this.colors = Array.from(
-        new Map(
-          vs.map(v => [v.color, { color: v.color, image: v.productVariantImage }])
-        ).values()
-      );
-      this.selectColor(this.colors[0].color);
-
-      this.cartShopSvc.getOpenCartByUser(this.userId).subscribe((cart: CartShoppingDTO) => {
-        this.cartId = cart.id;
-      });
+    this.variantSvc.findByProduct(productId).subscribe({
+      next: (vs: ProductVariantDTO[]) => {
+        this.variants = vs;
+        this.colors = Array.from(
+          new Map(vs.map(v => [v.color, { color: v.color, image: v.productVariantImage }])).values()
+        );
+        this.selectedColor = this.colors[0].color;
+        this.selectVariant(this.variants.find(v => v.color === this.selectedColor)!);
+        this.cartShopSvc.getOpenCartByUser(this.userId).subscribe({
+          next: (cart: CartShoppingDTO) => {
+            this.cartId = cart.id;
+          },
+          error: err => {
+            console.error('No pude obtener el carrito abierto', err);
+          }
+        });
+      },
+      error: err => {
+        console.error('Error cargando variantes para productId=' + productId, err);
+      }
     });
   }
 
   selectColor(color: string) {
     this.selectedColor = color;
-    const firstVariant = this.variants.find(v => v.color === color)!;
-    this.selectVariant(firstVariant);
+    const primerV = this.variants.find(v => v.color === color)!;
+    this.selectVariant(primerV);
   }
 
   selectVariant(v: ProductVariantDTO) {
@@ -96,8 +96,28 @@ export class ProductDetailComponent implements OnInit {
     };
 
     this.cartProdSvc.create(dto).subscribe({
-      next: () => alert('Producto añadido al carrito!'),
-      error: err => console.error('Error al añadir:', err)
+      next: () => {
+        this.variantSvc.findById(this.selectedVariant.id!).subscribe({
+          next: (freshVariant: ProductVariantDTO) => {
+            this.selectedVariant = freshVariant;
+            const idx = this.variants.findIndex(v => v.id === freshVariant.id);
+            if (idx >= 0) {
+              this.variants[idx] = freshVariant;
+            }
+            if (this.selectedVariant.stock === 0) {
+              this.quantity = 0;
+            } else if (this.quantity > this.selectedVariant.stock) {
+              this.quantity = this.selectedVariant.stock;
+            }
+          },
+          error: err => {
+            console.error('No pude refrescar la variante tras añadir al carrito', err);
+          }
+        });
+      },
+      error: err => {
+        console.error('Error al añadir al carrito:', err);
+      }
     });
   }
 }

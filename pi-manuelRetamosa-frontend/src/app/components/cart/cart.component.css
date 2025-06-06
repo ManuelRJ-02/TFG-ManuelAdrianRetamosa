@@ -72,6 +72,8 @@ div {
 }
 
 .quantity-group {
+  display: inline-flex;
+  align-items: center;
   border: 2px solid #E9BF43;
   border-radius: 7px;
   overflow: hidden;
@@ -83,6 +85,11 @@ div {
   border: none;
   font-size: 1rem;
   padding: 4px 10px;
+}
+
+.quantity-button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .quantity {
