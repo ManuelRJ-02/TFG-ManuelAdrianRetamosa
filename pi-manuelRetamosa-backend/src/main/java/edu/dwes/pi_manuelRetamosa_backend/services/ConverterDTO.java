@@ -185,6 +185,7 @@ public class ConverterDTO {
         dto.setYearPublication(song.getYearPublication());
         dto.setCoverUrl(song.getCoverUrl());
         dto.setUrl(song.getUrl());
+        dto.setType(song.getType());
         dto.setDuration(song.getDuration());
         dto.setTrackNumber(song.getTrackNumber());
         if (song.getAlbum() != null) {
@@ -369,6 +370,7 @@ public class ConverterDTO {
         song.setYearPublication(dto.getYearPublication());
         song.setCoverUrl(dto.getCoverUrl());
         song.setUrl(dto.getUrl());
+        song.setType(dto.getType());
         song.setDuration(dto.getDuration());
         song.setTrackNumber(dto.getTrackNumber());     
         

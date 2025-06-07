@@ -63,6 +63,7 @@ public class SongService {
         s.setYearPublication(dto.getYearPublication());
         s.setCoverUrl(dto.getCoverUrl());
         s.setUrl(dto.getUrl());
+        s.setType(dto.getType());
         s.setDuration(dto.getDuration());
         s.setTrackNumber(dto.getTrackNumber());
         

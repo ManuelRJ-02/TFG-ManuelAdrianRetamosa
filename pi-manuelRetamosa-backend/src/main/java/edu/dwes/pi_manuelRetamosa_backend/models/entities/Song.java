@@ -39,6 +39,9 @@ public class Song {
     private String url;
     
     @Column(nullable = false)
+    private String type;
+    
+    @Column(nullable = false)
     private String duration;
     
     @Column(name = "track_number", nullable = true)
@@ -48,12 +51,13 @@ public class Song {
     @JoinColumn(name = "album_id", nullable = true)
     private Album album;
 
-    public Song(Long id, String title, Long yearPublication, String coverUrl, String url, String duration, Long trackNumber, Album album) {
+    public Song(Long id, String title, Long yearPublication, String coverUrl, String url, String type, String duration, Long trackNumber, Album album) {
         this.id = id;
         this.title = title;
         this.yearPublication = yearPublication;
         this.coverUrl = coverUrl;
         this.url = url;
+        this.type = type;
         this.duration = duration;
         this.trackNumber = trackNumber;
         this.album = album;
@@ -104,6 +108,14 @@ public class Song {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDuration() {

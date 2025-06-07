@@ -48,7 +48,11 @@ export class TourComponent implements OnInit {
   ngOnInit(): void {
     this.concertService.getAll().subscribe({
       next: (data: ConcertDTO[]) => {
-        this.concerts = data;
+        this.concerts = data
+          .map(c => ({ ...c, _parsedDate: parseSpanishDate(c.date) }))
+          .filter(c => !isNaN(c._parsedDate.getTime()))
+          .sort((a, b) => a._parsedDate.getTime() - b._parsedDate.getTime())
+          .map(({ _parsedDate, ...c }) => c);
       },
       error: (err) => {
         console.error('Error al cargar los conciertos:', err);

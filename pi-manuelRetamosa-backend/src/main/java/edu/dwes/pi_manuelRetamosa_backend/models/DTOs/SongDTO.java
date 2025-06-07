@@ -34,6 +34,10 @@ public class SongDTO {
     
     @NotBlank
     @Size(max = 10)
+    private String type;
+    
+    @NotBlank
+    @Size(max = 10)
     private String duration;
     
     @NotNull
@@ -79,6 +83,14 @@ public class SongDTO {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDuration() {
