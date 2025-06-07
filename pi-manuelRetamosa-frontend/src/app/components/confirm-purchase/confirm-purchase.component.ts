@@ -46,15 +46,8 @@ export class ConfirmPurchaseComponent implements OnInit {
   private cartId!: number;
   private userId!: number;
 
-  constructor(
-    private orderSvc: OrderService,
-    private variantSvc: ProductVariantService,
-    public sessionService: SessionService,
-    private addressService: AddressService,
-    private creditCardService: CreditCardService,
-    private cartShoppingSvc: CartShoppingService,
-    private router: Router
-  ) {}
+  constructor(private orderSvc: OrderService, private variantSvc: ProductVariantService, public sessionService: SessionService,
+    private addressService: AddressService, private creditCardService: CreditCardService, private cartShoppingSvc: CartShoppingService, private router: Router) {}
 
   ngOnInit(): void {
     const user = this.sessionService.getUser();

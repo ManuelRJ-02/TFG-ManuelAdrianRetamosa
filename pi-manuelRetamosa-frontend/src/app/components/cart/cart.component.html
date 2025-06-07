@@ -20,7 +20,7 @@
               <div class="quantity-group">
                 <button class="btn quantity-button" [disabled]="product.quantity <= 1" (click)="decreaseQuantity(i)">−</button>
                 <span class="quantity px-3">{{ product.quantity }}</span>
-                <button class="btn quantity-button" [disabled]="product.quantity >= product.stock" (click)="increaseQuantity(i)">+</button>
+                <button class="btn quantity-button" [disabled]="product.stock <= 0" (click)="increaseQuantity(i)">+</button>
               </div>
             </div>
           </div>

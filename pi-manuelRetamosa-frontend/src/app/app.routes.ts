@@ -23,6 +23,7 @@ import {PanelAdminConcertComponent} from './components/panel-admin-concert/panel
 import {PanelAdminSongComponent} from './components/panel-admin-song/panel-admin-song.component';
 import {PanelAdminAlbumComponent} from './components/panel-admin-album/panel-admin-album.component';
 import {PanelAdminProductComponent} from './components/panel-admin-product/panel-admin-product.component';
+import {AddedProductComponent} from './components/added-product/added-product.component';
 
 export const routes: Routes = [
   { path: '', component:HomeComponent, title: 'Dani J' },
