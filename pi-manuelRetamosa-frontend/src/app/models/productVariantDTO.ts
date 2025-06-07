@@ -1,5 +1,5 @@
 export interface ProductVariantDTO {
-  id: number;
+  id?: number;
   productVariantSize: string;
   color: string;
   price: number;

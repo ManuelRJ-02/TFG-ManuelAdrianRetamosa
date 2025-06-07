@@ -30,4 +30,10 @@ export class AlbumService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/borrar/${id}`);
   }
+
+  uploadCover(file: File): Observable<string> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(`${this.apiUrl}/uploadCover`, formData, { responseType: 'text' });
+  }
 }

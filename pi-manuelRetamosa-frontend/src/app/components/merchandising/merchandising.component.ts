@@ -104,7 +104,7 @@ export class MerchandisingComponent implements OnInit {
     }
   }
 
-  viewProductDetail(id: number): void {
+  viewProductDetail(id?: number): void {
     this.router.navigate(['/product', id]);
   }
 }

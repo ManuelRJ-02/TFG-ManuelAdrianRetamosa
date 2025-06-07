@@ -45,7 +45,7 @@ public class SpringSecurityConfig {
                 .requestMatchers("/users/**").permitAll()
                 .requestMatchers("/creditCards/**").permitAll()
                 .requestMatchers("/avatars/**").permitAll()
-                .requestMatchers("/products").permitAll()
+                .requestMatchers("/products/**").permitAll()
                 .requestMatchers("/productVariants/**").permitAll()
                 .requestMatchers("/cartProducts/**").permitAll()
                 .requestMatchers("/cartShoppings/**").permitAll()

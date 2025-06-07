@@ -4,14 +4,21 @@
  */
 package edu.dwes.pi_manuelRetamosa_backend.services;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.AlbumDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IAlbumRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Album;
 import jakarta.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  *
@@ -22,6 +29,9 @@ public class AlbumService {
     @Autowired
     private IAlbumRepository albumRepository;
     
+    @Autowired
+    private Cloudinary cloudinary;
+     
     @Autowired
     private ConverterDTO converterDTO;
     
@@ -62,5 +72,30 @@ public class AlbumService {
         return converterDTO.convADTO(updated);
         
     } 
+    
+    public String uploadCover(MultipartFile file) {
+        if (file.isEmpty()) {
+            throw new IllegalArgumentException("El fichero está vacío");
+        }
+        try {
+            String original = StringUtils.cleanPath(file.getOriginalFilename());
+            String ext = "";
+            int dot = original.lastIndexOf('.');
+            if (dot > 0) ext = original.substring(dot);
+
+            String publicId = "music/albums/" + UUID.randomUUID();
+            @SuppressWarnings("unchecked")
+            Map<String, Object> res = cloudinary.uploader()
+                .upload(file.getBytes(),
+                        ObjectUtils.asMap(
+                          "public_id", publicId,
+                          "resource_type", "image"
+                        ));
+
+            return res.get("secure_url").toString();
+        } catch (IOException e) {
+            throw new RuntimeException("Error subiendo la imagen a Cloudinary", e);
+        }
+    }
     
 }

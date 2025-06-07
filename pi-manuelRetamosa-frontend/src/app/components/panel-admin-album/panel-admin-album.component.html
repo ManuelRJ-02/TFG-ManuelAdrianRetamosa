@@ -1,1 +1,38 @@
-<p>panel-admin-album works!</p>
+<section class="container-fluid">
+  <div class="container">
+    <div class="col-12 mb-4">
+      <div class="heading-wrapper">
+        <h1 class="text-uppercase fw-bold">Álbumes</h1>
+        <hr class="opacity-100 hr1" />
+      </div>
+    </div>
+    <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th class="text-center">ID</th>
+        <th>Título</th>
+        <th>Año</th>
+        <th class="url-col">URL</th>
+        <th colspan="2" class="text-center">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let a of albums">
+        <td class="text-center">{{ a.id }}</td>
+        <td>{{ a.title }}</td>
+        <td>{{ a.yearPublication }}</td>
+        <td class="url-col"><a [href]="a.url" target="_blank">{{ a.url }}</a></td>
+        <td class="text-center"><button class="btn btn-edit btn-sm me-2" (click)="onEditAlbum(a)">Editar</button></td>
+        <td class="text-center"><button class="btn btn-delete btn-sm" (click)="onDeleteAlbum(a.id)">Eliminar</button></td>
+      </tr>
+      <tr *ngIf="albums.length === 0">
+        <td colspan="7" class="text-center">No hay álbumes registrados.</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="mb-4">
+      <button class="btn btn-add" (click)="onAddAlbum()">Añadir Álbum</button>
+    </div>
+    <app-add-album (albumSaved)="onAlbumSaved()" [albumToEdit]="selectedAlbum" [mode]="selectedAlbum ? 'edit' : 'add'"></app-add-album>
+  </div>
+</section>

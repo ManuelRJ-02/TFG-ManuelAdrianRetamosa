@@ -24,6 +24,9 @@ import {PanelAdminSongComponent} from './components/panel-admin-song/panel-admin
 import {PanelAdminAlbumComponent} from './components/panel-admin-album/panel-admin-album.component';
 import {PanelAdminProductComponent} from './components/panel-admin-product/panel-admin-product.component';
 import {AddedProductComponent} from './components/added-product/added-product.component';
+import {
+  PanelAdminProductVariantComponent
+} from './components/panel-admin-product-variant/panel-admin-product-variant.component';
 
 export const routes: Routes = [
   { path: '', component:HomeComponent, title: 'Dani J' },
@@ -48,5 +51,6 @@ export const routes: Routes = [
   { path: 'panel-admin-songs', component: PanelAdminSongComponent, title: 'Administración de Canciones' },
   { path: 'panel-admin-albums', component: PanelAdminAlbumComponent, title: 'Administración de Álbumes' },
   { path: 'panel-admin-products', component: PanelAdminProductComponent, title: 'Administración de Productos' },
+  { path: 'panel-admin-product-variants', component: PanelAdminProductVariantComponent, title: 'Administración de Variante de Productos' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

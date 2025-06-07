@@ -1,1 +1,50 @@
-<p>panel-admin-song works!</p>
+<section class="container-fluid">
+  <div class="container">
+    <div class="col-12 mb-4">
+      <div class="heading-wrapper">
+        <h1 class="text-uppercase fw-bold">Canciones</h1>
+        <hr class="opacity-100 hr1" />
+      </div>
+    </div>
+    <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th class="text-center">ID</th>
+        <th>Título</th>
+        <th>Año</th>
+        <th>URL</th>
+        <th>Tipo</th>
+        <th>Duración</th>
+        <th class="text-center">Nº Pista</th>
+        <th colspan="2" class="text-center">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let s of songs">
+        <td class="text-center">{{ s.id }}</td>
+        <td>{{ s.title }}</td>
+        <td>{{ s.yearPublication }}</td>
+        <td>
+          <a [href]="s.url" target="_blank">{{ s.url }}</a>
+        </td>
+        <td>{{ s.type }}</td>
+        <td>{{ s.duration }}</td>
+        <td class="text-center">{{ s.trackNumber }}</td>
+        <td class="text-center">
+          <button class="btn btn-edit btn-sm me-2" (click)="onEditSong(s)">Editar</button>
+        </td>
+        <td class="text-center">
+          <button class="btn btn-delete btn-sm" (click)="onDeleteSong(s.id)">Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="songs.length === 0">
+        <td colspan="10" class="text-center">No hay canciones registradas.</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="mb-4">
+      <button type="button" class="btn btn-add" (click)="onAddSong()">Añadir Canción</button>
+    </div>
+    <app-add-song (songSaved)="onSongSaved()" [songToEdit]="selectedSong" [mode]="selectedSong ? 'edit' : 'add'"></app-add-song>
+  </div>
+</section>

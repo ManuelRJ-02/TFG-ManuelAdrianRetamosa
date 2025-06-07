@@ -1,0 +1,58 @@
+<div class="modal fade" id="product-variant-modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h3 class="modal-title">{{ mode === 'add' ? 'Añadir Variante' : 'Editar Variante' }}</h3>
+        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Producto</label>
+            <select class="form-select" [(ngModel)]="productId" name="productId" required>
+              <option [ngValue]="''" disabled>Selecciona producto</option>
+              <option *ngFor="let p of products" [ngValue]="p.id">{{ p.productName }}</option>
+            </select>
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Talla</label>
+              <select class="form-select" [(ngModel)]="productVariantSize" name="productVariantSize" required>
+                <option [ngValue]="''" disabled>Selecciona talla</option>
+                <option value="XXL">XXL</option>
+                <option value="XL">XL</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="S">S</option>
+                <option value="XS">XS</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Color</label>
+              <input class="form-control" [(ngModel)]="color" name="color"/>
+            </div>
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Precio</label>
+              <input class="form-control" [(ngModel)]="price" name="price"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Stock</label>
+              <input class="form-control" [(ngModel)]="stock" name="stock"/>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label">Imagen Variante</label>
+            <input type="file" accept="image/*" hidden #fileInput (change)="onFileSelected($event)"/>
+            <input type="text" class="form-control clickable-input" placeholder="Selecciona imagen..." [value]="productVariantImage"
+                   readonly (click)="triggerFileSelect()"/>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn register-btn">{{ mode === 'add' ? 'Crear Variante' : 'Guardar Cambios' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

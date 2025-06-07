@@ -1,0 +1,47 @@
+<section class="container-fluid">
+  <div class="container">
+    <h1 class="text-uppercase fw-bold">Variantes de Producto</h1>
+    <hr class="opacity-100 hr1" />
+
+    <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th class="text-center">ID</th>
+        <th>Tamaño</th>
+        <th>Color</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Disponible</th>
+        <th>Producto</th>
+        <th colspan="2" class="text-center">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let v of variants">
+        <td class="text-center">{{ v.id }}</td>
+        <td>{{ v.productVariantSize }}</td>
+        <td>{{ v.color }}</td>
+        <td>{{ v.price | currency:'EUR' }}</td>
+        <td>{{ v.stock }}</td>
+        <td class="text-center">
+            <span [class.text-success]="v.stock > 0" [class.text-danger]="v.stock === 0">
+              {{ v.stock > 0 ? 'Sí' : 'No' }}
+            </span>
+        </td>
+        <td>{{ v.productName }}</td>
+        <td class="text-center">
+          <button class="btn btn-edit btn-sm me-2" (click)="onEdit(v)">Editar</button>
+        </td>
+        <td class="text-center">
+          <button class="btn btn-delete btn-sm" (click)="onDelete(v.id)">Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="variants.length === 0">
+        <td colspan="9" class="text-center">No hay variantes.</td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-add mb-4" (click)="onAdd()">Añadir Variante</button>
+    <app-added-product-variant (variantSaved)="onSaved()" [variantToEdit]="selectedVariant" [mode]="selectedVariant ? 'edit' : 'add'"></app-added-product-variant>
+  </div>
+</section>
