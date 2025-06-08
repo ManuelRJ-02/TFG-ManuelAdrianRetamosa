@@ -5,7 +5,10 @@
 package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -15,22 +18,26 @@ import jakarta.validation.constraints.Size;
 public class ProductDTO {
     private Long id;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message = "El nombre es obligatorio")
+    @Size(max = 100, message = "El nombre no puede tener más de 100 caracteres")
+    @Pattern(regexp = "$|^[\\p{L}0-9 .,'\"\\-()]+$",message = "El nombre solo puede contener letras, números, espacios y .,'\\\"-()")
     private String productName;
 
-    @NotBlank
-    @Size(max = 1000)
+    @NotBlank(message = "La descripción es obligatoria")
+    @Size(max = 1000, message = "La descripción no puede tener más de 1000 caracteres")
+    @Pattern(regexp = "$|^[\\p{L}0-9 \\n\\r\\.,;:¡!¿?\"'()\\-]+$",message = "La descripción solo puede contener letras, números, espacios, saltos de línea y .,:;¡!¿?\\\"'()-")
     private String productDescription;
 
-    @DecimalMin(value = "0.0", inclusive = false)
+    @NotNull(message = "El precio base es obligatorio")
+    @DecimalMin(value = "0.0", inclusive = false, message = "El precio debe ser mayor que 0")
+    @Digits(integer = 10, fraction = 2, message = "El precio admite hasta 2 decimales")
     private float priceBase;
 
-    @NotBlank
+    @NotBlank(message = "La imagen es obligatoria")
     private String genericImage;
 
-    @NotBlank
-    @Size(max = 50)
+    @NotBlank(message = "La categoría es obligatoria")
+    @Size(max = 50, message = "La categoría no puede tener más de 50 caracteres")
     private String category;
 
     public Long getId() {

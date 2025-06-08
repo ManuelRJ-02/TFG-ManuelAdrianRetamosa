@@ -33,6 +33,11 @@ export class RegisterComponent {
     this.errorMessages = [];
     this.user.email = this.user.email.toLowerCase();
 
+    if (this.user.userPassword !== this.confirmPassword) {
+      this.errorMessages = ['Las contraseñas no coinciden'];
+      return;
+    }
+
     this.authService.register(this.user).subscribe({
       next: () => {
         this.authService.login({
@@ -76,10 +81,5 @@ export class RegisterComponent {
       icon.classList.toggle('fa-eye', !isText);
       icon.classList.toggle('fa-eye-slash', isText);
     }
-  }
-
-  isFormValid(form: NgForm): boolean {
-    if (!form.valid || !this.confirmPassword) return false;
-    return this.user.userPassword === this.confirmPassword;
   }
 }

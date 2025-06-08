@@ -6,11 +6,16 @@ package edu.dwes.pi_manuelRetamosa_backend.controllers;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProductVariantDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.ProductVariantService;
+import jakarta.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,7 +59,10 @@ public class ProductVariantController {
     }
     
     @PostMapping("/crear")
-    public ResponseEntity<ProductVariantDTO> create(@RequestBody ProductVariantDTO productVariant){
+    public ResponseEntity<?> create(@Valid @RequestBody ProductVariantDTO productVariant, BindingResult result){
+        if (result.hasErrors()) {
+            return validacion(result);
+        }
         ProductVariantDTO newProductVariant=productVariantService.save(productVariant);
         return ResponseEntity.status(HttpStatus.CREATED).body(newProductVariant);
     }
@@ -70,8 +78,11 @@ public class ProductVariantController {
     }
     
     @PutMapping("/editar/{id}")
-    public ResponseEntity<ProductVariantDTO> edit(@PathVariable Long id, @RequestBody ProductVariantDTO newProductVariant){
+    public ResponseEntity<?> edit(@PathVariable Long id, @Valid @RequestBody ProductVariantDTO newProductVariant, BindingResult result){
         try{
+            if (result.hasErrors()) {
+                return validacion(result);
+            }
             ProductVariantDTO updated = productVariantService.update(id, newProductVariant);
             return ResponseEntity.ok(updated);
         }catch(RuntimeException e){
@@ -89,6 +100,17 @@ public class ProductVariantController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error subiendo la imagen");
         }
+    }
+    
+    private static final List<String> ORDER = List.of("productVariantSize","color","price","stock", "productVariantImage");
+
+    private ResponseEntity<Map<String, Object>> validacion(BindingResult result) {
+        List<String> errores = result.getFieldErrors().stream()
+            .sorted(Comparator.comparingInt(err -> ORDER.indexOf(err.getField())))
+            .map(FieldError::getDefaultMessage)
+            .toList();
+
+        return ResponseEntity.badRequest().body(Map.of("errors", errores));
     }
     
 }

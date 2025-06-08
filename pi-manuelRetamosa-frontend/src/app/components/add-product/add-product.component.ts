@@ -17,12 +17,15 @@ export class AddProductComponent implements OnChanges {
 
   @ViewChild('fileInput', { static: true })
   fileInput!: ElementRef<HTMLInputElement>;
+
   productName        = '';
   productDescription = '';
   priceBase!: number;
   genericImage       = '';
   category           = '';
   loadingImage       = false;
+
+  errorMessages: string[] = [];
 
   constructor(private svc: ProductService) {}
 
@@ -33,7 +36,9 @@ export class AddProductComponent implements OnChanges {
   }
 
   public resetFormFields(): void {
-    if (this.mode==='edit' && this.productToEdit) {
+    this.errorMessages = [];
+
+    if (this.mode === 'edit' && this.productToEdit) {
       const p = this.productToEdit!;
       this.productName        = p.productName;
       this.productDescription = p.productDescription;
@@ -41,11 +46,11 @@ export class AddProductComponent implements OnChanges {
       this.genericImage       = p.genericImage;
       this.category           = p.category;
     } else {
-      this.productName = '';
+      this.productName        = '';
       this.productDescription = '';
-      this.priceBase = undefined!;
-      this.genericImage = '';
-      this.category = '';
+      this.priceBase          = undefined!;
+      this.genericImage       = '';
+      this.category           = '';
       this.fileInput.nativeElement.value = '';
     }
   }
@@ -65,7 +70,7 @@ export class AddProductComponent implements OnChanges {
         this.loadingImage = false;
         inp.value = '';
       },
-      error: _ => {
+      error: () => {
         console.error('Error subiendo imagen');
         this.loadingImage = false;
         inp.value = '';
@@ -74,6 +79,8 @@ export class AddProductComponent implements OnChanges {
   }
 
   onSubmit() {
+    this.errorMessages = [];
+
     const payload: ProductDTO = {
       productName:        this.productName,
       productDescription: this.productDescription,
@@ -81,14 +88,26 @@ export class AddProductComponent implements OnChanges {
       genericImage:       this.genericImage,
       category:           this.category
     };
-    if (this.mode==='edit' && this.productToEdit?.id!=null) {
-      payload.id = this.productToEdit.id;
-      this.svc.update(payload.id, payload)
-        .subscribe(() => this.closeAndEmit());
-    } else {
-      this.svc.create(payload)
-        .subscribe(() => this.closeAndEmit());
-    }
+
+    const call$ = (this.mode === 'edit' && this.productToEdit?.id != null)
+      ? this.svc.update(this.productToEdit.id, payload)
+      : this.svc.create(payload);
+
+    call$.subscribe({
+      next: () => this.closeAndEmit(),
+      error: err => {
+        const body = err.error;
+        if (Array.isArray(body?.errors)) {
+          this.errorMessages = body.errors;
+        }
+        else if (body?.message) {
+          this.errorMessages = [body.message];
+        }
+        else {
+          this.errorMessages = ['Error inesperado'];
+        }
+      }
+    });
   }
 
   private closeAndEmit() {

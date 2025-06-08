@@ -6,6 +6,8 @@ import { ProductVariantService} from '../../services/productVariantService';
 import { ProductService} from '../../services/productService';
 import { ProductDTO } from '../../models/productDTO';
 
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-added-product-variant',
   imports: [CommonModule, FormsModule],
@@ -30,6 +32,8 @@ export class AddedProductVariantComponent implements OnInit, OnChanges {
   productVariantImage = '';
   loadingImage = false;
 
+  errorMessages: string[] = [];
+
   constructor(
     private variantSvc: ProductVariantService,
     private productSvc: ProductService
@@ -37,7 +41,7 @@ export class AddedProductVariantComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.productSvc.getAll().subscribe({
-      next: prods => (this.products = prods),
+      next: prods => this.products = prods,
       error: err => console.error('Error cargando productos:', err)
     });
   }
@@ -49,21 +53,23 @@ export class AddedProductVariantComponent implements OnInit, OnChanges {
   }
 
   resetFormFields(): void {
+    this.errorMessages = [];
+
     if (this.mode === 'edit' && this.variantToEdit) {
       const v = this.variantToEdit;
-      this.productId = v.productId;
-      this.productVariantSize = v.productVariantSize;
-      this.color = v.color;
-      this.price = v.price;
-      this.stock = v.stock;
-      this.productVariantImage = v.productVariantImage;
+      this.productId            = v.productId;
+      this.productVariantSize   = v.productVariantSize;
+      this.color                = v.color;
+      this.price                = v.price;
+      this.stock                = v.stock;
+      this.productVariantImage  = v.productVariantImage;
     } else {
-      this.productId = undefined!;
-      this.productVariantSize = '';
-      this.color = '';
-      this.price = undefined!;
-      this.stock = undefined!;
-      this.productVariantImage = '';
+      this.productId            = undefined!;
+      this.productVariantSize   = '';
+      this.color                = '';
+      this.price                = undefined!;
+      this.stock                = undefined!;
+      this.productVariantImage  = '';
       if (this.fileInput?.nativeElement) {
         this.fileInput.nativeElement.value = '';
       }
@@ -86,8 +92,8 @@ export class AddedProductVariantComponent implements OnInit, OnChanges {
         this.loadingImage = false;
         inp.value = '';
       },
-      error: err => {
-        console.error('Error subiendo imagen variante:', err);
+      error: () => {
+        console.error('Error subiendo imagen variante');
         this.loadingImage = false;
         inp.value = '';
       }
@@ -95,6 +101,8 @@ export class AddedProductVariantComponent implements OnInit, OnChanges {
   }
 
   onSubmit(): void {
+    this.errorMessages = [];
+
     const payload: ProductVariantDTO = {
       productId: this.productId,
       productVariantSize: this.productVariantSize,
@@ -113,7 +121,16 @@ export class AddedProductVariantComponent implements OnInit, OnChanges {
 
     obs.subscribe({
       next: () => this.closeAndEmit(),
-      error: err => console.error('Error guardando variante:', err)
+      error: err => {
+        const body = err.error;
+        if (Array.isArray(body?.errors)) {
+          this.errorMessages = body.errors;
+        } else if (body?.message) {
+          this.errorMessages = [body.message];
+        } else {
+          this.errorMessages = ['Error inesperado al guardar variante'];
+        }
+      }
     });
   }
 

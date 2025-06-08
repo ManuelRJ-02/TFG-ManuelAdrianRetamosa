@@ -6,11 +6,16 @@ package edu.dwes.pi_manuelRetamosa_backend.controllers;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.AlbumDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.AlbumService;
+import jakarta.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,7 +54,10 @@ public class AlbumController {
     }
     
     @PostMapping("/crear")
-    public ResponseEntity<AlbumDTO> create(@RequestBody AlbumDTO album){
+    public ResponseEntity<?> create(@Valid @RequestBody AlbumDTO album, BindingResult result){
+        if (result.hasErrors()) {
+            return validacion(result);
+        }
         AlbumDTO newAlbum=albumService.save(album);
         return ResponseEntity.status(HttpStatus.CREATED).body(newAlbum);
     }
@@ -65,8 +73,11 @@ public class AlbumController {
     }
     
     @PutMapping("/editar/{id}")
-    public ResponseEntity<AlbumDTO> edit(@PathVariable Long id, @RequestBody AlbumDTO newAlbum){
+    public ResponseEntity<?> edit(@PathVariable Long id, @Valid @RequestBody AlbumDTO newAlbum, BindingResult result){
         try{
+            if (result.hasErrors()) {
+                return validacion(result);
+            }
             AlbumDTO updated = albumService.update(id, newAlbum);
             return ResponseEntity.ok(updated);
         }catch(RuntimeException e){
@@ -84,6 +95,17 @@ public class AlbumController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error subiendo la imagen");
         }
+    }
+    
+    private static final List<String> ORDER = List.of("title","yearPublication","coverUrl","url");
+
+    private ResponseEntity<Map<String, Object>> validacion(BindingResult result) {
+        List<String> errores = result.getFieldErrors().stream()
+            .sorted(Comparator.comparingInt(err -> ORDER.indexOf(err.getField())))
+            .map(FieldError::getDefaultMessage)
+            .toList();
+
+        return ResponseEntity.badRequest().body(Map.of("errors", errores));
     }
     
 }

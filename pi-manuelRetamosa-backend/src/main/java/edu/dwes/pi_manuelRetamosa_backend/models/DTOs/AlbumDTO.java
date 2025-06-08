@@ -5,8 +5,10 @@
 package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import java.util.List;
 
@@ -17,20 +19,20 @@ import java.util.List;
 public class AlbumDTO {
     private Long id;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="El título es obligatorio")
+    @Size(max=100, message="El título no puede exceder 100 caracteres")
     private String title;
     
-    @NotNull
-    @Max(4)
+    @NotNull(message="El año de publicación es obligatorio")
+    @Min(value = 2000, message="El año debe ser ≥ 2000")
+    @Max(value = 2100, message="El año debe ser < 2100")
     private Long yearPublication;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="La URL de la portada es obligatoria")
     private String coverUrl;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="La URL de la canción es obligatoria")
+    @Pattern(regexp="$|https?://.*",message="La URL de la canción debe empezar por http:// o https://")
     private String url;
     
     List<SongDTO> songs;

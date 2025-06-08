@@ -12,46 +12,40 @@
           <form class="row g-3" (ngSubmit)="onSubmitAddAddress()">
             <div class="col-md-6">
               <label for="country" class="form-label">{{ 'ADDRESS_MODAL.LABELS.COUNTRY' | translate }}</label>
-              <input type="text" id="country" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.COUNTRY'
-              | translate" [(ngModel)]="country" name="country" required/>
+              <input type="text" id="country" class="form-control"  [(ngModel)]="country" name="country"/>
             </div>
             <div class="col-md-6">
               <label for="province" class="form-label">{{ 'ADDRESS_MODAL.LABELS.PROVINCE' | translate }}</label>
-              <input type="text" id="province" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.PROVINCE'
-              | translate" [(ngModel)]="province" name="province" required/>
+              <input type="text" id="province" class="form-control"  [(ngModel)]="province" name="province"/>
             </div>
             <div class="col-md-6">
               <label for="city" class="form-label">{{ 'ADDRESS_MODAL.LABELS.CITY' | translate }}</label>
-              <input type="text" id="city" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.CITY'
-              | translate" [(ngModel)]="city" name="city" required/>
+              <input type="text" id="city" class="form-control"  [(ngModel)]="city" name="city"/>
             </div>
             <div class="col-md-6">
               <label for="postalCode" class="form-label">{{ 'ADDRESS_MODAL.LABELS.POSTAL_CODE' | translate }}</label>
-              <input type="text" id="postalCode" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.POSTAL_CODE'
-              | translate" [(ngModel)]="postalCode" name="postalCode" required/>
+              <input type="text" id="postalCode" class="form-control"  [(ngModel)]="postalCode" name="postalCode"/>
             </div>
             <div class="col-md-6">
               <label for="street" class="form-label">{{ 'ADDRESS_MODAL.LABELS.STREET' | translate }}</label>
-              <input type="text" id="street" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.STREET'
-              | translate" [(ngModel)]="street" name="street" required/>
+              <input type="text" id="street" class="form-control"  [(ngModel)]="street" name="street"/>
             </div>
             <div class="col-md-6">
               <label for="blockNumber" class="form-label">{{ 'ADDRESS_MODAL.LABELS.BLOCK_NUMBER' | translate }}</label>
-              <input type="text" id="blockNumber" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.BLOCK_NUMBER'
-              | translate" [(ngModel)]="blockNumber" name="blockNumber" required/>
+              <input type="text" id="blockNumber" class="form-control"  [(ngModel)]="blockNumber" name="blockNumber"/>
             </div>
             <div class="col-md-6">
               <label for="ladder" class="form-label">{{ 'ADDRESS_MODAL.LABELS.LADDER' | translate }}</label>
-              <input type="text" id="ladder" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.LADDER'
-              | translate" [(ngModel)]="ladder" name="ladder" required/>
+              <input type="text" id="ladder" class="form-control"  [(ngModel)]="ladder" name="ladder"/>
             </div>
             <div class="col-md-6">
               <label for="door" class="form-label">{{ 'ADDRESS_MODAL.LABELS.DOOR' | translate }}</label>
-              <input type="text" id="door" class="form-control" [placeholder]="'ADDRESS_MODAL.PLACEHOLDERS.DOOR'
-              | translate" [(ngModel)]="door" name="door" required/>
+              <input type="text" id="door" class="form-control"  [(ngModel)]="door" name="door"/>
             </div>
-            <div *ngIf="errorMessage" class="mt-2 text-danger">
-              {{ errorMessage }}
+            <div *ngIf="errorMessages.length" class="alert alert-danger mt-2">
+              <div *ngFor="let err of errorMessages">
+                {{ err }}
+              </div>
             </div>
             <div class="col-12 text-center mt-4">
               <button type="button" class="btn w-50 fw-bold login-btn" (click)="onSubmitAddAddress()"

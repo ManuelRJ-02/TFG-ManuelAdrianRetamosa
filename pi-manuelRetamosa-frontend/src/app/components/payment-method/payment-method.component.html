@@ -11,13 +11,11 @@
             <div class="row g-3">
               <div class="col-12">
                 <label for="cardholder" class="form-label">Titular de la Tarjeta</label>
-                <input type="text" id="cardholder" class="form-control" [(ngModel)]="cardholder" name="cardholder"
-                       placeholder="Nombre en la tarjeta" required/>
+                <input type="text" id="cardholder" class="form-control" [(ngModel)]="cardholder" name="cardholder"/>
               </div>
               <div class="col-12">
                 <label for="cardNumber" class="form-label">Número de la Tarjeta</label>
-                <input type="text" id="cardNumber" class="form-control" [(ngModel)]="cardNumber" name="cardNumber"
-                       placeholder="•••• •••• •••• ••••" required/>
+                <input type="text" id="cardNumber" class="form-control" [(ngModel)]="cardNumber" name="cardNumber"/>
               </div>
               <div class="col-12">
                 <div class="row gx-2">
@@ -38,14 +36,17 @@
                     </select>
                   </div>
                   <div class="col-4">
-                    <label for="securityCode" class="form-label">CVC</label>
-                    <input type="text" id="securityCode" maxlength="3" class="form-control" [(ngModel)]="securityCode"
-                           name="securityCode" placeholder="CVV" required/>
+                    <label for="securityCode" class="form-label">CVV</label>
+                    <input type="text" id="securityCode" maxlength="3" class="form-control" [(ngModel)]="securityCode" name="securityCode"/>
                   </div>
                 </div>
               </div>
-              <div *ngIf="errorMsg.length > 0" class="col-12">
-                <div class="alert alert-danger">{{ errorMsg }}</div>
+              <div *ngIf="errorMsgs.length" class="col-12">
+                <div class="alert alert-danger">
+                  <div *ngFor="let m of errorMsgs">
+                    {{ m }}
+                  </div>
+                </div>
               </div>
               <div class="col-12">
                 <div class="d-grid mt-3">

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AlbumDTO } from '../../models/albumDTO';
 import { AlbumService} from '../../services/albumService';
 
+declare const bootstrap: any;
+
 @Component({
   selector: 'app-add-album',
   imports: [CommonModule, FormsModule],
@@ -19,11 +21,16 @@ export class AddAlbumComponent implements OnChanges {
   @ViewChild('fileInput', { static: true })
   fileInput!: ElementRef<HTMLInputElement>;
 
+  // campos del formulario
   title = '';
   yearPublication!: number;
   coverUrl = '';
   url = '';
   loadingCover = false;
+
+  // control de estado / errores
+  isSaving = false;
+  errorMessages: string[] = [];
 
   constructor(private albumService: AlbumService) {}
 
@@ -34,16 +41,20 @@ export class AddAlbumComponent implements OnChanges {
   }
 
   public resetFormFields(): void {
+    this.errorMessages = [];
+    this.isSaving = false;
+
     if (this.mode === 'edit' && this.albumToEdit) {
-      this.title           = this.albumToEdit.title;
+      this.title = this.albumToEdit.title;
       this.yearPublication = this.albumToEdit.yearPublication;
-      this.coverUrl        = this.albumToEdit.coverUrl;
-      this.url             = this.albumToEdit.url;
+      this.coverUrl = this.albumToEdit.coverUrl;
+      this.url = this.albumToEdit.url;
     } else {
       this.title = '';
       this.yearPublication = undefined!;
       this.coverUrl = '';
       this.url = '';
+      this.loadingCover = false;
       if (this.fileInput && this.fileInput.nativeElement) {
         this.fileInput.nativeElement.value = '';
       }
@@ -51,25 +62,26 @@ export class AddAlbumComponent implements OnChanges {
   }
 
   triggerFileSelect(): void {
-    if (this.fileInput && this.fileInput.nativeElement) {
-      this.fileInput.nativeElement.click();
-    }
+    this.fileInput.nativeElement.click();
   }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (!input.files?.length) return;
+    if (!input.files?.length) {
+      return;
+    }
     const file = input.files[0];
-
     this.loadingCover = true;
+
     this.albumService.uploadCover(file).subscribe({
       next: url => {
-        this.coverUrl     = url;
+        this.coverUrl = url;
         this.loadingCover = false;
         input.value = '';
       },
       error: err => {
         console.error('Error al subir cover:', err);
+        this.errorMessages = [ err.error?.message || 'Error subiendo la portada' ];
         this.loadingCover = false;
         input.value = '';
       }
@@ -77,29 +89,48 @@ export class AddAlbumComponent implements OnChanges {
   }
 
   onSubmit(): void {
+    this.errorMessages = [];
+    this.isSaving = true;
+
     const payload: AlbumDTO = {
-      title: this.title,
+      title: this.title.trim(),
       yearPublication: this.yearPublication,
       coverUrl: this.coverUrl,
-      url: this.url,
+      url: this.url.trim(),
       songs: []
     };
 
+    let request$;
     if (this.mode === 'edit' && this.albumToEdit?.id != null) {
       payload.id = this.albumToEdit.id;
-      this.albumService.update(this.albumToEdit.id, payload)
-        .subscribe(() => this.closeAndEmit());
+      request$ = this.albumService.update(this.albumToEdit.id, payload);
     } else {
-      this.albumService.create(payload)
-        .subscribe(() => this.closeAndEmit());
+      request$ = this.albumService.create(payload);
     }
+
+    request$.subscribe({
+      next: () => {
+        this.closeAndEmit();
+      },
+      error: err => {
+        const body = err.error;
+        if (Array.isArray(body?.errors)) {
+          this.errorMessages = body.errors;
+        } else if (body?.message) {
+          this.errorMessages = [body.message];
+        } else {
+          this.errorMessages = ['Error desconocido al guardar el álbum'];
+        }
+        this.isSaving = false;
+      }
+    });
   }
 
   private closeAndEmit(): void {
     const modalEl = document.getElementById('album-modal');
     if (modalEl) {
-      // @ts-ignore
-      bootstrap.Modal.getInstance(modalEl).hide();
+      const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+      modal.hide();
     }
     this.albumSaved.emit();
   }

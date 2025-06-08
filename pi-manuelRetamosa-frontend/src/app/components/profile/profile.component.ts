@@ -17,27 +17,17 @@ import {ProfileDTO} from '../../models/ProfileDTO';
 })
 export class ProfileComponent implements OnInit {
   user: UserDTO | null = null;
-
-  /** Lista de direcciones del usuario */
   addresses: AddressDTO[] = [];
-  /** ID de la dirección seleccionada */
   selectedAddressId: number | null = null;
 
-  // Campos editables:
-  saveError = '';
-  saveSuccess = '';
+  saveErrors: string[] = [];
   isSaving = false;
 
-  // Para la subida de avatar (sólo si usabas esa parte):
   isUploading = false;
   uploadError = '';
   uploadSuccess = '';
 
-  constructor(
-    private sessionService: SessionService,
-    private authService: AuthService,
-    private addressService: AddressService
-  ) {}
+  constructor(private sessionService: SessionService, private authService: AuthService, private addressService: AddressService) {}
 
   ngOnInit(): void {
     this.user = this.sessionService.getUser();
@@ -46,7 +36,6 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  /** Carga todas las direcciones del usuario usando AddressService */
   loadAddresses() {
     if (!this.user) return;
     this.addressService.getAddressesByUser(this.user.id!).subscribe({
@@ -62,44 +51,34 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  /** Cuando <app-address> emite “addressAdded” */
   onAddressAdded() {
     this.loadAddresses();
   }
 
-  /**
-   * Guarda nombre, apellidos, teléfono y avatar
-   * Construye un ProfileDTO (no un UserDTO) y llama a updateProfile(...)
-   */
   onSaveProfile() {
     if (!this.user) return;
-    this.saveError = '';
-    this.saveSuccess = '';
+    this.saveErrors = [];
     this.isSaving = true;
 
-    // Construimos un ProfileDTO
     const profilePayload: ProfileDTO = {
       id: this.user.id!,
       userName: this.user.userName!,
       surname: this.user.surname!,
       email: this.user.email!,
-      avatar: this.user.avatar,          // puede venir undefined o la URL
-      phoneNumber: this.user.phoneNumber, // puede venir undefined o el teléfono
+      avatar: this.user.avatar,
+      phoneNumber: this.user.phoneNumber,
     };
 
     this.authService.updateProfile(profilePayload).subscribe({
       next: (updated) => {
-        // Actualizamos la sesión con lo que devuelve el backend
         this.sessionService.setUser(updated, this.sessionService.getPassword()!);
         this.user = updated;
-        this.saveSuccess = 'Datos actualizados correctamente.';
       },
       error: (err) => {
         if (err.error?.errors) {
-          // si el backend devolvió un array de errores de validación
-          this.saveError = (err.error.errors as string[]).join(', ');
+          this.saveErrors = err.error.errors as string[];
         } else {
-          this.saveError = err.error?.message || 'Error al guardar los datos';
+          this.saveErrors = err.error?.message || 'Error al guardar los datos';
         }
       },
       complete: () => {
@@ -108,16 +87,14 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  /** Seleccionar otra dirección */
   onAddressSelectionChange(addrId: number) {
     this.selectedAddressId = addrId;
-    // (Si quisieras, podrías enviar un PUT extra para marcar esta dirección como “preferida”)
   }
 
-  /** Métodos de avatar, igual que antes… */
   triggerFileSelect(fileInput: HTMLInputElement) {
     fileInput.click();
   }
+
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files?.length && this.user) {
@@ -128,6 +105,7 @@ export class ProfileComponent implements OnInit {
       input.value = '';
     }
   }
+
   uploadAvatarFile(file: File) {
     if (!file || !this.user) {
       this.uploadError = 'Selecciona primero un archivo.';

@@ -5,8 +5,12 @@
 package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -17,31 +21,32 @@ public class ProductVariantDTO {
     
     private Long id;
     
-    @NotBlank
+    @NotBlank(message = "La talla es obligatoria")
     private String productVariantSize;
 
-    @NotBlank
+    @NotBlank(message = "El color es obligatorio")
+    @Size(max = 30, message = "El color no puede tener más de 30 caracteres")
+    @Pattern(regexp = "^[A-Za-zÁÉÍÓÚÑáéíóúñ ]+$",message = "El color solo puede contener letras y espacios")
     private String color;
 
-    @DecimalMin(value = "0.0", inclusive = false)
+    @NotNull(message = "El precio base es obligatorio")
+    @DecimalMin(value = "0.0", inclusive = false, message = "El precio debe ser mayor que 0")
+    @Digits(integer = 10, fraction = 2, message = "El precio admite hasta 2 decimales")
     private float price;
 
-    @Min(0)
+    @Min(value = 0, message = "El stock no puede ser negativo")
+    @Max(value = 10000, message = "El stock no puede superar 10 000 unidades")
     private Long stock;
 
-    @NotBlank
+    @NotBlank(message = "La imagen es obligatoria")
     private String productVariantImage;
 
     private boolean available;
     
     private Long productId;
-    
-    @NotBlank
-    @Size(max = 100)
+
     private String productName;
 
-    @NotBlank
-    @Size(max = 1000)
     private String productDescription;  
 
     public Long getId() {

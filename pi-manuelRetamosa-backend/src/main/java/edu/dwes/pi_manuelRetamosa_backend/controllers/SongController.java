@@ -6,11 +6,16 @@ package edu.dwes.pi_manuelRetamosa_backend.controllers;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.SongDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.SongService;
+import jakarta.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,7 +46,10 @@ public class SongController {
     }
     
     @PostMapping("/crear")
-    public ResponseEntity<SongDTO> create(@RequestBody SongDTO song){
+    public ResponseEntity<?> create(@Valid @RequestBody SongDTO song, BindingResult result){
+        if (result.hasErrors()) {
+            return validacion(result);
+        }
         SongDTO newSong=songService.save(song);
         return ResponseEntity.status(HttpStatus.CREATED).body(newSong);
     }
@@ -57,8 +65,11 @@ public class SongController {
     }
     
     @PutMapping("/editar/{id}")
-    public ResponseEntity<SongDTO> edit(@PathVariable Long id, @RequestBody SongDTO newSong){
+    public ResponseEntity<?> edit(@PathVariable Long id, @Valid @RequestBody SongDTO newSong, BindingResult result){
         try{
+            if (result.hasErrors()) {
+                return validacion(result);
+            }
             SongDTO updated = songService.update(id, newSong);
             return ResponseEntity.ok(updated);
         }catch(RuntimeException e){
@@ -76,5 +87,16 @@ public class SongController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error subiendo la imagen");
         }
+    }
+    
+    private static final List<String> ORDER = List.of("title","yearPublication","coverUrl","url","type","duration","trackNumber");
+
+    private ResponseEntity<Map<String, Object>> validacion(BindingResult result) {
+        List<String> errores = result.getFieldErrors().stream()
+            .sorted(Comparator.comparingInt(err -> ORDER.indexOf(err.getField())))
+            .map(FieldError::getDefaultMessage)
+            .toList();
+
+        return ResponseEntity.badRequest().body(Map.of("errors", errores));
     }
 }

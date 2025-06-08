@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-6">
               <label class="form-label">Categoría</label>
-              <select class="form-select" [(ngModel)]="category" name="category" required>
+              <select class="form-select" [(ngModel)]="category" name="category">
                 <option [ngValue]="''" disabled>Selecciona categoría</option>
                 <option [ngValue]="'tshirt'">T-Shirt</option>
                 <option [ngValue]="'hoodie'">Hoodie</option>
@@ -37,6 +37,11 @@
             </div>
           </div>
           <div class="d-grid">
+            <div *ngIf="errorMessages.length" class="alert alert-danger mt-3">
+              <div *ngFor="let err of errorMessages">
+                {{ err }}
+              </div>
+            </div>
             <button type="submit" class="btn register-btn">{{ mode === 'add' ? 'Crear Producto' : 'Guardar Cambios' }}</button>
           </div>
         </form>

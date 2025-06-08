@@ -18,29 +18,29 @@ public class UserDTO {
     
     Long id;
     
-    @NotBlank
-    @Size(max = 50)
-    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "Nombre inválido")
+    @NotBlank(message="El nombre es obligatorio")
+    @Size(max = 50, message = "El nombre no puede exceder 50 caracteres")
+    @Pattern(regexp = "^$|^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "El nombre solo puede contener letras y espacios")
     private String userName;
     
-    @NotBlank
-    @Size(max = 50)
-    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "Apellidos inválidos")
+    @NotBlank(message="Los apellidos son obligatorios")
+    @Size(max = 50, message = "El apellidos no puede exceder 50 caracteres")
+    @Pattern(regexp = "^$|^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "Los apellidos solo pueden contener letras y espacios")
     private String surname;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="El email es obligatorio")
+    @Size(max = 100, message = "El email no puede exceder 100 caracteres")
     @Email(message = "Formato de correo inválido")
     private String email;
     
-    @NotBlank
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}$", message = "La contraseña debe de contener al menos 8 caracteres, una mayúscula, una minúscula y un número")
+    @NotBlank(message="La contraseña es obligatoria")
+    @Pattern(regexp = "^$|^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}$", message = "La contraseña debe de contener al menos 8 caracteres, una mayúscula, una minúscula y un número")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
     
     private String avatar = "assets/avatars/default.png";
     
-    @Pattern(regexp = "^(\\+?[0-9]{7,15})?$", message = "Número de teléfono no válido")
+    @Pattern(regexp = "^(?:\\d{9})?$", message = "El teléfono debe tener 9 digitos")
     private String phoneNumber;
     
     private boolean enabled;

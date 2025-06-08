@@ -11,24 +11,24 @@
             <div class="row g-2">
               <div class="col-6">
                 <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" placeholder="Tu nombre" [(ngModel)]="user.userName" name="userName" required />
+                <input type="text" class="form-control" [(ngModel)]="user.userName" name="userName" />
               </div>
               <div class="col-6">
                 <label class="form-label">Apellidos</label>
-                <input type="text" class="form-control" placeholder="Tus apellidos" [(ngModel)]="user.surname" name="surname" required />
+                <input type="text" class="form-control" [(ngModel)]="user.surname" name="surname" />
               </div>
               <div class="col-6">
                 <label class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" placeholder="tucorreo@ejemplo.com" [(ngModel)]="user.email" name="email" required />
+                <input type="email" class="form-control" [(ngModel)]="user.email" name="email" />
               </div>
               <div class="col-6">
                 <label class="form-label">Teléfono (opcional)</label>
-                <input type="tel" class="form-control" placeholder="+34..." [(ngModel)]="user.phoneNumber" name="phoneNumber" />
+                <input type="tel" class="form-control" [(ngModel)]="user.phoneNumber" name="phoneNumber" />
               </div>
               <div class="col-6">
                 <label class="form-label">Contraseña</label>
                 <div class="input-group">
-                  <input type="password" class="form-control" id="reg-password" placeholder="••••••••" [(ngModel)]="user.userPassword" name="userPassword" required />
+                  <input type="password" class="form-control" id="reg-password" [(ngModel)]="user.userPassword" name="userPassword" />
                   <span class="input-group-text" (click)="togglePassword('reg-password', 'eye-password')">
                     <i id="eye-password" class="fa-solid fa-eye-slash"></i>
                   </span>
@@ -37,7 +37,7 @@
               <div class="col-6">
                 <label class="form-label">Confirmar Contraseña</label>
                 <div class="input-group">
-                  <input type="password" class="form-control" id="reg-password-confirm" placeholder="••••••••" [(ngModel)]="confirmPassword" name="confirmPassword"/>
+                  <input type="password" class="form-control" id="reg-password-confirm" [(ngModel)]="confirmPassword" name="confirmPassword"/>
                   <span class="input-group-text" (click)="togglePassword('reg-password-confirm', 'eye-password-confirm')">
                     <i id="eye-password-confirm" class="fa-solid fa-eye-slash"></i>
                   </span>
@@ -50,7 +50,7 @@
               </div>
             </div>
             <div class="d-grid mt-4">
-              <button type="submit" class="btn w-100 fw-bold register-btn" [disabled]="!isFormValid(form)">Crear Cuenta</button>
+              <button type="submit" class="btn w-100 fw-bold register-btn">Crear Cuenta</button>
             </div>
           </form>
           <div class="text-center mt-3">

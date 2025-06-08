@@ -6,6 +6,7 @@ package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 /**
  *
@@ -13,7 +14,8 @@ import jakarta.validation.constraints.NotBlank;
  */
 public class LoginDTO {
     
-    @NotBlank(message = "El correo no puede estar vacío")
+    @NotBlank(message="El email es obligatorio")
+    @Size(max = 100, message = "El email no puede exceder 100 caracteres")
     @Email(message = "Formato de correo inválido")
     private String email;
 

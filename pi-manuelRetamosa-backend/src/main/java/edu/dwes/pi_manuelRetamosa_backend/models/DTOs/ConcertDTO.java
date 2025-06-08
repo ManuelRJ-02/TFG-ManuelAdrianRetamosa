@@ -5,6 +5,7 @@
 package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -14,16 +15,18 @@ import jakarta.validation.constraints.Size;
 public class ConcertDTO {
     private Long id;
     
-    @NotBlank
-    @Size(max = 30)
+    @NotBlank(message="La fecha es obligatoria")
+    @Size(max = 4, message="La fecha no puede exceder 4 numeros")
     private String date;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="El lugar es obligatorio")
+    @Size(max = 100, message="El lugar no puede exceder 100 caracteres")
+    @Pattern(regexp= "^$|^[\\p{L} ]+,\\s*[\\p{L} ]+$",message= "Formato de lugar incorrecto. Debes indicar 'Ciudad, País'")
     private String place;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="La url del ticket es obligatoria")
+    @Size(max = 200, message = "La URL no puede exceder 200 caracteres")
+    @Pattern(regexp  = "^$|^https://.*",message = "La URL debe empezar con https://")
     private String urlTicketSale;
 
     public Long getId() {

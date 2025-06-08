@@ -6,10 +6,15 @@ package edu.dwes.pi_manuelRetamosa_backend.controllers;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ConcertDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.ConcertService;
+import jakarta.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,7 +51,10 @@ public class ConcertController {
     }
     
     @PostMapping
-    public ResponseEntity<ConcertDTO> create(@RequestBody ConcertDTO concert){
+    public ResponseEntity<?> create(@Valid @RequestBody ConcertDTO concert, BindingResult result){
+        if (result.hasErrors()) {
+            return validacion(result);
+        }
         ConcertDTO newConcert=concertService.save(concert);
         return ResponseEntity.status(HttpStatus.CREATED).body(newConcert);
     }
@@ -62,12 +70,26 @@ public class ConcertController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<ConcertDTO> edit(@PathVariable Long id, @RequestBody ConcertDTO newConcert){
+    public ResponseEntity<?> edit(@PathVariable Long id, @Valid @RequestBody ConcertDTO newConcert, BindingResult result){
         try{
+            if (result.hasErrors()) {
+                return validacion(result);
+            }
             ConcertDTO updated = concertService.update(id, newConcert);
             return ResponseEntity.ok(updated);
         }catch(RuntimeException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+    }
+    
+    private static final List<String> ORDER = List.of("date","place","urlTicketSale");
+
+    private ResponseEntity<Map<String, Object>> validacion(BindingResult result) {
+        List<String> errores = result.getFieldErrors().stream()
+            .sorted(Comparator.comparingInt(err -> ORDER.indexOf(err.getField())))
+            .map(FieldError::getDefaultMessage)
+            .toList();
+
+        return ResponseEntity.badRequest().body(Map.of("errors", errores));
     }
 }

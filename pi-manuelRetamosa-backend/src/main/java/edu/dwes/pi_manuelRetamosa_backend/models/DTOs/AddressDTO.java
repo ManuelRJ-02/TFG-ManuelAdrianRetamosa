@@ -6,7 +6,6 @@ package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 /**
  *
@@ -15,37 +14,36 @@ import jakarta.validation.constraints.Size;
 public class AddressDTO {
     private Long id;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="La calle es obligatoria")
+    @Pattern(regexp = "$|^[\\p{L}0-9\\s,\\.\\-\\/]{1,100}$", message = "La calle solo puede contener letras, números, espacios, comas, puntos, guiones o barras (1–100 caracteres)")
     private String street;
     
-    @NotBlank
-    @Size(max = 50)
+    @NotBlank(message="La ciudad es obligatoria")
+    @Pattern(regexp = "$|^[\\p{L}\\s]{1,50}$",message = "La ciudad solo puede contener letras y espacios (1–50 caracteres)")
     private String city;
     
-    @NotBlank
-    @Size(max = 50)
+    @NotBlank(message="La provincia es obligatoria")
+    @Pattern(regexp = "$|^[\\p{L}\\s]{1,50}$",message = "La provincia solo puede contener letras y espacios (1–50 caracteres)")
     private String province;
     
-    @NotBlank
-    @Size(max = 10)
-    @Pattern(regexp = "\\d{4,10}", message = "Código postal no válido")
+    @NotBlank(message="El codigo postal es obligatorio")
+    @Pattern(regexp = "$|^\\d{5,6}", message = "El código postal debe tener 5 o 6 dígitos")
     private String postalCode;
     
-    @NotBlank
-    @Size(max = 50)
+    @NotBlank(message="El país es obligatorio")
+    @Pattern(regexp = "$|^[\\p{L}\\s]{1,50}$",message = "El país solo puede contener letras y espacios (1–50 caracteres)")
     private String country;
     
-    @NotBlank
-    @Size(max = 10)
+    @NotBlank(message="El bloque es obligatorio")
+    @Pattern(regexp = "$|^\\d{1,2}$",message = "El bloque debe tener 1 o 2 dígitos")
     private String blockNumber;
     
-    @NotBlank
-    @Size(max = 10)
+    @NotBlank(message="La escalera es obligatoria")
+    @Pattern(regexp = "$|^[A-Za-z0-9]{1,2}$",message = "La escalera debe tener 1 o 2 caracteres alfanuméricos")
     private String ladder;
     
-    @NotBlank
-    @Size(max = 10)
+    @NotBlank(message="La puerta es obligatoria")
+    @Pattern(regexp = "$|^\\d{1,3}[A-Za-z]?",message = "La puerta debe tener 1–3 dígitos y opcionalmente una letra")
     private String door;
     
     private Long userId;

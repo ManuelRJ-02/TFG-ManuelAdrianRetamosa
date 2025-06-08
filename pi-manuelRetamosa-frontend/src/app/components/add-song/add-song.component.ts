@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { SongDTO } from '../../models/songDTO';
 import { SongService } from '../../services/songService';
 
+declare const bootstrap: any;
+
 @Component({
   selector: 'app-add-song',
   standalone: true,
@@ -19,13 +21,15 @@ export class AddSongComponent implements OnChanges {
   @ViewChild('fileInput', { static: true })
   fileInput!: ElementRef<HTMLInputElement>;
 
-  title = '';
+  title!: string;
   yearPublication!: number;
-  coverUrl = '';
-  url = '';
-  type = '';
-  duration = '';
+  coverUrl!: string;
+  url!: string;
+  type!: string;
+  duration!: string;
   trackNumber!: number;
+  isSaving = false;
+  errorMessages: string[] = [];
 
   constructor(private songService: SongService) {}
 
@@ -36,84 +40,94 @@ export class AddSongComponent implements OnChanges {
   }
 
   private resetFormFields(): void {
+    this.errorMessages = [];
     if (this.mode === 'edit' && this.songToEdit) {
-      // Carga todos los campos desde el DTO
-      this.title = this.songToEdit.title;
+      this.title           = this.songToEdit.title;
       this.yearPublication = this.songToEdit.yearPublication;
-      this.coverUrl = this.songToEdit.coverUrl || '';
-      this.url = this.songToEdit.url;
-      this.type = this.songToEdit.type;
-      this.duration = this.songToEdit.duration;
-      this.trackNumber = this.songToEdit.trackNumber;
+      this.coverUrl        = this.songToEdit.coverUrl    || '';
+      this.url             = this.songToEdit.url         || '';
+      this.type            = this.songToEdit.type        || '';
+      this.duration        = this.songToEdit.duration    || '';
+      this.trackNumber     = this.songToEdit.trackNumber;
     } else {
-      // Vacía todos los campos
-      this.title = '';
+      this.title           = '';
       this.yearPublication = undefined!;
-      this.coverUrl = '';
-      this.url = '';
-      this.type = '';
-      this.duration = '';
-      this.trackNumber = undefined!;
-      // Limpia también el valor del input file
-      if (this.fileInput && this.fileInput.nativeElement) {
+      this.coverUrl        = '';
+      this.url             = '';
+      this.type            = '';
+      this.duration        = '';
+      this.trackNumber     = undefined!;
+      if (this.fileInput?.nativeElement) {
         this.fileInput.nativeElement.value = '';
       }
     }
   }
 
-  /** Lanza el diálogo de selección de fichero */
   triggerFileSelect(): void {
     this.fileInput.nativeElement.click();
   }
 
-  /** Se dispara al elegir fichero */
   onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (!input.files || input.files.length === 0) {
-      return;
-    }
+    const input = (event.target as HTMLInputElement);
+    if (!input.files?.length) return;
     const file = input.files[0];
-    // Sube a Cloudinary
     this.songService.uploadCover(file).subscribe({
-      next: (url: string) => {
+      next: url => {
         this.coverUrl = url;
-        // Una vez subido, limpia el input para futuras selecciones
         input.value = '';
       },
       error: err => {
-        console.error('Error al subir cover:', err);
-        // También limpiar input en caso de error
+        console.error('Error subiendo cover:', err);
         input.value = '';
       }
     });
   }
 
   onSubmit(): void {
+    this.errorMessages = [];
+    this.isSaving      = true;
+
     const payload: SongDTO = {
-      title: this.title,
+      title:           this.title.trim(),
       yearPublication: this.yearPublication,
-      coverUrl: this.coverUrl,
-      url: this.url,
-      type: this.type,
-      duration: this.duration,
-      trackNumber: this.trackNumber
+      coverUrl:        this.coverUrl.trim(),
+      url:             this.url.trim(),
+      type:            this.type,
+      duration:        this.duration,
+      trackNumber:     this.trackNumber
     };
 
-    if (this.mode === 'edit' && this.songToEdit?.id != null) {
-      payload.id = this.songToEdit.id;
-      this.songService.update(this.songToEdit.id, payload)
-        .subscribe(() => this.closeAndEmit());
-    } else {
-      this.songService.create(payload)
-        .subscribe(() => this.closeAndEmit());
-    }
+    const obs = (this.mode === 'edit' && this.songToEdit?.id != null)
+      ? this.songService.update(this.songToEdit.id, payload)
+      : this.songService.create(payload);
+
+    obs.subscribe({
+      next: () => {
+        this.closeAndEmit();
+      },
+      error: err => {
+        const body = err.error;
+        if (Array.isArray(body?.errors)) {
+          this.errorMessages = body.errors;
+        } else if (body?.message) {
+          this.errorMessages = [body.message];
+        } else {
+          this.errorMessages = ['Error desconocido al guardar la canción'];
+        }
+        this.isSaving = false;
+      },
+      complete: () => {
+        this.isSaving = false;
+      }
+    });
   }
 
   private closeAndEmit(): void {
     const modalEl = document.getElementById('song-modal');
     if (modalEl) {
       // @ts-ignore
-      bootstrap.Modal.getInstance(modalEl).hide();
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      modal.hide();
     }
     this.songSaved.emit();
   }

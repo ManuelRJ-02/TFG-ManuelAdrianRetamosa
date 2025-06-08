@@ -25,7 +25,7 @@ export class PaymentMethodComponent {
   @Output() creditCardAdded = new EventEmitter<void>();
 
   isSaving = false;
-  errorMsg = '';
+  errorMsgs: string[] = [];
 
   months: string[] = ['01','02','03','04','05','06','07','08','09','10','11','12'];
   years: string[] = ['24','25','26','27','28', '29','30','31','32','33','34'];
@@ -33,7 +33,7 @@ export class PaymentMethodComponent {
   constructor(private creditCardSvc: CreditCardService, private sessionService: SessionService) {}
 
   onExpiryChange(): void {
-    if (!this.errorMsg || !this.expiryMonth || !this.expiryYear) {
+    if (!this.errorMsgs || !this.expiryMonth || !this.expiryYear) {
       return;
     }
 
@@ -46,38 +46,17 @@ export class PaymentMethodComponent {
     const curMonthNum = parseInt(currentMonth, 10);
 
     if (selYearNum > curYearNum || (selYearNum === curYearNum && selMonthNum >= curMonthNum)) {
-      this.errorMsg = '';
+      this.errorMsgs = [];
     }
   }
 
   onAddCard(): void {
-    this.errorMsg = '';
+    this.errorMsgs = [];
     this.isSaving = true;
 
     const user = this.sessionService.getUser();
     if (!user || !user.id) {
-      this.errorMsg = 'Usuario no autenticado.';
-      this.isSaving = false;
-      return;
-    }
-
-    if (!this.expiryMonth || !this.expiryYear) {
-      this.errorMsg = 'Debes seleccionar mes y año de caducidad.';
-      this.isSaving = false;
-      return;
-    }
-
-    const today = new Date();
-    const currentYear2 = String(today.getFullYear()).slice(-2);
-    const currentMonth = (today.getMonth() + 1).toString().padStart(2, '0');
-
-    const selYearNum = parseInt(this.expiryYear, 10);
-    const selMonthNum = parseInt(this.expiryMonth, 10);
-    const curYearNum = parseInt(currentYear2, 10);
-    const curMonthNum = parseInt(currentMonth, 10);
-
-    if (selYearNum < curYearNum || (selYearNum === curYearNum && selMonthNum < curMonthNum)) {
-      this.errorMsg = 'La fecha de caducidad no puede ser anterior al mes actual.';
+      this.errorMsgs = ['Usuario no autenticado.'];
       this.isSaving = false;
       return;
     }
@@ -110,10 +89,14 @@ export class PaymentMethodComponent {
         }
       },
       error: err => {
-        this.errorMsg = err.error?.message || 'Error al añadir la tarjeta';
-        this.isSaving = false;
-      },
-      complete: () => {
+        const payload = err.error;
+        if (Array.isArray(payload?.errors)) {
+          this.errorMsgs = payload.errors;
+        } else if (payload?.message) {
+          this.errorMsgs = [ payload.message ];
+        } else {
+          this.errorMsgs = ['Error desconocido al añadir la tarjeta'];
+        }
         this.isSaving = false;
       }
     });

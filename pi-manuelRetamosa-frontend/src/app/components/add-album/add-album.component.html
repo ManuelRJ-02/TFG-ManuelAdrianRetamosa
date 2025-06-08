@@ -14,7 +14,7 @@
           <div class="row g-3 mb-3">
             <div class="col-md-6">
               <label class="form-label">Año Publicación</label>
-              <input type="number" class="form-control" [(ngModel)]="yearPublication" name="yearPublication" />
+              <input class="form-control" [(ngModel)]="yearPublication" name="yearPublication" />
             </div>
             <div class="col-md-6">
               <label class="form-label">Cover Image</label>
@@ -27,6 +27,11 @@
             <input type="url" class="form-control" [(ngModel)]="url" name="url" />
           </div>
           <div class="d-grid">
+            <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
+              <div *ngFor="let err of errorMessages">
+                {{ err }}
+              </div>
+            </div>
             <button type="submit" class="btn register-btn" [disabled]="loadingCover">{{ mode === 'add' ? 'Crear Álbum' : 'Guardar Cambios' }}</button>
           </div>
         </form>

@@ -5,8 +5,10 @@
 package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -16,31 +18,31 @@ import jakarta.validation.constraints.Size;
 public class SongDTO {
     private Long id;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="El título es obligatorio")
+    @Size(max=100, message="El título no puede exceder 100 caracteres")
     private String title;
     
-    @NotNull
-    @Max(4)
+    @NotNull(message="El año de publicación es obligatorio")
+    @Min(value = 2000, message="El año debe ser ≥ 2000")
+    @Max(value = 2100, message="El año debe ser < 2100")
     private Long yearPublication;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="La URL de la portada es obligatoria")
     private String coverUrl;
     
-    @NotBlank
-    @Size(max = 100)
+    @NotBlank(message="La URL de la canción es obligatoria")
+    @Pattern(regexp="$|https?://.*",message="La URL de la canción debe empezar por http:// o https://")
     private String url;
     
-    @NotBlank
-    @Size(max = 10)
+    @NotBlank(message="El tipo es obligatorio")
     private String type;
     
-    @NotBlank
-    @Size(max = 10)
+    @NotBlank(message="La duración es obligatoria")
+    @Pattern(regexp="$|^\\d{1,2}:\\d{2}$",message="La duración debe tener formato mm:ss")
     private String duration;
     
-    @NotNull
+    @NotNull(message="El número de pista es obligatorio")
+    @Min(value = 1, message="El número de pista debe ser al menos 1")
     private Long trackNumber;
     
     private Long albumId;

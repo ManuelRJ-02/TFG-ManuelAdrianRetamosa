@@ -13,22 +13,22 @@ import jakarta.validation.constraints.Pattern;
  */
 public class CreditCardDTO {
     
-    @NotBlank
-    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "Titular de tarjeta inválido")
+    @NotBlank(message="El titular es obligatorio")
+    @Pattern(regexp = "^$|^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "El titular solo puede contener letras y espacios")
     private String holder;
     
-    @NotBlank
-    @Pattern(regexp = "^[0-9]{16}$", message = "El número de tarjeta debe tener 16 dígitos numéricos")
+    @NotBlank(message="El número de tarjeta es obligatorio")
+    @Pattern(regexp = "^$|^[0-9]{16}$", message = "El número de tarjeta debe tener 16 dígitos")
     private String cardNumber;
     
-    @NotBlank
+    @NotBlank(message="El mes es obligatorio")
     private String expirationMonth;
     
-    @NotBlank
+    @NotBlank(message="El año es obligatorio")
     private String expirationYear;
     
-    @NotBlank
-    @Pattern(regexp = "^[0-9]{3}$", message = "El código de seguridad debe tener 3 dígitos numéricos")
+    @NotBlank(message="El código de seguridad es obligatorio")
+    @Pattern(regexp = "^$|^[0-9]{3}$", message = "El código de seguridad debe tener 3 dígitos")
     private String securityCode;
     
     private Long userId;

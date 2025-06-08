@@ -49,6 +49,11 @@
                    readonly (click)="triggerFileSelect()"/>
           </div>
           <div class="d-grid">
+            <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
+              <div *ngFor="let err of errorMessages">
+                {{ err }}
+              </div>
+            </div>
             <button type="submit" class="btn register-btn">{{ mode === 'add' ? 'Crear Variante' : 'Guardar Cambios' }}</button>
           </div>
         </form>

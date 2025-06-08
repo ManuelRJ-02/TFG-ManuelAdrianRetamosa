@@ -6,10 +6,15 @@ package edu.dwes.pi_manuelRetamosa_backend.controllers;
 
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.AddressDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.AddressService;
+import jakarta.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,7 +51,10 @@ public class AddressController {
     }
     
     @PostMapping("/crear")
-    public ResponseEntity<AddressDTO> create(@RequestBody AddressDTO address){
+    public ResponseEntity<?> create(@Valid @RequestBody AddressDTO address, BindingResult result){
+        if (result.hasErrors()) {
+            return validacion(result);
+        }
         AddressDTO newAddress=addressService.save(address);
         return ResponseEntity.status(HttpStatus.CREATED).body(newAddress);
     }
@@ -75,6 +83,17 @@ public class AddressController {
     public ResponseEntity<List<AddressDTO>> getByUser(@PathVariable Long userId) {
         List<AddressDTO> list = addressService.findByUser(userId);
         return ResponseEntity.ok(list);
+    }
+    
+    private static final List<String> ORDER = List.of("country", "province", "city", "postalCode", "street", "blockNumber", "ladder", "door");
+
+    private ResponseEntity<Map<String, Object>> validacion(BindingResult result) {
+        List<String> errores = result.getFieldErrors().stream()
+            .sorted(Comparator.comparingInt(err -> ORDER.indexOf(err.getField())))
+            .map(FieldError::getDefaultMessage)
+            .toList();
+
+        return ResponseEntity.badRequest().body(Map.of("errors", errores));
     }
     
 }

@@ -17,30 +17,25 @@ declare var bootstrap: any;
 export class AddressComponent {
   @Output() addressAdded = new EventEmitter<void>();
 
-  country:     string = '';
-  province:    string = '';
-  city:        string = '';
-  postalCode:  string = '';
-  street:      string = '';
-  blockNumber: string = '';
-  ladder:      string = '';
-  door:        string = '';
-  errorMessage: string = '';
-  isSubmitting: boolean = false;
+  country = '';
+  province = '';
+  city = '';
+  postalCode = '';
+  street = '';
+  blockNumber = '';
+  ladder = '';
+  door = '';
+  errorMessages: string[] = [];
+  isSubmitting = false;
 
   constructor(private addressService: AddressService, private sessionService: SessionService) {}
 
   onSubmitAddAddress() {
-    this.errorMessage = '';
+    this.errorMessages = [];
 
     const user = this.sessionService.getUser();
     if (!user) {
-      this.errorMessage = 'Usuario no autenticado.';
-      return;
-    }
-
-    if (!this.country || !this.province || !this.city || !this.postalCode || !this.street || !this.blockNumber || !this.ladder || !this.door) {
-      this.errorMessage = 'Debes completar todos los campos.';
+      this.errorMessages = ['Usuario no autenticado.'];
       return;
     }
 
@@ -65,9 +60,13 @@ export class AddressComponent {
         this.isSubmitting = false;
       },
       error: (err) => {
-        this.errorMessage = err.error?.message || 'Error al guardar la dirección';
+        if (err.error?.errors) {
+          this.errorMessages = err.error.errors as string[];
+        } else {
+          this.errorMessages = [err.error?.message || 'Error al guardar la dirección'];
+        }
         this.isSubmitting = false;
-      },
+      }
     });
   }
 
@@ -80,7 +79,7 @@ export class AddressComponent {
       this.blockNumber = '';
       this.ladder = '';
       this.door = '';
-      this.errorMessage = '';
+      this.errorMessages = [];
     }
 
   private closeModal() {

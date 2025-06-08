@@ -8,7 +8,6 @@ import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.LoginDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.ProfileDTO;
 import edu.dwes.pi_manuelRetamosa_backend.models.DTOs.UserDTO;
 import edu.dwes.pi_manuelRetamosa_backend.services.UserService;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import java.io.IOException;
 import java.util.Comparator;
@@ -16,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -104,27 +103,20 @@ public class UserController {
     }
 
     
-    @PutMapping("/avatar/{id}")
-    public ResponseEntity<?> updateAvatar(@PathVariable Long id, @RequestPart("file") MultipartFile file,HttpServletRequest request) {
+    @PutMapping(value = "/avatar/{id}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> updateAvatar(@PathVariable Long id, @RequestPart("file") MultipartFile file) {
         try {
-            UserDTO updated = userService.updateAvatar(id, file, null, request);
+            UserDTO updated = userService.updateAvatar(id, file);
             return ResponseEntity.ok(updated);
         } catch (RuntimeException | IOException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", e.getMessage()));
+             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", e.getMessage()));
         }
     }
     
     @PutMapping("/editar/{id}")
     public ResponseEntity<?> editProfile(@PathVariable Long id, @Valid @RequestBody ProfileDTO profileDto, BindingResult result) {
         if (result.hasErrors()) {
-            List<String> errores = result.getFieldErrors().stream()
-                .sorted(Comparator.comparingInt(err -> {
-                    List<String> order = List.of("userName", "surname", "email", "phoneNumber");
-                    return order.indexOf(err.getField());
-                }))
-                .map(FieldError::getDefaultMessage)
-                .toList();
-            return ResponseEntity.badRequest().body(Map.of("errors", errores));
+             return validacion(result);
         }
         try {
             UserDTO actualizado = userService.updateFromProfileDTO(id, profileDto);

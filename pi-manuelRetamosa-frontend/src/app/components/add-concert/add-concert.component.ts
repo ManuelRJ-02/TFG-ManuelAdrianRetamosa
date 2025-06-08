@@ -4,7 +4,7 @@ import { ConcertDTO } from '../../models/concertDTO';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
-
+declare const bootstrap: any;
 
 @Component({
   selector: 'app-add-concert',
@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './add-concert.component.html',
   styleUrl: './add-concert.component.css'
 })
+
 export class AddConcertComponent implements OnChanges {
   @Input() mode: 'add' | 'edit' = 'add';
   @Input() concertToEdit: ConcertDTO | null = null;
@@ -27,7 +28,7 @@ export class AddConcertComponent implements OnChanges {
   constructor(private concertService: ConcertService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['concertToEdit']) {
+    if (changes['concertToEdit'] || changes['mode']) {
       this.resetFormFields();
     }
   }
@@ -35,22 +36,17 @@ export class AddConcertComponent implements OnChanges {
   private resetFormFields(): void {
     this.errorMessages = [];
     if (this.mode === 'edit' && this.concertToEdit) {
-      const fullDate = this.concertToEdit.date;
-      const parts = fullDate.split(' de ');
-      if (parts.length === 2) {
-        const d = parseInt(parts[0], 10);
-        if (!isNaN(d)) {
-          this.day = d;
-        } else {
-          this.day = null;
-        }
+      const parts = this.concertToEdit.date?.split(' de ');
+      if (parts?.length === 2) {
+        const parsed = parseInt(parts[0], 10);
+        this.day = isNaN(parsed) ? null : parsed;
         this.month = parts[1];
       } else {
         this.day = null;
         this.month = null;
       }
       this.place = this.concertToEdit.place;
-      this.urlTicketSale = this.concertToEdit.urlTicketSale || '';
+      this.urlTicketSale = this.concertToEdit.urlTicketSale ?? '';
     } else {
       this.day = null;
       this.month = null;
@@ -61,36 +57,29 @@ export class AddConcertComponent implements OnChanges {
 
   onSubmit(): void {
     this.errorMessages = [];
-    if (this.errorMessages.length > 0) {
-      return;
-    }
-    const dateString = `${this.day} de ${this.month}`;
-    const concertPayload: ConcertDTO = {
+    const dateString = this.day != null && this.month ? `${this.day} de ${this.month}` : '';
+    const payload: ConcertDTO = {
       date: dateString,
       place: this.place.trim(),
-      urlTicketSale: this.urlTicketSale.trim() || undefined
+      urlTicketSale: this.urlTicketSale.trim() || undefined,
+      ...(this.mode === 'edit' && this.concertToEdit?.id != null ? { id: this.concertToEdit.id } : {})
     };
 
     if (this.mode === 'add') {
-      this.concertService.create(concertPayload).subscribe({
-        next: _ => {
-          this.emitAndClose();
-        },
+      this.concertService.create(payload).subscribe({
+        next: () => this.emitAndClose(),
         error: err => {
-          console.error('Error al crear concierto:', err);
-          this.errorMessages.push('Error al crear concierto, inténtalo otra vez.');
+          const body = err.error;
+          this.errorMessages = Array.isArray(body.errors) ? body.errors : [ 'Error al crear concierto, inténtalo otra vez.' ];
         }
       });
-    } else if (this.mode === 'edit' && this.concertToEdit && this.concertToEdit.id != null) {
-      concertPayload.id = this.concertToEdit.id;
-      this.concertService.update(this.concertToEdit.id, concertPayload).subscribe({
-        next: _ => {
-          this.emitAndClose();
-        },
+    } else {
+      if (!this.concertToEdit?.id) return;
+      this.concertService.update(this.concertToEdit.id, payload).subscribe({
+        next: () => this.emitAndClose(),
         error: err => {
-          console.error('Error al actualizar concierto:', err);
-          this.errorMessages.push('Error al actualizar concierto, inténtalo otra vez.');
-        }
+          const body = err.error;
+          this.errorMessages = Array.isArray(body.errors) ? body.errors : [ 'Error al actualizar concierto, inténtalo otra vez.' ];}
       });
     }
   }
@@ -98,7 +87,6 @@ export class AddConcertComponent implements OnChanges {
   private emitAndClose(): void {
     const modalEl = document.getElementById('concert-modal');
     if (modalEl) {
-      // @ts-ignore
       const modal = bootstrap.Modal.getInstance(modalEl);
       modal.hide();
     }

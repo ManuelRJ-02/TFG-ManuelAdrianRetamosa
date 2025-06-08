@@ -22,11 +22,11 @@
             <div class="row g-3">
               <div class="col-md-6">
                 <label class="form-label text-light">Nombre</label>
-                <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.userName" name="userName" placeholder="Nombre"/>
+                <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.userName" name="userName"/>
               </div>
               <div class="col-md-6">
                 <label class="form-label text-light">Apellidos</label>
-                <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.surname" name="surname" placeholder="Apellidos"/>
+                <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.surname" name="surname"/>
               </div>
               <div class="col-md-6">
                 <label class="form-label text-light">Correo Electrónico</label>
@@ -34,10 +34,15 @@
               </div>
               <div class="col-md-6">
                 <label class="form-label text-light">Teléfono</label>
-                <input type="tel" class="form-control custom-input" [(ngModel)]="user!.phoneNumber" name="phoneNumber" placeholder="Teléfono"/>
+                <input type="tel" class="form-control custom-input" [(ngModel)]="user!.phoneNumber" name="phoneNumber"/>
               </div>
             </div>
           </form>
+          <div *ngIf="saveErrors.length" class="alert alert-danger mt-3">
+            <div *ngFor="let err of saveErrors">
+              {{ err }}
+            </div>
+          </div>
         </div>
 
         <div class="section-block mb-4">
@@ -66,7 +71,7 @@
           <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal" type="button">+ Agregar Nueva Dirección</button>
         </div>
         <div class="text-end">
-          <button type="button" class="btn custom-btn px-4" (click)="onSaveProfile()" [disabled]="isSaving">{{ isSaving ? 'Guardando…' : 'Guardar Cambios' }}</button>
+          <button type="button" class="btn custom-btn px-4" (click)="onSaveProfile()">Guardar Cambios</button>
         </div>
       </div>
     </div>
