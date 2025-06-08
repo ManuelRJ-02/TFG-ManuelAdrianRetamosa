@@ -6,18 +6,14 @@ import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
-  private apiUrl = 'http://localhost:8080/contact';
+  private apiUrl = 'http://localhost:8080/contacts';
   private _hasSent = false;
 
   constructor(private http: HttpClient) {}
 
   send(contact: ContactDTO): Observable<{ message: string }> {
     const url = `${this.apiUrl}/sendMail`;
-    return this.http
-      .post<{ message: string }>(url, contact)
-      .pipe(
-        tap(() => this._hasSent = true)
-      );
+    return this.http.post<{ message: string }>(url, contact).pipe(tap(() => this._hasSent = true));
   }
 
   hasSent(): boolean {

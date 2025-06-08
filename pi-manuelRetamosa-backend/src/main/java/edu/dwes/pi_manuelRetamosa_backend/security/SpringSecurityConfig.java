@@ -35,28 +35,24 @@ public class SpringSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
+            .cors(withDefaults())
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
-                .requestMatchers("/users/register").permitAll()
-                .requestMatchers("/users/login").permitAll()
-                .requestMatchers("/users/editar/**").permitAll()
-                .requestMatchers("/users/avatar/**").permitAll()
-                .requestMatchers("/users/**").permitAll()
-                .requestMatchers("/creditCards/**").permitAll()
-                .requestMatchers("/avatars/**").permitAll()
-                .requestMatchers("/products/**").permitAll()
-                .requestMatchers("/productVariants/**").permitAll()
-                .requestMatchers("/cartProducts/**").permitAll()
-                .requestMatchers("/cartShoppings/**").permitAll()
-                .requestMatchers("/detailOrders/**").permitAll()
-                .requestMatchers("/orders/**").permitAll()
-                .requestMatchers("/contact/**").permitAll()
-                .requestMatchers("/concerts/**").permitAll()
-                .requestMatchers("/songs/**").permitAll()
-                .requestMatchers("/albums/**").permitAll()
-                .requestMatchers("/addresses/**").permitAll()
-                .requestMatchers("/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.POST, "/users/register/**", "/users/login/**").permitAll() 
+                .requestMatchers(HttpMethod.GET,"/products/**", "/songs/**", "/albums/**", "/concerts/**").permitAll()
+                .requestMatchers(HttpMethod.GET,"/addresses/**","/cartProducts/**", "/cartShoppings/**", "/creditCards/**","/detailOrders/**", "/orders/**",
+                        "/productVariants/**", "/creditCards/**").hasAuthority("ROLE_USER_REGISTERED")
+                .requestMatchers(HttpMethod.POST,"/addresses/**", "/productVariants/crear", "/cartProducts/**", "/orders/**", 
+                        "/detailOrders/**", "/creditCards/**").hasAuthority("ROLE_USER_REGISTERED")
+                .requestMatchers(HttpMethod.POST,"/contacts/**").permitAll()
+                .requestMatchers(HttpMethod.DELETE,"/addresses/**", "/cartProducts/**").hasAuthority("ROLE_USER_REGISTERED")
+                .requestMatchers(HttpMethod.PUT,"/users/**", "/cartProducts/**").hasAuthority("ROLE_USER_REGISTERED")
+                .requestMatchers(HttpMethod.GET, "/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.POST, "/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.DELETE,"/**").hasAuthority("ROLE_ADMIN")
+                    
                 .anyRequest().authenticated()
             )
             .httpBasic(withDefaults())

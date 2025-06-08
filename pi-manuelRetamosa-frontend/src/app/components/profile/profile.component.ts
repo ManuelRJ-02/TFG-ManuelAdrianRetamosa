@@ -106,6 +106,21 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  onDeleteAddress(addrId: number): void {
+    if (!confirm('¿Seguro que quieres borrar esta dirección?')) return;
+    this.addressService.deleteAddress(addrId).subscribe({
+      next: () => {
+        this.addresses = this.addresses.filter(a => a.id !== addrId);
+        if (this.selectedAddressId === addrId) {
+          this.selectedAddressId = this.addresses.length ? this.addresses[0].id! : null;
+        }
+      },
+      error: err => {
+        console.error('Error borrando dirección', err);
+      }
+    });
+  }
+
   uploadAvatarFile(file: File) {
     if (!file || !this.user) {
       this.uploadError = 'Selecciona primero un archivo.';

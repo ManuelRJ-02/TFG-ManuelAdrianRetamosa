@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { AlbumDTO } from '../models/albumDTO';
 import { Observable } from 'rxjs';
+import {SessionService} from './SessionService';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class AlbumService {
   private apiUrl = 'http://localhost:8080/albums';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private session: SessionService) {}
 
   getAll(): Observable<AlbumDTO[]> {
     return this.http.get<AlbumDTO[]>(this.apiUrl);
@@ -20,20 +21,36 @@ export class AlbumService {
   }
 
   create(album: AlbumDTO): Observable<AlbumDTO> {
-    return this.http.post<AlbumDTO>(`${this.apiUrl}/crear`, album);
+    const user = this.session.getUser()!;
+    const pwd  = this.session.getPassword()!;
+    const basic = btoa(`${user.email}:${pwd}`);
+    const headers = new HttpHeaders({'Authorization': `Basic ${basic}`});
+    return this.http.post<AlbumDTO>(`${this.apiUrl}/crear`, album, { headers });
   }
 
   update(id: number, album: AlbumDTO): Observable<AlbumDTO> {
-    return this.http.put<AlbumDTO>(`${this.apiUrl}/editar/${id}`, album);
+    const user = this.session.getUser()!;
+    const pwd  = this.session.getPassword()!;
+    const basic = btoa(`${user.email}:${pwd}`);
+    const headers = new HttpHeaders({'Authorization': `Basic ${basic}`});
+    return this.http.put<AlbumDTO>(`${this.apiUrl}/editar/${id}`, album, { headers });
   }
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/borrar/${id}`);
+    const user = this.session.getUser()!;
+    const pwd  = this.session.getPassword()!;
+    const basic = btoa(`${user.email}:${pwd}`);
+    const headers = new HttpHeaders({'Authorization': `Basic ${basic}`});
+    return this.http.delete<void>(`${this.apiUrl}/borrar/${id}`, { headers });
   }
 
   uploadCover(file: File): Observable<string> {
+    const user = this.session.getUser()!;
+    const pwd  = this.session.getPassword()!;
+    const basic = btoa(`${user.email}:${pwd}`);
+    const headers = new HttpHeaders({'Authorization': `Basic ${basic}`});
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post(`${this.apiUrl}/uploadCover`, formData, { responseType: 'text' });
+    return this.http.post(`${this.apiUrl}/uploadCover`, formData, { headers, responseType: 'text' });
   }
 }

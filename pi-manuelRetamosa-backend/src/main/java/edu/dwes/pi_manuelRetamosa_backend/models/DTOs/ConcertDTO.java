@@ -16,7 +16,6 @@ public class ConcertDTO {
     private Long id;
     
     @NotBlank(message="La fecha es obligatoria")
-    @Size(max = 4, message="La fecha no puede exceder 4 numeros")
     private String date;
     
     @NotBlank(message="El lugar es obligatorio")
@@ -24,7 +23,6 @@ public class ConcertDTO {
     @Pattern(regexp= "^$|^[\\p{L} ]+,\\s*[\\p{L} ]+$",message= "Formato de lugar incorrecto. Debes indicar 'Ciudad, País'")
     private String place;
     
-    @NotBlank(message="La url del ticket es obligatoria")
     @Size(max = 200, message = "La URL no puede exceder 200 caracteres")
     @Pattern(regexp  = "^$|^https://.*",message = "La URL debe empezar con https://")
     private String urlTicketSale;

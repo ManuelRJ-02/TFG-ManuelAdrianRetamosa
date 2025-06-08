@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author manue
  */
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/contacts")
 public class ContactController {
     
     private final ContactService contactService;

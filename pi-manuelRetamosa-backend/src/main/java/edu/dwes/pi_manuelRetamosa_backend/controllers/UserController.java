@@ -122,8 +122,7 @@ public class UserController {
             UserDTO actualizado = userService.updateFromProfileDTO(id, profileDto);
             return ResponseEntity.ok(actualizado);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                                 .body("Usuario no encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
         }
     }
 
