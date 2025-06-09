@@ -21,14 +21,11 @@ export class AddAlbumComponent implements OnChanges {
   @ViewChild('fileInput', { static: true })
   fileInput!: ElementRef<HTMLInputElement>;
 
-  // campos del formulario
   title = '';
   yearPublication!: number;
   coverUrl = '';
   url = '';
   loadingCover = false;
-
-  // control de estado / errores
   isSaving = false;
   errorMessages: string[] = [];
 

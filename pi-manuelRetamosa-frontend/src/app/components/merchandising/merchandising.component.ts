@@ -5,12 +5,13 @@ import { Router, ActivatedRoute }     from '@angular/router';
 import { NgxSliderModule, Options }   from '@angular-slider/ngx-slider';
 import { ProductService }             from '../../services/productService';
 import { ProductDTO }                 from '../../models/productDTO';
+import {TranslatePipe} from '@ngx-translate/core';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-merchandising',
-  imports: [CommonModule, FormsModule, NgxSliderModule],
+  imports: [CommonModule, FormsModule, NgxSliderModule, TranslatePipe],
   templateUrl: './merchandising.component.html',
   styleUrls: ['./merchandising.component.css']
 })
@@ -33,11 +34,7 @@ export class MerchandisingComponent implements OnInit {
     }
   };
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private productService: ProductService
-  ) { }
+  constructor(private router: Router, private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {
@@ -97,7 +94,7 @@ export class MerchandisingComponent implements OnInit {
         this.tShirts = [];
         this.hoodies = filteredH;
         break;
-      default: // 'all'
+      default:
         this.tShirts = filteredT;
         this.hoodies = filteredH;
         break;

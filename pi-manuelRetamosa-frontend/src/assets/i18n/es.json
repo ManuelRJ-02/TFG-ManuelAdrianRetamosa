@@ -8,7 +8,12 @@
       "TOUR": "Tour",
       "CONTACT": "Contacto",
       "CONTEST": "Concursos",
-      "MERCH": "Merchandising"
+      "MERCH": "Merchandising",
+      "CONCERTS": "Conciertos",
+      "SONGS": "Canciones",
+      "ALBUMS": "Álbums",
+      "PRODUCTS": "Productos",
+      "VARIANTS": "Variantes de Producto"
     },
     "LOGO_ALT": "Logotipo de Dani J",
     "LANG": {
@@ -28,7 +33,14 @@
       "LOGIN_HINT": "Debes iniciar sesión para ver tu cesta"
     }
   },
-
+  "FOOTER": {
+    "LINKS": {
+      "LEGAL_NOTICE": "Aviso Legal",
+      "PRIVACY_POLICY": "Política de Privacidad",
+      "COOKIE_POLICY": "Política de Cookies",
+      "ACCESSIBILITY_STATEMENT": "Declaración de accesibilidad"
+    }
+  },
   "HOME": {
     "SLOGAN": "EL BACHATERO Nº1 DE EUROPA",
     "ARTIST_NAME": "Dani J",
@@ -38,83 +50,6 @@
     "P4": "<strong>Dani J</strong> se destaca no solo por su talento musical, sino también por su carisma y dedicación a su público. Sus letras profundas y emotivas conectan con personas de todas las edades y culturas, transmitiendo emociones que trascienden barreras.",
     "P5": "<strong>¡Dani J!</strong> ¿Quién da más?"
   },
-
-  "ACCESSIBILITY_STATEMENT": {
-    "TITLE": "Declaración de Accesibilidad",
-    "POLICY": {
-      "TITLE": "Política de accesibilidad",
-      "P1": "La empresa <strong>DANI J</strong> se ha comprometido a hacer accesible su sitio web de conformidad con el Real Decreto 1112/2018, de 7 de septiembre, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles del sector público, o desarrollos financiados desde Europa."
-    },
-    "SCOPE": {
-      "P1": "La presente declaración de accesibilidad se aplica al sitio web danij.com, excluyendo los contenidos incrustados provenientes de otros dominios."
-    },
-    "COMPLIANCE": {
-      "TITLE": "Situación de cumplimiento",
-      "P1": "Este sitio web es <strong>Parcialmente Conforme</strong> con el RD 1112/2018 debido a la falta de conformidad de los aspectos que se indican a continuación."
-    },
-    "NOT_ACCESSIBLE": {
-      "TITLE": "Contenido no accesible",
-      "P1": "El contenido que se recoge a continuación no es accesible por los siguientes motivos:",
-      "ITEM1": "Falta de conformidad:",
-      "SUBITEM1": "Algunas de las páginas no tienen definido su título correctamente – Requisito 9.2.4.2 Titulado de páginas de UNE-EN 301549:2022",
-      "SUBITEM2": "Pueden existir algunas imágenes cuya alternativa no esté implementada o no sea correcta – Requisito 9.1.1.1 Contenido no textual UNE-EN 301549:2022",
-      "SUBITEM3": "Pueden existir encabezados que no sean claros o breves, o que no deberían ser encabezados – Requisito 9.2.4.6 Encabezados y etiquetas de UNE-EN 301549:2022",
-      "SUBITEM4": "Puede haber campos de formulario donde su etiqueta no sea correcta o no exista – Requisito 9.2.5.3 y 9.3.3.2 UNE-EN 301549:2022",
-      "SUBITEM5": "Podrían existir fallos puntuales de edición en alguna página web.",
-      "ITEM2": "Carga desproporcionada: No resulta aplicable.",
-      "ITEM3": "El contenido no entra dentro del ámbito de la legislación aplicable."
-    },
-    "PDF": {
-      "P1": "Podrían existir archivos ofimáticos en PDF u otros formatos publicados antes del 20 de septiembre de 2018 que no cumplan en su totalidad todos los requisitos de accesibilidad."
-    },
-    "THIRD_PARTY": {
-      "P1": "Puede haber contenidos de terceros que no estén desarrollados en esta Unidad, ni bajo su control, como archivos ofimáticos de diferentes organismos que deban publicarse en este sitio."
-    },
-    "CONTACT": {
-      "TITLE": "Observaciones y datos de contacto",
-      "P1": "Puede realizar comunicaciones sobre requisitos de accesibilidad [artículo 10.2.a del RD 1112/2018] como, por ejemplo:",
-      "ITEM1": "Informar sobre cualquier posible incumplimiento por parte de este sitio web.",
-      "ITEM2": "Transmitir otras dificultades de acceso al contenido.",
-      "ITEM3": "Formular cualquier otra consulta o sugerencia de mejora relativa a la accesibilidad del sitio web llamando al teléfono 604818649."
-    },
-    "PRESENT": {
-      "P1": "Puede presentar:",
-      "ITEM1": "Una queja relativa al cumplimiento de los requisitos del RD 1112/2018",
-      "ITEM2": "Una solicitud de información accesible relativa a:"
-    },
-    "PRESENT_SUBITEM1": "Contenidos que están excluidos del ámbito de aplicación del RD 1112/2018 según el artículo 3.4.",
-    "PRESENT_SUBITEM2": "Contenidos que están exentos del cumplimiento de los requisitos de accesibilidad por imponer una carga desproporcionada.",
-    "PRESENT_FINAL": "En la solicitud de información accesible, se debe concretar, con toda claridad, los hechos, razones y petición que permitan constatar que se trata de una solicitud razonable y legítima."
-  },
-
-  "ADDRESS_MODAL": {
-    "TITLE": "Dirección",
-    "LABELS": {
-      "COUNTRY": "País",
-      "PROVINCE": "Provincia",
-      "CITY": "Ciudad",
-      "POSTAL_CODE": "Código Postal",
-      "STREET": "Calle",
-      "BLOCK_NUMBER": "Número de bloque",
-      "LADDER": "Escalera",
-      "DOOR": "Puerta"
-    },
-    "PLACEHOLDERS": {
-      "COUNTRY": "España",
-      "PROVINCE": "Sevilla",
-      "CITY": "Sevilla",
-      "POSTAL_CODE": "41001",
-      "STREET": "Calle Ejemplo",
-      "BLOCK_NUMBER": "12",
-      "LADDER": "A",
-      "DOOR": "3B"
-    },
-    "BUTTON": {
-      "ADD": "Añadir",
-      "CLOSE": "Cerrar"
-    }
-  },
-
   "BIOGRAPHY": {
     "TITLE": "Biografía",
     "P1": "<strong>Dani J</strong> es uno de los artistas más versátiles e innovadores de la música latina actual. Reconocido internacionalmente como el bachatero más importante de Europa, lleva desde el 2014 revolucionando el género de la bachata, fusionándola exitosamente con otros estilos como el Pop, Flamenco, Trap y R&B, creando un estilo único y personal que trasciende fronteras.",
@@ -150,7 +85,47 @@
       }
     }
   },
-
+  "MUSIC": {
+    "LAST_LAUNCH": {
+      "TITLE": "ÚLTIMO LANZAMIENTO",
+      "NO_RECENT": "No hay lanzamientos recientes."
+    },
+    "SINGLES_EP": {
+      "TITLE": "SENCILLOS Y EP"
+    },
+    "ALBUMS": {
+      "TITLE": "ÁLBUMES",
+      "TYPE": "Álbum"
+    }
+  },
+  "VIDEOS": {
+    "DISCOVER": {
+      "TITLE": "Descubre mis vídeos"
+    },
+    "CATEGORY": {
+      "BACHATA": "Bachata"
+    },
+    "DESCRIPTION": {
+      "TITLE": "Vídeos",
+      "P1": "Dani J es consciente de la importancia de lo visual, por eso además de buenas canciones, desde distintas partes del mundo, ha creado una amplia colección de vídeos que te transportarán a través de su música y sus historias.",
+      "P2": "¡Prepárate para disfrutar de una experiencia audiovisual única! En la pestaña de vídeos, encontrarás enlaces directos al canal de YouTube de Dani J: <a href=\"https://www.youtube.com/channel/UCynksrdYO2R4REJzNZahjLg\" target=\"_blank\"><img class=\"youtube-icon social-icon\" src=\"assets/footer/youtube-icon.png\" alt=\"YouTube\"></a>",
+      "P3": "Subscríbete a su canal y podrás disfrutar de una gran variedad de vídeos de alta calidad.",
+      "P4": "Además de todos los videoclips oficiales, encontrarás versiones acústicas, detrás de las cámaras, Lyrics Video y mucho material que te permitirá conocer más de cerca a Dani y su proceso creativo."
+    }
+  },
+  "TOUR": {
+    "TITLE": "Tour Mundial 2025",
+    "LINK": {
+      "TICKETS": "TICKETS"
+    },
+    "DESCRIPTION": {
+      "TITLE": "Tour musical",
+      "P1": "¡Prepárate para vivir una experiencia inolvidable con Dani J en su tour mundial DANI J 2025!",
+      "P2": "¿Quieres saber más? ¡Corre a sus redes sociales y entérate!",
+      "P3": "Consulta las fechas y lugares de los conciertos de Dani J. Si aún no aparece el link de compra de entradas del concierto al que quieres asistir, no te desesperes, pronto estarán disponibles."
+    },
+    "BANNER": "¡Descubre todas las fechas de su gira en 2025!"
+  },
   "CONTACT": {
     "TITLE": "Contacto",
     "INTRO": {
@@ -178,7 +153,6 @@
       "BUTTON": "Enviar"
     }
   },
-
   "CONTEST": {
     "TITLE": "BASES DEL SORTEO \"Baila con Dani J\"",
     "BASE1": {
@@ -278,7 +252,191 @@
       "P3": "Emptystave Music Records LTD y la agencia promotora quedarán exentas de responsabilidad por errores en los datos facilitados por los participantes, así como por pérdidas, robos, retrasos o cualquier circunstancia imputable a terceros que pueda afectar al desarrollo de la promoción."
     }
   },
-
+  "LEGAL_NOTICE": {
+    "TITLE": "Aviso Legal",
+    "P1": "El titular de este sitio web y todos los derechos los tiene 13 PRO MUSIC SL.",
+    "P2": "El acceso al site de DANI J es gratuito. Todo el contenido es propiedad intelectual de 13 PRO MUSIC SL. Cualquier utilización de los mismos contraria a las normas en materia de propiedad intelectual será perseguida con arreglo a la legislación vigente."
+  },
+  "PRIVACY_POLICY": {
+    "TITLE": "Política de Privacidad",
+    "RESPONSIBLE": {
+      "TITLE": "Responsable del Tratamiento",
+      "P1": "A través de la presente política de privacidad se informan de los distintos tratamientos de datos personales e información asociada que se lleva a cabo por parte de 13PROMUSIC como marca de EMPTYSTAVE MUSIC RECORDS LTD, la cual presta servicios dentro del territorio de la UE, de ahí la presente política de privacidad dando cumplimiento con ello a las directrices determinadas en el Reglamento Europeo de Protección de datos.",
+      "P2": "En este sentido, la identificación del responsable del tratamiento a todos los efectos es la siguiente:",
+      "LIST": {
+        "ITEM1": "Denominación: EMPTYSTAVE MUSIC RECORDS LTD",
+        "ITEM2": "Id Fiscal: 60091184X",
+        "ITEM3": "Domicilio: EFESOU 9, PARALIMNI, 5280,FAMAGUSTA, CYPRUS",
+        "ITEM4": "Correo de contacto: emptystave@gmail.com"
+      }
+    },
+    "WHAT_WE_DO": {
+      "TITLE": "¿Qué hacemos con tus datos?",
+      "P1": "Los tratamientos, y por tanto, el uso que de los datos personales que se llevan a cabo son los siguientes:",
+      "LIST": {
+        "ITEM1": "Comunicaciones comerciales y publicidad, para la realización de comunicaciones comerciales y campañas publicitarias y concursos que se celebren por las distintas vías posibles",
+        "ITEM2": "Analítica de la web, para revisar el correcto uso de la web, su utilización y corrección de posibles errores, uso de los usuarios",
+        "ITEM3": "Gestión de clientes, para gestionar los clientes de la mercantil",
+        "ITEM4": "Gestión de Proveedores, para gestionar los servicios dados a través de terceros",
+        "ITEM5": "Gestión de Redes Sociales. Para la gestión de los seguidores en las distintas redes sociales asociadas a 13Pro Music, sus artistas y la empresa matriz, Emptystave Music Records LTD",
+        "ITEM6": "Recursos Humanos, para la gestión de personal a Emptystave Music Records LTD"
+      }
+    },
+    "WHAT_DATA": {
+      "TITLE": "¿Qué datos personales tratamos de nuestros usuarios?",
+      "P1": "Los datos que se tratan, en función de los tratamientos que se llevan a cabo con los mismos, son los siguientes:"
+    },
+    "TABLE_HEAD": {
+      "TREATMENT": "Tratamiento",
+      "ASSOCIATED_DATA": "Datos asociados",
+      "PURPOSE": "Finalidad",
+      "DURATION": "Duración",
+      "SUBJECTS": "Interesados",
+      "LEGAL_BASIS": "Legitimación"
+    },
+    "TABLE_ROWS": {
+      "CUSTOMER_MANAGEMENT": {
+        "TREATMENT": "Gestión clientes",
+        "ASSOCIATED_DATA": "Nombre, Apellidos, Dirección, Email, Teléfono, transacciones, nº de CC.",
+        "PURPOSE": "Gestión de clientes para la realización de conciertos.",
+        "DURATION": "Tiempo necesario, máximo 10 años.",
+        "SUBJECTS": "Administración pública, entidades bancarias, socios, familiares. FFCCSSEE",
+        "LEGAL_BASIS": "Contractual, precontractual."
+      },
+      "PROVIDER_MANAGEMENT": {
+        "TREATMENT": "Gestión proveedores",
+        "ASSOCIATED_DATA": "CIF, denominación, Número de cuenta, Mail, Teléfono.",
+        "PURPOSE": "Gestión de proveedores de la entidad.",
+        "DURATION": "Tiempo necesario. Máximo 10 años.",
+        "SUBJECTS": "Administración pública, entidades bancarias, socios, familiares. FFCCSSEE",
+        "LEGAL_BASIS": "Contractual, legal."
+      },
+      "MARKETING": {
+        "TREATMENT": "Marketing",
+        "ASSOCIATED_DATA": "Nombre, Email, usuario RRSS, nº teléfono.",
+        "PURPOSE": "Realización de campañas de marketing, informativas y comerciales, así como concursos.",
+        "DURATION": "Tiempo necesario, máximo 10 años.",
+        "SUBJECTS": "Administración pública, entidades bancarias, socios, familiares. FFCCSSEE",
+        "LEGAL_BASIS": "Interés legítimo, consentimiento."
+      },
+      "SOCIAL_MANAGEMENT": {
+        "TREATMENT": "Gestión RRSS",
+        "ASSOCIATED_DATA": "Nombre, Email, usuario RRSS, nº teléfono.",
+        "PURPOSE": "Realización de campañas de marketing, informativas y comerciales, así como concursos.",
+        "DURATION": "Tiempo necesario, máximo 10 años.",
+        "SUBJECTS": "Administración pública, entidades bancarias, socios, familiares. FFCCSSEE",
+        "LEGAL_BASIS": "Interés legítimo, consentimiento."
+      },
+      "SOCIAL_DISSEMINATION": {
+        "TREATMENT": "Gestión RRSS",
+        "ASSOCIATED_DATA": "Nombre, usuario RRSS.",
+        "PURPOSE": "Gestión y difusión de RRSS.",
+        "DURATION": "Tiempo necesario.",
+        "SUBJECTS": "Administración pública, entidades bancarias, socios, familiares. FFCCSSEE.",
+        "LEGAL_BASIS": "Interés legítimo, consentimiento."
+      },
+      "HR": {
+        "TREATMENT": "RRHH",
+        "ASSOCIATED_DATA": "Nombre, Apellidos, Dirección, Número de cuenta, Mail, Teléfono, Formación, Datos de Salud, Cuenta bancaria, Imagen.",
+        "PURPOSE": "Gestión de RRHH, contratación, despidos etc…",
+        "DURATION": "Tiempo necesario y 5 años más desde el fin de la relación.",
+        "SUBJECTS": "Administración pública, entidades bancarias, socios, familiares. FFCCSSEE",
+        "LEGAL_BASIS": "Contractual, precontractual, consentimiento."
+      },
+      "WEB_ANALYTICS": {
+        "TREATMENT": "Analítica web",
+        "ASSOCIATED_DATA": "Cookies, IP, Navegador.",
+        "PURPOSE": "Análisis de visitas web.",
+        "DURATION": "Tiempo necesario.",
+        "SUBJECTS": "Administración pública, entidades bancarias, socios, familiares. FFCCSSEE.",
+        "LEGAL_BASIS": "Interés legítimo."
+      }
+    },
+    "STORAGE": {
+      "TITLE": "¿Por cuánto tiempo se almacenan?",
+      "P1": "Con carácter general, respecto a los tratamientos de la web, almacenamos la información por el tiempo necesario para poder llevar a cabo los distintos tratamientos, y como máximo, un plazo de dos años, salvo petición de cancelación por parte del usuario, sin perjuicio a lo establecido en el punto C anterior."
+    },
+    "SHARING": {
+      "TITLE": "¿A quién cedemos datos?",
+      "P1": "Cualquier dato que sea recogido por Emptystave Music Records LTD, bajo ningún concepto, será cedido a terceras empresas, salvo los casos que a continuación se detallan:",
+      "LIST": {
+        "ITEM1": "IONOS, donde se almacena la información relativa a la web",
+        "ITEM2": "Google Analytics, para poder hacer uso de las cookies",
+        "ITEM3": "Meta, para el uso de las herramientas y servicios de marketing y publicidad de los mismos",
+        "ITEM4": "A las distintas redes sociales al utilizar sus servicios, para lo que se estará a lo establecido en las mismas"
+      }
+    },
+    "NETWORKS": {
+      "P1": "Las actuales Redes donde se encuentra EMPTYSTAVE MUSIC RECORDS LTD, por sí misma, a través de su marca 13PRO Music o sus artistas, son las siguientes y a las que se ceden datos conforme a las propias políticas de privacidad de cada una de ellas:",
+      "TABLE_HEAD": {
+        "SOCIAL_NETWORK": "Red Social",
+        "USERNAME": "Usuario"
+      },
+      "TABLE_ROWS": {
+        "INSTAGRAM": {
+          "LABEL": "Instagram",
+          "URL": "http://www.instagram.com/OficialDaniJ"
+        },
+        "FACEBOOK1": {
+          "LABEL": "Facebook",
+          "URL": "http://www.facebook.com/DaniJoficial"
+        },
+        "TIKTOK": {
+          "LABEL": "TikTok",
+          "URL": "https://www.tiktok.com/@oficialdanij"
+        },
+        "X": {
+          "LABEL": "X",
+          "URL": "http://www.twitter.com/OficialDaniJ"
+        },
+        "INSTAGRAM2": {
+          "LABEL": "Instagram",
+          "URL": "http://www.instagram.com/13ProMusic"
+        },
+        "FACEBOOK2": {
+          "LABEL": "Facebook",
+          "URL": "http://www.facebook.com/13ProMusic"
+        }
+      }
+    },
+    "AUTOMATED_DECISIONS": {
+      "TITLE": "¿Hacemos decisiones automatizadas?",
+      "P1": "No, para nosotros cada cliente es único y con respecto a los tratamientos asociados a la web, no se llevan a cabo"
+    },
+    "MORE_INFO": "Para más información sobre cookies, visite nuestro apartado relativo a cookies.",
+    "RIGHTS": {
+      "TITLE": "Derechos de acceso, rectificación, supresión, limitación del tratamiento, portabilidad de los datos y oposición",
+      "P1": "Conforme al Reglamento General de Protección de datos, junto con su derecho a oponerse a la automatización de decisiones, todo usuario que haya facilitado datos a Emptystave Music Records LTD tiene los siguientes derechos que puede hacer ejercer:",
+      "LIST": {
+        "ITEM1": "Acceso",
+        "ITEM2": "Rectificación",
+        "ITEM3": "Supresión",
+        "ITEM4": "Limitación del tratamiento",
+        "ITEM5": "Portabilidad de los datos",
+        "ITEM6": "Oposición"
+      }
+    },
+    "EXERCISE": {
+      "P1": "El ejercicio de estos derechos deberá llevarse a cabo mediante comunicación dirigida a Emptystave Music Records LTD ya sea a su dirección postal, indicada más arriba, o a la dirección electrónica dispuesta a estos efectos emptystave@gmail.com, sin perjuicio del uso de cualquier otro medio válido en derecho que permita cumplimentar de forma legalmente válida los requisitos para ello. Para acreditar su identidad necesitaremos que nos facilite:",
+      "LIST": {
+        "ITEM1": "Nombre y apellidos del interesado; copia de DNI, pasaporte o similar y, en su caso, de la persona que lo represente",
+        "ITEM2": "Objeto de la petición",
+        "ITEM3": "Dirección a efectos de notificaciones, fecha y firma del solicitante",
+        "ITEM4": "Documentos acreditativos de la petición formulada en el caso de que se estimen convenientes o necesarios"
+      },
+      "CLAIMS_P1": "A su vez tiene usted derecho a plantear las reclamaciones que estime convenientes ante la AEPD."
+    },
+    "INFORMATION_MANAGEMENT": {
+      "TITLE": "Gestión de la información",
+      "P1": "Los datos que aportas a la Web son incluidos en nuestros tratamientos antes mencionados, así como aquellos que son cedidos, también lo hacen en el pertinente Registro de cesiones de datos personales."
+    },
+    "LINKS": {
+      "TITLE": "Enlaces de Interés",
+      "P1": "Si queréis saber más acerca de Internet y vuestra privacidad desde Emptystave Music Records LTD, os recomendamos que visitéis los siguientes enlaces:",
+      "OSI": "Oficina Seguridad Internet: <a href=\"http://www.osi.es\" target=\"_blank\">http://www.osi.es</a>",
+      "AEPD": "Agencia Española de Protección de Datos: <a href=\"http://www.agpd.es\" target=\"_blank\">http://www.agpd.es</a>"
+    }
+  },
   "COOKIE_POLICY": {
     "TITLE": "Política de cookies",
     "INTRO": {
@@ -372,6 +530,204 @@
     "CHANGES": {
       "TITLE": "Cambios en la política de cookies",
       "P1": "La página web www.danij.es puede modificar esta política de cookies, bien por incorporar cookies nuevas por necesidad de nuevos contenidos que se puedan ofrecer, o bien en función de exigencias legislativas, o reglamentarias que hagan necesario el cambio de la misma, por ello se aconseja a los Usuarios que la visiten antes de comenzar la navegación por la web, y cada vez que la visiten de nuevo."
+    }
+  },
+  "ACCESSIBILITY_STATEMENT": {
+    "TITLE": "Declaración de Accesibilidad",
+    "POLICY": {
+      "TITLE": "Política de accesibilidad",
+      "P1": "La empresa <strong>DANI J</strong> se ha comprometido a hacer accesible su sitio web de conformidad con el Real Decreto 1112/2018, de 7 de septiembre, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles del sector público, o desarrollos financiados desde Europa."
+    },
+    "SCOPE": {
+      "P1": "La presente declaración de accesibilidad se aplica al sitio web danij.com, excluyendo los contenidos incrustados provenientes de otros dominios."
+    },
+    "COMPLIANCE": {
+      "TITLE": "Situación de cumplimiento",
+      "P1": "Este sitio web es <strong>Parcialmente Conforme</strong> con el RD 1112/2018 debido a la falta de conformidad de los aspectos que se indican a continuación."
+    },
+    "NOT_ACCESSIBLE": {
+      "TITLE": "Contenido no accesible",
+      "P1": "El contenido que se recoge a continuación no es accesible por los siguientes motivos:",
+      "ITEM1": "Falta de conformidad:",
+      "SUBITEM1": "Algunas de las páginas no tienen definido su título correctamente – Requisito 9.2.4.2 Titulado de páginas de UNE-EN 301549:2022",
+      "SUBITEM2": "Pueden existir algunas imágenes cuya alternativa no esté implementada o no sea correcta – Requisito 9.1.1.1 Contenido no textual UNE-EN 301549:2022",
+      "SUBITEM3": "Pueden existir encabezados que no sean claros o breves, o que no deberían ser encabezados – Requisito 9.2.4.6 Encabezados y etiquetas de UNE-EN 301549:2022",
+      "SUBITEM4": "Puede haber campos de formulario donde su etiqueta no sea correcta o no exista – Requisito 9.2.5.3 y 9.3.3.2 UNE-EN 301549:2022",
+      "SUBITEM5": "Podrían existir fallos puntuales de edición en alguna página web.",
+      "ITEM2": "Carga desproporcionada: No resulta aplicable.",
+      "ITEM3": "El contenido no entra dentro del ámbito de la legislación aplicable."
+    },
+    "PDF": {
+      "P1": "Podrían existir archivos ofimáticos en PDF u otros formatos publicados antes del 20 de septiembre de 2018 que no cumplan en su totalidad todos los requisitos de accesibilidad."
+    },
+    "THIRD_PARTY": {
+      "P1": "Puede haber contenidos de terceros que no estén desarrollados en esta Unidad, ni bajo su control, como archivos ofimáticos de diferentes organismos que deban publicarse en este sitio."
+    },
+    "PRESENT": {
+      "TITLE": "Observaciones y datos de contacto",
+      "P1": "Puede realizar comunicaciones sobre requisitos de accesibilidad [artículo 10.2.a del RD 1112/2018] como, por ejemplo:",
+      "ITEM1": "Informar sobre cualquier posible incumplimiento por parte de este sitio web.",
+      "ITEM2": "Transmitir otras dificultades de acceso al contenido.",
+      "ITEM3": "Formular cualquier otra consulta o sugerencia de mejora relativa a la accesibilidad del sitio web llamando al teléfono 604 818 649."
+    },
+    "PRESENT_SUBITEM1": "Una queja relativa al cumplimiento de los requisitos del RD 1112/2018",
+    "PRESENT_SUBITEM2": "Una solicitud de información accesible relativa a:",
+    "PRESENT_SUBITEM3": "Contenidos que están excluidos del ámbito de aplicación del RD 1112/2018 según el artículo 3.4.",
+    "PRESENT_SUBITEM4": "Contenidos que están exentos del cumplimiento de los requisitos de accesibilidad por imponer una carga desproporcionada.",
+    "PRESENT_FINAL": "En la solicitud de información accesible, se debe concretar, con toda claridad, los hechos, razones y petición que permitan constatar que se trata de una solicitud razonable y legítima."
+  },
+  "MERCH": {
+    "TITLE": "Merchandising",
+    "FILTERS": "Filtros",
+    "TYPE_LABEL": "Tipo de prenda",
+    "PRICE_LABEL": "Precio:",
+    "ALL": "Todas",
+    "TSHIRT": "Camisetas",
+    "HOODIE": "Sudaderas",
+    "TSHIRT_TITLE": "Camisetas",
+    "HOODIE_TITLE": "Sudaderas"
+  },
+  "PRODUCT": {
+    "COLOR": "Color:",
+    "SIZE": "Tallas:",
+    "PRICE": "Precio:",
+    "IN_STOCK": "En stock",
+    "OUT_OF_STOCK": "Agotado",
+    "DELIVERY": "Entrega en 24h",
+    "ADD_TO_CART": "Enviar a la cesta"
+  },
+  "ADDED_CANVAS": {
+    "TITLE": "Producto añadido!",
+    "CLOSE": "Cerrar",
+    "SIZE_LABEL": "Talla:",
+    "PRICE_LABEL": "Precio:",
+    "GOTO_CART": "Ir a la cesta"
+  },
+  "CART": {
+    "TITLE": "Cesta",
+    "DELETE_ALL": "Eliminar todo",
+    "SIZE_LABEL": "Talla:",
+    "PRICE_LABEL": "Precio:",
+    "REMOVE_ITEM_TITLE": "Eliminar esta variante",
+    "SUMMARY_TITLE": "Resumen del Pedido",
+    "TOTAL_PRICE": "Precio Total ({{totalItems}} artículos)",
+    "CONTINUE": "Continuar",
+    "EMPTY_MESSAGE": "Tu cesta está vacía."
+  },
+  "CHECKOUT": {
+    "BILLING_ADDRESS_TITLE": "Dirección de facturación",
+    "ADDRESS_DETAILS": "bloque: {{block}} | escalera: {{ladder}} | puerta: {{door}}",
+    "ADD_NEW_ADDRESS": "+ Agregar Nueva Dirección",
+    "CONFIRM_PAY_TITLE": "Confirmar y Pagar",
+    "SIZE_LABEL": "Talla:",
+    "PRICE_LABEL": "Precio:",
+    "CREDIT_CARDS_TITLE": "Tarjetas de Crédito",
+    "ADD_NEW_CARD": "+ Agregar Nueva Tarjeta",
+    "TERMS_AND_CONDITIONS": "Acepto los términos y condiciones de la compra.",
+    "FINALIZE_PURCHASE": "Finalizar la Compra",
+    "SUMMARY_TITLE": "Resumen del Pedido",
+    "SUBTOTAL_LABEL": "Precio Total ({{count}} artículos)",
+    "SHIPPING_LABEL": "Envío estándar",
+    "TOTAL_LABEL": "Total"
+  },
+  "PURCHASE_CONFIRMATION": {
+    "IMAGE_ALT": "Confirmación",
+    "TITLE": "Gracias por tu pedido",
+    "MESSAGE": "Tu compra se ha realizado con éxito. En breve recibirás un correo con el resumen y los detalles del envío.",
+    "BUTTON": "VOLVER AL INICIO"
+  },
+  "CONTACT_CONFIRMATION": {
+    "TITLE": "Gracias por contactar con nosotros",
+    "MESSAGE": "En breve atenderemos a su consulta y nos pondremos en contacto con usted en la mayor brevedad posible.",
+    "BUTTON": "VOLVER AL INICIO"
+  },
+  "PROFILE": {
+    "TITLE": "Perfil de Usuario",
+    "CHANGE_AVATAR": "Cambiar Avatar",
+    "UPLOADING": "Subiendo…",
+    "SECTION_PERSONAL_INFO": "Información Personal",
+    "LABEL_NAME": "Nombre",
+    "LABEL_SURNAME": "Apellidos",
+    "LABEL_EMAIL": "Correo Electrónico",
+    "LABEL_PHONE": "Teléfono",
+    "SECTION_ADDRESS": "Dirección",
+    "NO_ADDRESSES": "No tienes direcciones guardadas.",
+    "ADD_NEW_ADDRESS": "+ Agregar Nueva Dirección",
+    "SAVE_CHANGES": "Guardar Cambios",
+    "DELETE_ADDRESS": "Borrar dirección"
+  },
+  "ADDRESS_MODAL": {
+    "TITLE": "Dirección",
+    "LABELS": {
+      "COUNTRY": "País",
+      "PROVINCE": "Provincia",
+      "CITY": "Ciudad",
+      "POSTAL_CODE": "Código Postal",
+      "STREET": "Calle",
+      "BLOCK_NUMBER": "Número de bloque",
+      "LADDER": "Escalera",
+      "DOOR": "Puerta"
+    },
+    "BUTTON": {
+      "ADD": "Añadir",
+      "CLOSE": "Cerrar"
+    }
+  },
+  "LOGIN_MODAL": {
+    "TITLE": "Iniciar Sesión",
+    "BUTTON": {
+      "CLOSE": "Cerrar",
+      "LOGIN": "Iniciar Sesión"
+    },
+    "LABEL": {
+      "EMAIL": "Correo Electrónico",
+      "PASSWORD": "Contraseña"
+    },
+    "PLACEHOLDER": {
+      "EMAIL": "Correo Electrónico",
+      "PASSWORD": "Contraseña"
+    },
+    "NO_ACCOUNT": {
+      "TEXT": "¿No tienes cuenta? ",
+      "LINK": "Crear una cuenta"
+    }
+  },
+  "PAYMENT_MODAL": {
+    "TITLE": "Método de Pago",
+    "BUTTON": {
+      "CLOSE": "Cerrar",
+      "ADD": "Añadir Tarjeta",
+      "SAVING": "Guardando..."
+    },
+    "LABEL": {
+      "CARDHOLDER": "Titular de la Tarjeta",
+      "CARD_NUMBER": "Número de la Tarjeta",
+      "MONTH": "Mes",
+      "YEAR": "Año",
+      "CVV": "CVV"
+    },
+    "PLACEHOLDER": {
+      "MONTH": "MM",
+      "YEAR": "YY"
+    }
+  },
+  "REGISTER_MODAL": {
+    "TITLE": "Registrarse",
+    "BUTTON": {
+      "CLOSE": "Cerrar",
+      "SUBMIT": "Crear Cuenta"
+    },
+    "LABEL": {
+      "NAME": "Nombre",
+      "SURNAME": "Apellidos",
+      "EMAIL": "Correo Electrónico",
+      "PHONE": "Teléfono (opcional)",
+      "PASSWORD": "Contraseña",
+      "CONFIRM_PASSWORD": "Confirmar Contraseña"
+    },
+    "FOOTER": {
+      "TEXT": "¿Ya tienes una cuenta? ",
+      "LINK": "Iniciar Sesión"
     }
   }
 }

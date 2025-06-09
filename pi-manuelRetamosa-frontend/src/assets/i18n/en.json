@@ -7,86 +7,655 @@
       "VIDEOS": "Videos",
       "TOUR": "Tour",
       "CONTACT": "Contact",
-      "CONTEST": "Contest",
-      "MERCH": "Merchandising"
+      "CONTEST": "Contests",
+      "MERCH": "Merchandise",
+      "CONCERTS": "Concerts",
+      "SONGS": "Songs",
+      "ALBUMS": "Albums",
+      "PRODUCTS": "Products",
+      "VARIANTS": "Product Variants"
     },
-    "LOGO_ALT": "Dani J logo",
+    "LOGO_ALT": "Dani J Logo",
     "LANG": {
       "ES": "Spanish",
       "EN": "English",
       "IT": "Italian"
     },
     "BUTTON": {
-      "LOGIN": "Login",
+      "LOGIN": "Log In",
       "PROFILE": "Profile",
-      "LOGOUT": "Logout"
+      "LOGOUT": "Log Out"
     },
-    "USER_AVATAR_ALT": "User avatar",
+    "USER_AVATAR_ALT": "User Avatar",
     "CART": {
       "TITLE": "View Cart",
-      "ALT": "Cart icon",
-      "LOGIN_HINT": "You must be logged in to view your cart"
+      "ALT": "Cart Icon",
+      "LOGIN_HINT": "You must log in to view your cart"
     }
   },
-
-  "HOME": {
-    "SLOGAN": "THE Nº1 BACHATERO IN EUROPE",
-    "ARTIST_NAME": "Dani J",
-    "WELCOME_P1": "Welcome to <strong>Dani J</strong>, the international artist revolutionizing the world of bachata! With over 300 concerts in recent years, <strong>Dani J</strong> has established himself as one of the most prominent artists in this genre.",
-    "P2": "Originally from <strong>SEVILLE</strong>, Spain, he has taken his music to more than 30 countries, including England, France, Italy, Switzerland, Germany, the Netherlands, Denmark, Siberia, Romania, Cyprus, Russia, Poland, Greece, Portugal, Brazil, the United States, Mexico, Australia, Tunisia, Israel, Argentina, Chile, Ecuador, the Dominican Republic, Thailand, Vietnam, Korea, Japan, and Singapore.",
-    "P3": "The ability of <strong>Dani J</strong> to reinvent himself and blend bachata with contemporary music elements has been key to elevating this genre to new heights. His versatility as a dancer, singer, music producer, composer, and musician has left its mark on the industry. Each of his performances is a unique experience, full of passion and infectious energy.",
-    "P4": "<strong>Dani J</strong> stands out not only for his musical talent but also for his charisma and dedication to his audience. His deep, emotive lyrics connect with people of all ages and cultures, conveying emotions that transcend barriers.",
-    "P5": "<strong>Dani J!</strong> Who can top that?"
+  "FOOTER": {
+    "LINKS": {
+      "LEGAL_NOTICE": "Legal Notice",
+      "PRIVACY_POLICY": "Privacy Policy",
+      "COOKIE_POLICY": "Cookie Policy",
+      "ACCESSIBILITY_STATEMENT": "Accessibility Statement"
+    }
   },
-
+  "HOME": {
+    "SLOGAN": "THE #1 BACHATA ARTIST IN EUROPE",
+    "ARTIST_NAME": "Dani J",
+    "WELCOME_P1": "Welcome to <strong>Dani J</strong>, the international artist revolutionizing the world of bachata! With over 300 concerts in recent years, <strong>Dani J</strong> has established himself as one of the genre’s leading figures.",
+    "P2": "Born in <strong>SEVILLE</strong>, Spain, he has taken his music to more than 30 countries, including England, France, Italy, Switzerland, Germany, the Netherlands, Denmark, Siberia, Romania, Cyprus, Russia, Poland, Greece, Portugal, Brazil, the United States, Mexico, Australia, Tunisia, Israel, Argentina, Chile, Ecuador, the Dominican Republic, Thailand, Vietnam, Korea, Japan, and Singapore.",
+    "P3": "<strong>Dani J’s</strong> talent for reinventing himself and blending bachata with contemporary influences has lifted the genre to new heights. His versatility as a dancer, singer, producer, composer, and musician leaves a lasting impact on every stage he graces.",
+    "P4": "<strong>Dani J</strong> shines not only for his musical prowess but also for his charisma and dedication to his fans. His heartfelt lyrics resonate across cultures and generations, forging emotional connections everywhere he goes.",
+    "P5": "<strong>Dani J!</strong> Who could ask for more?"
+  },
+  "BIOGRAPHY": {
+    "TITLE": "Biography",
+    "P1": "<strong>Dani J</strong> is one of today’s most versatile and innovative Latin music artists. Internationally acclaimed as Europe’s top bachata performer, since 2014 he has revolutionized the genre by fusing it with Pop, Flamenco, Trap, and R&B to create a unique, border-transcending style.",
+    "P2": "His passion for music was born in his native Seville, where his flamenco roots merged with hip-hop, R&B, and Latin influences—shaping an unparalleled artistic vision. His global breakthrough came in 2016 with the EP “Quitémonos la ropa,” landing him among Google Play Music’s Top 10 Most Promising Artists—the only Spaniard to do so.",
+    "P3": "Dani J’s journey is a testament to perseverance and artistic growth. From flamenco beginnings to global collaborations, each chapter has forged the multifaceted artist he is today, continually redefining bachata’s modern sound.",
+    "BUTTON": {
+      "VIEW_MORE": "View More",
+      "VIEW_LESS": "View Less"
+    },
+    "DETAILS": {
+      "SUCCESS": {
+        "TITLE": "INTERNATIONAL SUCCESS:",
+        "INTRO": "With over 360 concerts in more than 30 countries, Dani J’s music has reached all five continents. His work has captivated audiences in:",
+        "LIST": {
+          "ITEM1": "EUROPE: France, Italy, Switzerland, Germany, the Netherlands, Poland…",
+          "ITEM2": "ASIA: Japan, Korea, Thailand, Singapore, Vietnam, Taiwan…",
+          "ITEM3": "AMERICAS: United States, Mexico, Brazil, Argentina, Chile…",
+          "ITEM4": "OTHER CONTINENTS: Australia, Tunisia"
+        },
+        "P2": "His track “TOKYO” (2024) blends Japanese culture with bachata, exemplifying his unique ability to build cultural bridges through music."
+      },
+      "INNOVATION": {
+        "TITLE": "INNOVATION & GROWTH:",
+        "P1": "In 2022, Dani J launched his own label, “13 PRO MUSIC,” showcasing his entrepreneurial vision and commitment to artistic authenticity.",
+        "P2": "Hits like “7 pecados,” “Caprichito,” “Piscina,” and collaborations such as “Rosas” with Kewin Cosmos and “Atemporal” with Danny Romero highlight his continuous evolution."
+      },
+      "LEGACY": {
+        "TITLE": "LEGACY & FUTURE:",
+        "P1": "With over 350 million streams across platforms, Dani J keeps pushing Latin music’s boundaries. His reinvention and pursuit of excellence make him a cornerstone of contemporary bachata.",
+        "P2": "More than a singer, Dani J is a multifaceted artist—dancer, producer, composer, and musician—crafting immersive musical experiences for global audiences.",
+        "P3": "In 2025, he embarks on an ambitious world tour, adding new hits to his repertoire and cementing his role as an international bachata ambassador.",
+        "P4": "Try Dani J once, and you’ll come back for more!"
+      }
+    }
+  },
+  "MUSIC": {
+    "LAST_LAUNCH": {
+      "TITLE": "LATEST RELEASE",
+      "NO_RECENT": "No recent releases."
+    },
+    "SINGLES_EP": {
+      "TITLE": "SINGLES & EPs"
+    },
+    "ALBUMS": {
+      "TITLE": "ALBUMS",
+      "TYPE": "Album"
+    }
+  },
+  "VIDEOS": {
+    "DISCOVER": {
+      "TITLE": "Discover My Videos"
+    },
+    "CATEGORY": {
+      "BACHATA": "Bachata"
+    },
+    "DESCRIPTION": {
+      "TITLE": "Videos",
+      "P1": "Dani J knows visuals matter: beyond great songs recorded around the world, he’s created a vast video catalog that transports you through his music and stories.",
+      "P2": "Get ready for a unique audiovisual experience! In the videos tab, you’ll find direct links to Dani J’s YouTube channel: <a href=\"https://www.youtube.com/channel/UCynksrdYO2R4REJzNZahjLg\" target=\"_blank\"><img class=\"youtube-icon social-icon\" src=\"assets/footer/youtube-icon.png\" alt=\"YouTube\"></a>",
+      "P3": "Subscribe to enjoy a wide variety of high-quality videos.",
+      "P4": "Alongside official music videos, you’ll find acoustic versions, behind-the-scenes footage, lyric videos, and much more."
+    }
+  },
+  "TOUR": {
+    "TITLE": "World Tour 2025",
+    "LINK": {
+      "TICKETS": "TICKETS"
+    },
+    "DESCRIPTION": {
+      "TITLE": "Tour Details",
+      "P1": "Get ready for an unforgettable experience with Dani J on his 2025 world tour!",
+      "P2": "Want to know more? Check his social channels!",
+      "P3": "See concert dates and locations. If ticket links aren't live yet, don’t worry—they’ll be available soon."
+    },
+    "BANNER": "Explore all tour dates for 2025!"
+  },
+  "CONTACT": {
+    "TITLE": "Contact",
+    "INTRO": {
+      "P1": "Reach out via the form or through Dani J’s and 13 PRO MUSIC’s social media.",
+      "P2": "We’ll get back to you as soon as possible.",
+      "EMAIL": "Email: <a href=\"mailto:info@13promusic.com\">info@13promusic.com</a>"
+    },
+    "FORM": {
+      "TITLE": "Contact Form",
+      "REQUIRED_NOTE": "\"*\" indicates required fields",
+      "FIELDS": {
+        "NAME": {
+          "LABEL": "Name*",
+          "PLACEHOLDER": "Name"
+        },
+        "EMAIL": {
+          "LABEL": "Email*",
+          "PLACEHOLDER": "Email"
+        },
+        "MESSAGE": {
+          "LABEL": "Message*",
+          "PLACEHOLDER": "Message"
+        }
+      },
+      "BUTTON": "Send"
+    }
+  },
+  "CONTEST": {
+    "TITLE": "“Salsa with Dani J” Contest Rules",
+    "BASE1": {
+      "TITLE": "RULE 1 – OBJECTIVE",
+      "P1": "EMPTYSTAVE MUSIC RECORDS LTD, located at EFESOU 9, PARALIMNI, 5280 FAMAGUSTA, CYPRUS (Tax ID 60091184X), for its artist Dani J, launches the “Baila con Dani J” promotion to reward followers by inviting selected fans to dance on stage during his Latin America tour."
+    },
+    "BASE2": {
+      "TITLE": "RULE 2 – DURATION",
+      "P1": "The promotion runs from April 10, 2025 to October 9, 2025 at 23:59.",
+      "P2": "Winners will be chosen by an expert jury and notified at the time of announcement."
+    },
+    "BASE3": {
+      "TITLE": "RULE 3 – PRIZE DESCRIPTION",
+      "INTRO": "The prize consists of:",
+      "LIST": {
+        "ITEM1": "Joining Dani J on stage to dance at concerts in Argentina, Chile, Uruguay, and Peru during the 2025 tour.",
+        "ITEM2": "Prize does not include concert ticket; winners must purchase their own."
+      }
+    },
+    "BASE4": {
+      "TITLE": "RULE 4 – PARTICIPANTS",
+      "P1": "Open to anyone 18+ except employees, family, agencies, and associated parties of the promoter and 13 PRO MUSIC. Immediate family up to first degree are excluded.",
+      "P2": "Participation implies full acceptance of these rules.",
+      "P3": "Participants must certify they meet all contest conditions; false declarations may lead to disqualification.",
+      "P4": "Participation is voluntary and does not create an employment relationship; Dani J, his team, and associated parties are not liable for choreography execution or incidents.",
+      "P5": "The participant expressly accepts that going up to dance with Dani J does not imply an employment or commercial relationship of any kind, and is completely voluntary on their part. Likewise, the participant excludes Dani J, his team, producer or similar personnel from any type of liability in relation to the execution of the choreography and/or any incident or damage that may occur with its execution."
+    },
+    "BASE5": {
+      "TITLE": "RULE 5 – HOW TO ENTER",
+      "INTRO": "To enter:",
+      "LIST": {
+        "ITEM1": "Follow @OficialDaniJ on the platform where you enter.",
+        "ITEM2": "Post a video on Instagram or TikTok using Dani J’s official music from the April 9–11, 2025 posts, featuring one of the choreographies.",
+        "SUBLIST2": {
+          "ITEM1": "7 pecados",
+          "ITEM2": "Caprichito",
+          "ITEM3": "Rosas"
+        },
+        "ITEM3": "Winners chosen based on originality and talent.",
+        "ITEM4": "Selected participants will be contacted via direct message by Dani J."
+      }
+    },
+    "BASE6": {
+      "TITLE": "RULE 6 – PRIZE DISTRIBUTION",
+      "P1": "The organization will contact winners via direct message to arrange the collaboration."
+    },
+    "BASE7": {
+      "TITLE": "RULE 7 – PUBLICITY & IMAGE USE",
+      "P1": "Winners’ names will be published on Dani J’s official social media stories.",
+      "P2": "Participation grants permission for such publication.",
+      "P3": "Winners consent to being recorded for later social media sharing.",
+      "P4": "Winners grant free use of their name and image in promotional materials.",
+      "P5": "Prize does not create any employment or commercial relationship; participation is voluntary."
+    },
+    "BASE8": {
+      "TITLE": "RULE 8 – LIABILITY",
+      "P1": "Promoter and agencies are not liable for any personal or property damage resulting from participation.",
+      "P2": "Promoter and suppliers disclaim liability for any additional contest aspects."
+    },
+    "BASE9": {
+      "TITLE": "RULE 9 – IMAGE & VOICE LICENSE",
+      "P1": "By accepting a prize, winners grant a license to use their image, voice, and registration content digitally across 2024–2025 without additional compensation."
+    },
+    "BASE10": {
+      "TITLE": "RULE 10 – DATA PROCESSING",
+      "P1": "In compliance with current regulations on the protection of personal data, we inform you that the participants' data are incorporated into the processing of personal data:",
+      "P2": "IDENTITY OF THE CONTROLLER: EMPTYSTAVE MUSIC RECORDS LTD. Address at Calle EFESOU 9, PARALIMNI, 5280 FAMAGUSTA, CYPRUS. Tax number 60091184X.",
+      "P3": "SOURCE OF DATA: The personal data processed comes from the interested party himself.",
+      "P4": "The categories of interested parties treated are: Participants in the contest.",
+      "P5": "The categories of data processed are: Identification, postal and/or electronic addresses, landline/mobile telephone numbers, age, number of children and, in the case of winners, image and videos.",
+      "P6": "PURPOSES: We process the personal data that you provide us with the purpose of managing your participation in this promotional action. Likewise, the purpose will be the promotional actions in which the winners participate, in accordance with the terms and conditions of use of the image that are set out in Base 11 and in the rest of the bases of the promotion.",
+      "P7": "No profiles will be created or automated decisions will be made based on the information provided.",
+      "P8": "DATA CONSERVATION: The data will be kept as long as its deletion is not requested, during the mandatory legal periods and, at least, for a minimum period of 5 years from the last interaction.",
+      "P9": "LEGITIMATION OF PROCESSING: The processing of your data is carried out under the consent granted when participating in the contest.",
+      "P10": "CONSENT: By participating in the contest you accept the bases and expressly consent to the processing of data for the stated purposes.",
+      "P11": "RECIPIENTS: The data will not be communicated to third parties except as provided in current legislation.",
+      "P12": "RIGHTS: Interested parties have the right to access, rectify and delete their data, as well as to limit or oppose processing in certain circumstances.",
+      "P13": "You have the right to contact the Data Protection Officer at the address indicated above to request clarifications, queries, suggestions or complaints, or to exercise the rights set out in this Data Protection Information.",
+      "P14": "Likewise, you have the right to expand the information and make any queries or complaints you consider appropriate to the Spanish Data Protection Agency (AEPD), with address at Jorge Juan street, nº 6, 28001 Madrid.",
+      "P15": "In certain circumstances, the Interested Parties may request the limitation of the processing of their data, which will be kept only for the exercise of the right of defense against claims and/or litigation, and during the legal periods required for its conservation.",
+      "P16": "In certain circumstances, interested parties may object to the processing of their data. In that case, your data will no longer be processed, with the only exceptions being legitimate reasons, for historical, artistic or research reasons, to defend against claims, or as provided for in current regulations.",
+      "P17": "You have the right to contact the Data Protection Officer at the address indicated above to request clarifications, queries, suggestions, complaints, or to exercise the rights set out in this Data Protection Information.",
+      "P18": "Likewise, you have the right to expand the information and make any queries or complaints you consider appropriate to the Spanish Data Protection Agency (AEPD), with address at Jorge Juan street, nº 6, 28001 Madrid."
+    },
+    "BASE11": {
+      "TITLE": "RULE 11 – CLAIM PERIOD",
+      "P1": "Claim period ends 15 days after contest closes."
+    },
+    "BASE12": {
+      "TITLE": "RULE 12 – EXCLUSION CRITERIA",
+      "P1": "Promoter may exclude participants for abusive server queries or malicious behavior.",
+      "P2": "Therefore, the right is reserved to avoid speculation or business regarding this contest.",
+      "LIST": {
+        "ITEM1": "Use of unauthorized applications or abusive queries.",
+        "ITEM2": "Profit from prize resale or organized activity for gain."
+      },
+      "P3": "Promoter and agency are not liable for errors in participant data or third-party delays."
+    }
+  },
+  "LEGAL_NOTICE": {
+    "TITLE": "Legal Notice",
+    "P1": "© 13 PRO MUSIC SL owns this website and all associated rights.",
+    "P2": "Access is free. All content is intellectual property of 13 PRO MUSIC SL. Unauthorized use will be prosecuted according to applicable IP laws."
+  },
+  "PRIVACY_POLICY": {
+    "TITLE": "Privacy Policy",
+    "RESPONSIBLE": {
+      "TITLE": "Data Controller",
+      "P1": "This policy explains how 13PRO MUSIC (EMPTYSTAVE MUSIC RECORDS LTD) processes personal data within the EU in compliance with the EU Data Protection Regulation.",
+      "P2": "Controller details:",
+      "LIST": {
+        "ITEM1": "Name: EMPTYSTAVE MUSIC RECORDS LTD",
+        "ITEM2": "Tax ID: 60091184X",
+        "ITEM3": "Address: EFESOU 9, PARALIMNI, 5280 FAMAGUSTA, CYPRUS",
+        "ITEM4": "Contact Email: emptystave@gmail.com"
+      }
+    },
+    "WHAT_WE_DO": {
+      "TITLE": "What We Do with Your Data",
+      "P1": "We process personal data for the following purposes:",
+      "LIST": {
+        "ITEM1": "Commercial communications and advertising campaigns",
+        "ITEM2": "Website analytics and error correction",
+        "ITEM3": "Customer management",
+        "ITEM4": "Supplier management",
+        "ITEM5": "Social media management for 13 PRO MUSIC and its artists",
+        "ITEM6": "Human resources management"
+      }
+    },
+    "WHAT_DATA": {
+      "TITLE": "What Personal Data We Process",
+      "P1": "Depending on the purpose, we process the following data categories:"
+    },
+    "TABLE_HEAD": {
+      "TREATMENT": "Treatment",
+      "ASSOCIATED_DATA": "Data Processed",
+      "PURPOSE": "Purpose",
+      "DURATION": "Duration",
+      "SUBJECTS": "Recipients",
+      "LEGAL_BASIS": "Legal Basis"
+    },
+    "TABLE_ROWS": {
+      "CUSTOMER_MANAGEMENT": {
+        "TREATMENT": "Customer Management",
+        "ASSOCIATED_DATA": "Name, Surname, Address, Email, Phone, Transactions, ID number",
+        "PURPOSE": "Manage clients for concert organization",
+        "DURATION": "As long as needed, max 10 years",
+        "SUBJECTS": "Public authorities, banks, partners, family",
+        "LEGAL_BASIS": "Contractual, pre-contractual"
+      },
+      "PROVIDER_MANAGEMENT": {
+        "TREATMENT": "Supplier Management",
+        "ASSOCIATED_DATA": "Tax ID, Name, Account Number, Email, Phone",
+        "PURPOSE": "Manage suppliers",
+        "DURATION": "As long as needed, max 10 years",
+        "SUBJECTS": "Public authorities, banks, partners, family",
+        "LEGAL_BASIS": "Contractual, legal"
+      },
+      "MARKETING": {
+        "TREATMENT": "Marketing",
+        "ASSOCIATED_DATA": "Name, Email, Social username, Phone",
+        "PURPOSE": "Run marketing campaigns and contests",
+        "DURATION": "As long as needed, max 10 years",
+        "SUBJECTS": "Public authorities, banks, partners, family",
+        "LEGAL_BASIS": "Legitimate interest, consent"
+      },
+      "SOCIAL_MANAGEMENT": {
+        "TREATMENT": "Social Media Management",
+        "ASSOCIATED_DATA": "Name, Email, Social username, Phone",
+        "PURPOSE": "Manage social media campaigns",
+        "DURATION": "As long as needed, max 10 years",
+        "SUBJECTS": "Public authorities, banks, partners, family",
+        "LEGAL_BASIS": "Legitimate interest, consent"
+      },
+      "SOCIAL_DISSEMINATION": {
+        "TREATMENT": "Social Media Dissemination",
+        "ASSOCIATED_DATA": "Name, Social username",
+        "PURPOSE": "Publish and manage social media content",
+        "DURATION": "As long as needed",
+        "SUBJECTS": "Public authorities, banks, partners, family",
+        "LEGAL_BASIS": "Legitimate interest, consent"
+      },
+      "HR": {
+        "TREATMENT": "Human Resources",
+        "ASSOCIATED_DATA": "Name, Surname, Address, Account Number, Email, Phone, Education, Health Data, Bank Account, Image",
+        "PURPOSE": "HR management, hiring, termination",
+        "DURATION": "As long as needed plus 5 years after relationship ends",
+        "SUBJECTS": "Public authorities, banks, partners, family",
+        "LEGAL_BASIS": "Contractual, pre-contractual, consent"
+      },
+      "WEB_ANALYTICS": {
+        "TREATMENT": "Web Analytics",
+        "ASSOCIATED_DATA": "Cookies, IP, Browser",
+        "PURPOSE": "Analyze website visits",
+        "DURATION": "As long as needed",
+        "SUBJECTS": "Public authorities, banks, partners, family",
+        "LEGAL_BASIS": "Legitimate interest"
+      }
+    },
+    "STORAGE": {
+      "TITLE": "Data Retention",
+      "P1": "We retain data as long as necessary for the stated purposes, never exceeding two years unless legally required."
+    },
+    "SHARING": {
+      "TITLE": "Data Sharing",
+      "P1": "We do not share personal data except with:",
+      "LIST": {
+        "ITEM1": "IONOS (website hosting)",
+        "ITEM2": "Google Analytics (cookies)",
+        "ITEM3": "Meta (marketing services)",
+        "ITEM4": "Social networks (per their own policies)"
+      }
+    },
+    "NETWORKS": {
+      "P1": "Our social media presence and data sharing per each platform’s policy:",
+      "TABLE_HEAD": {
+        "SOCIAL_NETWORK": "Social Network",
+        "USERNAME": "Username/URL"
+      },
+      "TABLE_ROWS": {
+        "INSTAGRAM": {
+          "LABEL": "Instagram",
+          "URL": "http://www.instagram.com/OficialDaniJ"
+        },
+        "FACEBOOK1": {
+          "LABEL": "Facebook",
+          "URL": "http://www.facebook.com/DaniJoficial"
+        },
+        "TIKTOK": {
+          "LABEL": "TikTok",
+          "URL": "https://www.tiktok.com/@oficialdanij"
+        },
+        "X": {
+          "LABEL": "X (Twitter)",
+          "URL": "http://www.twitter.com/OficialDaniJ"
+        },
+        "INSTAGRAM2": {
+          "LABEL": "Instagram",
+          "URL": "http://www.instagram.com/13ProMusic"
+        },
+        "FACEBOOK2": {
+          "LABEL": "Facebook",
+          "URL": "http://www.facebook.com/13ProMusic"
+        }
+      }
+    },
+    "AUTOMATED_DECISIONS": {
+      "TITLE": "Automated Decisions",
+      "P1": "No automated decisions are made; each client is treated individually."
+    },
+    "MORE_INFO": "For more about cookies, see our Cookie Policy.",
+    "RIGHTS": {
+      "TITLE": "Data Subject Rights",
+      "P1": "You have the right to access, rectify, erase, restrict, port, and object as per GDPR.",
+      "LIST": {
+        "ITEM1": "Access",
+        "ITEM2": "Rectification",
+        "ITEM3": "Erasure",
+        "ITEM4": "Restriction",
+        "ITEM5": "Portability",
+        "ITEM6": "Objection"
+      }
+    },
+    "EXERCISE": {
+      "P1": "To exercise your rights, contact EMPTYSTAVE MUSIC RECORDS LTD by mail or email at emptystave@gmail.com. We may require proof of identity:",
+      "LIST": {
+        "ITEM1": "Name and surname, ID copy or equivalent",
+        "ITEM2": "Purpose of request",
+        "ITEM3": "Address for notifications, date, and signature",
+        "ITEM4": "Supporting documents if needed"
+      },
+      "CLAIMS_P1": "You may also file complaints with the Spanish Data Protection Agency (AEPD)."
+    },
+    "INFORMATION_MANAGEMENT": {
+      "TITLE": "Information Management",
+      "P1": "Data provided to the Website is recorded in our processing logs, including any provided to third parties."
+    },
+    "LINKS": {
+      "TITLE": "Useful Links",
+      "P1": "For more on online privacy, visit:",
+      "OSI": "Internet Security Office: <a href=\"http://www.osi.es\" target=\"_blank\">http://www.osi.es</a>",
+      "AEPD": "Spanish Data Protection Agency: <a href=\"http://www.agpd.es\" target=\"_blank\">http://www.agpd.es</a>"
+    }
+  },
+  "COOKIE_POLICY": {
+    "TITLE": "Cookie Policy",
+    "INTRO": {
+      "P1": "This website uses cookies for the purposes described below. Controller details:",
+      "LIST": {
+        "ITEM1": "Name: Emptystave Music Records LTD",
+        "ITEM2": "Tax ID: 60091184X",
+        "ITEM3": "Address: EFESOU 9, PARALIMNI, 5280 FAMAGUSTA, CYPRUS",
+        "ITEM4": "Contact Email: emptystave@gmail.com"
+      }
+    },
+    "COOKIES": {
+      "TITLE": "What Are Cookies?",
+      "P1": "Cookies are files stored on your device when you browse the web. They collect data depending on their purpose.",
+      "P2": "By origin: first-party or third-party; by lifespan: session or persistent; by purpose: technical, analytical, advertising, etc."
+    },
+    "DURATION_TITLE": "By Duration:",
+    "DURATION_LIST": {
+      "ITEM1": "Session cookies: deleted when the browser closes; Persistent cookies: remain until expiry."
+    },
+    "PURPOSE_TITLE": "By Purpose:",
+    "PURPOSE_LIST": {
+      "ITEM1": "User-input cookies: support logins, carts, etc.",
+      "ITEM2": "Authentication cookies: identify logged-in users.",
+      "ITEM3": "Security cookies: enhance security against repeated login attempts.",
+      "ITEM4": "Multimedia session cookies: store technical data for audio/video playback.",
+      "ITEM5": "Load-balancing cookies: manage connection points.",
+      "ITEM6": "UI customization cookies: personalize site appearance (language, etc.).",
+      "ITEM7": "Social plugin cookies: enable content sharing modules.",
+      "ITEM8": "Third-party advertising cookies.",
+      "ITEM9": "Analytical cookies: generate visitor statistics."
+    },
+    "USED": {
+      "TITLE": "Used Cookies",
+      "P1": "By using this site you consent to essential, first- and third-party cookies."
+    },
+    "TABLE": {
+      "HEAD": {
+        "NAME": "NAME",
+        "PURPOSE": "PURPOSE",
+        "DURATION": "DURATION",
+        "ORIGIN": "ORIGIN"
+      },
+      "ROWS": {
+        "CookieConsent": {
+          "NAME": "CookieConsent",
+          "PURPOSE": "Stores user consent state for cookies on this domain.",
+          "DURATION": "1 year",
+          "ORIGIN": "First-party (Cookiebot)"
+        },
+        "_ga": {
+          "NAME": "_ga",
+          "PURPOSE": "Distinguishes users with a unique ID.",
+          "DURATION": "2 years",
+          "ORIGIN": "Third-party (Google Analytics)"
+        },
+        "_gid": {
+          "NAME": "_gid",
+          "PURPOSE": "Distinguishes users in separate sessions.",
+          "DURATION": "24 hours",
+          "ORIGIN": "Third-party (Google Analytics)"
+        },
+        "_gat": {
+          "NAME": "_gat",
+          "PURPOSE": "Limits request rate to improve performance.",
+          "DURATION": "1 minute",
+          "ORIGIN": "Third-party (Google Analytics)"
+        },
+        "_ga_container": {
+          "NAME": "_ga<container-id>",
+          "PURPOSE": "Maintains session state.",
+          "DURATION": "2 years",
+          "ORIGIN": "Third-party (Google Analytics)"
+        }
+      }
+    },
+    "ADMINISTER": {
+      "TITLE": "How to Manage or Disable Cookies",
+      "P1": "Below are links to major browser guides for managing or disabling cookies:",
+      "LIST": {
+        "FIREFOX": "Firefox",
+        "CHROME": "Chrome",
+        "EXPLORER": "Internet Explorer",
+        "SAFARI": "Safari"
+      }
+    },
+    "EFFECTS": {
+      "TITLE": "Effects of Disabling Cookies",
+      "P1": "You can still browse the site, but some features may not work and your experience may be limited."
+    },
+    "CHANGES": {
+      "TITLE": "Policy Changes",
+      "P1": "We may update this policy to reflect new cookies, legislative changes, or content requirements. Please review it regularly."
+    }
+  },
   "ACCESSIBILITY_STATEMENT": {
     "TITLE": "Accessibility Statement",
     "POLICY": {
       "TITLE": "Accessibility Policy",
-      "P1": "The company <strong>DANI J</strong> is committed to making its website accessible in accordance with Royal Decree 1112/2018 of September 7 on accessibility of public sector websites and mobile applications, or developments funded by Europe."
+      "P1": "DANI J is committed to making this website accessible in accordance with Royal Decree 1112/2018 on public sector website and mobile app accessibility."
     },
     "SCOPE": {
-      "P1": "This accessibility statement applies to the website danij.com, excluding embedded content from other domains."
+      "P1": "This statement applies to danij.com, excluding embedded content from other domains."
     },
     "COMPLIANCE": {
       "TITLE": "Compliance Status",
-      "P1": "This website is <strong>Partially Conforming</strong> with RD 1112/2018 due to non-compliance with the aspects indicated below."
+      "P1": "This site is <strong>Partially Conforming</strong> with RD 1112/2018 due to the non-conformities listed below."
     },
     "NOT_ACCESSIBLE": {
-      "TITLE": "Non-accessible Content",
-      "P1": "The following content is not accessible for the following reasons:",
-      "ITEM1": "Lack of compliance:",
-      "SUBITEM1": "Some pages do not have their title correctly defined – Requirement 9.2.4.2 “Page Title” of UNE-EN 301549:2022",
-      "SUBITEM2": "There may be images whose alternative text is not implemented or is incorrect – Requirement 9.1.1.1 “Non-text Content” of UNE-EN 301549:2022",
-      "SUBITEM3": "There may be headings that are not clear or concise, or that should not be headings – Requirement 9.2.4.6 “Headings and Labels” of UNE-EN 301549:2022",
-      "SUBITEM4": "There may be form fields whose label is incorrect or missing – Requirements 9.2.5.3 “Name of UI Component” and 9.3.3.2 “Labels or Instructions” of UNE-EN 301549:2022",
-      "SUBITEM5": "There could be occasional editorial errors on some web pages.",
-      "ITEM2": "Disproportionate burden: Not applicable.",
-      "ITEM3": "Content falls outside the scope of the applicable legislation."
+      "TITLE": "Non-Accessible Content",
+      "P1": "The following content is not accessible for these reasons:",
+      "ITEM1": "Non-conformity:",
+      "SUBITEM1": "Some pages lack properly defined titles – Req. 9.2.4.2 UNE-EN 301549:2022",
+      "SUBITEM2": "Some images may lack or have incorrect alt text – Req. 9.1.1.1 UNE-EN 301549:2022",
+      "SUBITEM3": "Headings may be unclear or misused – Req. 9.2.4.6 UNE-EN 301549:2022",
+      "SUBITEM4": "Form fields may lack correct labels – Reqs. 9.2.5.3 & 9.3.3.2 UNE-EN 301549:2022",
+      "SUBITEM5": "Minor editorial errors may exist.",
+      "ITEM2": "Disproportionate Burden: Not applicable.",
+      "ITEM3": "Content outside scope of applicable legislation."
     },
     "PDF": {
-      "P1": "There may be office files in PDF or other formats published before September 20, 2018 that do not fully meet all accessibility requirements."
+      "P1": "Documents in PDF or other formats published before September 20, 2018 may not fully meet accessibility requirements."
     },
     "THIRD_PARTY": {
-      "P1": "There may be third-party content not developed by this Unit or under its control, such as office files from various organizations published on this site."
-    },
-    "CONTACT": {
-      "TITLE": "Comments and Contact Information",
-      "P1": "You may send communications regarding accessibility requirements [Article 10.2.a of RD 1112/2018], such as:",
-      "ITEM1": "Report any possible non-compliance by this website.",
-      "ITEM2": "Submit other difficulties accessing the content.",
-      "ITEM3": "Submit any other inquiry or suggestion for improvement regarding the website’s accessibility by calling +34 604 818 649."
+      "P1": "Third-party content, such as external PDFs, may not be under our control."
     },
     "PRESENT": {
-      "P1": "You may submit:",
-      "ITEM1": "A complaint regarding compliance with RD 1112/2018 requirements",
-      "ITEM2": "A request for accessible information regarding:"
+      "TITLE": "Feedback & Contact",
+      "P1": "You may report accessibility issues under RD 1112/2018, for example:",
+      "ITEM1": "Report non-compliance",
+      "ITEM2": "Report access difficulties",
+      "ITEM3": "Submit other suggestions by calling +34 604 818 649"
     },
-    "PRESENT_SUBITEM1": "Content excluded from the scope of RD 1112/2018 as established by Article 3, Section 4.",
-    "PRESENT_SUBITEM2": "Content exempt from meeting accessibility requirements due to a disproportionate burden.",
-    "PRESENT_FINAL": "In the request for accessible information, you must clearly specify the facts, reasons, and request to demonstrate that it is a reasonable and legitimate request."
+    "PRESENT_SUBITEM1": "A complaint about compliance with RD 1112/2018",
+    "PRESENT_SUBITEM2": "A request for accessible information regarding:",
+    "PRESENT_SUBITEM3": "Content excluded under Art. 3.4 of RD 1112/2018",
+    "PRESENT_SUBITEM4": "Content exempt due to disproportionate burden",
+    "PRESENT_FINAL": "Requests must clearly state facts, reasons, and desired outcome to be considered reasonable and legitimate."
   },
-
+  "MERCH": {
+    "TITLE": "Merchandise",
+    "FILTERS": "Filters",
+    "TYPE_LABEL": "Garment Type",
+    "PRICE_LABEL": "Price:",
+    "ALL": "All",
+    "TSHIRT": "T-Shirts",
+    "HOODIE": "Hoodies",
+    "TSHIRT_TITLE": "T-Shirts",
+    "HOODIE_TITLE": "Hoodies"
+  },
+  "PRODUCT": {
+    "COLOR": "Color:",
+    "SIZE": "Sizes:",
+    "PRICE": "Price:",
+    "IN_STOCK": "In Stock",
+    "OUT_OF_STOCK": "Out of Stock",
+    "DELIVERY": "24h Delivery",
+    "ADD_TO_CART": "Add to Cart"
+  },
+  "ADDED_CANVAS": {
+    "TITLE": "Product Added!",
+    "CLOSE": "Close",
+    "SIZE_LABEL": "Size:",
+    "PRICE_LABEL": "Price:",
+    "GOTO_CART": "Go to Cart"
+  },
+  "CART": {
+    "TITLE": "Cart",
+    "DELETE_ALL": "Remove All",
+    "SIZE_LABEL": "Size:",
+    "PRICE_LABEL": "Price:",
+    "REMOVE_ITEM_TITLE": "Remove this variant",
+    "SUMMARY_TITLE": "Order Summary",
+    "TOTAL_PRICE": "Total Price ({{totalItems}} items)",
+    "CONTINUE": "Continue",
+    "EMPTY_MESSAGE": "Your cart is empty."
+  },
+  "CHECKOUT": {
+    "BILLING_ADDRESS_TITLE": "Billing Address",
+    "ADDRESS_DETAILS": "block: {{block}} | staircase: {{ladder}} | door: {{door}}",
+    "ADD_NEW_ADDRESS": "+ Add New Address",
+    "CONFIRM_PAY_TITLE": "Confirm & Pay",
+    "SIZE_LABEL": "Size:",
+    "PRICE_LABEL": "Price:",
+    "CREDIT_CARDS_TITLE": "Credit Cards",
+    "ADD_NEW_CARD": "+ Add New Card",
+    "TERMS_AND_CONDITIONS": "I accept the terms and conditions of purchase.",
+    "FINALIZE_PURCHASE": "Complete Purchase",
+    "SUMMARY_TITLE": "Order Summary",
+    "SUBTOTAL_LABEL": "Subtotal ({{count}} items)",
+    "SHIPPING_LABEL": "Standard Shipping",
+    "TOTAL_LABEL": "Total"
+  },
+  "PURCHASE_CONFIRMATION": {
+    "IMAGE_ALT": "Confirmation",
+    "TITLE": "Thank You for Your Order",
+    "MESSAGE": "Your purchase was successful! You’ll receive an email shortly with order details and shipping info.",
+    "BUTTON": "RETURN HOME"
+  },
+  "CONTACT_CONFIRMATION": {
+    "TITLE": "Thank You for Contacting Us",
+    "MESSAGE": "We will address your inquiry and get back to you as soon as possible.",
+    "BUTTON": "RETURN HOME"
+  },
+  "PROFILE": {
+    "TITLE": "User Profile",
+    "CHANGE_AVATAR": "Change Avatar",
+    "UPLOADING": "Uploading…",
+    "SECTION_PERSONAL_INFO": "Personal Information",
+    "LABEL_NAME": "Name",
+    "LABEL_SURNAME": "Surname",
+    "LABEL_EMAIL": "Email",
+    "LABEL_PHONE": "Phone",
+    "SECTION_ADDRESS": "Address",
+    "NO_ADDRESSES": "You have no saved addresses.",
+    "ADD_NEW_ADDRESS": "+ Add New Address",
+    "SAVE_CHANGES": "Save Changes",
+    "DELETE_ADDRESS": "Delete Address"
+  },
   "ADDRESS_MODAL": {
     "TITLE": "Address",
     "LABELS": {
@@ -99,279 +668,66 @@
       "LADDER": "Staircase",
       "DOOR": "Door"
     },
-    "PLACEHOLDERS": {
-      "COUNTRY": "Spain",
-      "PROVINCE": "Seville",
-      "CITY": "Seville",
-      "POSTAL_CODE": "41001",
-      "STREET": "Example Street",
-      "BLOCK_NUMBER": "12",
-      "LADDER": "A",
-      "DOOR": "3B"
-    },
     "BUTTON": {
       "ADD": "Add",
       "CLOSE": "Close"
     }
   },
-
-  "BIOGRAPHY": {
-    "TITLE": "Biography",
-    "P1": "<strong>Dani J</strong> is one of the most versatile and innovative artists in today’s Latin music. Internationally recognized as the most important bachata artist in Europe, he has been revolutionizing the bachata genre since 2014 by successfully fusing it with other styles such as Pop, Flamenco, Trap, and R&B, creating a unique and personal style that transcends borders.",
-    "P2": "His passion for music was born in Seville, his hometown, where his flamenco roots intertwined with influences from hip-hop, R&B and Latin music, forging a unique artistic vision. This musical versatility allowed him to develop his own style that captivates global audiences. His true international breakthrough came in 2016 with “Quitémonos la ropa”, an EP that positioned him among the Top 10 most promising artists according to Google Play Music, being the only Spaniard to achieve such distinction. This recognition was only the beginning of a prolific global career.",
-    "P3": "DANI J’s career is a testament to perseverance and artistic evolution. Every experience along his journey, from his flamenco beginnings to his immersion in different musical genres, has contributed to making him the complete artist he is today. His ability to reinvent himself and constant pursuit of excellence have made him a benchmark in bachata.",
+  "LOGIN_MODAL": {
+    "TITLE": "Log In",
     "BUTTON": {
-      "VIEW_MORE": "View More",
-      "VIEW_LESS": "View Less"
+      "CLOSE": "Close",
+      "LOGIN": "Log In"
     },
-    "DETAILS": {
-      "SUCCESS": {
-        "TITLE": "INTERNATIONAL SUCCESS:",
-        "INTRO": "With over 360 international concerts in more than 30 different countries, Dani J has taken his music to all five continents. His art has resonated on stages across Europe, America, Asia, Africa, and Oceania, conquering audiences in such diverse places as:",
-        "LIST": {
-          "ITEM1": "EUROPE: France, Italy, Switzerland, Germany, the Netherlands, Poland…",
-          "ITEM2": "ASIA: Japan, Korea, Thailand, Singapore, Vietnam, Taiwan…",
-          "ITEM3": "AMERICA: United States, Mexico, Brazil, Argentina, Chile…",
-          "ITEM4": "OTHER CONTINENTS: Australia, Tunisia"
-        },
-        "P2": "His music has transcended cultural and linguistic barriers, as demonstrated in his 2024 single “TOKYO”, in which he dares to fuse Japanese culture with bachata, exemplifying his unique ability to create cultural bridges through music."
-      },
-      "INNOVATION": {
-        "TITLE": "INNOVATION AND EVOLUTION:",
-        "P1": "In 2022, Dani J took a step forward in his career by founding his own record label, “13 PRO MUSIC”, demonstrating his business vision and commitment to innovation in the music industry. This decision has allowed him to maintain his artistic authenticity while exploring new creative horizons.",
-        "P2": "His recent hits such as “7 pecados”, “Caprichito”, “Piscina” and collaborations like “Rosas” with Kewin Cosmos or “Atemporal” with Danny Romero demonstrate his constant artistic evolution."
-      },
-      "LEGACY": {
-        "TITLE": "LEGACY AND FUTURE:",
-        "P1": "With over 350 million streams on audio and video streaming platforms, Dani J continues to push the boundaries of Latin music. His ability to reinvent himself and his dedication to artistic excellence have established him as a key figure in the evolution of contemporary bachata.",
-        "P2": "DANI J is much more than a singer: he is a multifaceted artist who combines his talents as a dancer, music producer, composer, and musician to create unique musical experiences that continue to captivate global audiences. His story is a testament to the power of passion, innovation, and authenticity in music.",
-        "P3": "Already in 2025, the tireless Dani J embarks on an ambitious world tour, adding new hits to his repertoire, consolidating his position as the international ambassador of bachata made in Spain and taking his innovative musical style around the world.",
-        "P4": "Watch out for Dani J; once you try him, you’ll come back for more… Dare?"
-      }
+    "LABEL": {
+      "EMAIL": "Email",
+      "PASSWORD": "Password"
+    },
+    "PLACEHOLDER": {
+      "EMAIL": "Email",
+      "PASSWORD": "Password"
+    },
+    "NO_ACCOUNT": {
+      "TEXT": "Don’t have an account? ",
+      "LINK": "Create one"
     }
   },
-
-  "CONTACT": {
-    "TITLE": "Contact",
-    "INTRO": {
-      "P1": "Get in touch with our team via the form or on the social media of <strong>DANI J</strong> or <strong>13 PRO MUSIC</strong>.",
-      "P2": "We will get back to you as soon as possible.",
-      "EMAIL": "Email: <a href=\"mailto:info@13promusic.com\">info&commat;13promusic.com</a>"
+  "PAYMENT_MODAL": {
+    "TITLE": "Payment Method",
+    "BUTTON": {
+      "CLOSE": "Close",
+      "ADD": "Add Card",
+      "SAVING": "Saving..."
     },
-    "FORM": {
-      "TITLE": "Contact Form",
-      "REQUIRED_NOTE": "\"*\" indicates required fields",
-      "FIELDS": {
-        "NAME": {
-          "LABEL": "Name*",
-          "PLACEHOLDER": "Name"
-        },
-        "EMAIL": {
-          "LABEL": "Email Address*",
-          "PLACEHOLDER": "Email"
-        },
-        "MESSAGE": {
-          "LABEL": "Message*",
-          "PLACEHOLDER": "Message"
-        }
-      },
-      "BUTTON": "Send"
+    "LABEL": {
+      "CARDHOLDER": "Cardholder Name",
+      "CARD_NUMBER": "Card Number",
+      "MONTH": "Month",
+      "YEAR": "Year",
+      "CVV": "CVV"
+    },
+    "PLACEHOLDER": {
+      "MONTH": "MM",
+      "YEAR": "YY"
     }
   },
-
-  "CONTEST": {
-    "TITLE": "DRAW RULES “Dance with Dani J”",
-    "BASE1": {
-      "TITLE": "RULE 1 – OBJECT",
-      "P1": "Under these rules, Emptystave Music Records LTD, with registered office at Calle EFESOU 9, Paralimni, 5280 Famagusta, Cyprus, tax number 60091184X, for its artist Dani J, hereinafter Dani J, launches the promotion “Dance with Dani J” to reward his fans. To this end, Dani J will invite the selected followers to dance on stage during his Latin America tour."
+  "REGISTER_MODAL": {
+    "TITLE": "Sign Up",
+    "BUTTON": {
+      "CLOSE": "Close",
+      "SUBMIT": "Create Account"
     },
-    "BASE2": {
-      "TITLE": "RULE 2 – DURATION",
-      "P1": "The promotion will start on April 10, 2025 and will close at 23:59 on October 9, 2025.",
-      "P2": "Winners will be chosen by an expert jury and notified at the time of selection."
+    "LABEL": {
+      "NAME": "Name",
+      "SURNAME": "Surname",
+      "EMAIL": "Email",
+      "PHONE": "Phone (optional)",
+      "PASSWORD": "Password",
+      "CONFIRM_PASSWORD": "Confirm Password"
     },
-    "BASE3": {
-      "TITLE": "RULE 3 – PRIZE DESCRIPTION",
-      "INTRO": "The prize consists of:",
-      "LIST": {
-        "ITEM1": "Dancing on stage with Dani J at the concerts held in Argentina, Chile, Uruguay and Peru during his 2025 tour.",
-        "ITEM2": "This prize does not include concert tickets, which winners must purchase separately if they wish to attend."
-      }
-    },
-    "BASE4": {
-      "TITLE": "RULE 4 – PARTICIPANTS",
-      "P1": "You may send communications regarding accessibility requirements [Article 10.2.a of RD 1112/2018], such as:",
-      "P2": "This promotion is open to anyone aged 18 or over, except employees and immediate family members of the promoter, any agency involved, and any other persons professionally related to the promotion, as well as spouses, ascendants and descendants up to first-degree relatives (inclusive). They may not enter the draw.",
-      "P3": "Participation implies full acceptance of these rules.",
-      "P4": "Participants declare they strictly meet all conditions and may be disqualified if any declaration is false, incorrect or incomplete.",
-      "P5": "Participation is voluntary and does not create any employment or commercial relationship. Dani J and his team are not liable for any incident or damage during the choreography."
-    },
-    "BASE5": {
-      "TITLE": "RULE 5 – HOW TO ENTER",
-      "INTRO": "To enter, participants must:",
-      "LIST": {
-        "ITEM1": "Follow @OficialDaniJ on the social network where you participate.",
-        "ITEM2": "Post a video on Instagram or TikTok using Dani J’s original tracks with one of the choreographies published on April 9, 10 and 11, 2025.",
-        "SUBLIST2": {
-          "ITEM1": "7 pecados",
-          "ITEM2": "Caprichito",
-          "ITEM3": "Rosas"
-        },
-        "ITEM3": "Winners will be selected based on originality and talent.",
-        "ITEM4": "Winners will be contacted via direct message from Dani J’s personal account."
-      }
-    },
-    "BASE6": {
-      "TITLE": "RULE 6 – PRIZE DELIVERY",
-      "P1": "The organizers will contact the winners via direct message to arrange the collaboration details."
-    },
-    "BASE7": {
-      "TITLE": "RULE 7 – WINNER PUBLICITY, IMAGE AND NAME USAGE",
-      "P1": "Winners’ names will be published in Dani J’s official social media stories.",
-      "P2": "Entry implies consent for this publication if you win.",
-      "P3": "Winners consent that the experience may be recorded and shared on Dani J’s social media by Emptystave Music Records LTD.",
-      "P4": "Winners authorize the free use of their name and image in promotional materials.",
-      "P5": "Receipt of the prize does not create any employment or commercial relationship; participation is voluntary."
-    },
-    "BASE8": {
-      "TITLE": "RULE 8 – LIABILITY",
-      "P1": "The promoter and its advertising agencies assume no liability for personal injury or property damage of any kind, including direct, indirect, consequential, incidental or punitive damages that may occur during participation.",
-      "P2": "Furthermore, the sponsor, its agencies and suppliers assume no responsibility for any additional aspect of the promotion."
-    },
-    "BASE9": {
-      "TITLE": "RULE 9 – USE OF IMAGE AND VOICE",
-      "P1": "By entering and accepting a prize, the winner consents to reasonable use of their photograph, voice and/or image in digital media and social networks throughout 2024 and 2025, without additional compensation."
-    },
-    "BASE10": {
-      "TITLE": "RULE 10 – DATA PROCESSING",
-      "P1": "In compliance with data protection laws, participants’ data will be processed as follows:",
-      "P2": "DATA CONTROLLER: Emptystave Music Records LTD. Address: Calle EFESOU 9, Paralimni, 5280 Famagusta, Cyprus. Tax No.: 60091184X.",
-      "P3": "SOURCE OF DATA: Provided by the participant.",
-      "P4": "DATA SUBJECT CATEGORIES: Contest participants.",
-      "P5": "DATA CATEGORIES: Identification, postal/electronic addresses, phone numbers, age, number of children, and for winners: image and videos.",
-      "P6": "PURPOSES: To manage participation and subsequent promotional activities under the image usage terms in Rule 11 and other rules.",
-      "P7": "No profiling or automated decisions will be made.",
-      "P8": "DATA RETENTION: Data will be kept for legal periods and at least 5 years after last interaction.",
-      "P9": "LEGAL BASIS: Consent given by participating.",
-      "P10": "CONSENT: Participation implies consent to these rules and data processing purposes.",
-      "P11": "RECIPIENTS: Data will not be disclosed except as legally required.",
-      "P12": "RIGHTS: Participants may access, correct, delete, limit or object to processing.",
-      "P13": "You have the right to contact the Data Protection Officer at the address above to request clarifications, inquiries, suggestions or complaints, or to exercise the rights outlined in this Data Protection Information.",
-      "P14": "You also have the right to obtain more information and file complaints with the Spanish Data Protection Agency (AEPD), at Calle Jorge Juan 6, 28001 Madrid.",
-      "P15": "Under certain circumstances, data subjects may request restriction of processing, in which case their data will be retained solely for the exercise of the right of defense in claims and/or litigation, and for the legally required retention periods.",
-      "P16": "Under certain circumstances, data subjects may object to processing. In that case, processing will cease, except for lawful reasons, historical, artistic or research purposes, for defense against claims, or as required by law.",
-      "P17": "You have the right to contact the Data Protection Officer at the address above to request clarifications, inquiries, suggestions or complaints, or to exercise the rights outlined in this Data Protection Information.",
-      "P18": "You also have the right to obtain more information and file complaints with the Spanish Data Protection Agency (AEPD), at Calle Jorge Juan 6, 28001 Madrid."
-    },
-    "BASE11": {
-      "TITLE": "RULE 11 – CLAIM PERIOD",
-      "P1": "Any claims related to the promotion must be filed within 15 days following the end of the participation period."
-    },
-    "BASE12": {
-      "TITLE": "RULE 12 – EXCLUSION OF PARTICIPANTS",
-      "P1": "Emptystave Music Records LTD aims for a fair competition conducted in good faith.",
-      "P2": "It reserves the right to prevent speculation or commercial exploitation of this contest.",
-      "LIST": {
-        "ITEM1": "Use of external applications, abusive server queries or malicious behavior.",
-        "ITEM2": "Reselling prizes or acting in a coordinated manner for profit."
-      },
-      "P3": "Emptystave Music Records LTD and the organizing agency assume no liability for errors in data provided by participants, nor for losses, thefts, delays or any third-party issues affecting the promotion."
-    }
-  },
-
-  "COOKIE_POLICY": {
-    "TITLE": "Cookie Policy",
-    "INTRO": {
-      "P1": "This website uses cookies as appropriate, the data of the owner for the relevant purposes are as follows:",
-      "LIST": {
-        "ITEM1": "Name: Emptystave Music Records LTD",
-        "ITEM2": "Tax ID: 60091184X",
-        "ITEM3": "Address: EFESOU 9, PARALIMNI, 5280, FAMAGUSTA, CYPRUS",
-        "ITEM4": "Contact email: emptystave@gmail.com"
-      }
-    },
-    "COOKIES": {
-      "TITLE": "Cookies",
-      "P1": "Cookies are files stored on your computer or other device as a result of browsing the Internet. When visiting websites, cookies may collect various data depending on their purpose.",
-      "P2": "There are different types of cookies. Depending on their origin they can be first-party or third-party; by duration they can be session or persistent; and by purpose they can be technical, analytical, advertising, etc."
-    },
-    "DURATION_TITLE": "Classification of cookies by duration:",
-    "DURATION_LIST": {
-      "ITEM1": "“Session cookies” or “Persistent cookies”: the first are deleted when you close the browser, while the latter remain on the device."
-    },
-    "PURPOSE_TITLE": "Classification of cookies by purpose:",
-    "PURPOSE_LIST": {
-      "ITEM1": "User input cookies: used to carry out logins, shopping carts, etc.",
-      "ITEM2": "Authentication cookies: identify the user once they log in.",
-      "ITEM3": "User centric security cookies: aimed at enhancing security for user-requested services, such as controlling repeated login attempts.",
-      "ITEM4": "Multimedia Player session cookies (Flash Cookies): used to store technical data required to play video or audio (e.g. quality, network speed).",
-      "ITEM5": "Load balancing session cookies: store connection point information (technical cookie).",
-      "ITEM6": "UI customization cookies: used to customize website appearance (language, etc.).",
-      "ITEM7": "Social plug-in content sharing cookies: social networks’ plug-ins that install cookies to enable sharing.",
-      "ITEM8": "Third-party advertising: cookies used by third-party ad networks.",
-      "ITEM9": "Analytical cookies: generate statistics on visitor flow, navigation patterns, etc."
-    },
-    "USED": {
-      "TITLE": "Cookies used",
-      "P1": "By visiting this website you consent to the use of first-party and third-party cookies to identify the user and improve the website’s functionality, without prejudice to the strictly necessary technical cookies."
-    },
-    "TABLE": {
-      "HEAD": {
-        "NAME": "NAME",
-        "PURPOSE": "PURPOSE",
-        "DURATION": "DURATION",
-        "ORIGIN": "ORIGIN"
-      },
-      "ROWS": {
-        "CookieConsent": {
-          "NAME": "CookieConsent",
-          "PURPOSE": "Stores the user’s cookie consent state for the current domain.",
-          "DURATION": "1 year",
-          "ORIGIN": "First-party (Cookiebot)"
-        },
-        "_ga": {
-          "NAME": "_ga",
-          "PURPOSE": "Distinguishes users by assigning them a unique ID.",
-          "DURATION": "2 years",
-          "ORIGIN": "Third-party (Google Analytics)"
-        },
-        "_gid": {
-          "NAME": "_gid",
-          "PURPOSE": "Distinguishes users in different sessions.",
-          "DURATION": "24 hours",
-          "ORIGIN": "Third-party (Google Analytics)"
-        },
-        "_gat": {
-          "NAME": "_gat",
-          "PURPOSE": "Limits request rate to improve performance.",
-          "DURATION": "1 minute",
-          "ORIGIN": "Third-party (Google Analytics)"
-        },
-        "_ga_container": {
-          "NAME": "<code>_ga&lt;container-id&gt;</code>",
-          "PURPOSE": "Maintains session state (depending on configuration).",
-          "DURATION": "2 years",
-          "ORIGIN": "Third-party (Google Analytics)"
-        }
-      }
-    },
-    "ADMINISTER": {
-      "TITLE": "Manage or disable cookies",
-      "P1": "Without prejudice to your consent by simply using the website, below are links to the procedures that major web browsers offer to manage or disable cookies.",
-      "LIST": {
-        "FIREFOX": "Firefox",
-        "CHROME": "Chrome",
-        "EXPLORER": "Explorer",
-        "SAFARI": "Safari"
-      }
-    },
-    "EFFECTS": {
-      "TITLE": "What happens if you disable cookies",
-      "P1": "If you reject cookies you can still use our site, but some services or links may stop working, and we won’t be able to gather valuable information to offer content tailored to your interests or to make navigation easier and faster."
-    },
-    "CHANGES": {
-      "TITLE": "Changes to the cookie policy",
-      "P1": "The website www.danij.es may modify this cookie policy—either to include new cookies for new content or to comply with legal or regulatory requirements. We recommend users review it before browsing and on each subsequent visit."
+    "FOOTER": {
+      "TEXT": "Do you already have an account? ",
+      "LINK": "Login"
     }
   }
 }

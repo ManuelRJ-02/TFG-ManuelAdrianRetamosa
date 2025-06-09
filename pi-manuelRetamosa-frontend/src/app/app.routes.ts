@@ -27,6 +27,7 @@ import {AddedProductComponent} from './components/added-product/added-product.co
 import {
   PanelAdminProductVariantComponent
 } from './components/panel-admin-product-variant/panel-admin-product-variant.component';
+import {AdminGuard} from './guards/admin.guard';
 
 export const routes: Routes = [
   { path: '', component:HomeComponent, title: 'Dani J' },
@@ -47,10 +48,10 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent, title: 'Perfil', canActivate: [AuthGuard] },
   { path: 'mail-sent', component: MailSentComponent, title: 'Correo Enviado', canActivate: [ EmailSentGuard ] },
   { path: 'purchase-made', component: PurchaseMadeComponent, title: 'Compra Realizada' },
-  { path: 'panel-admin-concerts', component: PanelAdminConcertComponent, title: 'Administración de Conciertos' },
-  { path: 'panel-admin-songs', component: PanelAdminSongComponent, title: 'Administración de Canciones' },
-  { path: 'panel-admin-albums', component: PanelAdminAlbumComponent, title: 'Administración de Álbumes' },
-  { path: 'panel-admin-products', component: PanelAdminProductComponent, title: 'Administración de Productos' },
-  { path: 'panel-admin-product-variants', component: PanelAdminProductVariantComponent, title: 'Administración de Variante de Productos' },
+  { path: 'panel-admin-concerts', component: PanelAdminConcertComponent, title: 'Administración de Conciertos', canActivate: [AdminGuard]},
+  { path: 'panel-admin-songs', component: PanelAdminSongComponent, title: 'Administración de Canciones', canActivate: [AdminGuard] },
+  { path: 'panel-admin-albums', component: PanelAdminAlbumComponent, title: 'Administración de Álbumes', canActivate: [AdminGuard] },
+  { path: 'panel-admin-products', component: PanelAdminProductComponent, title: 'Administración de Productos', canActivate: [AdminGuard] },
+  { path: 'panel-admin-product-variants', component: PanelAdminProductVariantComponent, title: 'Administración de Variante de Productos', canActivate: [AdminGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

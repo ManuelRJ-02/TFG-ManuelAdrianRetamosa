@@ -41,5 +41,10 @@ export class HeaderComponent {
   toggleMenu() {
     this.openMenu = !this.openMenu;
   }
+
+  get isAdmin(): boolean {
+    const roles = this.loggedUser?.roles ?? [];
+    return roles.some((r: any) => r.roleName === 'ROLE_ADMIN');
+  }
 }
 

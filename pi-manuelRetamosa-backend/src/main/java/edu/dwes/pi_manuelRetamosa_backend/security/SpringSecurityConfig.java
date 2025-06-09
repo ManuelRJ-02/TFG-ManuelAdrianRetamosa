@@ -40,7 +40,7 @@ public class SpringSecurityConfig {
             .authorizeHttpRequests(authz -> authz
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
                 .requestMatchers(HttpMethod.POST, "/users/register/**", "/users/login/**").permitAll() 
-                .requestMatchers(HttpMethod.GET,"/products/**", "/songs/**", "/albums/**", "/concerts/**").permitAll()
+                .requestMatchers(HttpMethod.GET,"/products/**", "/songs/**", "/albums/**", "/concerts/**", "/users/**").permitAll()
                 .requestMatchers(HttpMethod.GET,"/addresses/**","/cartProducts/**", "/cartShoppings/**", "/creditCards/**","/detailOrders/**", "/orders/**",
                         "/productVariants/**", "/creditCards/**").hasAuthority("ROLE_USER_REGISTERED")
                 .requestMatchers(HttpMethod.POST,"/addresses/**", "/productVariants/crear", "/cartProducts/**", "/orders/**", 

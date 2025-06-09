@@ -38,6 +38,10 @@ li a{
   color: #E9BF43;
 }
 
+::ng-deep ul li a{
+  text-decoration: none;
+}
+
 .custom-table {
   width: 100%;
   font-size: 0.85rem;

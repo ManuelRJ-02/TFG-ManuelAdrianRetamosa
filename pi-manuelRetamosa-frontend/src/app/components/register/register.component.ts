@@ -5,12 +5,13 @@ import { UserDTO} from '../../models/userDTO';
 import {CommonModule} from '@angular/common';
 import { SessionService} from '../../services/SessionService';
 import { Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TranslatePipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

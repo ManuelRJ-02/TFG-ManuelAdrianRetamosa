@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="text-center h2-block">
-        <h2 class="fw-bold">{{ 'CONTACT.TITLE' | translate }}</h2>
-        <hr class="opacity-100 hr2 mx-auto" />
+        <h2 class="fw-bold" [innerHTML]="'CONTACT.TITLE' | translate"></h2>
+        <hr class="opacity-100 hr2 mx-auto"/>
       </div>
       <div class="custom-padding lh-lg text-justify">
         <p [innerHTML]="'CONTACT.INTRO.P1' | translate"></p>
@@ -12,29 +12,29 @@
       </div>
       <div class="ms-2 border-start border-1 ps-3 ps-md-5">
         <div class="text-center h2-block">
-          <h2 class="fw-bold">{{ 'CONTACT.FORM.TITLE' | translate }}</h2>
-          <hr class="opacity-100 hr2 mx-auto" />
+          <h2 class="fw-bold" [innerHTML]="'CONTACT.FORM.TITLE' | translate"></h2>
+          <hr class="opacity-100 hr2 mx-auto"/>
         </div>
-        <h3 class="fw-bold mt-5">{{ 'CONTACT.FORM.REQUIRED_NOTE' | translate }}</h3>
+        <h3 class="fw-bold mt-5" [innerHTML]="'CONTACT.FORM.REQUIRED_NOTE' | translate"></h3>
         <div class="row justify-content-start">
           <div class="col-12 col-md-6 col-lg-12">
             <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
               <div class="mb-3">
-                <label class="form-label">{{ 'CONTACT.FORM.FIELDS.NAME.LABEL' | translate }}</label>
-                <input type="text" name="nombre" class="form-control" [(ngModel)]="contact.name" [placeholder]="'CONTACT.FORM.FIELDS.NAME.PLACEHOLDER' | translate">
+                <label class="form-label" [innerHTML]="'CONTACT.FORM.FIELDS.NAME.LABEL' | translate"></label>
+                <input type="text" name="nombre" class="form-control" [(ngModel)]="contact.name" [placeholder]="'CONTACT.FORM.FIELDS.NAME.PLACEHOLDER' | translate"/>
               </div>
               <div class="mb-3">
-                <label class="form-label">{{ 'CONTACT.FORM.FIELDS.EMAIL.LABEL' | translate }}</label>
-                <input type="email" name="email" class="form-control" [(ngModel)]="contact.email" [placeholder]="'CONTACT.FORM.FIELDS.EMAIL.PLACEHOLDER' | translate">
+                <label class="form-label" [innerHTML]="'CONTACT.FORM.FIELDS.EMAIL.LABEL' | translate"></label>
+                <input type="email" name="email" class="form-control" [(ngModel)]="contact.email" [placeholder]="'CONTACT.FORM.FIELDS.EMAIL.PLACEHOLDER' | translate"/>
               </div>
               <div class="mb-3">
-                <label class="form-label">{{ 'CONTACT.FORM.FIELDS.MESSAGE.LABEL' | translate }}</label>
+                <label class="form-label" [innerHTML]="'CONTACT.FORM.FIELDS.MESSAGE.LABEL' | translate"></label>
                 <textarea name="mensaje" class="form-control" [(ngModel)]="contact.message" rows="5" [placeholder]="'CONTACT.FORM.FIELDS.MESSAGE.PLACEHOLDER' | translate"></textarea>
               </div>
               <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
                 <div *ngFor="let err of errorMessages">{{ err }}</div>
               </div>
-              <button type="submit" class="btn-custom mt-3 align-self-start">{{ 'CONTACT.FORM.BUTTON' | translate }}</button>
+              <button type="submit" class="btn-custom mt-3 align-self-start" [innerHTML]="'CONTACT.FORM.BUTTON' | translate"></button>
             </form>
           </div>
         </div>

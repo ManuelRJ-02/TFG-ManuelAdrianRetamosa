@@ -52,7 +52,7 @@ hr {
   margin-top: 4rem;
 }
 
-p strong{
+::ng-deep p strong{
   font-size: x-large;
 }
 

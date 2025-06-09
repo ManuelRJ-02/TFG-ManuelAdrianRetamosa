@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-12">
       <div class="heading-wrapper">
-        <h1 class="text-uppercase fw-bold">Descubre mis vídeos</h1>
-        <hr class="opacity-100 hr1" />
-        <h2 class="fw-bold">Bachata</h2>
+        <h1 class="text-uppercase fw-bold" [innerHTML]="'VIDEOS.DISCOVER.TITLE' | translate"></h1>
+        <hr class="opacity-100 hr1"/>
+        <h2 class="fw-bold" [innerHTML]="'VIDEOS.CATEGORY.BACHATA' | translate"></h2>
       </div>
     </div>
     <section id="videos" class="container py-5 px-3 px-md-5">
@@ -69,19 +69,14 @@
     </section>
     <div class="col-lg-6">
       <div class="text-center h2-block">
-        <h2 class="fw-bold">Vídeos</h2>
-        <hr class="opacity-100 hr2 mx-auto" />
+        <h2 class="fw-bold" [innerHTML]="'VIDEOS.DESCRIPTION.TITLE' | translate"></h2>
+        <hr class="opacity-100 hr2 mx-auto"/>
       </div>
       <div class="custom-padding lh-lg text-justify">
-        <p>Dani J es consciente de la importancia de lo visual, por eso además de buenas canciones, desde distintas partes del
-          mundo, Dani J ha creado una amplia colección de vídeos que te transportarán a través de su música y sus historias.</p>
-        <p>¡Prepárate para disfrutar de una experiencia audiovisual única! En la pestaña de vídeos, encontrarás enlaces directos
-          al canal de YouTube de Dani J:<a href="https://www.youtube.com/channel/UCynksrdYO2R4REJzNZahjLg" target="_blank">
-            <img class="youtube-icon social-icon" src="assets/footer/youtube-icon.png" alt="YouTube">
-          </a></p>
-        <p>Subscríbete a su canal y podrás disfrutar de una gran variedad de vídeos de alta calidad.</p>
-        <p>Además, de todos los videoclips oficiales de Dani J, encontrarás versiones acústicas, detrás de las cámaras, Lyrics
-          Video y mucho material que te permitirá conocer más de cerca a Dani y su proceso creativo.</p>
+        <p [innerHTML]="'VIDEOS.DESCRIPTION.P1' | translate"></p>
+        <p [innerHTML]="'VIDEOS.DESCRIPTION.P2' | translate"></p>
+        <p [innerHTML]="'VIDEOS.DESCRIPTION.P3' | translate"></p>
+        <p [innerHTML]="'VIDEOS.DESCRIPTION.P4' | translate"></p>
       </div>
     </div>
   </div>

@@ -1,28 +1,28 @@
 <footer class="text-center py-5">
   <div class="mb-4">
-    <img class="logo-13" src="assets/footer/13-logo.png" alt="13 Pro Music Logo">
+    <img class="logo-13" src="assets/footer/13-logo.png" alt="13 Pro Music Logo"/>
   </div>
   <div class="d-flex justify-content-center gap-3 mb-4">
     <a href="https://www.instagram.com/oficialdanij" target="_blank">
-      <img class="instagram-icon social-icon" src="assets/footer/instagram-icon.png" alt="Instagram">
+      <img class="instagram-icon social-icon" src="assets/footer/instagram-icon.png" alt="Instagram"/>
     </a>
     <a href="https://www.facebook.com/DaniJoficial" target="_blank">
-      <img class="facebook-icon social-icon" src="assets/footer/facebook-icon.png" alt="Facebook">
+      <img class="facebook-icon social-icon" src="assets/footer/facebook-icon.png" alt="Facebook"/>
     </a>
     <a href="https://open.spotify.com/playlist/37i9dQZF1EIYgec327srgm" target="_blank">
-      <img class="spotify-icon social-icon" src="assets/footer/spotify-icon.png" alt="Spotify">
+      <img class="spotify-icon social-icon" src="assets/footer/spotify-icon.png" alt="Spotify"/>
     </a>
     <a href="https://www.youtube.com/channel/UCynksrdYO2R4REJzNZahjLg" target="_blank">
-      <img class="youtube-icon social-icon" src="assets/footer/youtube-icon.png" alt="YouTube">
+      <img class="youtube-icon social-icon" src="assets/footer/youtube-icon.png" alt="YouTube"/>
     </a>
     <a href="https://www.tiktok.com/@oficialdanij" target="_blank">
-      <img class="tiktok-icon social-icon" src="assets/footer/tiktok-icon.png" alt="TikTok">
+      <img class="tiktok-icon social-icon" src="assets/footer/tiktok-icon.png" alt="TikTok"/>
     </a>
   </div>
   <ul class="nav footer-links flex-wrap justify-content-center">
-    <li><a class="nav-link" routerLink="/legal-notice">Aviso Legal</a></li>
-    <li><a class="nav-link" routerLink="/privacy-policy">Política de Privacidad</a></li>
-    <li><a class="nav-link" routerLink="/cookie-policy">Política de Cookies</a></li>
-    <li><a class="nav-link" routerLink="/accessibility-statement">Declaración de accesibilidad</a></li>
+    <li><a class="nav-link" routerLink="/legal-notice" [innerHTML]="'FOOTER.LINKS.LEGAL_NOTICE' | translate"></a></li>
+    <li><a class="nav-link" routerLink="/privacy-policy" [innerHTML]="'FOOTER.LINKS.PRIVACY_POLICY' | translate"></a></li>
+    <li><a class="nav-link" routerLink="/cookie-policy" [innerHTML]="'FOOTER.LINKS.COOKIE_POLICY' | translate"></a></li>
+    <li><a class="nav-link" routerLink="/accessibility-statement" [innerHTML]="'FOOTER.LINKS.ACCESSIBILITY_STATEMENT' | translate"></a></li>
   </ul>
 </footer>

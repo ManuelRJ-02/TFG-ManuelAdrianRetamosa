@@ -22,6 +22,7 @@ import edu.dwes.pi_manuelRetamosa_backend.models.daos.IAlbumRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.ICartShoppingRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IProductRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IProductVariantRepository;
+import edu.dwes.pi_manuelRetamosa_backend.models.daos.IRoleRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.daos.IUserRepository;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Address;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.Album;
@@ -38,6 +39,7 @@ import edu.dwes.pi_manuelRetamosa_backend.models.entities.Song;
 import edu.dwes.pi_manuelRetamosa_backend.models.entities.User;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,6 +60,9 @@ public class ConverterDTO {
     private IProductRepository productRepository;
     
     @Autowired
+    private IRoleRepository roleRepository;
+    
+    @Autowired
     private ICartShoppingRepository cartShoppingRepository;
     
     @Autowired
@@ -72,6 +77,11 @@ public class ConverterDTO {
         dto.setAvatar(user.getAvatar());
         dto.setPhoneNumber(user.getPhoneNumber());
         dto.setEnabled(user.isEnabled());
+        List<RoleDTO> roleDTO = new ArrayList<>();
+        for (Role role : user.getRoles()) {
+            roleDTO.add(this.convADTO(role));
+        }
+        dto.setRoles(roleDTO);
         return dto;
     }
     
@@ -227,9 +237,28 @@ public class ConverterDTO {
         user.setEmail(dto.getEmail());
         user.setAvatar(dto.getAvatar());
         user.setPhoneNumber(dto.getPhoneNumber());
+
+        if (dto.getRoles() != null) {
+            List<Role> roles = dto.getRoles().stream()
+                .map(roleDTO -> 
+                    // buscamos la entidad Role por su nombre
+                    roleRepository.findByRoleName(roleDTO.getRoleName())
+                        .orElseThrow(() ->
+                            new RuntimeException("Rol no encontrado: " + roleDTO.getRoleName())
+                        )
+                )
+                .collect(Collectors.toList());
+
+            // asignamos la lista de roles al usuario
+            user.setRoles(roles);
+
+            // (opcional) para mantener la bidireccionalidad
+            roles.forEach(r -> r.getUsers().add(user));
+        }
+
         return user;
     }
-        
+
     public Role convAEntidad(RoleDTO dto) {
         Role role = new Role();
         role.setRoleName(dto.getRoleName());

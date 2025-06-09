@@ -4,10 +4,11 @@ import { SongService} from '../../services/songService';
 import { AlbumDTO } from '../../models/albumDTO';
 import { SongDTO } from '../../models/songDTO';
 import {CommonModule} from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-music',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './music.component.html',
   styleUrl: './music.component.css'
 })
@@ -25,7 +26,7 @@ export class MusicComponent implements OnInit {
       next: (allSongs: SongDTO[]) => {
         allSongs.sort((a, b) =>
           (b.yearPublication! - a.yearPublication!) ||
-          ((b.id!      ) - (a.id!))
+          ((b.id!) - (a.id!))
         );
         this.lastLaunch = allSongs[0];
         this.otherSingles = allSongs
@@ -39,10 +40,10 @@ export class MusicComponent implements OnInit {
       next: (allAlbums: AlbumDTO[]) => {
         allAlbums.sort((a, b) =>
           (b.yearPublication! - a.yearPublication!) ||
-          ((b.id!      ) - (a.id!))
+          ((b.id!) - (a.id!))
         );
-        this.lastAlbum    = allAlbums[0];
-        this.otherAlbums  = allAlbums.slice(1);
+        this.lastAlbum = allAlbums[0];
+        this.otherAlbums = allAlbums.slice(1);
       },
       error: err => console.error('Error al cargar los álbumes:', err)
     });

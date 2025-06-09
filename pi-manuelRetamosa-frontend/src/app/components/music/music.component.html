@@ -1,17 +1,13 @@
 <section>
-
   <div class="container-fluid">
     <div class="h2-block ps-3 ps-md-5">
-      <h2 class="fw-bold">ÚLTIMO LANZAMIENTO</h2>
-      <hr class="opacity-100 hr2" />
+      <h2 class="fw-bold" [innerHTML]="'MUSIC.LAST_LAUNCH.TITLE' | translate"></h2><hr class="opacity-100 hr2"/>
     </div>
     <div class="row">
       <div class="col-12 overflow-hidden position-relative">
         <ng-container *ngIf="lastLaunch; else noSong">
           <div class="d-flex flex-column align-items-start ps-3 ps-md-5">
-            <a [href]="lastLaunch.url" target="_blank">
-              <img [src]="lastLaunch.coverUrl" class="img-fluid single-thumb" />
-            </a>
+            <a [href]="lastLaunch.url" target="_blank"><img [src]="lastLaunch.coverUrl" class="img-fluid single-thumb"/></a>
             <div class="mt-2 text-white">
               <h3 class="fs-5 mb-1">{{ lastLaunch.title }}</h3>
               <p class="mb-0">{{ lastLaunch.yearPublication }} – {{ lastLaunch.type }}</p>
@@ -19,16 +15,14 @@
           </div>
         </ng-container>
         <ng-template #noSong>
-          <p class="text-center text-white py-4">No hay lanzamientos recientes.</p>
+          <p class="text-center text-white py-4" [innerHTML]="'MUSIC.LAST_LAUNCH.NO_RECENT' | translate"></p>
         </ng-template>
       </div>
     </div>
   </div>
-
   <div class="container-fluid">
     <div class="h2-block ps-3 ps-md-5">
-      <h2 class="fw-bold">SENCILLOS Y EP</h2>
-      <hr class="opacity-100 hr2" />
+      <h2 class="fw-bold" [innerHTML]="'MUSIC.SINGLES_EP.TITLE' | translate"></h2><hr class="opacity-100 hr2"/>
     </div>
     <div class="row">
       <div class="col-12 full-width-bg position-relative">
@@ -36,9 +30,7 @@
         <div class="ps-3 ps-md-5 py-3">
           <div class="d-flex align-items-start singles-carousel">
             <div *ngFor="let song of otherSingles" class="col-6 col-sm-4 col-md-3 col-lg-2 flex-shrink-0">
-              <a [href]="song.url" target="_blank">
-                <img [src]="song.coverUrl" class="img-fluid single-thumb" />
-              </a>
+              <a [href]="song.url" target="_blank"><img [src]="song.coverUrl" class="img-fluid single-thumb"/></a>
               <div class="mt-2 text-white">
                 <h3 class="fs-6 mb-1">{{ song.title }}</h3>
                 <p class="mb-0">{{ song.yearPublication }} – {{ song.type }}</p>
@@ -50,11 +42,9 @@
       </div>
     </div>
   </div>
-
   <div class="container-fluid">
     <div class="h2-block ps-3 ps-md-5">
-      <h2 class="fw-bold">ÁLBUMES</h2>
-      <hr class="opacity-100 hr2" />
+      <h2 class="fw-bold" [innerHTML]="'MUSIC.ALBUMS.TITLE' | translate"></h2><hr class="opacity-100 hr2"/>
     </div>
     <div class="row">
       <div class="col-12 full-width-bg position-relative">
@@ -62,12 +52,10 @@
         <div class="ps-3 ps-md-5 py-3">
           <div class="d-flex align-items-start albums-carousel">
             <div *ngFor="let album of otherAlbums" class="col-6 col-sm-4 col-md-3 col-lg-2 flex-shrink-0">
-              <a [href]="album.url" target="_blank">
-                <img [src]="album.coverUrl" class="img-fluid single-thumb" />
-              </a>
+              <a [href]="album.url" target="_blank"><img [src]="album.coverUrl" class="img-fluid single-thumb"/></a>
               <div class="mt-2 text-white">
                 <h3 class="fs-6 mb-1">{{ album.title }}</h3>
-                <p class="mb-0">{{ album.yearPublication }} – Álbum</p>
+                <p class="mb-0">{{ album.yearPublication }} – <span [innerHTML]="'MUSIC.ALBUMS.TYPE' | translate"></span></p>
               </div>
             </div>
           </div>
@@ -76,5 +64,4 @@
       </div>
     </div>
   </div>
-
 </section>

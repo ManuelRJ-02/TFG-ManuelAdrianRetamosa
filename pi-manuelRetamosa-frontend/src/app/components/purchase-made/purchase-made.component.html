@@ -1,6 +1,6 @@
 <section class="d-flex flex-column justify-content-center align-items-center text-center">
-  <img src="assets/purchase-made/confirm-icon.png" alt="Confirmación" class="mb-4 confirm-icon"/>
-  <h1 class="fw-bold">Gracias por tu pedido</h1>
-  <p class="mt-3">Tu compra se ha realizado con éxito. En breve recibirás un correo con el resumen y los detalles del envío.</p>
-  <button type="button" class="home-btn mt-4" (click)="goHome()">VOLVER AL INICIO</button>
+  <img src="assets/purchase-made/confirm-icon.png" [alt]="'PURCHASE_CONFIRMATION.IMAGE_ALT' | translate" class="mb-4 confirm-icon"/>
+  <h1 class="fw-bold" [innerHTML]="'PURCHASE_CONFIRMATION.TITLE' | translate"></h1>
+  <p class="mt-3" [innerHTML]="'PURCHASE_CONFIRMATION.MESSAGE' | translate"></p>
+  <button type="button" class="home-btn mt-4" (click)="goHome()" [innerHTML]="'PURCHASE_CONFIRMATION.BUTTON' | translate"></button>
 </section>

@@ -1,9 +1,9 @@
 import { DetailOrderDTO } from './detailOrderDTO';
 
 export interface OrderDTO {
-  id:            number;
+  id: number;
   paymentMethod: string;
-  total:         number;
-  detailOrders:  DetailOrderDTO[];
-  userId:        number;
+  total: number;
+  detailOrders: DetailOrderDTO[];
+  userId: number;
 }

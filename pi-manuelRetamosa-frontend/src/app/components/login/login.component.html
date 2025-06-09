@@ -2,33 +2,31 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0">
-        <h3 class="modal-title" id="login-modal-label">Iniciar Sesión</h3>
-        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <h3 class="modal-title" id="login-modal-label" [innerHTML]="'LOGIN_MODAL.TITLE' | translate"></h3>
+        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" [attr.aria-label]="'LOGIN_MODAL.BUTTON.CLOSE' | translate"></button>
       </div>
       <div class="modal-body">
         <div class="mx-auto div-forms">
           <form #form="ngForm" (ngSubmit)="onSubmit(form)">
             <div class="mb-3">
-              <label for="email" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" id="email" [(ngModel)]="credentials.email" name="email" required>
+              <label for="email" class="form-label" [innerHTML]="'LOGIN_MODAL.LABEL.EMAIL' | translate"></label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="credentials.email" name="email" required [placeholder]="'LOGIN_MODAL.PLACEHOLDER.EMAIL' | translate" />
             </div>
             <div class="mb-4">
-              <label for="password" class="form-label">Contraseña</label>
+              <label for="password" class="form-label" [innerHTML]="'LOGIN_MODAL.LABEL.PASSWORD' | translate"></label>
               <div class="input-group">
-                <input type="password" class="form-control" id="password" [(ngModel)]="credentials.userPassword" name="password" required>
+                <input type="password" class="form-control" id="password" [(ngModel)]="credentials.userPassword" name="password" required [placeholder]="'LOGIN_MODAL.PLACEHOLDER.PASSWORD' | translate" />
                 <span class="input-group-text" (click)="togglePassword()"><i class="fa-solid fa-eye-slash"></i></span>
               </div>
             </div>
             <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
-              <div *ngFor="let error of errorMessages">
-                {{ error }}
-              </div>
+              <div *ngFor="let error of errorMessages">{{ error }}</div>
             </div>
-            <button type="submit" class="btn w-100 fw-bold login-btn">Iniciar Sesión</button>
+            <button type="submit" class="btn w-100 fw-bold login-btn" [innerHTML]="'LOGIN_MODAL.BUTTON.LOGIN' | translate"></button>
           </form>
           <div class="text-center mt-3">
-            <span class="text-white">¿No tienes cuenta? <a href="#" class="fw-bold create-acount" data-bs-dismiss="modal"
-              data-bs-toggle="modal" data-bs-target="#register-modal">Crear una cuenta</a></span>
+            <span class="text-white" [innerHTML]="'LOGIN_MODAL.NO_ACCOUNT.TEXT' | translate"></span>
+            <a href="#" class="fw-bold create-account" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#register-modal" [innerHTML]="'LOGIN_MODAL.NO_ACCOUNT.LINK' | translate"></a>
           </div>
         </div>
       </div>

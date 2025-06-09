@@ -5,13 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { CreditCardService } from '../../services/creditCardService';
 import { SessionService } from '../../services/SessionService';
 import { CreditCardDTO } from '../../models/creditCardDTO';
+import {TranslatePipe} from '@ngx-translate/core';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-payment-method',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './payment-method.component.html',
   styleUrls: ['./payment-method.component.css']
 })

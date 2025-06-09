@@ -33,12 +33,12 @@ hr {
   margin-top: 6rem;
 }
 
-p a{
+::ng-deep p a{
   text-decoration: none;
   color: #E9BF43;
 }
 
-p a:hover{
+::ng-deep p a:hover{
   color: #7A8288;
 }
 

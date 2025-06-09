@@ -2,20 +2,17 @@
   <div class="row">
     <div class="col-12">
       <div class="heading-wrapper custom-padding-bottom">
-        <h1 class="text-uppercase fw-bold">Aviso Legal</h1>
-        <hr class="opacity-100 hr1" />
+        <h1 class="text-uppercase fw-bold" [innerHTML]="'LEGAL_NOTICE.TITLE' | translate"></h1>
+        <hr class="opacity-100 hr1"/>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="custom-padding lh-lg text-justify">
         <ol>
-          <li>El titular de este sitio web y todos los derechos los tiene 13 PRO MUSIC SL.</li>
-          <li>El acceso al site de DANI J es gratuito. Todo el contenido es propiedad intelectual
-            de 13 PRO MUSIC SL. Cualquier utilización de los mismos contraria a las normas en materia
-            de propiedad intelectual será perseguida con arreglo a la legislación vigente.</li>
+          <li [innerHTML]="'LEGAL_NOTICE.P1' | translate"></li>
+          <li [innerHTML]="'LEGAL_NOTICE.P2' | translate"></li>
         </ol>
       </div>
     </div>
   </div>
 </section>
-

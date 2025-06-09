@@ -18,12 +18,12 @@ export class AddProductComponent implements OnChanges {
   @ViewChild('fileInput', { static: true })
   fileInput!: ElementRef<HTMLInputElement>;
 
-  productName        = '';
-  productDescription = '';
+  productName= '';
+  productDescription= '';
   priceBase!: number;
-  genericImage       = '';
-  category           = '';
-  loadingImage       = false;
+  genericImage= '';
+  category= '';
+  loadingImage= false;
 
   errorMessages: string[] = [];
 

@@ -2,61 +2,56 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0">
-        <h3 class="modal-title" id="register-modal-label">Registrarse</h3>
-        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <h3 class="modal-title" id="register-modal-label" [innerHTML]="'REGISTER_MODAL.TITLE' | translate"></h3>
+        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" [attr.aria-label]="'REGISTER_MODAL.BUTTON.CLOSE' | translate"></button>
       </div>
       <div class="modal-body">
         <div class="mx-auto div-forms">
           <form #form="ngForm" (ngSubmit)="onSubmit(form)">
             <div class="row g-2">
               <div class="col-6">
-                <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" [(ngModel)]="user.userName" name="userName" />
+                <label class="form-label" [innerHTML]="'REGISTER_MODAL.LABEL.NAME' | translate"></label>
+                <input type="text" class="form-control" [(ngModel)]="user.userName" name="userName"/>
               </div>
               <div class="col-6">
-                <label class="form-label">Apellidos</label>
-                <input type="text" class="form-control" [(ngModel)]="user.surname" name="surname" />
+                <label class="form-label" [innerHTML]="'REGISTER_MODAL.LABEL.SURNAME' | translate"></label>
+                <input type="text" class="form-control" [(ngModel)]="user.surname" name="surname"/>
               </div>
               <div class="col-6">
-                <label class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" [(ngModel)]="user.email" name="email" />
+                <label class="form-label" [innerHTML]="'REGISTER_MODAL.LABEL.EMAIL' | translate"></label>
+                <input type="email" class="form-control" [(ngModel)]="user.email" name="email"/>
               </div>
               <div class="col-6">
-                <label class="form-label">Teléfono (opcional)</label>
-                <input type="tel" class="form-control" [(ngModel)]="user.phoneNumber" name="phoneNumber" />
+                <label class="form-label" [innerHTML]="'REGISTER_MODAL.LABEL.PHONE' | translate"></label>
+                <input type="tel" class="form-control" [(ngModel)]="user.phoneNumber" name="phoneNumber"/>
               </div>
               <div class="col-6">
-                <label class="form-label">Contraseña</label>
+                <label class="form-label" [innerHTML]="'REGISTER_MODAL.LABEL.PASSWORD' | translate"></label>
                 <div class="input-group">
-                  <input type="password" class="form-control" id="reg-password" [(ngModel)]="user.userPassword" name="userPassword" />
-                  <span class="input-group-text" (click)="togglePassword('reg-password', 'eye-password')">
-                    <i id="eye-password" class="fa-solid fa-eye-slash"></i>
-                  </span>
+                  <input type="password" class="form-control" id="reg-password" [(ngModel)]="user.userPassword" name="userPassword"/>
+                  <span class="input-group-text" (click)="togglePassword('reg-password','eye-password')">
+                    <i id="eye-password" class="fa-solid fa-eye-slash"></i></span>
                 </div>
               </div>
               <div class="col-6">
-                <label class="form-label">Confirmar Contraseña</label>
+                <label class="form-label" [innerHTML]="'REGISTER_MODAL.LABEL.CONFIRM_PASSWORD' | translate"></label>
                 <div class="input-group">
                   <input type="password" class="form-control" id="reg-password-confirm" [(ngModel)]="confirmPassword" name="confirmPassword"/>
-                  <span class="input-group-text" (click)="togglePassword('reg-password-confirm', 'eye-password-confirm')">
-                    <i id="eye-password-confirm" class="fa-solid fa-eye-slash"></i>
-                  </span>
+                  <span class="input-group-text" (click)="togglePassword('reg-password-confirm','eye-password-confirm')">
+                    <i id="eye-password-confirm" class="fa-solid fa-eye-slash"></i></span>
                 </div>
               </div>
             </div>
             <div *ngIf="errorMessages.length > 0" class="alert alert-danger mt-3">
-              <div *ngFor="let error of errorMessages">
-                {{ error }}
-              </div>
+              <div *ngFor="let error of errorMessages">{{ error }}</div>
             </div>
             <div class="d-grid mt-4">
-              <button type="submit" class="btn w-100 fw-bold register-btn">Crear Cuenta</button>
+              <button type="submit" class="btn w-100 fw-bold register-btn" [innerHTML]="'REGISTER_MODAL.BUTTON.SUBMIT' | translate"></button>
             </div>
           </form>
           <div class="text-center mt-3">
-            <span class="text-white">
-              ¿Ya tienes una cuenta? <a href="#" class="fw-bold create-acount" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar Sesión</a>
-            </span>
+            <span class="text-white">{{ 'REGISTER_MODAL.FOOTER.TEXT' | translate }}</span>
+            <a href="#" class="fw-bold create-account" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#login-modal">{{ 'REGISTER_MODAL.FOOTER.LINK' | translate }}</a>
           </div>
         </div>
       </div>

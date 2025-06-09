@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-purchase-made',
-  imports: [],
+  imports: [
+    TranslatePipe
+  ],
   templateUrl: './purchase-made.component.html',
   styleUrl: './purchase-made.component.css'
 })

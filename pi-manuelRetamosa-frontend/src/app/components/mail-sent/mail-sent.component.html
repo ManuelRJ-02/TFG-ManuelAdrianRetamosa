@@ -1,9 +1,9 @@
 <section class="d-flex flex-column justify-content-center align-items-center text-center">
   <div class="px-3">
-    <h1 class="fw-bold">Gracias por contactar con nosotros</h1>
-    <p class="mt-3">En breve atenderemos a su consulta y nos pondremos en contacto con usted en la mayor brevedad posible.</p>
+    <h1 class="fw-bold" [innerHTML]="'CONTACT_CONFIRMATION.TITLE' | translate"></h1>
+    <p class="mt-3" [innerHTML]="'CONTACT_CONFIRMATION.MESSAGE' | translate"></p>
     <div class="mt-4">
-      <button type="button" class="home-btn" (click)="goHome()">VOLVER AL INICIO</button>
+      <button type="button" class="home-btn" (click)="goHome()" [innerHTML]="'CONTACT_CONFIRMATION.BUTTON' | translate"></button>
     </div>
   </div>
 </section>

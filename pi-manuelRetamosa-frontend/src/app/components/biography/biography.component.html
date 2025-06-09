@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="heading-wrapper custom-padding-bottom">
-        <h1 class="text-uppercase fw-bold">{{ 'BIOGRAPHY.TITLE' | translate }}</h1>
+        <h1 class="text-uppercase fw-bold" [innerHTML]="'BIOGRAPHY.TITLE' | translate"></h1>
         <hr class="opacity-100 hr1" />
       </div>
     </div>
@@ -12,33 +12,30 @@
         <p [innerHTML]="'BIOGRAPHY.P2' | translate"></p>
         <p [innerHTML]="'BIOGRAPHY.P3' | translate"></p>
         <div class="mt-4">
-          <button type="button" class="fw-bold show-more-btn px-5 py-2" (click)="toggleContenido()">
-            {{ showMore ? ('BIOGRAPHY.BUTTON.VIEW_LESS' | translate) : ('BIOGRAPHY.BUTTON.VIEW_MORE' | translate) }}</button>
+          <button type="button" class="fw-bold show-more-btn px-5 py-2" (click)="toggleContenido()"
+                  [innerHTML]=" showMore? ('BIOGRAPHY.BUTTON.VIEW_LESS' | translate): ('BIOGRAPHY.BUTTON.VIEW_MORE' | translate) "></button>
         </div>
-
         <div id="contenidoAdicional" class="collapse-content mt-4" [class.mostrar]="showMore">
           <div class="h2-block">
-            <h2 class="fw-bold">{{ 'BIOGRAPHY.DETAILS.SUCCESS.TITLE' | translate }}</h2>
+            <h2 class="fw-bold" [innerHTML]="'BIOGRAPHY.DETAILS.SUCCESS.TITLE' | translate"></h2>
             <hr class="opacity-100 hr2" />
           </div>
           <p [innerHTML]="'BIOGRAPHY.DETAILS.SUCCESS.INTRO' | translate"></p>
           <ul>
-            <li>{{ 'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM1' | translate }}</li>
-            <li>{{ 'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM2' | translate }}</li>
-            <li>{{ 'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM3' | translate }}</li>
-            <li>{{ 'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM4' | translate }}</li>
+            <li [innerHTML]="'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM1' | translate"></li>
+            <li [innerHTML]="'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM2' | translate"></li>
+            <li [innerHTML]="'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM3' | translate"></li>
+            <li [innerHTML]="'BIOGRAPHY.DETAILS.SUCCESS.LIST.ITEM4' | translate"></li>
           </ul>
           <p [innerHTML]="'BIOGRAPHY.DETAILS.SUCCESS.P2' | translate"></p>
-
           <div class="h2-block">
-            <h2 class="fw-bold">{{ 'BIOGRAPHY.DETAILS.INNOVATION.TITLE' | translate }}</h2>
+            <h2 class="fw-bold" [innerHTML]="'BIOGRAPHY.DETAILS.INNOVATION.TITLE' | translate"></h2>
             <hr class="opacity-100 hr3" />
           </div>
           <p [innerHTML]="'BIOGRAPHY.DETAILS.INNOVATION.P1' | translate"></p>
           <p [innerHTML]="'BIOGRAPHY.DETAILS.INNOVATION.P2' | translate"></p>
-
           <div class="h2-block">
-            <h2 class="fw-bold">{{ 'BIOGRAPHY.DETAILS.LEGACY.TITLE' | translate }}</h2>
+            <h2 class="fw-bold" [innerHTML]="'BIOGRAPHY.DETAILS.LEGACY.TITLE' | translate"></h2>
             <hr class="opacity-100 hr4" />
           </div>
           <p [innerHTML]="'BIOGRAPHY.DETAILS.LEGACY.P1' | translate"></p>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConcertService} from '../../services/concertService';
 import { ConcertDTO} from '../../models/concertDTO';
 import {CommonModule} from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 function parseSpanishDate(spanishDate: string, defaultYear = 2025): Date {
   const lower = spanishDate.trim().toLowerCase();
@@ -36,7 +37,7 @@ function parseSpanishDate(spanishDate: string, defaultYear = 2025): Date {
 
 @Component({
   selector: 'app-tour',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './tour.component.html',
   styleUrl: './tour.component.css'
 })

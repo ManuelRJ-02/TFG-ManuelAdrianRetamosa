@@ -5,6 +5,7 @@ import { SessionService }      from '../../services/SessionService';
 import { ProductVariantService } from '../../services/productVariantService';
 import { forkJoin, map }      from 'rxjs';
 import {Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 declare const bootstrap: any;
 
@@ -18,7 +19,7 @@ interface AddedItem {
 
 @Component({
   selector: 'app-added-product',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './added-product.component.html',
   styleUrl: './added-product.component.css'
 })
@@ -39,11 +40,11 @@ export class AddedProductComponent implements OnInit {
       const calls = cart.cartProducts.map(cp =>
         this.variantSvc.findById(cp.productVariantId).pipe(
           map(v => ({
-            title:  v.productName,
-            size:   v.productVariantSize,
+            title: v.productName,
+            size: v.productVariantSize,
             amount: cp.amount,
-            image:  v.productVariantImage,
-            price:  v.price
+            image: v.productVariantImage,
+            price: v.price
           }))
         )
       );

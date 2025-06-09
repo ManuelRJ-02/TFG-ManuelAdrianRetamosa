@@ -1,19 +1,19 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="addedCanvas" aria-labelledby="addedCanvasLabel" data-bs-backdrop="true">
   <div class="offcanvas-header border-0">
-    <h5 class="offcanvas-title" id="addedCanvasLabel">Producto añadido!</h5>
-    <button type="button" class="btn-close btn-custom" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    <h5 class="offcanvas-title" id="addedCanvasLabel" [innerHTML]="'ADDED_CANVAS.TITLE' | translate"></h5>
+    <button type="button" class="btn-close btn-custom" data-bs-dismiss="offcanvas" [attr.aria-label]="'ADDED_CANVAS.CLOSE' | translate"></button>
   </div>
   <div class="offcanvas-body">
     <div *ngFor="let item of addedItems" class="product-confirm-card d-flex mb-3 align-items-center">
       <div class="img-wrapper">
-        <img [src]="item.image" alt="{{item.title}}" class="product-img" />
+        <img [src]="item.image" [alt]="item.title" class="product-img"/>
       </div>
       <div class="ms-3">
         <p class="fw-bold mb-1">{{ item.title }}</p>
-        <p class="mb-1"><strong>Talla: </strong> {{ item.size }}</p>
-        <p class="mb-0"><strong>Precio: </strong>{{ item.price | number:'1.2-2' }}€ × {{ item.amount }}</p>
+        <p class="mb-1"><strong [innerHTML]="'ADDED_CANVAS.SIZE_LABEL' | translate"></strong> {{ item.size }}</p>
+        <p class="mb-0"><strong [innerHTML]="'ADDED_CANVAS.PRICE_LABEL' | translate"></strong>{{ item.price | number:'1.2-2' }}€ × {{ item.amount }}</p>
       </div>
     </div>
-    <button class="btn btn-outline-light w-100 fw-bold" (click)="goToCart()">Ir a la cesta</button>
+    <button class="btn btn-outline-light w-100 fw-bold" (click)="goToCart()" [innerHTML]="'ADDED_CANVAS.GOTO_CART' | translate"></button>
   </div>
 </div>

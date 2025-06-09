@@ -9,21 +9,22 @@ import { CartProductDTO  }      from '../../models/cartProductDTO';
 import { ProductVariantDTO }    from '../../models/productVariantDTO';
 import { ProductVariantService }from '../../services/productVariantService';
 import { OrderService } from '../../services/orderService';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface CartViewItem {
-  cartProductIds:    number[];
-  productVariantId:  number;
-  title:             string;
-  image:             string;
-  size:              string;
-  price:             number;
-  quantity:          number;
-  stock:             number;
+  cartProductIds: number[];
+  productVariantId: number;
+  title: string;
+  image: string;
+  size: string;
+  price: number;
+  quantity: number;
+  stock: number;
 }
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
@@ -60,14 +61,14 @@ export class CartComponent implements OnInit {
     const requests = cartProducts.map(cp =>
       this.variantSvc.findById(cp.productVariantId).pipe(
         map((variant: ProductVariantDTO) => ({
-          cartProductId:     cp.id!,
-          productVariantId:  cp.productVariantId,
-          title:             variant.productName,
-          image:             variant.productVariantImage,
-          size:              variant.productVariantSize,
-          price:             cp.unitPrice,
-          quantity:          cp.amount,
-          stock:             variant.stock
+          cartProductId: cp.id!,
+          productVariantId: cp.productVariantId,
+          title: variant.productName,
+          image: variant.productVariantImage,
+          size: variant.productVariantSize,
+          price: cp.unitPrice,
+          quantity: cp.amount,
+          stock: variant.stock
         }))
       )
     );
@@ -75,12 +76,12 @@ export class CartComponent implements OnInit {
     forkJoin(requests).subscribe(items => {
       const map = new Map<number, {
           cartProductIds: number[];
-          quantity:       number;
-          title:          string;
-          image:          string;
-          size:           string;
-          price:          number;
-          stock:          number;
+          quantity: number;
+          title: string;
+          image: string;
+          size: string;
+          price: number;
+          stock: number;
       }>();
 
       items.forEach(item => {
@@ -88,12 +89,12 @@ export class CartComponent implements OnInit {
         if (!map.has(key)) {
           map.set(key, {
             cartProductIds: [item.cartProductId],
-            quantity:       item.quantity,
-            title:          item.title,
-            image:          item.image,
-            size:           item.size,
-            price:          item.price,
-            stock:          item.stock
+            quantity: item.quantity,
+            title: item.title,
+            image: item.image,
+            size: item.size,
+            price: item.price,
+            stock: item.stock
           });
         } else {
           const existing = map.get(key)!;
@@ -105,14 +106,14 @@ export class CartComponent implements OnInit {
       this.cartItems = Array.from(map.entries()).map(
         ([variantId, info]) =>
           ({
-            cartProductIds:   info.cartProductIds,
+            cartProductIds: info.cartProductIds,
             productVariantId: variantId,
-            title:            info.title,
-            image:            info.image,
-            size:             info.size,
-            price:            info.price,
-            quantity:         info.quantity,
-            stock:            info.stock
+            title: info.title,
+            image: info.image,
+            size: info.size,
+            price: info.price,
+            quantity: info.quantity,
+            stock: info.stock
           } as CartViewItem)
       );
     });
@@ -126,11 +127,11 @@ export class CartComponent implements OnInit {
       .update(
         item.cartProductIds[0],
         {
-          id:                item.cartProductIds[0],
-          amount:            nuevaCantidad,
-          unitPrice:         item.price,
-          productVariantId:  item.productVariantId,
-          cartShoppingId:    this.cartId
+          id: item.cartProductIds[0],
+          amount: nuevaCantidad,
+          unitPrice: item.price,
+          productVariantId: item.productVariantId,
+          cartShoppingId: this.cartId
         }
       )
       .subscribe({
@@ -149,11 +150,11 @@ export class CartComponent implements OnInit {
         .update(
           item.cartProductIds[0],
           {
-            id:                item.cartProductIds[0],
-            amount:            nuevaCantidad,
-            unitPrice:         item.price,
-            productVariantId:  item.productVariantId,
-            cartShoppingId:    this.cartId
+            id: item.cartProductIds[0],
+            amount: nuevaCantidad,
+            unitPrice: item.price,
+            productVariantId: item.productVariantId,
+            cartShoppingId: this.cartId
           }
         )
         .subscribe({

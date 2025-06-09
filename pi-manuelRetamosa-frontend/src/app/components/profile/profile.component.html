@@ -4,49 +4,46 @@
       <div class="profile-card p-4 mb-5" *ngIf="user">
         <div class="row mb-4 align-items-center">
           <div class="col-md-8">
-            <h1 class="text-uppercase fw-bold text-white mb-2">Perfil de Usuario</h1>
-            <hr class="opacity-100 hr1" />
+            <h1 class="text-uppercase fw-bold text-white mb-2" [innerHTML]="'PROFILE.TITLE' | translate"></h1>
+            <hr class="opacity-100 hr1"/>
           </div>
           <div class="col-md-4 text-center">
             <div class="profile-avatar" [ngStyle]="{ 'background-image': 'url(' + (user!.avatar || 'assets/header/user-icon.png') + ')' }"
-                 aria-label="Avatar de usuario"></div>
-            <button class="btn custom-btn mt-3" type="button" (click)="triggerFileSelect(fileInput)"
-                    [disabled]="isUploading">{{ isUploading ? 'Subiendo…' : 'Cambiar Avatar' }}</button>
+                 [attr.aria-label]="'PROFILE.TITLE' | translate"></div>
+            <button class="btn custom-btn mt-3" type="button" (click)="triggerFileSelect(fileInput)" [disabled]="isUploading"
+                    [innerHTML]="isUploading? ('PROFILE.UPLOADING' | translate): ('PROFILE.CHANGE_AVATAR' | translate)"></button>
             <input #fileInput type="file" accept="image/*" style="display: none" (change)="onFileSelected($event)"/>
           </div>
         </div>
         <div class="section-block mb-4">
-          <h2 class="fw-bold section-title">Información Personal</h2>
+          <h2 class="fw-bold section-title" [innerHTML]="'PROFILE.SECTION_PERSONAL_INFO' | translate"></h2>
           <form>
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label text-light">Nombre</label>
+                <label class="form-label text-light" [innerHTML]="'PROFILE.LABEL_NAME' | translate"></label>
                 <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.userName" name="userName"/>
               </div>
               <div class="col-md-6">
-                <label class="form-label text-light">Apellidos</label>
+                <label class="form-label text-light" [innerHTML]="'PROFILE.LABEL_SURNAME' | translate"></label>
                 <input type="text" class="form-control custom-input capitalize" [(ngModel)]="user!.surname" name="surname"/>
               </div>
               <div class="col-md-6">
-                <label class="form-label text-light">Correo Electrónico</label>
+                <label class="form-label text-light" [innerHTML]="'PROFILE.LABEL_EMAIL' | translate"></label>
                 <input type="email" class="form-control custom-input" [value]="user!.email" disabled/>
               </div>
               <div class="col-md-6">
-                <label class="form-label text-light">Teléfono</label>
+                <label class="form-label text-light" [innerHTML]="'PROFILE.LABEL_PHONE' | translate"></label>
                 <input type="tel" class="form-control custom-input" [(ngModel)]="user!.phoneNumber" name="phoneNumber"/>
               </div>
             </div>
           </form>
           <div *ngIf="saveErrors.length" class="alert alert-danger mt-3">
-            <div *ngFor="let err of saveErrors">
-              {{ err }}
-            </div>
+            <div *ngFor="let err of saveErrors">{{ err }}</div>
           </div>
         </div>
         <div class="section-block mb-4">
-          <h2 class="fw-bold section-title">Dirección</h2>
-          <div *ngIf="addresses.length === 0" class="text-white mb-3">
-            No tienes direcciones guardadas.
+          <h2 class="fw-bold section-title" [innerHTML]="'PROFILE.SECTION_ADDRESS' | translate"></h2>
+          <div *ngIf="addresses.length === 0" class="text-white mb-3" [innerHTML]="'PROFILE.NO_ADDRESSES' | translate">
           </div>
           <div *ngFor="let addr of addresses; let i = index" class="address-card mb-3">
             <div class="d-flex align-items-start">
@@ -56,22 +53,20 @@
               </div>
               <label class="form-check-label address-info" [for]="'addr-' + addr.id">
                 <div>{{ (user!.userName + ' ' + user!.surname) | titlecase }}</div>
+                <div>{{ (addr.street + ', ' + addr.city + ', ' + addr.province + ', ' + addr.postalCode + ', ' + addr.country) | titlecase }}</div>
                 <div>
-                  {{ (addr.street + ', ' + addr.city + ', ' + addr.province + ', ' + addr.postalCode + ', ' + addr.country) | titlecase }}
-                </div>
-                <div>
-                  <small>
-                    {{ ('bloque: ' + addr.blockNumber + ' | escalera: ' + addr.ladder + ' | puerta: ' + addr.door) | titlecase }}
-                  </small>
+                  <small>{{ ('bloque: ' + addr.blockNumber + ' | escalera: ' + addr.ladder + ' | puerta: ' + addr.door) | titlecase }}</small>
                 </div>
               </label>
             </div>
-            <button type="button" class="btn delete-btn" title="Borrar dirección" (click)="onDeleteAddress(addr.id!)"><i class="fa-solid fa-trash-can"></i></button>
+            <button type="button" class="btn delete-btn" title="{{ 'PROFILE.DELETE_ADDRESS' | translate }}"
+                    (click)="onDeleteAddress(addr.id!)"><i class="fa-solid fa-trash-can"></i></button>
           </div>
-          <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal" type="button">+ Agregar Nueva Dirección</button>
+          <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal" type="button"
+                  [innerHTML]="'PROFILE.ADD_NEW_ADDRESS' | translate"></button>
         </div>
         <div class="text-end">
-          <button type="button" class="btn custom-btn px-4" (click)="onSaveProfile()">Guardar Cambios</button>
+          <button type="button" class="btn custom-btn px-4" (click)="onSaveProfile()" [innerHTML]="'PROFILE.SAVE_CHANGES' | translate"></button>
         </div>
       </div>
     </div>

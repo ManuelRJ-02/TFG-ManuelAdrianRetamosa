@@ -2,114 +2,106 @@
   <div class="row">
     <div class="col-12">
       <div class="heading-wrapper custom-padding-bottom">
-        <h1 class="text-uppercase fw-bold">{{ 'COOKIE_POLICY.TITLE' | translate }}</h1>
-        <hr class="opacity-100 hr1" />
+        <h1 class="text-uppercase fw-bold" [innerHTML]="'COOKIE_POLICY.TITLE' | translate"></h1>
+        <hr class="opacity-100 hr1"/>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="custom-padding lh-lg text-justify">
         <p [innerHTML]="'COOKIE_POLICY.INTRO.P1' | translate"></p>
         <ul>
-          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM1' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM2' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM3' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.INTRO.LIST.ITEM4' | translate }}</li>
+          <li [innerHTML]="'COOKIE_POLICY.INTRO.LIST.ITEM1' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.INTRO.LIST.ITEM2' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.INTRO.LIST.ITEM3' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.INTRO.LIST.ITEM4' | translate"></li>
         </ul>
-
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'COOKIE_POLICY.COOKIES.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'COOKIE_POLICY.COOKIES.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'COOKIE_POLICY.COOKIES.P1' | translate"></p>
         <p [innerHTML]="'COOKIE_POLICY.COOKIES.P2' | translate"></p>
-
-        <p>{{ 'COOKIE_POLICY.DURATION_TITLE' | translate }}</p>
+        <p [innerHTML]="'COOKIE_POLICY.DURATION_TITLE' | translate"></p>
         <ul>
-          <li>{{ 'COOKIE_POLICY.DURATION_LIST.ITEM1' | translate }}</li>
+          <li [innerHTML]="'COOKIE_POLICY.DURATION_LIST.ITEM1' | translate"></li>
         </ul>
-
-        <p>{{ 'COOKIE_POLICY.PURPOSE_TITLE' | translate }}</p>
+        <p [innerHTML]="'COOKIE_POLICY.PURPOSE_TITLE' | translate"></p>
         <ul>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM1' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM2' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM3' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM4' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM5' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM6' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM7' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM8' | translate }}</li>
-          <li>{{ 'COOKIE_POLICY.PURPOSE_LIST.ITEM9' | translate }}</li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM1' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM2' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM3' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM4' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM5' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM6' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM7' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM8' | translate"></li>
+          <li [innerHTML]="'COOKIE_POLICY.PURPOSE_LIST.ITEM9' | translate"></li>
         </ul>
-
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'COOKIE_POLICY.USED.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'COOKIE_POLICY.USED.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'COOKIE_POLICY.USED.P1' | translate"></p>
-
         <table class="table table-bordered table-sm custom-table">
           <thead class="text-center">
           <tr>
-            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.NAME' | translate }}</th>
-            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.PURPOSE' | translate }}</th>
-            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.DURATION' | translate }}</th>
-            <th>{{ 'COOKIE_POLICY.TABLE.HEAD.ORIGIN' | translate }}</th>
+            <th [innerHTML]="'COOKIE_POLICY.TABLE.HEAD.NAME' | translate"></th>
+            <th [innerHTML]="'COOKIE_POLICY.TABLE.HEAD.PURPOSE' | translate"></th>
+            <th [innerHTML]="'COOKIE_POLICY.TABLE.HEAD.DURATION' | translate"></th>
+            <th [innerHTML]="'COOKIE_POLICY.TABLE.HEAD.ORIGIN' | translate"></th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS.CookieConsent.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS.CookieConsent.NAME' | translate"></td>
             <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS.CookieConsent.PURPOSE' | translate"></td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS.CookieConsent.DURATION' | translate }}</td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS.CookieConsent.ORIGIN' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS.CookieConsent.DURATION' | translate"></td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS.CookieConsent.ORIGIN' | translate"></td>
           </tr>
           <tr>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga.NAME' | translate"></td>
             <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga.PURPOSE' | translate"></td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga.DURATION' | translate }}</td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga.ORIGIN' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga.DURATION' | translate"></td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga.ORIGIN' | translate"></td>
           </tr>
           <tr>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gid.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gid.NAME' | translate"></td>
             <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gid.PURPOSE' | translate"></td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gid.DURATION' | translate }}</td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gid.ORIGIN' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gid.DURATION' | translate"></td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gid.ORIGIN' | translate"></td>
           </tr>
           <tr>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gat.NAME' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gat.NAME' | translate"></td>
             <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gat.PURPOSE' | translate"></td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gat.DURATION' | translate }}</td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._gat.ORIGIN' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gat.DURATION' | translate"></td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._gat.ORIGIN' | translate"></td>
           </tr>
           <tr>
             <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga_container.NAME' | translate"></td>
             <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga_container.PURPOSE' | translate"></td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga_container.DURATION' | translate }}</td>
-            <td>{{ 'COOKIE_POLICY.TABLE.ROWS._ga_container.ORIGIN' | translate }}</td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga_container.DURATION' | translate"></td>
+            <td [innerHTML]="'COOKIE_POLICY.TABLE.ROWS._ga_container.ORIGIN' | translate"></td>
           </tr>
           </tbody>
         </table>
-
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'COOKIE_POLICY.ADMINISTER.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'COOKIE_POLICY.ADMINISTER.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'COOKIE_POLICY.ADMINISTER.P1' | translate"></p>
         <ul>
-          <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank">
-              {{ 'COOKIE_POLICY.ADMINISTER.LIST.FIREFOX' | translate }}</a></li>
-          <li><a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=es" target="_blank">
-              {{ 'COOKIE_POLICY.ADMINISTER.LIST.CHROME' | translate }}</a></li>
-          <li><a href="https://support.microsoft.com/es-es/topic/c%C3%B3mo-eliminar-archivos-de-cookies-en-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc" target="_blank">
-              {{ 'COOKIE_POLICY.ADMINISTER.LIST.EXPLORER' | translate }}</a></li>
-          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank">
-              {{ 'COOKIE_POLICY.ADMINISTER.LIST.SAFARI' | translate }}</a></li>
+          <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias"
+                 target="_blank" [innerHTML]="'COOKIE_POLICY.ADMINISTER.LIST.FIREFOX' | translate"></a></li>
+          <li><a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=es" target="_blank"
+                 [innerHTML]="'COOKIE_POLICY.ADMINISTER.LIST.CHROME' | translate"></a></li>
+          <li><a href="https://support.microsoft.com/es-es/topic/c%C3%B3mo-eliminar-archivos-de-cookies-en-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc"
+                 target="_blank" [innerHTML]="'COOKIE_POLICY.ADMINISTER.LIST.EXPLORER' | translate"></a></li>
+          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank"
+                 [innerHTML]="'COOKIE_POLICY.ADMINISTER.LIST.SAFARI' | translate"></a></li>
         </ul>
-
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'COOKIE_POLICY.EFFECTS.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'COOKIE_POLICY.EFFECTS.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'COOKIE_POLICY.EFFECTS.P1' | translate"></p>
-
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'COOKIE_POLICY.CHANGES.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'COOKIE_POLICY.CHANGES.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'COOKIE_POLICY.CHANGES.P1' | translate"></p>
       </div>

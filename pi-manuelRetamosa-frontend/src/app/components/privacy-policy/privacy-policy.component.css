@@ -83,7 +83,7 @@ li a{
   color: #E9BF43;
 }
 
-p a{
+::ng-deep p a{
   text-decoration: none;
   color: #E9BF43;
 }

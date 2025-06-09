@@ -6,12 +6,13 @@ import {CommonModule } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { SessionService } from '../../services/SessionService';
 import { Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TranslatePipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 

@@ -9,11 +9,12 @@ import { ProductVariantDTO }       from '../../models/productVariantDTO';
 import { CartShoppingDTO }         from '../../models/cartShoppingDTO';
 import { CartProductDTO }          from '../../models/cartProductDTO';
 import { AddedProductComponent }         from '../added-product/added-product.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, AddedProductComponent],
+  imports: [CommonModule, AddedProductComponent, TranslatePipe],
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })

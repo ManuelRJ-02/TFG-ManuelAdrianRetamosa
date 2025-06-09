@@ -1,22 +1,29 @@
 <header class="fixed-top d-flex align-items-center justify-content-between px-3">
   <div class="d-flex align-items-center">
-    <button class="custom-toggle" (click)="toggleMenu()">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <ul class="nav custom-menu" [class.menu]="true" [class.visible-menu]="openMenu">
-      <li><a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">{{ 'HEADER.NAV.HOME' | translate }}</a></li>
-      <li><a class="nav-link" routerLink="/biography" routerLinkActive="active-link">{{ 'HEADER.NAV.BIOGRAPHY' | translate }}</a></li>
-      <li><a class="nav-link" routerLink="/music" routerLinkActive="active-link">{{ 'HEADER.NAV.MUSIC' | translate }}</a></li>
-      <li><a class="nav-link" routerLink="/videos" routerLinkActive="active-link">{{ 'HEADER.NAV.VIDEOS' | translate }}</a></li>
-      <li><a class="nav-link" routerLink="/tour" routerLinkActive="active-link">{{ 'HEADER.NAV.TOUR' | translate }}</a></li>
-      <li><a class="nav-link" routerLink="/contact" routerLinkActive="active-link">{{ 'HEADER.NAV.CONTACT' | translate }}</a></li>
-      <li><a class="nav-link" routerLink="/contest" routerLinkActive="active-link">{{ 'HEADER.NAV.CONTEST' | translate }}</a>
-      </li>
-      <li><a class="nav-link" routerLink="/merchandising" routerLinkActive="active-link">{{ 'HEADER.NAV.MERCH' | translate }}</a></li>
+    <button class="custom-toggle" (click)="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+    <ul *ngIf="isAdmin; else normalMenu" class="nav custom-menu" [class.menu]="true" [class.visible-menu]="openMenu">
+      <li><a class="nav-link" routerLink="/panel-admin-concerts" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.CONCERTS' | translate"></a></li>
+      <li><a class="nav-link" routerLink="/panel-admin-songs" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.SONGS' | translate"></a></li>
+      <li><a class="nav-link" routerLink="/panel-admin-albums" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.ALBUMS' | translate"></a></li>
+      <li><a class="nav-link" routerLink="/panel-admin-products" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.PRODUCTS' | translate"></a></li>
+      <li><a class="nav-link" routerLink="/panel-admin-product-variants" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.VARIANTS' | translate"></a></li>
     </ul>
+    <ng-template #normalMenu>
+      <ul class="nav custom-menu" [class.menu]="true" [class.visible-menu]="openMenu">
+        <li><a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+               [innerHTML]="'HEADER.NAV.HOME' | translate"></a></li>
+        <li><a class="nav-link" routerLink="/biography" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.BIOGRAPHY' | translate"></a></li>
+        <li><a class="nav-link" routerLink="/music" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.MUSIC' | translate"></a></li>
+        <li><a class="nav-link" routerLink="/videos" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.VIDEOS' | translate"></a></li>
+        <li><a class="nav-link" routerLink="/tour" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.TOUR' | translate"></a></li>
+        <li><a class="nav-link" routerLink="/contact" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.CONTACT' | translate"></a></li>
+        <li><a class="nav-link" routerLink="/contest" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.CONTEST' | translate"></a></li>
+        <li><a class="nav-link" routerLink="/merchandising" routerLinkActive="active-link" [innerHTML]="'HEADER.NAV.MERCH' | translate"></a></li>
+      </ul>
+    </ng-template>
   </div>
   <div class="d-md-block mx-auto">
-    <img class="logo-dani" src="assets/header/logo-dani.png" alt="{{ 'HEADER.LOGO_ALT' | translate }}"/>
+    <img class="logo-dani" src="assets/header/logo-dani.png" [alt]="'HEADER.LOGO_ALT' | translate"/>
   </div>
   <div class="d-flex align-items-center gap-3 pe-3">
     <div class="dropdown">
@@ -25,48 +32,35 @@
       </button>
       <ul class="dropdown-menu custom-dropdown">
         <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" (click)="changeLanguage('es'); $event.preventDefault()">
-          <img class="flag" src="assets/header/es-flag.png" alt="ES" />{{ 'HEADER.LANG.ES' | translate }}</a>
-        </li>
+          <img class="flag" src="assets/header/es-flag.png" alt="ES"/><span [innerHTML]="'HEADER.LANG.ES' | translate"></span></a></li>
         <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" (click)="changeLanguage('en'); $event.preventDefault()">
-            <img class="flag" src="assets/header/en-flag.png" alt="EN" />{{ 'HEADER.LANG.EN' | translate }}</a>
-        </li>
+          <img class="flag"src="assets/header/en-flag.png" alt="EN"/><span [innerHTML]="'HEADER.LANG.EN' | translate"></span></a></li>
         <li><a class="dropdown-item d-flex align-items-center gap-2" href="#" (click)="changeLanguage('it'); $event.preventDefault()">
-          <img class="flag" src="assets/header/it-flag.png" alt="IT" />{{ 'HEADER.LANG.IT' | translate }}</a>
-        </li>
+          <img class="flag" src="assets/header/it-flag.png" alt="IT"/><span [innerHTML]="'HEADER.LANG.IT' | translate"></span></a></li>
       </ul>
     </div>
-
     <ng-container *ngIf="!loggedUser; else loggedInUser">
-      <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#login-modal">{{ 'HEADER.BUTTON.LOGIN' | translate }}</button>
+      <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#login-modal" [innerHTML]="'HEADER.BUTTON.LOGIN' | translate"></button>
     </ng-container>
     <ng-template #loggedInUser>
       <div class="dropdown">
         <button class="btn dropdown-toggle bg-transparent border-0 p-0" data-bs-toggle="dropdown">
-          <div
-            class="user-avatar"
-            [ngStyle]="{
-          'background-image':
-            'url(' + (loggedUser?.avatar || 'assets/header/user-icon.png') + ')'
-        }"
-            title="{{ 'HEADER.USER_AVATAR_ALT' | translate }}"
-          ></div>
+          <div class="user-avatar" [ngStyle]="{'background-image':'url(' + (loggedUser?.avatar || 'assets/header/user-icon.png') + ')'}"
+               [title]="'HEADER.USER_AVATAR_ALT' | translate"></div>
         </button>
         <ul class="dropdown-menu custom-dropdown text-center">
-          <li><a class="dropdown-item" routerLink="/profile">{{ 'HEADER.BUTTON.PROFILE' | translate }}</a></li>
-          <li><a class="dropdown-item" (click)="logout()">{{ 'HEADER.BUTTON.LOGOUT' | translate }}</a></li>
+          <li><a class="dropdown-item" routerLink="/profile" [innerHTML]="'HEADER.BUTTON.PROFILE' | translate"></a></li>
+          <li><a class="dropdown-item" (click)="logout()" [innerHTML]="'HEADER.BUTTON.LOGOUT' | translate"></a></li>
         </ul>
       </div>
     </ng-template>
-
     <ng-container *ngIf="loggedUser; else cartLoginModal">
-      <a class="nav-link" routerLink="/cart" title="{{ 'HEADER.CART.TITLE' | translate }}">
-        <img class="cart-icon" src="assets/header/cart-icon.png" alt="{{ 'HEADER.CART.ALT' | translate }}"/>
-      </a>
+      <a class="nav-link" routerLink="/cart" [title]="'HEADER.CART.TITLE' | translate">
+        <img class="cart-icon" src="assets/header/cart-icon.png" [alt]="'HEADER.CART.ALT' | translate"/></a>
     </ng-container>
     <ng-template #cartLoginModal>
-      <button class="nav-link btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#login-modal" title="{{ 'HEADER.CART.LOGIN_HINT' | translate }}">
-        <img class="cart-icon" src="assets/header/cart-icon.png" alt="{{ 'HEADER.CART.ALT' | translate }}"/>
-      </button>
+      <button class="nav-link btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#login-modal" [title]="'HEADER.CART.LOGIN_HINT' | translate">
+        <img class="cart-icon" src="assets/header/cart-icon.png" [alt]="'HEADER.CART.ALT' | translate"/></button>
     </ng-template>
   </div>
 </header>

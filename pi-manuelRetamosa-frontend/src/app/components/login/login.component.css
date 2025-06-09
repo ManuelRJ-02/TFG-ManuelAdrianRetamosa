@@ -66,9 +66,9 @@
   color: #353535;
 }
 
-.create-acount{
-  color: #E9BF43;
-  text-decoration: none;
+.create-account {
+  text-decoration: none !important;
+  color: #E9BF43 !important;
 }
 
 

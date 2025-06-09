@@ -1,57 +1,54 @@
-<div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="payment-modal-label"aria-hidden="true">
+<div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="payment-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0">
-        <h3 class="modal-title" id="payment-modal-label">Método de Pago</h3>
-        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <h3 class="modal-title" id="payment-modal-label" [innerHTML]="'PAYMENT_MODAL.TITLE' | translate"></h3>
+        <button type="button" class="btn-close btn-custom" data-bs-dismiss="modal" [attr.aria-label]="'PAYMENT_MODAL.BUTTON.CLOSE' | translate"></button>
       </div>
       <div class="modal-body">
         <div class="mx-auto div-forms">
           <form (ngSubmit)="onAddCard()">
             <div class="row g-3">
               <div class="col-12">
-                <label for="cardholder" class="form-label">Titular de la Tarjeta</label>
+                <label for="cardholder" class="form-label" [innerHTML]="'PAYMENT_MODAL.LABEL.CARDHOLDER' | translate"></label>
                 <input type="text" id="cardholder" class="form-control" [(ngModel)]="cardholder" name="cardholder"/>
               </div>
               <div class="col-12">
-                <label for="cardNumber" class="form-label">Número de la Tarjeta</label>
+                <label for="cardNumber" class="form-label" [innerHTML]="'PAYMENT_MODAL.LABEL.CARD_NUMBER' | translate"></label>
                 <input type="text" id="cardNumber" class="form-control" [(ngModel)]="cardNumber" name="cardNumber"/>
               </div>
               <div class="col-12">
                 <div class="row gx-2">
                   <div class="col-4">
-                    <label for="expiryMonth" class="form-label">Mes</label>
-                    <select id="expiryMonth" class="form-select day-month-select" [(ngModel)]="expiryMonth"
-                            name="expiryMonth" required (ngModelChange)="onExpiryChange()">
-                      <option [ngValue]="null" disabled>MM</option>
+                    <label for="expiryMonth" class="form-label" [innerHTML]="'PAYMENT_MODAL.LABEL.MONTH' | translate"></label>
+                    <select id="expiryMonth" class="form-select day-month-select" [(ngModel)]="expiryMonth" name="expiryMonth" required (ngModelChange)="onExpiryChange()">
+                      <option [ngValue]="null" disabled [innerHTML]="'PAYMENT_MODAL.PLACEHOLDER.MONTH' | translate"></option>
                       <option *ngFor="let m of months" [value]="m">{{ m }}</option>
                     </select>
                   </div>
                   <div class="col-4">
-                    <label for="expiryYear" class="form-label">Año</label>
-                    <select id="expiryYear" class="form-select day-month-select" [(ngModel)]="expiryYear"
-                            name="expiryYear" required (ngModelChange)="onExpiryChange()">
-                      <option [ngValue]="null" disabled>YY</option>
+                    <label for="expiryYear" class="form-label" [innerHTML]="'PAYMENT_MODAL.LABEL.YEAR' | translate"></label>
+                    <select id="expiryYear" class="form-select day-month-select" [(ngModel)]="expiryYear" name="expiryYear" required (ngModelChange)="onExpiryChange()">
+                      <option [ngValue]="null" disabled [innerHTML]="'PAYMENT_MODAL.PLACEHOLDER.YEAR' | translate"></option>
                       <option *ngFor="let y of years" [value]="y">{{ y }}</option>
                     </select>
                   </div>
                   <div class="col-4">
-                    <label for="securityCode" class="form-label">CVV</label>
+                    <label for="securityCode" class="form-label" [innerHTML]="'PAYMENT_MODAL.LABEL.CVV' | translate"></label>
                     <input type="text" id="securityCode" maxlength="3" class="form-control" [(ngModel)]="securityCode" name="securityCode"/>
                   </div>
                 </div>
               </div>
               <div *ngIf="errorMsgs.length" class="col-12">
                 <div class="alert alert-danger">
-                  <div *ngFor="let m of errorMsgs">
-                    {{ m }}
-                  </div>
+                  <div *ngFor="let m of errorMsgs">{{ m }}</div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="d-grid mt-3">
                   <button type="submit" class="btn w-100 fw-bold register-btn" [disabled]="isSaving">
-                    {{ isSaving ? 'Guardando...' : 'Añadir Tarjeta' }}
+                    <span *ngIf="isSaving" [innerHTML]="'PAYMENT_MODAL.BUTTON.SAVING' | translate"></span>
+                    <span *ngIf="!isSaving" [innerHTML]="'PAYMENT_MODAL.BUTTON.ADD' | translate"></span>
                   </button>
                 </div>
               </div>

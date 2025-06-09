@@ -57,19 +57,19 @@ export class AddedProductVariantComponent implements OnInit, OnChanges {
 
     if (this.mode === 'edit' && this.variantToEdit) {
       const v = this.variantToEdit;
-      this.productId            = v.productId;
-      this.productVariantSize   = v.productVariantSize;
-      this.color                = v.color;
-      this.price                = v.price;
-      this.stock                = v.stock;
-      this.productVariantImage  = v.productVariantImage;
+      this.productId = v.productId;
+      this.productVariantSize = v.productVariantSize;
+      this.color = v.color;
+      this.price = v.price;
+      this.stock = v.stock;
+      this.productVariantImage = v.productVariantImage;
     } else {
-      this.productId            = undefined!;
-      this.productVariantSize   = '';
-      this.color                = '';
-      this.price                = undefined!;
-      this.stock                = undefined!;
-      this.productVariantImage  = '';
+      this.productId = undefined!;
+      this.productVariantSize = '';
+      this.color = '';
+      this.price = undefined!;
+      this.stock = undefined!;
+      this.productVariantImage = '';
       if (this.fileInput?.nativeElement) {
         this.fileInput.nativeElement.value = '';
       }

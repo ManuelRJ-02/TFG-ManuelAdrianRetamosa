@@ -8,10 +8,11 @@ import { AddressService} from '../../services/addressService';
 import { AddressDTO } from '../../models/addressDTO';
 import { AddressComponent } from '../address/address.component';
 import {ProfileDTO} from '../../models/ProfileDTO';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule, FormsModule, AddressComponent],
+  imports: [CommonModule, FormsModule, AddressComponent, TranslatePipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

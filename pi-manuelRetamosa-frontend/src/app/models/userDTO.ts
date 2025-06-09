@@ -6,4 +6,5 @@ export interface UserDTO {
   userPassword: string;
   phoneNumber?: string;
   avatar?: string;
+  roles?: string[];
 }

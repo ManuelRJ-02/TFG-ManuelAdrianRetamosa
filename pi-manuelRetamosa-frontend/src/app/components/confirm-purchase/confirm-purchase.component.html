@@ -2,77 +2,75 @@
   <div class="row">
     <div class="col-12 col-md-8 col-lg-7">
       <div class="billing-card p-4 mb-4">
-        <h5 class="fw-bold mb-3">Dirección de facturación</h5>
+        <h5 class="fw-bold mb-3" [innerHTML]="'CHECKOUT.BILLING_ADDRESS_TITLE' | translate"></h5>
         <div *ngFor="let addr of addresses" class="form-check mb-3">
-          <input class="form-check-input" type="radio" name="billingAddress" [id]="'addr-' + addr.id" [(ngModel)]="selectedAddressId"
-                 [value]="addr.id" (change)="onAddressSelectionChange(addr.id!)"/>
+          <input class="form-check-input" type="radio" name="billingAddress" [id]="'addr-' + addr.id" [(ngModel)]="selectedAddressId" [value]="addr.id"
+                 (change)="onAddressSelectionChange(addr.id!)"/>
           <label class="form-check-label" [for]="'addr-' + addr.id">
+            <div>{{ (sessionService.getUser()?.userName + ' ' + sessionService.getUser()?.surname) | titlecase }}</div>
+            <div>{{ (addr.street + ', ' + addr.city + ', ' + addr.province + ', ' + addr.postalCode + ', ' + addr.country) | titlecase }}</div>
             <div>
-              {{ (sessionService.getUser()?.userName + ' ' + sessionService.getUser()?.surname) | titlecase }}
-            </div>
-            <div>
-              {{ (addr.street + ', ' + addr.city + ', ' + addr.province + ', ' + addr.postalCode + ', ' + addr.country ) | titlecase }}
-            </div>
-            <div>
-              <small>{{ ('bloque: ' + addr.blockNumber + ' | ' + 'escalera: ' + addr.ladder + ' | ' + 'puerta: ' + addr.door) | titlecase }}</small>
+              <small [innerHTML]="'CHECKOUT.ADDRESS_DETAILS' | translate:{ block: addr.blockNumber, ladder: addr.ladder, door: addr.door }"></small>
             </div>
           </label>
         </div>
-
-        <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal" type="button">+ Agregar Nueva Dirección</button>
+        <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#address-modal" type="button"
+                [innerHTML]="'CHECKOUT.ADD_NEW_ADDRESS' | translate"></button>
       </div>
       <div class="billing-card p-4">
-        <h5 class="fw-bold mb-3">Confirmar y Pagar</h5>
+        <h5 class="fw-bold mb-3" [innerHTML]="'CHECKOUT.CONFIRM_PAY_TITLE' | translate"></h5>
         <div *ngFor="let p of cartItems" class="product-confirm-card d-flex mb-3 align-items-center">
           <div class="img-wrapper">
-            <img [src]="p.image" alt="Producto" class="product-img" />
+            <img [src]="p.image" [alt]="p.title" class="product-img"/>
           </div>
           <div class="ms-3">
             <p class="fw-bold mb-1">{{ p.title }}</p>
-            <p class="mb-1"><strong>Talla: </strong> {{ p.size }}</p>
-            <p class="mb-0"><strong>Precio: </strong>{{ p.price | number:'1.2-2' }}€ × {{ p.quantity }}</p>
+            <p class="mb-1"><strong [innerHTML]="'CHECKOUT.SIZE_LABEL' | translate"></strong>{{ p.size }}</p>
+            <p class="mb-0"><strong [innerHTML]="'CHECKOUT.PRICE_LABEL' | translate"></strong>{{ p.price | number:'1.2-2' }}€ × {{ p.quantity }}</p>
           </div>
         </div>
-        <h5 class="fw-bold mb-3">Tarjetas de Crédito</h5>
+        <h5 class="fw-bold mb-3" [innerHTML]="'CHECKOUT.CREDIT_CARDS_TITLE' | translate"></h5>
         <div *ngFor="let card of creditCards" class="form-check mb-3">
-          <input class="form-check-input" type="radio" name="creditCard" [id]="'card-' + card.id" [(ngModel)]="selectedCardId" [value]="card.id"
-                 (change)="onCreditCardSelectionChange(card.id!)"/>
+          <input class="form-check-input" type="radio" name="creditCard" [id]="'card-' + card.id" [(ngModel)]="selectedCardId"
+                 [value]="card.id" (change)="onCreditCardSelectionChange(card.id!)"/>
           <label class="form-check-label text-white" [for]="'card-' + card.id">
-            <div><strong>{{ card.holder | titlecase }}</strong></div>
             <div>
-              {{ '**** **** **** ' + (card.cardNumber.slice(-4)) }}&nbsp;|&nbsp;{{ card.expirationMonth }}/{{ card.expirationYear }}
+              <strong>{{ card.holder | titlecase }}</strong>
             </div>
+            <div>{{ '**** **** **** ' + card.cardNumber.slice(-4) }}&nbsp;|&nbsp;{{ card.expirationMonth }}/{{ card.expirationYear }}</div>
           </label>
         </div>
-        <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#payment-modal" type="button">+ Agregar Nueva Tarjeta</button>
+        <button class="btn btn-address fw-bold" data-bs-toggle="modal" data-bs-target="#payment-modal" type="button"
+                [innerHTML]="'CHECKOUT.ADD_NEW_CARD' | translate"></button>
         <div class="d-flex align-items-center justify-content-between mt-4 terms-and-action">
           <div class="form-check mb-0">
             <input class="form-check-input" type="checkbox" id="terms" [(ngModel)]="termsAccepted"/>
-            <label class="form-check-label small" for="terms">Acepto los términos y condiciones de la compra.</label>
+            <label class="form-check-label small" for="terms" [innerHTML]="'CHECKOUT.TERMS_AND_CONDITIONS' | translate"></label>
           </div>
-          <button class="btn fw-bold btn-finish" [disabled]="!canFinish()" (click)="finishPurchase()">Finalizar la Compra</button>
+          <button class="btn fw-bold btn-finish" [disabled]="!canFinish()" (click)="finishPurchase()" [innerHTML]="'CHECKOUT.FINALIZE_PURCHASE' | translate"></button>
         </div>
       </div>
     </div>
     <div class="col-12 col-md-4 col-lg-4 mt-4 mt-md-0">
       <div class="summary-card p-3">
-        <h5 class="fw-bold mb-3">Resumen del Pedido</h5>
+        <h5 class="fw-bold mb-3" [innerHTML]="'CHECKOUT.SUMMARY_TITLE' | translate"></h5>
         <div class="d-flex justify-content-between">
-          <span>Precio Total ({{ cartItems.length }} artículos)</span>
+          <span [innerHTML]="'CHECKOUT.SUBTOTAL_LABEL' | translate:{ count: cartItems.length }"></span>
           <strong>{{ subtotal | number:'1.2-2' }}€</strong>
         </div>
         <div class="d-flex justify-content-between my-2">
-          <span>Envío estándar</span>
+          <span [innerHTML]="'CHECKOUT.SHIPPING_LABEL' | translate"></span>
           <strong>{{ shippingCost }}€</strong>
         </div>
-        <hr class="my-3 opacity-100" />
+        <hr class="my-3 opacity-100"/>
         <div class="d-flex justify-content-between mb-3">
-          <span>Total</span>
+          <span [innerHTML]="'CHECKOUT.TOTAL_LABEL' | translate"></span>
           <strong>{{ totalPrice }}€</strong>
         </div>
       </div>
     </div>
   </div>
+
   <app-address (addressAdded)="onAddressAdded()"></app-address>
   <app-payment-method (creditCardAdded)="onCreditCardAdded()"></app-payment-method>
 </div>

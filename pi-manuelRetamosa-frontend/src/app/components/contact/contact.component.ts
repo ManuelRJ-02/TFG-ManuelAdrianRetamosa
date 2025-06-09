@@ -20,16 +20,11 @@ export class ContactComponent {
   };
   errorMessages: string[] = [];
 
-  constructor(
-    private contactService: ContactService,
-    private router: Router
-  ) {}
+  constructor(private contactService: ContactService, private router: Router) {}
 
   onSubmit(form: NgForm) {
     if (form.invalid) return;
-
     this.errorMessages = [];
-
     this.contactService.send(this.contact).subscribe({
       next: () => {
         this.router.navigate(['mail-sent']);

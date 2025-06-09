@@ -5,10 +5,12 @@
 package edu.dwes.pi_manuelRetamosa_backend.models.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.dwes.pi_manuelRetamosa_backend.models.entities.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import java.util.List;
 
 /**
  *
@@ -38,12 +40,14 @@ public class UserDTO {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
     
-    private String avatar = "assets/avatars/default.png";
+    private String avatar = "assets/header/user-icon.png";
     
     @Pattern(regexp = "^(?:\\d{9})?$", message = "El teléfono debe tener 9 digitos")
     private String phoneNumber;
     
     private boolean enabled;
+    
+    private List<RoleDTO> roles;
 
     public Long getId() {
         return id;
@@ -108,6 +112,12 @@ public class UserDTO {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-    
-    
+
+    public List<RoleDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleDTO> roles) {
+        this.roles = roles;
+    }
 }

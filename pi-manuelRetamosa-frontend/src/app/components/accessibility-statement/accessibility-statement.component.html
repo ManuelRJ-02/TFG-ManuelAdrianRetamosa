@@ -2,60 +2,56 @@
   <div class="row">
     <div class="col-12">
       <div class="heading-wrapper custom-padding-bottom">
-        <h1 class="text-uppercase fw-bold">{{ 'ACCESSIBILITY_STATEMENT.TITLE' | translate }}</h1>
-        <hr class="opacity-100 hr1" />
+        <h1 class="text-uppercase fw-bold" [innerHTML]="'ACCESSIBILITY_STATEMENT.TITLE' | translate"></h1>
+        <hr class="opacity-100 hr1"/>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="custom-padding lh-lg text-justify">
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'ACCESSIBILITY_STATEMENT.POLICY.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'ACCESSIBILITY_STATEMENT.POLICY.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'ACCESSIBILITY_STATEMENT.POLICY.P1' | translate"></p>
         <p [innerHTML]="'ACCESSIBILITY_STATEMENT.SCOPE.P1' | translate"></p>
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'ACCESSIBILITY_STATEMENT.COMPLIANCE.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'ACCESSIBILITY_STATEMENT.COMPLIANCE.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'ACCESSIBILITY_STATEMENT.COMPLIANCE.P1' | translate"></p>
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.TITLE' | translate"></h2>
         </div>
         <p [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.P1' | translate"></p>
         <ul>
-          <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.ITEM1' | translate }}
-            <ul>
-              <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM1' | translate }}</li>
-              <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM2' | translate }}</li>
-              <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM3' | translate }}</li>
-              <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM4' | translate }}</li>
-              <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM5' | translate }}</li>
-            </ul>
-          </li>
-          <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.ITEM2' | translate }}</li>
-          <li>{{ 'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.ITEM3' | translate }}</li>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.ITEM1' | translate"></li>
+          <ul>
+            <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM1' | translate"></li>
+            <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM2' | translate"></li>
+            <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM3' | translate"></li>
+            <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM4' | translate"></li>
+            <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.SUBITEM5' | translate"></li>
+          </ul>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.ITEM2' | translate"></li>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.NOT_ACCESSIBLE.ITEM3' | translate"></li>
         </ul>
         <p [innerHTML]="'ACCESSIBILITY_STATEMENT.PDF.P1' | translate"></p>
         <p [innerHTML]="'ACCESSIBILITY_STATEMENT.THIRD_PARTY.P1' | translate"></p>
-
         <div class="h2-block">
-          <h2 class="fw-bold">{{ 'ACCESSIBILITY_STATEMENT.CONTACT.TITLE' | translate }}</h2>
+          <h2 class="fw-bold" [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT.TITLE' | translate"></h2>
         </div>
-        <p [innerHTML]="'ACCESSIBILITY_STATEMENT.CONTACT.P1' | translate"></p>
+        <p [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT.P1' | translate"></p>
         <ul>
-          <li>{{ 'ACCESSIBILITY_STATEMENT.CONTACT.ITEM1' | translate }}</li>
-          <li>{{ 'ACCESSIBILITY_STATEMENT.CONTACT.ITEM2' | translate }}</li>
-          <li>{{ 'ACCESSIBILITY_STATEMENT.CONTACT.ITEM3' | translate }}</li>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT.ITEM1' | translate"></li>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT.ITEM2' | translate"></li>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT.ITEM3' | translate"></li>
         </ul>
-        <p>{{ 'ACCESSIBILITY_STATEMENT.PRESENT.P1' | translate }}</p>
+        <p [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT.P1' | translate"></p>
         <ul>
-          <li>{{ 'ACCESSIBILITY_STATEMENT.PRESENT.ITEM1' | translate }}</li>
-          <li>
-            {{ 'ACCESSIBILITY_STATEMENT.PRESENT.ITEM2' | translate }}
-            <ul>
-              <li>{{ 'ACCESSIBILITY_STATEMENT.PRESENT_SUBITEM1' | translate }}</li>
-              <li>{{ 'ACCESSIBILITY_STATEMENT.PRESENT_SUBITEM2' | translate }}</li>
-            </ul>
-          </li>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT_SUBITEM1' | translate"></li>
+          <li [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT_SUBITEM2' | translate"></li>
+          <ul>
+            <li [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT_SUBITEM3' | translate"></li>
+            <li [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT_SUBITEM4' | translate"></li>
+          </ul>
         </ul>
         <p [innerHTML]="'ACCESSIBILITY_STATEMENT.PRESENT_FINAL' | translate"></p>
       </div>

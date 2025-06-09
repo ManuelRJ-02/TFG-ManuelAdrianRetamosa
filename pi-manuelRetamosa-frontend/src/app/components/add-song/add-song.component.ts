@@ -42,21 +42,21 @@ export class AddSongComponent implements OnChanges {
   private resetFormFields(): void {
     this.errorMessages = [];
     if (this.mode === 'edit' && this.songToEdit) {
-      this.title           = this.songToEdit.title;
+      this.title = this.songToEdit.title;
       this.yearPublication = this.songToEdit.yearPublication;
-      this.coverUrl        = this.songToEdit.coverUrl    || '';
-      this.url             = this.songToEdit.url         || '';
-      this.type            = this.songToEdit.type        || '';
-      this.duration        = this.songToEdit.duration    || '';
-      this.trackNumber     = this.songToEdit.trackNumber;
+      this.coverUrl = this.songToEdit.coverUrl || '';
+      this.url = this.songToEdit.url || '';
+      this.type = this.songToEdit.type || '';
+      this.duration = this.songToEdit.duration || '';
+      this.trackNumber = this.songToEdit.trackNumber;
     } else {
-      this.title           = '';
+      this.title = '';
       this.yearPublication = undefined!;
-      this.coverUrl        = '';
-      this.url             = '';
-      this.type            = '';
-      this.duration        = '';
-      this.trackNumber     = undefined!;
+      this.coverUrl = '';
+      this.url = '';
+      this.type = '';
+      this.duration = '';
+      this.trackNumber = undefined!;
       if (this.fileInput?.nativeElement) {
         this.fileInput.nativeElement.value = '';
       }
@@ -88,13 +88,13 @@ export class AddSongComponent implements OnChanges {
     this.isSaving      = true;
 
     const payload: SongDTO = {
-      title:           this.title.trim(),
+      title: this.title.trim(),
       yearPublication: this.yearPublication,
-      coverUrl:        this.coverUrl.trim(),
-      url:             this.url.trim(),
-      type:            this.type,
-      duration:        this.duration,
-      trackNumber:     this.trackNumber
+      coverUrl: this.coverUrl.trim(),
+      url: this.url.trim(),
+      type: this.type,
+      duration: this.duration,
+      trackNumber: this.trackNumber
     };
 
     const obs = (this.mode === 'edit' && this.songToEdit?.id != null)

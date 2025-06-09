@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-12">
       <div class="heading-wrapper">
-        <h1 class="text-uppercase fw-bold">{{ 'HOME.SLOGAN' | translate }}</h1>
+        <h1 class="text-uppercase fw-bold" [innerHTML]="'HOME.SLOGAN' | translate"></h1>
         <hr class="opacity-100 hr1" />
       </div>
     </div>
     <div class="col-lg-6">
       <div class="text-center h2-block">
-        <h2 class="fw-bold">{{ 'HOME.ARTIST_NAME' | translate }}</h2>
+        <h2 class="fw-bold" [innerHTML]="'HOME.ARTIST_NAME' | translate"></h2>
         <hr class="opacity-100 hr2 mx-auto" />
       </div>
       <div class="custom-padding lh-lg text-justify">

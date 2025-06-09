@@ -15,6 +15,7 @@ import { CreditCardService } from '../../services/creditCardService';
 import { Router } from '@angular/router';
 import { CartShoppingService }     from '../../services/cartShoppingService';
 import {CartProductDTO} from '../../models/cartProductDTO';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface CartViewItem {
   title:    string;
@@ -26,7 +27,7 @@ interface CartViewItem {
 
 @Component({
   selector: 'app-confirm-purchase',
-  imports: [CommonModule, FormsModule, AddressComponent, PaymentMethodComponent],
+  imports: [CommonModule, FormsModule, AddressComponent, PaymentMethodComponent, TranslatePipe],
   templateUrl: './confirm-purchase.component.html',
   styleUrls: ['./confirm-purchase.component.css']
 })
@@ -69,10 +70,10 @@ export class ConfirmPurchaseComponent implements OnInit {
     const calls = cartProducts.map(d =>
       this.variantSvc.findById(d.productVariantId!).pipe(
         map((v: ProductVariantDTO) => ({
-          title:    v.productName,
-          image:    v.productVariantImage,
-          size:     v.productVariantSize,
-          price:    v.price,
+          title: v.productName,
+          image: v.productVariantImage,
+          size: v.productVariantSize,
+          price: v.price,
           quantity: d.amount!
         } as CartViewItem))
       )
