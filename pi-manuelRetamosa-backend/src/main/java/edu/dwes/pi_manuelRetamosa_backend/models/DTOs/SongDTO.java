@@ -41,7 +41,6 @@ public class SongDTO {
     @Pattern(regexp="$|^\\d{1,2}:\\d{2}$",message="La duración debe tener formato mm:ss")
     private String duration;
     
-    @NotNull(message="El número de pista es obligatorio")
     @Min(value = 1, message="El número de pista debe ser al menos 1")
     private Long trackNumber;
     
